@@ -30,7 +30,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
         window.title = "MiniBlocks"
         window.contentViewController = MiniBlocksViewController(
-            sceneFrame: CGRect(x: 0, y: 0, width: width, height: height)
+            sceneFrame: CGRect(x: 0, y: 0, width: width, height: height),
+            debugModeEnabled: false
         )
         window.makeKeyAndOrderFront(nil)
     }
