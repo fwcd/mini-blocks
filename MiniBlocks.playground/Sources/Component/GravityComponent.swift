@@ -11,11 +11,22 @@ class GravityComponent: GKComponent {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
     
+    var world: World? {
+        entity?.component(ofType: WorldComponent.self)?.world
+    }
+    
     override func update(deltaTime seconds: TimeInterval) {
+        guard let node = node,
+              let world = world else { return }
+        
         let interval = throttler.interval
         throttler.run(deltaTime: seconds) {
-            velocity += acceleration
-            node?.runAction(.move(by: SCNVector3(x: 0, y: -velocity, z: 0), duration: interval))
+            // Only apply gravity if above ground
+            if let groundY = world.height(at: GridPos2(x: Int(node.position.x.rounded()), z: Int(node.position.z.rounded()))),
+               node.position.y > CGFloat(groundY) + velocity {
+                velocity += acceleration
+                node.runAction(.move(by: SCNVector3(x: 0, y: -velocity, z: 0), duration: interval))
+            }
         }
     }
 }

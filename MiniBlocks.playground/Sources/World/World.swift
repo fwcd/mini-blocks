@@ -19,4 +19,8 @@ struct World {
             }
        ))
     }
+    
+    func height(at pos: GridPos2) -> Int? {
+        map[pos]?.topmostBlock?.y
+    }
 }
