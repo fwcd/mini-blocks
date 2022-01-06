@@ -21,8 +21,8 @@ public final class MiniBlocksViewController: NSViewController {
         // Create scene
         let scene = SCNScene(named: "MiniBlocksScene.scn")!
         
-        // Set up the player node with a camera
-        let playerPhysics = SCNPhysicsBody()
+        // Set up the player node with physics and a camera
+        let playerPhysics = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: SCNBox(width: 1, height: 2, length: 1, chamferRadius: 0)))
         playerPhysics.isAffectedByGravity = true
         let playerNode = SCNNode()
         playerNode.camera = SCNCamera()
@@ -62,8 +62,10 @@ public final class MiniBlocksViewController: NSViewController {
                 blockMaterial.diffuse.contents = NSImage(named: "TextureGrass.png")
                 let block = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
                 block.materials = [blockMaterial]
+                let blockPhysics = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: block))
                 let blockNode = SCNNode(geometry: block)
                 blockNode.position = SCNVector3(x: CGFloat(x), y: (-5 * sin(CGFloat(x) / 10) * cos(CGFloat(z) / 10)).rounded(), z: CGFloat(z))
+                blockNode.physicsBody = blockPhysics
                 scene.rootNode.addChildNode(blockNode)
             }
         }
