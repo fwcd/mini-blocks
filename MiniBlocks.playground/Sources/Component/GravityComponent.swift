@@ -3,20 +3,20 @@ import SceneKit
 
 /// Accelerates the associated node downwards (i.e. in negative-y direction).
 class GravityComponent: GKComponent {
-    var velocity: CGFloat = 0
-    var acceleration: CGFloat = 0.4
-    var isOnGround: Bool = false
-    var throttler = Throttler(interval: 0.1)
+    private(set) var velocity: CGFloat = 0
+    private(set) var acceleration: CGFloat = 0.4
+    private(set) var isOnGround: Bool = false
+    private var throttler = Throttler(interval: 0.1)
     
-    var node: SCNNode? {
+    private var node: SCNNode? {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
     
-    var world: World? {
+    private var world: World? {
         entity?.component(ofType: WorldComponent.self)?.world
     }
     
-    var heightAboveGround: CGFloat {
+    private var heightAboveGround: CGFloat {
         entity?.component(ofType: HeightAboveGroundComponent.self)?.heightAboveGround ?? 0
     }
     

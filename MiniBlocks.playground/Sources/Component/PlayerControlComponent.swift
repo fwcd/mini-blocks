@@ -13,6 +13,10 @@ class PlayerControlComponent: GKComponent {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
     
+    private var heightAboveGround: CGFloat {
+        entity?.component(ofType: HeightAboveGroundComponent.self)?.heightAboveGround ?? 0
+    }
+    
     private var pitchAxis: SCNVector3? {
         guard let node = node, let parent = node.parent else { return nil }
         return node.convertVector(SCNVector3(x: 1, y: 0, z: 0), to: parent)
