@@ -1,12 +1,14 @@
 import GameplayKit
 
+private let angularValocityEpsilon: CGFloat = 0.01
+
 /// Lets the user control the associated scene node, usually a player.
 class PlayerControlComponent: GKComponent {
     var motionInput: MotionInput = []
     
     private var speed: CGFloat = 1
-    private var pitchSpeed: CGFloat = 0.5
-    private var yawSpeed: CGFloat = 0.8
+    private var pitchSpeed: CGFloat = 0.4
+    private var yawSpeed: CGFloat = 0.3
     private var jumpSpeed: CGFloat = 1.5
     private var throttler = Throttler(interval: 0.1)
     
@@ -111,11 +113,12 @@ class PlayerControlComponent: GKComponent {
             // TODO: Check collisions
             node.runAction(.move(by: velocity, duration: interval))
             
-            // Rotate pitch and yaw
-            node.runAction(.group([
-                .rotate(by: pitchAngularVelocity, around: pitchAxis, duration: interval),
-                .rotate(by: yawAngularVelocity, around: yawAxis, duration: interval),
-            ]))
+            // Rotate either pitch or yaw
+            if abs(pitchAngularVelocity) > angularValocityEpsilon {
+                node.runAction(.rotate(by: pitchAngularVelocity, around: pitchAxis, duration: interval))
+            } else if abs(yawAngularVelocity) > angularValocityEpsilon {
+                node.runAction(.rotate(by: yawAngularVelocity, around: yawAxis, duration: interval))
+            }
             
             // Jump if possible/needed
             if motionInput.contains(.jump),
