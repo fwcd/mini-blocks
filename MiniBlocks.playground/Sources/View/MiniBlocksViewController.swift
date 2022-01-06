@@ -4,9 +4,12 @@ import SceneKit
 /// The application's primary view controller.
 public final class MiniBlocksViewController: NSViewController {
     private let sceneFrame: CGRect
+    private let debugMode: Bool
     
-    public init(sceneFrame: CGRect) {
+    public init(sceneFrame: CGRect, debugMode: Bool = false) {
         self.sceneFrame = sceneFrame
+        self.debugMode = debugMode
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -17,6 +20,20 @@ public final class MiniBlocksViewController: NSViewController {
     public override func loadView() {
         // Create scene
         let scene = SCNScene()
+        
+        // Set up skybox
+        // Source: https://stackoverflow.com/questions/49702887/scenekit-programmatically-use-procedural-sky-option-from-scene-inspector
+        let skybox = MDLSkyCubeTexture(
+            name: "sky",
+            channelEncoding: .float16,
+            textureDimensions: vector_int2(128, 128),
+            turbidity: 0.8,
+            sunElevation: 1,
+            upperAtmosphereScattering: 0.8,
+            groundAlbedo: 0.5
+        )
+        scene.background.contents = skybox
+        scene.lightingEnvironment.contents = skybox
         
         // Set up and position camera
         let cameraNode = SCNNode()
@@ -31,6 +48,14 @@ public final class MiniBlocksViewController: NSViewController {
         lightNode.light = light
         lightNode.position = SCNVector3(x: 0, y: 10, z: 10)
         scene.rootNode.addChildNode(lightNode)
+
+        // Set up ambient light
+        let ambientLight = SCNLight()
+        ambientLight.type = .ambient
+        ambientLight.color = NSColor.darkGray
+        let ambientLightNode = SCNNode()
+        ambientLightNode.light = ambientLight
+        scene.rootNode.addChildNode(ambientLightNode)
         
         // Add a funky torus
         let torus = SCNTorus(ringRadius: 1, pipeRadius: 0.35)
@@ -50,8 +75,8 @@ public final class MiniBlocksViewController: NSViewController {
         // Set up SCNView
         let sceneView = SCNView(frame: sceneFrame)
         sceneView.scene = scene
-        sceneView.allowsCameraControl = true
-        sceneView.showsStatistics = true
+        sceneView.allowsCameraControl = debugMode
+        sceneView.showsStatistics = debugMode
         sceneView.backgroundColor = NSColor.black
         
         view = sceneView
