@@ -19,21 +19,7 @@ public final class MiniBlocksViewController: NSViewController {
     
     public override func loadView() {
         // Create scene
-        let scene = SCNScene()
-        
-        // Set up skybox
-        // Source: https://stackoverflow.com/questions/49702887/scenekit-programmatically-use-procedural-sky-option-from-scene-inspector
-        let skybox = MDLSkyCubeTexture(
-            name: "sky",
-            channelEncoding: .float16,
-            textureDimensions: vector_int2(128, 128),
-            turbidity: 0.8,
-            sunElevation: 1,
-            upperAtmosphereScattering: 0.8,
-            groundAlbedo: 0.5
-        )
-        scene.background.contents = skybox
-        scene.lightingEnvironment.contents = skybox
+        let scene = SCNScene(named: "MiniBlocksScene.scn")!
         
         // Set up and position camera
         let cameraNode = SCNNode()
