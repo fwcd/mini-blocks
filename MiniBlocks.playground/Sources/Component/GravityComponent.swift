@@ -4,7 +4,8 @@ import SceneKit
 /// Accelerates the associated node downwards (i.e. in negative-y direction).
 class GravityComponent: GKComponent {
     var velocity: CGFloat = 0
-    var acceleration: CGFloat = 0.1
+    var acceleration: CGFloat = 0.4
+    var isOnGround: Bool = false
     var throttler = Throttler(interval: 0.1)
     
     var node: SCNNode? {
@@ -25,12 +26,25 @@ class GravityComponent: GKComponent {
         
         let interval = throttler.interval
         throttler.run(deltaTime: seconds) {
-            // Only apply gravity if above ground
-            if let groundY = world.height(at: GridPos2(x: Int(node.position.x.rounded()), z: Int(node.position.z.rounded()))),
-               node.position.y > CGFloat(groundY) + velocity + heightAboveGround {
+            let y = node.position.y - heightAboveGround
+            let mapPos = GridPos2(x: Int(node.position.x.rounded()), z: Int(node.position.z.rounded()))
+            let groundY = world.height(at: mapPos)
+            
+            let willBeOnGround = groundY.map { y - velocity <= CGFloat($0) } ?? false
+            
+            if willBeOnGround {
+                velocity = 0
+                if !isOnGround {
+                    // We are reaching the ground, correct the position
+                    node.runAction(.move(by: SCNVector3(x: 0, y: CGFloat(groundY!) - y, z: 0), duration: interval))
+                }
+            } else {
+                // We are airborne, apply gravity
                 velocity += acceleration
                 node.runAction(.move(by: SCNVector3(x: 0, y: -velocity, z: 0), duration: interval))
             }
+            
+            isOnGround = willBeOnGround
         }
     }
 }
