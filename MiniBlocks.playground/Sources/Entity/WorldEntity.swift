@@ -13,10 +13,7 @@ func makeDemoBlockPositions() -> [GridPos3] {
     }
 }
 
-func makeWorldEntity(world initialWorld: World = World()) -> GKEntity {
-    // Create state
-    let world = Box(wrappedValue: initialWorld)
-    
+func makeWorldEntity(world: Box<World>) -> GKEntity {
     // Create node
     let node = SCNNode()
     
@@ -38,6 +35,7 @@ func makeWorldEntity(world initialWorld: World = World()) -> GKEntity {
     
     // Create entity
     let entity = GKEntity()
+    entity.addComponent(WorldComponent(world: world))
     entity.addComponent(SceneNodeComponent(node: node))
     
     return entity

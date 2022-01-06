@@ -9,13 +9,19 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     private let debugInteractionMode: SCNInteractionMode
     private var previousUpdateTime: TimeInterval = 0
     
-    // SceneKit properties
+    // MARK: Model properties
+    
+    @Box private var world: World = World.wavyGrassHills()
+    
+    // MARK: SceneKit properties
+    
     private var scene: SCNScene!
     private var playerNode: SCNNode!
     private var playerPhysics: SCNPhysicsBody?
     private var playerForce: SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
     
-    // GameplayKit properties
+    // MARK: GameplayKit properties
+    
     private let gridPositionedComponentSystem = GKComponentSystem(componentClass: GridPositionedComponent.self)
     private let playerControlComponentSystem = GKComponentSystem(componentClass: PlayerControlComponent.self)
     private let gravityComponentSystem = GKComponentSystem(componentClass: GravityComponent.self)
@@ -43,7 +49,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         scene = SCNScene(named: "MiniBlocksScene.scn")!
         
         // Add player
-        add(entity: makePlayerEntity(physicsEnabled: !debugModeEnabled))
+        add(entity: makePlayerEntity(world: _world, physicsEnabled: !debugModeEnabled))
         
         // Set up another physics-affected node for testing
         let otherBox = SCNBox(width: 1, height: 3, length: 1, chamferRadius: 0)
@@ -73,7 +79,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         scene.rootNode.addChildNode(ambientLightNode)
         
         // Add the world
-        add(entity: makeWorldEntity(world: World.wavyGrassHills()))
+        add(entity: makeWorldEntity(world: _world))
         
         // Set up SCNView
         let sceneView = sceneFrame.map { SCNView(frame: $0) } ?? SCNView()

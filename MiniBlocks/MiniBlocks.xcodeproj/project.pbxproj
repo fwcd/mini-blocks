@@ -22,6 +22,7 @@
 		35A0C2A12787577700FA8570 /* StripBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A02787577700FA8570 /* StripBlock.swift */; };
 		35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A2278757A700FA8570 /* GridPos2.swift */; };
 		35A0C2A5278757EB00FA8570 /* Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A4278757EB00FA8570 /* Strip.swift */; };
+		35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A627875C7300FA8570 /* WorldComponent.swift */; };
 		35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F3E927867ED10067F0F7 /* AppDelegate.swift */; };
 		35E7F3F027867ED20067F0F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F3EF27867ED20067F0F7 /* Assets.xcassets */; };
 		35E7F40C278682C60067F0F7 /* MiniBlocksScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40A278682C60067F0F7 /* MiniBlocksScene.scn */; };
@@ -47,6 +48,7 @@
 		35A0C2A02787577700FA8570 /* StripBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StripBlock.swift; path = ../../MiniBlocks.playground/Sources/World/StripBlock.swift; sourceTree = "<group>"; };
 		35A0C2A2278757A700FA8570 /* GridPos2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridPos2.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridPos2.swift; sourceTree = "<group>"; };
 		35A0C2A4278757EB00FA8570 /* Strip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Strip.swift; path = ../../MiniBlocks.playground/Sources/World/Strip.swift; sourceTree = "<group>"; };
+		35A0C2A627875C7300FA8570 /* WorldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldComponent.swift; sourceTree = "<group>"; };
 		35E7F3E627867ED10067F0F7 /* MiniBlocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBlocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E7F3E927867ED10067F0F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E7F3EF27867ED20067F0F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				35A0C28D278741F300FA8570 /* GridPositionedComponent.swift */,
 				35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */,
 				35A0C295278752E900FA8570 /* GravityComponent.swift */,
+				35A0C2A627875C7300FA8570 /* WorldComponent.swift */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */,
 				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
 				35A0C296278752E900FA8570 /* GravityComponent.swift in Sources */,
+				35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */,
 				35A0C2A12787577700FA8570 /* StripBlock.swift in Sources */,
 				35A0C29D278756BE00FA8570 /* Block.swift in Sources */,
 				35A0C2A5278757EB00FA8570 /* Strip.swift in Sources */,

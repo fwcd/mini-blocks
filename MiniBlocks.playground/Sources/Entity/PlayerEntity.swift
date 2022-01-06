@@ -1,7 +1,7 @@
 import GameplayKit
 import SceneKit
 
-func makePlayerEntity(physicsEnabled: Bool = true) -> GKEntity {
+func makePlayerEntity(world: Box<World>, physicsEnabled: Bool = true) -> GKEntity {
     // Create node
     let height: CGFloat = 1.5
     let shape = SCNPhysicsShape(
@@ -22,6 +22,7 @@ func makePlayerEntity(physicsEnabled: Bool = true) -> GKEntity {
     
     // Create entity
     let entity = GKEntity()
+    entity.addComponent(WorldComponent(world: world))
     entity.addComponent(SceneNodeComponent(node: node))
     entity.addComponent(PlayerControlComponent())
     entity.addComponent(GravityComponent())
