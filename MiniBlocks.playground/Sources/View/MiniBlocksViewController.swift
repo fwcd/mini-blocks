@@ -43,6 +43,15 @@ public final class MiniBlocksViewController: NSViewController {
         ambientLightNode.light = ambientLight
         scene.rootNode.addChildNode(ambientLightNode)
         
+        // Add a block
+        let blockMaterial = SCNMaterial()
+        blockMaterial.diffuse.contents = NSImage(named: "TextureGrass.png")
+        let block = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
+        block.materials = [blockMaterial]
+        let blockNode = SCNNode(geometry: block)
+        blockNode.position = SCNVector3(x: 0, y: -2, z: 0)
+        scene.rootNode.addChildNode(blockNode)
+        
         // Add a funky torus
         let torus = SCNTorus(ringRadius: 1, pipeRadius: 0.35)
         torus.firstMaterial?.diffuse.contents  = NSColor.red
