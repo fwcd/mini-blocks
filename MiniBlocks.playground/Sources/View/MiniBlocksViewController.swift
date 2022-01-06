@@ -1,11 +1,16 @@
 import Foundation
 import SceneKit
 
-/// The application's primary view controller.
+/// The game's primary view controller.
 public final class MiniBlocksViewController: NSViewController {
     private let sceneFrame: CGRect?
     private let debugModeEnabled: Bool
     private let debugInteractionMode: SCNInteractionMode
+    private var tickTimer: Timer!
+    
+    private var playerNode: SCNNode!
+    private var playerPhysics: SCNPhysicsBody?
+    private var playerForce: SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
     
     public init(
         sceneFrame: CGRect? = nil,
@@ -17,12 +22,20 @@ public final class MiniBlocksViewController: NSViewController {
         self.debugInteractionMode = debugInteractionMode
         
         super.init(nibName: nil, bundle: nil)
+        
+        // Set up tick timer
+        tickTimer = Timer.scheduledTimer(timeInterval: 1 / 20, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
     }
     
     public required init?(coder: NSCoder) {
         nil
     }
     
+    deinit {
+        tickTimer?.invalidate()
+    }
+    
+    /// Creates the initial scene.
     public override func loadView() {
         // Create scene
         let scene = SCNScene(named: "MiniBlocksScene.scn")!
@@ -38,13 +51,16 @@ public final class MiniBlocksViewController: NSViewController {
         playerNode.camera = playerCamera
         playerNode.position = SCNVector3(x: 0, y: 10, z: 15)
         scene.rootNode.addChildNode(playerNode)
+        self.playerNode = playerNode
         
         // Add player physics if not in debug mode
         if !debugModeEnabled {
             let playerPhysics = SCNPhysicsBody(type: .dynamic, shape: playerShape)
             playerPhysics.isAffectedByGravity = true
             playerPhysics.angularVelocityFactor = SCNVector3(x: 0, y: 0, z: 0)
+            playerPhysics.friction = 0
             playerNode.physicsBody = playerPhysics
+            self.playerPhysics = playerPhysics
         }
         
         // Set up another physics-affected node for testing
@@ -52,8 +68,9 @@ public final class MiniBlocksViewController: NSViewController {
         let otherPhysics = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: otherBox))
         otherPhysics.isAffectedByGravity = true
         otherPhysics.angularVelocityFactor = SCNVector3(x: 0, y: 1, z: 0) // constrain physics-based rotation to only rotation around y-axis (vertical)
+        otherPhysics.mass = 20
         let otherNode = SCNNode(geometry: otherBox)
-        otherNode.position = SCNVector3(x: 2, y: 20, z: 8)
+        otherNode.position = SCNVector3(x: 0, y: 20, z: 8)
         otherNode.physicsBody = otherPhysics
         scene.rootNode.addChildNode(otherNode)
         
@@ -98,6 +115,49 @@ public final class MiniBlocksViewController: NSViewController {
         sceneView.backgroundColor = NSColor.black
         
         view = sceneView
+    }
+    
+    /// Performs a single game tick. Ticks occur 20 times a second and updates the game (e.g. by moving the player forward).
+    @objc
+    private func tick() {
+        // TODO: Do something on ticks
+    }
+    
+    private func updatePlayerVelocity(dx: CGFloat? = nil, dy: CGFloat? = nil, dz: CGFloat? = nil) {
+        if let playerPhysics = playerPhysics {
+            let velocity = playerPhysics.velocity
+            print(playerPhysics.velocity)
+            playerPhysics.velocity = SCNVector3(
+                x: dx ?? velocity.x,
+                y: dy ?? velocity.y,
+                z: dz ?? velocity.z
+            )
+        }
+    }
+    
+    public override func keyDown(with event: NSEvent) {
+        guard !debugModeEnabled && !event.isARepeat else { return }
+        
+        let speed: CGFloat = 5
+        // TODO: Use actual direction?
+        switch event.keyCode {
+        case KeyCodes.w:
+            updatePlayerVelocity(dz: -speed)
+        case KeyCodes.s:
+            updatePlayerVelocity(dz: speed)
+        case KeyCodes.a:
+            updatePlayerVelocity(dx: -speed)
+        case KeyCodes.d:
+            updatePlayerVelocity(dx: speed)
+        case KeyCodes.space:
+            playerPhysics?.applyForce(SCNVector3(x: 0, y: 500, z: 0), asImpulse: false)
+        default:
+            break
+        }
+    }
+    
+    public override func keyUp(with event: NSEvent) {
+        updatePlayerVelocity(dx: 0, dz: 0)
     }
 }
 

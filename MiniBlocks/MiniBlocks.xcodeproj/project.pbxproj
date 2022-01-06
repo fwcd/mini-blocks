@@ -13,6 +13,7 @@
 		35E7F40D278682C60067F0F7 /* TextureGrass.png in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40B278682C60067F0F7 /* TextureGrass.png */; };
 		35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */; };
 		35E7F412278683950067F0F7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F411278683950067F0F7 /* main.swift */; };
+		35E7F416278688180067F0F7 /* KeyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F415278688180067F0F7 /* KeyCodes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		35E7F40B278682C60067F0F7 /* TextureGrass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureGrass.png; path = ../../MiniBlocks.playground/Resources/TextureGrass.png; sourceTree = "<group>"; };
 		35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiniBlocksViewController.swift; path = ../../MiniBlocks.playground/Sources/View/MiniBlocksViewController.swift; sourceTree = "<group>"; };
 		35E7F411278683950067F0F7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		35E7F415278688180067F0F7 /* KeyCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyCodes.swift; path = ../../MiniBlocks.playground/Sources/View/KeyCodes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */,
+				35E7F415278688180067F0F7 /* KeyCodes.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35E7F416278688180067F0F7 /* KeyCodes.swift in Sources */,
 				35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */,
 				35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */,
 				35E7F412278683950067F0F7 /* main.swift in Sources */,
