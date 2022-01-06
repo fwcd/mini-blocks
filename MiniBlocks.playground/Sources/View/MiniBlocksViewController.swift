@@ -38,6 +38,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     
     private let playerControlComponentSystem = GKComponentSystem(componentClass: PlayerControlComponent.self)
     private let gravityComponentSystem = GKComponentSystem(componentClass: GravityComponent.self)
+    private let worldInteractionComponentSystem = GKComponentSystem(componentClass: WorldInteractionComponent.self)
     private var entities: [GKEntity] = []
     
     public init(
@@ -62,7 +63,9 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         scene = SCNScene(named: "MiniBlocksScene.scn")!
         
         // Add player
-        add(entity: makePlayerEntity(world: _world))
+        let playerEntity = makePlayerEntity(world: _world)
+        let playerNode = playerEntity.component(ofType: SceneNodeComponent.self)!.node
+        add(entity: playerEntity)
         
         // Set up light
         let light = SCNLight()
@@ -81,7 +84,8 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         scene.rootNode.addChildNode(ambientLightNode)
         
         // Add the world
-        add(entity: makeWorldEntity(world: _world))
+        let worldEntity = makeWorldEntity(world: _world, playerNode: playerNode)
+        add(entity: worldEntity)
         
         // Set up SCNView
         let sceneView = sceneFrame.map { SCNView(frame: $0) } ?? SCNView()
@@ -118,6 +122,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         // Add components to their corresponding systems
         playerControlComponentSystem.addComponent(foundIn: entity)
         gravityComponentSystem.addComponent(foundIn: entity)
+        worldInteractionComponentSystem.addComponent(foundIn: entity)
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -126,6 +131,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         // Perform updates to the components through their corresponding systems
         playerControlComponentSystem.update(deltaTime: deltaTime)
         gravityComponentSystem.update(deltaTime: deltaTime)
+        worldInteractionComponentSystem.update(deltaTime: deltaTime)
         
         previousUpdateTime = time
     }
