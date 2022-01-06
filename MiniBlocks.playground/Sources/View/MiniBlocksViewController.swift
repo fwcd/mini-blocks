@@ -22,21 +22,26 @@ public final class MiniBlocksViewController: NSViewController {
         let scene = SCNScene(named: "MiniBlocksScene.scn")!
         
         // Set up the player node with physics and a camera
-        let playerPhysics = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: SCNBox(width: 1, height: 2, length: 1, chamferRadius: 0)))
+        let playerPhysics = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: SCNBox(width: 1, height: 3, length: 1, chamferRadius: 0)))
         playerPhysics.isAffectedByGravity = true
+        playerPhysics.angularVelocityFactor = SCNVector3(x: 0, y: 0, z: 0)
+        let playerCamera = SCNCamera()
         let playerNode = SCNNode()
-        playerNode.camera = SCNCamera()
+        playerNode.camera = playerCamera
         playerNode.position = SCNVector3(x: 0, y: 10, z: 15)
         playerNode.physicsBody = playerPhysics
         playerNode.rotation = SCNVector4(x: 0.0, y: 1.0, z: 0.0, w: 0.0)
         scene.rootNode.addChildNode(playerNode)
         
-        // Spin the player around!
-        let spin = CABasicAnimation(keyPath: "rotation.w") // only animate the angle
-        spin.toValue = 2.0 * Double.pi
-        spin.duration = 40
-        spin.repeatCount = HUGE // for infinity
-        playerNode.addAnimation(spin, forKey: "spin around")
+        // Set up another physics-affected node for testing
+        let otherBox = SCNBox(width: 1, height: 3, length: 1, chamferRadius: 0)
+        let otherPhysics = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: otherBox))
+        otherPhysics.isAffectedByGravity = true
+        otherPhysics.angularVelocityFactor = SCNVector3(x: 0, y: 1, z: 0) // constrain physics-based rotation to only rotation around y-axis (vertical)
+        let otherNode = SCNNode(geometry: otherBox)
+        otherNode.position = SCNVector3(x: 2, y: 20, z: 8)
+        otherNode.physicsBody = otherPhysics
+        scene.rootNode.addChildNode(otherNode)
         
         // Set up light
         let light = SCNLight()
