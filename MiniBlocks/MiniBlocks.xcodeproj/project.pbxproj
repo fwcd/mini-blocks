@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35A0C28627873D1100FA8570 /* BlockPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28527873D1100FA8570 /* BlockPos.swift */; };
+		35A0C28627873D1100FA8570 /* GridPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28527873D1100FA8570 /* GridPos.swift */; };
 		35A0C28827873D2900FA8570 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28727873D2900FA8570 /* Box.swift */; };
+		35A0C28A27873DB300FA8570 /* BlockEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28927873DB300FA8570 /* BlockEntity.swift */; };
+		35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */; };
+		35A0C28E278741F300FA8570 /* GridPositionedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28D278741F300FA8570 /* GridPositionedComponent.swift */; };
 		35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F3E927867ED10067F0F7 /* AppDelegate.swift */; };
 		35E7F3F027867ED20067F0F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F3EF27867ED20067F0F7 /* Assets.xcassets */; };
 		35E7F40C278682C60067F0F7 /* MiniBlocksScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40A278682C60067F0F7 /* MiniBlocksScene.scn */; };
@@ -19,8 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		35A0C28527873D1100FA8570 /* BlockPos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockPos.swift; path = ../../MiniBlocks.playground/Sources/Utils/BlockPos.swift; sourceTree = "<group>"; };
+		35A0C28527873D1100FA8570 /* GridPos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPos.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridPos.swift; sourceTree = "<group>"; };
 		35A0C28727873D2900FA8570 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Box.swift; path = ../../MiniBlocks.playground/Sources/Utils/Box.swift; sourceTree = "<group>"; };
+		35A0C28927873DB300FA8570 /* BlockEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlockEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/BlockEntity.swift; sourceTree = "<group>"; };
+		35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneNodeComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/SceneNodeComponent.swift; sourceTree = "<group>"; };
+		35A0C28D278741F300FA8570 /* GridPositionedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridPositionedComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/GridPositionedComponent.swift; sourceTree = "<group>"; };
 		35E7F3E627867ED10067F0F7 /* MiniBlocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBlocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E7F3E927867ED10067F0F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E7F3EF27867ED20067F0F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +52,7 @@
 		35A0C27D27872CAB00FA8570 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				35A0C28927873DB300FA8570 /* BlockEntity.swift */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -53,6 +60,8 @@
 		35A0C27E27872CB500FA8570 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */,
+				35A0C28D278741F300FA8570 /* GridPositionedComponent.swift */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -60,7 +69,7 @@
 		35A0C28427873D0400FA8570 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				35A0C28527873D1100FA8570 /* BlockPos.swift */,
+				35A0C28527873D1100FA8570 /* GridPos.swift */,
 				35A0C28727873D2900FA8570 /* Box.swift */,
 			);
 			name = Utils;
@@ -195,8 +204,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35A0C28E278741F300FA8570 /* GridPositionedComponent.swift in Sources */,
 				35E7F416278688180067F0F7 /* KeyCodes.swift in Sources */,
-				35A0C28627873D1100FA8570 /* BlockPos.swift in Sources */,
+				35A0C28627873D1100FA8570 /* GridPos.swift in Sources */,
+				35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */,
+				35A0C28A27873DB300FA8570 /* BlockEntity.swift in Sources */,
 				35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */,
 				35A0C28827873D2900FA8570 /* Box.swift in Sources */,
 				35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */,

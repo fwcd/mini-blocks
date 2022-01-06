@@ -1,16 +1,22 @@
 import Foundation
 import SceneKit
+import GameplayKit
 
 /// The game's primary view controller.
-public final class MiniBlocksViewController: NSViewController {
+public final class MiniBlocksViewController: NSViewController, SCNSceneRendererDelegate {
     private let sceneFrame: CGRect?
     private let debugModeEnabled: Bool
     private let debugInteractionMode: SCNInteractionMode
-    private var tickTimer: Timer!
+    private var previousUpdateTime: TimeInterval = 0
     
+    private var scene: SCNScene!
     private var playerNode: SCNNode!
     private var playerPhysics: SCNPhysicsBody?
     private var playerForce: SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
+    
+    private let sceneNodeComponentSystem = GKComponentSystem(componentClass: SceneNodeComponent.self)
+    private let gridPositionedComponentSystem = GKComponentSystem(componentClass: GridPositionedComponent.self)
+    private var entities: [GKEntity] = []
     
     public init(
         sceneFrame: CGRect? = nil,
@@ -22,23 +28,16 @@ public final class MiniBlocksViewController: NSViewController {
         self.debugInteractionMode = debugInteractionMode
         
         super.init(nibName: nil, bundle: nil)
-        
-        // Set up tick timer
-        tickTimer = Timer.scheduledTimer(timeInterval: 1 / 20, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
     }
     
     public required init?(coder: NSCoder) {
         nil
     }
     
-    deinit {
-        tickTimer?.invalidate()
-    }
-    
     /// Creates the initial scene.
     public override func loadView() {
         // Create scene
-        let scene = SCNScene(named: "MiniBlocksScene.scn")!
+        scene = SCNScene(named: "MiniBlocksScene.scn")!
         
         // Set up the player node with a camera
         let playerHeight: CGFloat = 1.5
@@ -91,24 +90,14 @@ public final class MiniBlocksViewController: NSViewController {
         scene.rootNode.addChildNode(ambientLightNode)
         
         // Add some blocks
-        let radius = 50
-        for x in -radius..<radius {
-            for z in -radius..<radius {
-                let blockMaterial = SCNMaterial()
-                blockMaterial.diffuse.contents = NSImage(named: "TextureGrass.png")
-                let block = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
-                block.materials = [blockMaterial]
-                let blockPhysics = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: block))
-                let blockNode = SCNNode(geometry: block)
-                blockNode.position = SCNVector3(x: CGFloat(x), y: (-5 * sin(CGFloat(x) / 10) * cos(CGFloat(z) / 10)).rounded(), z: CGFloat(z))
-                blockNode.physicsBody = blockPhysics
-                scene.rootNode.addChildNode(blockNode)
-            }
+        for pos in makeDemoBlockPositions() {
+            add(entity: makeBlockEntity(pos: pos))
         }
         
         // Set up SCNView
         let sceneView = sceneFrame.map { SCNView(frame: $0) } ?? SCNView()
         sceneView.scene = scene
+        sceneView.delegate = self
         sceneView.allowsCameraControl = debugModeEnabled
         sceneView.defaultCameraController.interactionMode = debugInteractionMode
         sceneView.showsStatistics = debugModeEnabled
@@ -117,10 +106,27 @@ public final class MiniBlocksViewController: NSViewController {
         view = sceneView
     }
     
-    /// Performs a single game tick. Ticks occur 20 times a second and updates the game (e.g. by moving the player forward).
-    @objc
-    private func tick() {
-        // TODO: Do something on ticks
+    private func add(entity: GKEntity) {
+        entities.append(entity)
+        
+        // Add attached node to the scene, if entity has the corresponding component
+        if let component = entity.component(ofType: SceneNodeComponent.self) {
+            scene.rootNode.addChildNode(component.node)
+        }
+        
+        // Add components to their corresponding systems
+        sceneNodeComponentSystem.addComponent(foundIn: entity)
+        gridPositionedComponentSystem.addComponent(foundIn: entity)
+    }
+    
+    public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        let deltaTime = time - previousUpdateTime
+        
+        // Perform updates to the components through their corresponding systems
+        sceneNodeComponentSystem.update(deltaTime: deltaTime)
+        gridPositionedComponentSystem.update(deltaTime: deltaTime)
+        
+        previousUpdateTime = time
     }
     
     private func updatePlayerVelocity(dx: CGFloat? = nil, dy: CGFloat? = nil, dz: CGFloat? = nil) {

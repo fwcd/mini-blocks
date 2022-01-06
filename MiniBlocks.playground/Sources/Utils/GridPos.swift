@@ -1,7 +1,7 @@
 import SceneKit
 
-/// A block position in the 3D grid.
-struct BlockPos: Hashable, Codable {
+/// A position in the 3D grid.
+struct GridPos: Hashable, Codable {
     let x: Int
     let y: Int
     let z: Int
@@ -11,10 +11,10 @@ struct BlockPos: Hashable, Codable {
     }
     
     static func +(lhs: Self, rhs: Self) -> Self {
-        BlockPos(x: lhs.x + rhs.x, y: lhs.y + rhs.y, z: lhs.z + rhs.z)
+        GridPos(x: lhs.x + rhs.x, y: lhs.y + rhs.y, z: lhs.z + rhs.z)
     }
     
     static func -(lhs: Self, rhs: Self) -> Self {
-        BlockPos(x: lhs.x - rhs.x, y: lhs.y - rhs.y, z: lhs.z - rhs.z)
+        GridPos(x: lhs.x - rhs.x, y: lhs.y - rhs.y, z: lhs.z - rhs.z)
     }
 }
