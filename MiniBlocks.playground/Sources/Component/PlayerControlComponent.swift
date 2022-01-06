@@ -16,8 +16,12 @@ class PlayerControlComponent: GKComponent {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
     
-    private var heightAboveGround: CGFloat {
-        entity?.component(ofType: HeightAboveGroundComponent.self)?.heightAboveGround ?? 0
+    private var feetOffset: SCNVector3 {
+        entity?.component(ofType: HeightAboveGroundComponent.self)?.offset ?? SCNVector3(x: 0, y: 0, z: 0)
+    }
+    
+    private var world: World? {
+        entity?.component(ofType: WorldComponent.self)?.world
     }
     
     private var gravityComponent: GravityComponent? {
@@ -110,7 +114,15 @@ class PlayerControlComponent: GKComponent {
         let interval = throttler.interval
         throttler.run(deltaTime: seconds) {
             // Move if possible
-            node.runAction(.move(by: velocity, duration: interval))
+            let canMove = world.map { world in
+                let nextPos = GridPos3(rounding: node.position + feetOffset + velocity) + GridPos3(y: 1)
+                // We allow moving if the target pos doesn't have a block or if
+                // we already are stuck in a block.
+                return world.block(at: nextPos) == nil
+            } ?? true
+            if canMove {
+                node.runAction(.move(by: velocity, duration: interval))
+            }
             
             // Rotate either pitch or yaw
             if abs(pitchAngularVelocity) > angularValocityEpsilon {

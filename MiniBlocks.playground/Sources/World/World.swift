@@ -4,20 +4,31 @@ import Foundation
 struct World {
     var map: [GridPos2: Strip] = [:]
     
-    /// Creates a simple demo world using a little bit of trigonometry.
-    static func wavyGrassHills(radius: Int = 50) -> World {
+    /// Generates a world.
+    static func generate(radius: Int = 50, generator y: (GridPos2) -> Int) -> World {
         World(map: Dictionary(uniqueKeysWithValues:
             (-radius...radius).flatMap { (x: Int) in
                 (-radius...radius).map { (z: Int) in
-                    (GridPos2(x: x, z: z), Strip(blocks: Dictionary(uniqueKeysWithValues: [
-                        (
-                            Int((-5 * sin(CGFloat(x) / 10) * cos(CGFloat(z) / 10)).rounded()),
-                            Block(type: .grass)
-                        )
+                    let pos = GridPos2(x: x, z: z)
+                    return (pos, Strip(blocks: Dictionary(uniqueKeysWithValues: [
+                        (y(pos), Block(type: .grass))
                     ])))
                 }
             }
        ))
+    }
+    
+    /// Creates a simple demo world using a little bit of trigonometry.
+    static func wavyGrassHills(radius: Int = 50) -> World {
+        generate(radius: radius) { pos in
+            Int((-5 * sin(CGFloat(pos.x) / 10) * cos(CGFloat(pos.z) / 10)).rounded())
+        }
+    }
+    
+    static func flat(radius: Int = 50) -> World {
+        generate(radius: radius) { _ in
+            0
+        }
     }
     
     /// Fetches the height the given position. O(n) where n is the number of blocks in the strip at the given (x, z) coordinates.
