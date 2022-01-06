@@ -52,7 +52,7 @@ public final class MiniBlocksViewController: NSViewController {
                 let block = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
                 block.materials = [blockMaterial]
                 let blockNode = SCNNode(geometry: block)
-                blockNode.position = SCNVector3(x: CGFloat(x), y: -2, z: CGFloat(z))
+                blockNode.position = SCNVector3(x: CGFloat(x), y: (-5 * sin(CGFloat(x) / 10) * cos(CGFloat(z) / 10)).rounded(), z: CGFloat(z))
                 scene.rootNode.addChildNode(blockNode)
             }
         }
