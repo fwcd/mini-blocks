@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3546255827878798000489E8 /* SCNVectorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SCNVectorUtils.swift */; };
 		35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28527873D1100FA8570 /* GridPos3.swift */; };
 		35A0C28827873D2900FA8570 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28727873D2900FA8570 /* Box.swift */; };
 		35A0C28A27873DB300FA8570 /* WorldEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28927873DB300FA8570 /* WorldEntity.swift */; };
@@ -19,7 +20,6 @@
 		35A0C29B2787569600FA8570 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C29A2787569600FA8570 /* World.swift */; };
 		35A0C29D278756BE00FA8570 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C29C278756BE00FA8570 /* Block.swift */; };
 		35A0C29F278756EC00FA8570 /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C29E278756EC00FA8570 /* BlockType.swift */; };
-		35A0C2A12787577700FA8570 /* StripBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A02787577700FA8570 /* StripBlock.swift */; };
 		35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A2278757A700FA8570 /* GridPos2.swift */; };
 		35A0C2A5278757EB00FA8570 /* Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A4278757EB00FA8570 /* Strip.swift */; };
 		35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A627875C7300FA8570 /* WorldComponent.swift */; };
@@ -34,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3546255727878798000489E8 /* SCNVectorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SCNVectorUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/SCNVectorUtils.swift; sourceTree = "<group>"; };
 		35A0C28527873D1100FA8570 /* GridPos3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPos3.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridPos3.swift; sourceTree = "<group>"; };
 		35A0C28727873D2900FA8570 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Box.swift; path = ../../MiniBlocks.playground/Sources/Utils/Box.swift; sourceTree = "<group>"; };
 		35A0C28927873DB300FA8570 /* WorldEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/WorldEntity.swift; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		35A0C29A2787569600FA8570 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = World.swift; path = ../../MiniBlocks.playground/Sources/World/World.swift; sourceTree = "<group>"; };
 		35A0C29C278756BE00FA8570 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Block.swift; path = ../../MiniBlocks.playground/Sources/World/Block.swift; sourceTree = "<group>"; };
 		35A0C29E278756EC00FA8570 /* BlockType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlockType.swift; path = ../../MiniBlocks.playground/Sources/World/BlockType.swift; sourceTree = "<group>"; };
-		35A0C2A02787577700FA8570 /* StripBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StripBlock.swift; path = ../../MiniBlocks.playground/Sources/World/StripBlock.swift; sourceTree = "<group>"; };
 		35A0C2A2278757A700FA8570 /* GridPos2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridPos2.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridPos2.swift; sourceTree = "<group>"; };
 		35A0C2A4278757EB00FA8570 /* Strip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Strip.swift; path = ../../MiniBlocks.playground/Sources/World/Strip.swift; sourceTree = "<group>"; };
 		35A0C2A627875C7300FA8570 /* WorldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldComponent.swift; sourceTree = "<group>"; };
@@ -102,6 +102,7 @@
 				35A0C2A2278757A700FA8570 /* GridPos2.swift */,
 				35A0C28727873D2900FA8570 /* Box.swift */,
 				35A0C297278753AE00FA8570 /* Throttler.swift */,
+				3546255727878798000489E8 /* SCNVectorUtils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -111,7 +112,6 @@
 			children = (
 				35A0C29A2787569600FA8570 /* World.swift */,
 				35A0C2A4278757EB00FA8570 /* Strip.swift */,
-				35A0C2A02787577700FA8570 /* StripBlock.swift */,
 				35A0C29C278756BE00FA8570 /* Block.swift */,
 				35A0C29E278756EC00FA8570 /* BlockType.swift */,
 			);
@@ -263,7 +263,7 @@
 				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
 				35A0C296278752E900FA8570 /* GravityComponent.swift in Sources */,
 				35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */,
-				35A0C2A12787577700FA8570 /* StripBlock.swift in Sources */,
+				3546255827878798000489E8 /* SCNVectorUtils.swift in Sources */,
 				35A0C29D278756BE00FA8570 /* Block.swift in Sources */,
 				35A0C2A5278757EB00FA8570 /* Strip.swift in Sources */,
 				35A0C2A927875EC400FA8570 /* HeightAboveGroundComponent.swift in Sources */,

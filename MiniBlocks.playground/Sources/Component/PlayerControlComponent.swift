@@ -110,7 +110,6 @@ class PlayerControlComponent: GKComponent {
         let interval = throttler.interval
         throttler.run(deltaTime: seconds) {
             // Move if possible
-            // TODO: Check collisions
             node.runAction(.move(by: velocity, duration: interval))
             
             // Rotate either pitch or yaw
