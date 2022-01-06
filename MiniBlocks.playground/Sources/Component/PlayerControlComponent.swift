@@ -145,12 +145,10 @@ class PlayerControlComponent: GKComponent {
     
     func rotatePitch(delta: CGFloat) {
         guard let node = node else { return }
-        SCNTransaction.animationDuration = 0.1
         node.eulerAngles.x += delta * pitchSpeed
     }
     
     func rotateYaw(delta: CGFloat) {
-        SCNTransaction.animationDuration = 0.1
         node?.eulerAngles.y += delta * yawSpeed
     }
 }

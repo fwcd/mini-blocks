@@ -146,12 +146,10 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     }
     
     public override func mouseMoved(with event: NSEvent) {
-        print("Moved by \(event.deltaX), \(event.deltaY)")
-        
         // Rotate view
         controlPlayer { component in
-            component.rotateYaw(delta: -event.deltaX / 10)
-            component.rotatePitch(delta: -event.deltaY / 10)
+            component.rotateYaw(delta: -event.deltaX / 50)
+            component.rotatePitch(delta: -event.deltaY / 50)
         }
         
         // Lock mouse to center of window
