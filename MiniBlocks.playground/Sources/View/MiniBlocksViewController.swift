@@ -167,7 +167,6 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     }
     
     public override func mouseMoved(with event: NSEvent) {
-        print("Delta x: \(event.deltaX), \(event.deltaY)")
         if mouseCaptured {
             // Skip first event since this one may have large deltas
             guard receivedFirstMouseEvent else {
