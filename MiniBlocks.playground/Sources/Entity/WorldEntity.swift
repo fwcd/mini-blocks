@@ -13,23 +13,32 @@ func makeDemoBlockPositions() -> [GridPos3] {
     }
 }
 
-func makeWorldEntity() -> GKEntity {
+func makeWorldEntity(world initialWorld: World = World()) -> GKEntity {
     // Create state
-    let pos = Box(wrappedValue: pos)
+    let world = Box(wrappedValue: initialWorld)
     
     // Create node
-    let material = SCNMaterial()
-    material.diffuse.contents = NSImage(named: "TextureGrass.png")
-    let block = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
-    block.materials = [material]
-    let physics = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: block))
-    let node = SCNNode(geometry: block)
-    node.physicsBody = physics
+    let node = SCNNode()
+    
+    // TODO: Add e.g. a WorldUpdateComponent that efficiently (through deltas, e.g. on strip-basis) updates the scene
+    for (mapPos, strip) in world.wrappedValue.map {
+        if let block = strip.topmostBlock {
+            // Create block node
+            let material = SCNMaterial()
+            material.diffuse.contents = NSImage(named: "TextureGrass.png")
+            let blockBox = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
+            blockBox.materials = [material]
+            let physics = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: blockBox))
+            let blockNode = SCNNode(geometry: blockBox)
+            blockNode.position = mapPos.with(y: block.y).asSCNVector
+            blockNode.physicsBody = physics
+            node.addChildNode(blockNode)
+        }
+    }
     
     // Create entity
     let entity = GKEntity()
     entity.addComponent(SceneNodeComponent(node: node))
-    entity.addComponent(GridPositionedComponent(pos: pos))
     
     return entity
 }

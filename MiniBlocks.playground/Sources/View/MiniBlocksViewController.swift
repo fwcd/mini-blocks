@@ -72,10 +72,8 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         ambientLightNode.light = ambientLight
         scene.rootNode.addChildNode(ambientLightNode)
         
-        // Add some blocks
-        for pos in makeDemoBlockPositions() {
-            add(entity: makeBlockEntity(pos: pos))
-        }
+        // Add the world
+        add(entity: makeWorldEntity(world: World.wavyGrassHills()))
         
         // Set up SCNView
         let sceneView = sceneFrame.map { SCNView(frame: $0) } ?? SCNView()

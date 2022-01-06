@@ -12,4 +12,8 @@ struct GridPos2: Hashable, Codable {
     static func -(lhs: Self, rhs: Self) -> Self {
         GridPos2(x: lhs.x - rhs.x, z: lhs.z - rhs.z)
     }
+    
+    func with(y: Int) -> GridPos3 {
+        GridPos3(x: x, y: y, z: z)
+    }
 }
