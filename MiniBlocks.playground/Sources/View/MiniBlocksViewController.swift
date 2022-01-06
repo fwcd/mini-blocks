@@ -22,7 +22,12 @@ public final class MiniBlocksViewController: NSViewController {
         let scene = SCNScene(named: "MiniBlocksScene.scn")!
         
         // Set up the player node with physics and a camera
-        let playerPhysics = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: SCNBox(width: 1, height: 3, length: 1, chamferRadius: 0)))
+        let playerHeight: CGFloat = 1.5
+        let playerShape = SCNPhysicsShape(
+            shapes: [SCNPhysicsShape(geometry: SCNBox(width: 1, height: playerHeight, length: 1, chamferRadius: 0))],
+            transforms: [NSValue(scnMatrix4: SCNMatrix4MakeTranslation(0, -playerHeight, 0))]
+        )
+        let playerPhysics = SCNPhysicsBody(type: .dynamic, shape: playerShape)
         playerPhysics.isAffectedByGravity = true
         playerPhysics.angularVelocityFactor = SCNVector3(x: 0, y: 0, z: 0)
         let playerCamera = SCNCamera()
