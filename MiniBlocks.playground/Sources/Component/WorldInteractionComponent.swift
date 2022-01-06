@@ -4,6 +4,9 @@ import GameplayKit
 class WorldInteractionComponent: GKComponent {
     let playerNode: SCNNode
     
+    private let reachDistance: CGFloat = 10
+    private var lastHit: SCNNode? = nil
+    
     var node: SCNNode? {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
@@ -20,8 +23,18 @@ class WorldInteractionComponent: GKComponent {
     override func update(deltaTime seconds: TimeInterval) {
         guard let playerParent = playerNode.parent,
               let node = node else { return }
-//        let playerPos = playerParent.convertPosition(playerNode.position, to: node)
-//        let playerFacing = playerParent.convertVector(playerNode.worldFront, to: <#T##SCNNode?#>)
-//        node.hitTestWithSegment(from: playerPos, to: playerNode.fac)
+        
+        // Find the node the player looks at and (for demo purposes) lower its opacity
+        
+        lastHit?.opacity = 1
+        
+        let playerPos = playerParent.convertPosition(playerNode.position, to: node)
+        let playerFacing = playerParent.convertVector(playerNode.worldFront, to: node)
+        let hits = node.hitTestWithSegment(from: playerPos, to: playerPos + playerFacing * reachDistance)
+        
+        if let hit = hits.first?.node {
+            hit.opacity = 0.8
+            lastHit = hit
+        }
     }
 }
