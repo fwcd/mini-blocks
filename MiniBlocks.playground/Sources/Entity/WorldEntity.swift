@@ -23,6 +23,8 @@ func makeWorldEntity(world: Box<World>) -> GKEntity {
             // Create block node
             let material = SCNMaterial()
             material.diffuse.contents = NSImage(named: "TextureGrass.png")
+            material.diffuse.minificationFilter = .none
+            material.diffuse.magnificationFilter = .none
             let blockBox = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
             blockBox.materials = [material]
             let physics = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: blockBox))
