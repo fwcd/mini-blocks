@@ -4,11 +4,17 @@ import SceneKit
 /// The application's primary view controller.
 public final class MiniBlocksViewController: NSViewController {
     private let sceneFrame: CGRect
-    private let debugMode: Bool
+    private let debugModeEnabled: Bool
+    private let debugInteractionMode: SCNInteractionMode
     
-    public init(sceneFrame: CGRect, debugMode: Bool = false) {
+    public init(
+        sceneFrame: CGRect,
+        debugModeEnabled: Bool = false,
+        debugInteractionMode: SCNInteractionMode = .fly
+    ) {
         self.sceneFrame = sceneFrame
-        self.debugMode = debugMode
+        self.debugModeEnabled = debugModeEnabled
+        self.debugInteractionMode = debugInteractionMode
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,7 +34,7 @@ public final class MiniBlocksViewController: NSViewController {
             transforms: [NSValue(scnMatrix4: SCNMatrix4MakeTranslation(0, -playerHeight, 0))]
         )
         let playerPhysics = SCNPhysicsBody(type: .dynamic, shape: playerShape)
-        playerPhysics.isAffectedByGravity = true
+        playerPhysics.isAffectedByGravity = !debugModeEnabled
         playerPhysics.angularVelocityFactor = SCNVector3(x: 0, y: 0, z: 0)
         let playerCamera = SCNCamera()
         let playerNode = SCNNode()
@@ -83,8 +89,9 @@ public final class MiniBlocksViewController: NSViewController {
         // Set up SCNView
         let sceneView = SCNView(frame: sceneFrame)
         sceneView.scene = scene
-        sceneView.allowsCameraControl = debugMode
-        sceneView.showsStatistics = debugMode
+        sceneView.allowsCameraControl = debugModeEnabled
+        sceneView.defaultCameraController.interactionMode = debugInteractionMode
+        sceneView.showsStatistics = debugModeEnabled
         sceneView.backgroundColor = NSColor.black
         
         view = sceneView

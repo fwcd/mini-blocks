@@ -12,6 +12,7 @@ import SceneKit
 let frame = CGRect(x: 0, y: 0, width: 640, height: 480)
 PlaygroundPage.current.liveView = MiniBlocksViewController(
     sceneFrame: frame,
-    debugMode: true
+    debugModeEnabled: true,
+    debugInteractionMode: .fly
 )
 
