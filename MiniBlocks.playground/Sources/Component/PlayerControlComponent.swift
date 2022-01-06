@@ -7,6 +7,7 @@ class PlayerControlComponent: GKComponent {
     private var speed: CGFloat = 1
     private var pitchSpeed: CGFloat = 0.5
     private var yawSpeed: CGFloat = 0.8
+    private var jumpSpeed: CGFloat = 1.5
     private var throttler = Throttler(interval: 0.1)
     
     private var node: SCNNode? {
@@ -15,6 +16,10 @@ class PlayerControlComponent: GKComponent {
     
     private var heightAboveGround: CGFloat {
         entity?.component(ofType: HeightAboveGroundComponent.self)?.heightAboveGround ?? 0
+    }
+    
+    private var gravityComponent: GravityComponent? {
+        entity?.component(ofType: GravityComponent.self)
     }
     
     private var pitchAxis: SCNVector3? {
@@ -111,6 +116,11 @@ class PlayerControlComponent: GKComponent {
     }
     
     func jump() {
-        // TODO: Implement jumping
+        guard let gravityComponent = gravityComponent else { return }
+ 
+        if gravityComponent.isOnGround {
+            gravityComponent.velocity = jumpSpeed
+            gravityComponent.leavesGround = true
+        }
     }
 }

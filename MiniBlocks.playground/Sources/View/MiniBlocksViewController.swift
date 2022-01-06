@@ -133,8 +133,13 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     public override func keyDown(with event: NSEvent) {
         guard !debugModeEnabled && !event.isARepeat else { return }
         
-        // Map the pressed key to motion input and add it to the corresponding components
-        if let motion = motionInput(for: event.keyCode) {
+        if event.keyCode == KeyCodes.space {
+            // Jump!
+            for case let component as PlayerControlComponent in playerControlComponentSystem.components {
+                component.jump()
+            }
+        } else if let motion = motionInput(for: event.keyCode) {
+            // Pressed key could be mapped motion input, add it to the corresponding components
             for case let component as PlayerControlComponent in playerControlComponentSystem.components {
                 component.motionInput.insert(motion)
             }
@@ -142,8 +147,8 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     }
     
     public override func keyUp(with event: NSEvent) {
-        // Map the pressed key to motion input and remove it from the corresponding components
         if let motion = motionInput(for: event.keyCode) {
+            // Pressed key could be mapped motion input, remove it from the corresponding components
             for case let component as PlayerControlComponent in playerControlComponentSystem.components {
                 component.motionInput.remove(motion)
             }
