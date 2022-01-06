@@ -4,10 +4,13 @@ import GameplayKit
 
 /// The game's primary view controller.
 public final class MiniBlocksViewController: NSViewController, SCNSceneRendererDelegate {
-    private let sceneFrame: CGRect?
     private let debugModeEnabled: Bool
     private let debugInteractionMode: SCNInteractionMode
     private var previousUpdateTime: TimeInterval = 0
+    
+    // MARK: View properties
+    
+    private let sceneFrame: CGRect?
     
     // MARK: Model properties
     
@@ -82,6 +85,15 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         // Keep scene active, otherwise it will stop sending renderer(_:updateAtTime:)s when nothing changes. See also https://stackoverflow.com/questions/39336509/how-do-you-set-up-a-game-loop-for-scenekit
         sceneView.isPlaying = true
         
+        if let sceneFrame = sceneFrame {
+            sceneView.addTrackingArea(NSTrackingArea(
+                rect: sceneFrame,
+                options: [.activeAlways, .mouseMoved, .inVisibleRect],
+                owner: self,
+                userInfo: nil
+            ))
+        }
+        
         view = sceneView
     }
     
@@ -140,6 +152,10 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
                 component.motionInput.remove(motion)
             }
         }
+    }
+    
+    public override func mouseMoved(with event: NSEvent) {
+        print("Moved by \(event.deltaX) \(event.deltaY)")
     }
     
     private func motionInput(for keyCode: UInt16) -> PlayerControlComponent.MotionInput? {
