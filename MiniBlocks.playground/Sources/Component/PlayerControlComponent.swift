@@ -7,8 +7,7 @@ class PlayerControlComponent: GKComponent {
     private var speed: CGFloat = 1
     private var pitchSpeed: CGFloat = 0.5
     private var yawSpeed: CGFloat = 0.8
-    private var secondsSinceLastUpdate: TimeInterval = 0
-    private var updateInterval: TimeInterval = 0.1
+    private var throttler = Throttler(interval: 0.1)
     
     private var node: SCNNode? {
         entity?.component(ofType: SceneNodeComponent.self)?.node
@@ -93,15 +92,13 @@ class PlayerControlComponent: GKComponent {
               let velocity = velocity,
               let pitchAxis = pitchAxis else { return }
         
-        secondsSinceLastUpdate += seconds
-        
-        if secondsSinceLastUpdate > updateInterval {
+        let interval = throttler.interval
+        throttler.run(deltaTime: seconds) {
             node.runAction(.group([
-                .move(by: velocity, duration: updateInterval),
-                .rotate(by: pitchAngularVelocity, around: pitchAxis, duration: updateInterval),
-                .rotate(by: yawAngularVelocity, around: yawAxis, duration: updateInterval),
+                .move(by: velocity, duration: interval),
+                .rotate(by: pitchAngularVelocity, around: pitchAxis, duration: interval),
+                .rotate(by: yawAngularVelocity, around: yawAxis, duration: interval),
             ]))
-            secondsSinceLastUpdate = 0
         }
     }
     

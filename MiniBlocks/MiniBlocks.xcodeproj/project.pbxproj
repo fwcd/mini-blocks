@@ -14,6 +14,8 @@
 		35A0C28E278741F300FA8570 /* GridPositionedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28D278741F300FA8570 /* GridPositionedComponent.swift */; };
 		35A0C2902787475600FA8570 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28F2787475600FA8570 /* PlayerEntity.swift */; };
 		35A0C294278748EA00FA8570 /* PlayerControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */; };
+		35A0C296278752E900FA8570 /* GravityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C295278752E900FA8570 /* GravityComponent.swift */; };
+		35A0C298278753AE00FA8570 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C297278753AE00FA8570 /* Throttler.swift */; };
 		35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F3E927867ED10067F0F7 /* AppDelegate.swift */; };
 		35E7F3F027867ED20067F0F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F3EF27867ED20067F0F7 /* Assets.xcassets */; };
 		35E7F40C278682C60067F0F7 /* MiniBlocksScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40A278682C60067F0F7 /* MiniBlocksScene.scn */; };
@@ -31,6 +33,8 @@
 		35A0C28D278741F300FA8570 /* GridPositionedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridPositionedComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/GridPositionedComponent.swift; sourceTree = "<group>"; };
 		35A0C28F2787475600FA8570 /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/PlayerEntity.swift; sourceTree = "<group>"; };
 		35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerControlComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/PlayerControlComponent.swift; sourceTree = "<group>"; };
+		35A0C295278752E900FA8570 /* GravityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GravityComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/GravityComponent.swift; sourceTree = "<group>"; };
+		35A0C297278753AE00FA8570 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Throttler.swift; path = ../../MiniBlocks.playground/Sources/Utils/Throttler.swift; sourceTree = "<group>"; };
 		35E7F3E627867ED10067F0F7 /* MiniBlocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBlocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E7F3E927867ED10067F0F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E7F3EF27867ED20067F0F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 				35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */,
 				35A0C28D278741F300FA8570 /* GridPositionedComponent.swift */,
 				35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */,
+				35A0C295278752E900FA8570 /* GravityComponent.swift */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -77,6 +82,7 @@
 			children = (
 				35A0C28527873D1100FA8570 /* GridPos.swift */,
 				35A0C28727873D2900FA8570 /* Box.swift */,
+				35A0C297278753AE00FA8570 /* Throttler.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -220,6 +226,8 @@
 				35A0C294278748EA00FA8570 /* PlayerControlComponent.swift in Sources */,
 				35A0C28827873D2900FA8570 /* Box.swift in Sources */,
 				35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */,
+				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
+				35A0C296278752E900FA8570 /* GravityComponent.swift in Sources */,
 				35E7F412278683950067F0F7 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

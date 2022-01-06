@@ -18,6 +18,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     // GameplayKit properties
     private let gridPositionedComponentSystem = GKComponentSystem(componentClass: GridPositionedComponent.self)
     private let playerControlComponentSystem = GKComponentSystem(componentClass: PlayerControlComponent.self)
+    private let gravityComponentSystem = GKComponentSystem(componentClass: GravityComponent.self)
     private var entities: [GKEntity] = []
     
     public init(
@@ -99,6 +100,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         // Add components to their corresponding systems
         gridPositionedComponentSystem.addComponent(foundIn: entity)
         playerControlComponentSystem.addComponent(foundIn: entity)
+        gravityComponentSystem.addComponent(foundIn: entity)
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -107,6 +109,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         // Perform updates to the components through their corresponding systems
         gridPositionedComponentSystem.update(deltaTime: deltaTime)
         playerControlComponentSystem.update(deltaTime: deltaTime)
+        gravityComponentSystem.update(deltaTime: deltaTime)
         
         previousUpdateTime = time
     }

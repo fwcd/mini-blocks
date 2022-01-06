@@ -14,8 +14,7 @@ func makePlayerEntity(physicsEnabled: Bool = true) -> GKEntity {
     
     if physicsEnabled {
         // TODO: Make it .kinematic and implement our own gravity (e.g. as a component)
-        let physics = SCNPhysicsBody(type: .dynamic, shape: shape)
-        physics.isAffectedByGravity = true
+        let physics = SCNPhysicsBody(type: .kinematic, shape: shape)
         physics.angularVelocityFactor = SCNVector3(x: 0, y: 1, z: 0)
         physics.friction = 0
         node.physicsBody = physics
@@ -25,6 +24,7 @@ func makePlayerEntity(physicsEnabled: Bool = true) -> GKEntity {
     let entity = GKEntity()
     entity.addComponent(SceneNodeComponent(node: node))
     entity.addComponent(PlayerControlComponent())
+    entity.addComponent(GravityComponent())
     
     return entity
 }
