@@ -9,13 +9,15 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     private let debugInteractionMode: SCNInteractionMode
     private var previousUpdateTime: TimeInterval = 0
     
+    // SceneKit properties
     private var scene: SCNScene!
     private var playerNode: SCNNode!
     private var playerPhysics: SCNPhysicsBody?
     private var playerForce: SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
     
-    private let sceneNodeComponentSystem = GKComponentSystem(componentClass: SceneNodeComponent.self)
+    // GameplayKit properties
     private let gridPositionedComponentSystem = GKComponentSystem(componentClass: GridPositionedComponent.self)
+    private let playerControlComponentSystem = GKComponentSystem(componentClass: PlayerControlComponent.self)
     private var entities: [GKEntity] = []
     
     public init(
@@ -95,16 +97,16 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         }
         
         // Add components to their corresponding systems
-        sceneNodeComponentSystem.addComponent(foundIn: entity)
         gridPositionedComponentSystem.addComponent(foundIn: entity)
+        playerControlComponentSystem.addComponent(foundIn: entity)
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         let deltaTime = time - previousUpdateTime
         
         // Perform updates to the components through their corresponding systems
-        sceneNodeComponentSystem.update(deltaTime: deltaTime)
         gridPositionedComponentSystem.update(deltaTime: deltaTime)
+        playerControlComponentSystem.update(deltaTime: deltaTime)
         
         previousUpdateTime = time
     }
@@ -124,31 +126,31 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     public override func keyDown(with event: NSEvent) {
         guard !debugModeEnabled && !event.isARepeat else { return }
         
-        let speed: CGFloat = 5
-        // TODO: Use actual direction
-        switch event.keyCode {
-        case KeyCodes.w:
-            updatePlayerVelocity(dz: -speed)
-        case KeyCodes.s:
-            updatePlayerVelocity(dz: speed)
-        case KeyCodes.a:
-            updatePlayerVelocity(dx: -speed)
-        case KeyCodes.d:
-            updatePlayerVelocity(dx: speed)
-        // TODO: Mouse camera control
-        case KeyCodes.arrowLeft:
-            playerPhysics?.applyTorque(SCNVector4(x: 0, y: 1, z: 0, w: 2), asImpulse: false)
-        case KeyCodes.arrowRight:
-            playerPhysics?.applyTorque(SCNVector4(x: 0, y: 1, z: 0, w: -2), asImpulse: false)
-        case KeyCodes.space:
-            playerPhysics?.applyForce(SCNVector3(x: 0, y: 500, z: 0), asImpulse: false)
-        default:
-            break
+        // Map the pressed key to motion input and add it to the corresponding components
+        if let motion = motionInput(for: event.keyCode) {
+            for case let component as PlayerControlComponent in playerControlComponentSystem.components {
+                component.motionInput.insert(motion)
+            }
         }
     }
     
     public override func keyUp(with event: NSEvent) {
-        updatePlayerVelocity(dx: 0, dz: 0)
+        // Map the pressed key to motion input and remove it from the corresponding components
+        if let motion = motionInput(for: event.keyCode) {
+            for case let component as PlayerControlComponent in playerControlComponentSystem.components {
+                component.motionInput.remove(motion)
+            }
+        }
+    }
+    
+    private func motionInput(for keyCode: UInt16) -> PlayerControlComponent.MotionInput? {
+        switch keyCode {
+        case KeyCodes.w: return .forward
+        case KeyCodes.s: return .back
+        case KeyCodes.a: return .left
+        case KeyCodes.d: return .right
+        default: return nil
+        }
     }
 }
 

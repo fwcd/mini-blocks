@@ -1,6 +1,7 @@
 import SceneKit
 import GameplayKit
 
+/// Adds a scene node to the corresponding entity.
 class SceneNodeComponent: GKComponent {
     let node: SCNNode
     

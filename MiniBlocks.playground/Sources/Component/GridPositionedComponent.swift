@@ -1,5 +1,6 @@
 import GameplayKit
 
+/// Positions the associated node on the grid, this is useful for blocks.
 class GridPositionedComponent: GKComponent {
     @Box private var pos: GridPos
     

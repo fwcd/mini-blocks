@@ -24,6 +24,7 @@ func makePlayerEntity(physicsEnabled: Bool = true) -> GKEntity {
     // Create entity
     let entity = GKEntity()
     entity.addComponent(SceneNodeComponent(node: node))
+    entity.addComponent(PlayerControlComponent())
     
     return entity
 }
