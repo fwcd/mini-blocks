@@ -49,18 +49,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         scene = SCNScene(named: "MiniBlocksScene.scn")!
         
         // Add player
-        add(entity: makePlayerEntity(world: _world, physicsEnabled: !debugModeEnabled))
-        
-        // Set up another physics-affected node for testing
-        let otherBox = SCNBox(width: 1, height: 3, length: 1, chamferRadius: 0)
-        let otherPhysics = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: otherBox))
-        otherPhysics.isAffectedByGravity = true
-        otherPhysics.angularVelocityFactor = SCNVector3(x: 0, y: 1, z: 0) // constrain physics-based rotation to only rotation around y-axis (vertical)
-        otherPhysics.mass = 20
-        let otherNode = SCNNode(geometry: otherBox)
-        otherNode.position = SCNVector3(x: 0, y: 20, z: 8)
-        otherNode.physicsBody = otherPhysics
-        scene.rootNode.addChildNode(otherNode)
+        add(entity: makePlayerEntity(world: _world))
         
         // Set up light
         let light = SCNLight()
@@ -87,7 +76,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         sceneView.delegate = self
         sceneView.allowsCameraControl = debugModeEnabled
         sceneView.defaultCameraController.interactionMode = debugInteractionMode
-        sceneView.showsStatistics = debugModeEnabled
+        sceneView.showsStatistics = true
         sceneView.backgroundColor = NSColor.black
         
         // Keep scene active, otherwise it will stop sending renderer(_:updateAtTime:)s when nothing changes. See also https://stackoverflow.com/questions/39336509/how-do-you-set-up-a-game-loop-for-scenekit

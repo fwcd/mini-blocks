@@ -27,10 +27,8 @@ func makeWorldEntity(world: Box<World>) -> GKEntity {
             material.diffuse.magnificationFilter = .none
             let blockBox = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
             blockBox.materials = [material]
-            let physics = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: blockBox))
             let blockNode = SCNNode(geometry: blockBox)
             blockNode.position = mapPos.with(y: topmost.y).asSCNVector
-            blockNode.physicsBody = physics
             node.addChildNode(blockNode)
         }
     }
