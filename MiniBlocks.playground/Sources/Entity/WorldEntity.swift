@@ -1,10 +1,10 @@
 import GameplayKit
 
-func makeDemoBlockPositions() -> [GridPos] {
+func makeDemoBlockPositions() -> [GridPos3] {
     let radius = 50
     return (-radius...radius).flatMap { x in
         (-radius...radius).map { z in
-            GridPos(
+            GridPos3(
                 x: x,
                 y: Int((-5 * sin(CGFloat(x) / 10) * cos(CGFloat(z) / 10)).rounded()),
                 z: z
@@ -13,7 +13,7 @@ func makeDemoBlockPositions() -> [GridPos] {
     }
 }
 
-func makeBlockEntity(pos: GridPos) -> GKEntity {
+func makeWorldEntity() -> GKEntity {
     // Create state
     let pos = Box(wrappedValue: pos)
     
