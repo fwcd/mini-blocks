@@ -4,16 +4,28 @@ import GameplayKit
 class PlayerControlComponent: GKComponent {
     var motionInput: MotionInput = []
     
-    private var speed: CGFloat = 2
+    private var speed: CGFloat = 1
+    private var pitchSpeed: CGFloat = 0.5
+    private var yawSpeed: CGFloat = 0.8
     private var secondsSinceLastUpdate: TimeInterval = 0
-    private var updateInterval: TimeInterval = 0.2
+    private var updateInterval: TimeInterval = 0.1
     
     private var node: SCNNode? {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
     
+    private var pitchAxis: SCNVector3? {
+        guard let node = node, let parent = node.parent else { return nil }
+        return node.convertVector(SCNVector3(x: 1, y: 0, z: 0), to: parent)
+    }
+    
+    private var yawAxis: SCNVector3 {
+        SCNVector3(x: 0, y: 1, z: 0)
+    }
+    
     private var velocity: SCNVector3? {
         guard let node = node, let parent = node.parent else { return nil }
+        
         var vector = SCNVector3(x: 0, y: 0, z: 0)
         
         if motionInput.contains(.forward) {
@@ -32,12 +44,42 @@ class PlayerControlComponent: GKComponent {
         return node.convertVector(vector, to: parent)
     }
     
+    private var pitchAngularVelocity: CGFloat {
+        var angle: CGFloat = 0
+        
+        if motionInput.contains(.rotateUp) {
+            angle += pitchSpeed
+        }
+        if motionInput.contains(.rotateDown) {
+            angle -= pitchSpeed
+        }
+        
+        return angle
+    }
+    
+    private var yawAngularVelocity: CGFloat {
+        var angle: CGFloat = 0
+        
+        if motionInput.contains(.rotateLeft) {
+            angle += yawSpeed
+        }
+        if motionInput.contains(.rotateRight) {
+            angle -= yawSpeed
+        }
+        
+        return angle
+    }
+    
     /// A bit set that represents motion input, usually by the user.
     struct MotionInput: OptionSet {
         static let forward = MotionInput(rawValue: 1 << 0)
         static let back = MotionInput(rawValue: 1 << 1)
         static let left = MotionInput(rawValue: 1 << 2)
         static let right = MotionInput(rawValue: 1 << 3)
+        static let rotateLeft = MotionInput(rawValue: 1 << 4)
+        static let rotateRight = MotionInput(rawValue: 1 << 5)
+        static let rotateUp = MotionInput(rawValue: 1 << 6)
+        static let rotateDown = MotionInput(rawValue: 1 << 7)
         
         let rawValue: Int
         
@@ -47,17 +89,23 @@ class PlayerControlComponent: GKComponent {
     }
     
     override func update(deltaTime seconds: TimeInterval) {
+        guard let node = node,
+              let velocity = velocity,
+              let pitchAxis = pitchAxis else { return }
+        
         secondsSinceLastUpdate += seconds
         
         if secondsSinceLastUpdate > updateInterval {
-            if let velocity = velocity {
-                node?.runAction(.move(by: velocity, duration: updateInterval))
-            }
+            node.runAction(.group([
+                .move(by: velocity, duration: updateInterval),
+                .rotate(by: pitchAngularVelocity, around: pitchAxis, duration: updateInterval),
+                .rotate(by: yawAngularVelocity, around: yawAxis, duration: updateInterval),
+            ]))
             secondsSinceLastUpdate = 0
         }
     }
     
     func jump() {
-        // TODO
+        // TODO: Implement jumping
     }
 }
