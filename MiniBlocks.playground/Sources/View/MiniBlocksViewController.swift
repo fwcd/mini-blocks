@@ -3,12 +3,12 @@ import SceneKit
 
 /// The application's primary view controller.
 public final class MiniBlocksViewController: NSViewController {
-    private let sceneFrame: CGRect
+    private let sceneFrame: CGRect?
     private let debugModeEnabled: Bool
     private let debugInteractionMode: SCNInteractionMode
     
     public init(
-        sceneFrame: CGRect,
+        sceneFrame: CGRect? = nil,
         debugModeEnabled: Bool = false,
         debugInteractionMode: SCNInteractionMode = .fly
     ) {
@@ -87,7 +87,7 @@ public final class MiniBlocksViewController: NSViewController {
         }
         
         // Set up SCNView
-        let sceneView = SCNView(frame: sceneFrame)
+        let sceneView = sceneFrame.map { SCNView(frame: $0) } ?? SCNView()
         sceneView.scene = scene
         sceneView.allowsCameraControl = debugModeEnabled
         sceneView.defaultCameraController.interactionMode = debugInteractionMode

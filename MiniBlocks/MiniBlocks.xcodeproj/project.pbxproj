@@ -9,19 +9,21 @@
 /* Begin PBXBuildFile section */
 		35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F3E927867ED10067F0F7 /* AppDelegate.swift */; };
 		35E7F3F027867ED20067F0F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F3EF27867ED20067F0F7 /* Assets.xcassets */; };
-		35E7F3F327867ED20067F0F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F3F127867ED20067F0F7 /* Main.storyboard */; };
-		35E7F40327867FA50067F0F7 /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40227867FA50067F0F7 /* Sources */; };
-		35E7F40527867FB20067F0F7 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40427867FB20067F0F7 /* Resources */; };
+		35E7F40C278682C60067F0F7 /* MiniBlocksScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40A278682C60067F0F7 /* MiniBlocksScene.scn */; };
+		35E7F40D278682C60067F0F7 /* TextureGrass.png in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40B278682C60067F0F7 /* TextureGrass.png */; };
+		35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */; };
+		35E7F412278683950067F0F7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F411278683950067F0F7 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		35E7F3E627867ED10067F0F7 /* MiniBlocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBlocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E7F3E927867ED10067F0F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E7F3EF27867ED20067F0F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		35E7F3F227867ED20067F0F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35E7F3F427867ED20067F0F7 /* MiniBlocks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniBlocks.entitlements; sourceTree = "<group>"; };
-		35E7F40227867FA50067F0F7 /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sources; path = ../../MiniBlocks.playground/Sources; sourceTree = "<group>"; };
-		35E7F40427867FB20067F0F7 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = ../../MiniBlocks.playground/Resources; sourceTree = "<group>"; };
+		35E7F40A278682C60067F0F7 /* MiniBlocksScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = MiniBlocksScene.scn; path = ../../MiniBlocks.playground/Resources/MiniBlocksScene.scn; sourceTree = "<group>"; };
+		35E7F40B278682C60067F0F7 /* TextureGrass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureGrass.png; path = ../../MiniBlocks.playground/Resources/TextureGrass.png; sourceTree = "<group>"; };
+		35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiniBlocksViewController.swift; path = ../../MiniBlocks.playground/Sources/View/MiniBlocksViewController.swift; sourceTree = "<group>"; };
+		35E7F411278683950067F0F7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,39 @@
 		35E7F3E827867ED10067F0F7 /* MiniBlocks */ = {
 			isa = PBXGroup;
 			children = (
-				35E7F40227867FA50067F0F7 /* Sources */,
-				35E7F40427867FB20067F0F7 /* Resources */,
+				35E7F408278682AA0067F0F7 /* PlaygroundSources */,
+				35E7F409278682B10067F0F7 /* PlaygroundResources */,
 				35E7F3E927867ED10067F0F7 /* AppDelegate.swift */,
+				35E7F411278683950067F0F7 /* main.swift */,
 				35E7F3EF27867ED20067F0F7 /* Assets.xcassets */,
-				35E7F3F127867ED20067F0F7 /* Main.storyboard */,
 				35E7F3F427867ED20067F0F7 /* MiniBlocks.entitlements */,
 			);
 			path = MiniBlocks;
+			sourceTree = "<group>";
+		};
+		35E7F408278682AA0067F0F7 /* PlaygroundSources */ = {
+			isa = PBXGroup;
+			children = (
+				35E7F40E278682CC0067F0F7 /* View */,
+			);
+			name = PlaygroundSources;
+			sourceTree = "<group>";
+		};
+		35E7F409278682B10067F0F7 /* PlaygroundResources */ = {
+			isa = PBXGroup;
+			children = (
+				35E7F40A278682C60067F0F7 /* MiniBlocksScene.scn */,
+				35E7F40B278682C60067F0F7 /* TextureGrass.png */,
+			);
+			name = PlaygroundResources;
+			sourceTree = "<group>";
+		};
+		35E7F40E278682CC0067F0F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,10 +149,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35E7F3F327867ED20067F0F7 /* Main.storyboard in Resources */,
+				35E7F40D278682C60067F0F7 /* TextureGrass.png in Resources */,
+				35E7F40C278682C60067F0F7 /* MiniBlocksScene.scn in Resources */,
 				35E7F3F027867ED20067F0F7 /* Assets.xcassets in Resources */,
-				35E7F40327867FA50067F0F7 /* Sources in Resources */,
-				35E7F40527867FB20067F0F7 /* Resources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,21 +163,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */,
+				35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */,
+				35E7F412278683950067F0F7 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		35E7F3F127867ED20067F0F7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35E7F3F227867ED20067F0F7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		35E7F3F527867ED20067F0F7 /* Debug */ = {
@@ -282,7 +299,6 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -309,7 +325,6 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
