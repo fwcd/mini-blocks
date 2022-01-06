@@ -39,28 +39,8 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         // Create scene
         scene = SCNScene(named: "MiniBlocksScene.scn")!
         
-        // Set up the player node with a camera
-        let playerHeight: CGFloat = 1.5
-        let playerShape = SCNPhysicsShape(
-            shapes: [SCNPhysicsShape(geometry: SCNBox(width: 1, height: playerHeight, length: 1, chamferRadius: 0))],
-            transforms: [NSValue(scnMatrix4: SCNMatrix4MakeTranslation(0, -playerHeight, 0))]
-        )
-        let playerCamera = SCNCamera()
-        let playerNode = SCNNode()
-        playerNode.camera = playerCamera
-        playerNode.position = SCNVector3(x: 0, y: 10, z: 15)
-        scene.rootNode.addChildNode(playerNode)
-        self.playerNode = playerNode
-        
-        // Add player physics if not in debug mode
-        if !debugModeEnabled {
-            let playerPhysics = SCNPhysicsBody(type: .dynamic, shape: playerShape)
-            playerPhysics.isAffectedByGravity = true
-            playerPhysics.angularVelocityFactor = SCNVector3(x: 0, y: 1, z: 0)
-            playerPhysics.friction = 0
-            playerNode.physicsBody = playerPhysics
-            self.playerPhysics = playerPhysics
-        }
+        // Add player
+        add(entity: makePlayerEntity(physicsEnabled: !debugModeEnabled))
         
         // Set up another physics-affected node for testing
         let otherBox = SCNBox(width: 1, height: 3, length: 1, chamferRadius: 0)
