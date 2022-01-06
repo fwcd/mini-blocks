@@ -173,8 +173,8 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
             
             // Rotate view
             controlPlayer { component in
-                component.rotateYaw(delta: -event.deltaX / 50)
-                component.rotatePitch(delta: -event.deltaY / 50)
+                component.rotateYaw(by: -event.deltaX / 50)
+                component.rotatePitch(by: -event.deltaY / 50)
             }
             
             // Keep mouse at center of window

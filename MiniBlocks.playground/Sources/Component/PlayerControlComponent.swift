@@ -1,6 +1,7 @@
 import GameplayKit
 
 private let angularValocityEpsilon: CGFloat = 0.01
+private let piHalf = CGFloat.pi / 2
 
 /// Lets the user control the associated scene node, usually a player.
 class PlayerControlComponent: GKComponent {
@@ -10,6 +11,7 @@ class PlayerControlComponent: GKComponent {
     private var pitchSpeed: CGFloat = 0.4
     private var yawSpeed: CGFloat = 0.3
     private var jumpSpeed: CGFloat = 1.5
+    private var pitchRange: ClosedRange<CGFloat> = -piHalf...piHalf
     private var throttler = Throttler(interval: 0.1)
     
     private var node: SCNNode? {
@@ -143,12 +145,17 @@ class PlayerControlComponent: GKComponent {
         }
     }
     
-    func rotatePitch(delta: CGFloat) {
-        guard let node = node else { return }
+    func rotatePitch(by delta: CGFloat) {
+        guard let node = node, canRotatePitch(by: delta) else { return }
         node.eulerAngles.x += delta * pitchSpeed
     }
     
-    func rotateYaw(delta: CGFloat) {
+    func rotateYaw(by delta: CGFloat) {
         node?.eulerAngles.y += delta * yawSpeed
+    }
+    
+    private func canRotatePitch(by delta: CGFloat) -> Bool {
+        guard let node = node else { return true }
+        return pitchRange.contains(node.eulerAngles.x + delta * pitchSpeed)
     }
 }
