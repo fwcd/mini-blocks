@@ -21,11 +21,22 @@ public final class MiniBlocksViewController: NSViewController {
         // Create scene
         let scene = SCNScene(named: "MiniBlocksScene.scn")!
         
-        // Set up and position camera
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
-        scene.rootNode.addChildNode(cameraNode)
+        // Set up the player node with a camera
+        let playerPhysics = SCNPhysicsBody()
+        playerPhysics.isAffectedByGravity = true
+        let playerNode = SCNNode()
+        playerNode.camera = SCNCamera()
+        playerNode.position = SCNVector3(x: 0, y: 10, z: 15)
+        playerNode.physicsBody = playerPhysics
+        playerNode.rotation = SCNVector4(x: 0.0, y: 1.0, z: 0.0, w: 0.0)
+        scene.rootNode.addChildNode(playerNode)
+        
+        // Spin the player around!
+        let spin = CABasicAnimation(keyPath: "rotation.w") // only animate the angle
+        spin.toValue = 2.0 * Double.pi
+        spin.duration = 40
+        spin.repeatCount = HUGE // for infinity
+        playerNode.addAnimation(spin, forKey: "spin around")
         
         // Set up light
         let light = SCNLight()
