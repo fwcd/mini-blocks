@@ -216,10 +216,6 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         case KeyCodes.s: return .back
         case KeyCodes.a: return .left
         case KeyCodes.d: return .right
-        case KeyCodes.arrowUp: return .rotateUp
-        case KeyCodes.arrowDown: return .rotateDown
-        case KeyCodes.arrowLeft: return .rotateLeft
-        case KeyCodes.arrowRight: return .rotateRight
         case KeyCodes.space: return .jump
         default: return nil
         }

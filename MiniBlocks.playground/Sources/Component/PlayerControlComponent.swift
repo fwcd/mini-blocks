@@ -35,17 +35,6 @@ class PlayerControlComponent: GKComponent {
         entity?.component(ofType: GravityComponent.self)
     }
     
-    private var pitchAxis: SCNVector3? {
-        guard let node = node, let parent = node.parent else { return nil }
-        var rotated = node.convertVector(SCNVector3(x: 1, y: 0, z: 0), to: parent)
-        rotated.y = 0
-        return rotated
-    }
-    
-    private var yawAxis: SCNVector3 {
-        SCNVector3(x: 0, y: 1, z: 0)
-    }
-    
     private var velocity: SCNVector3? {
         guard let node = node, let parent = node.parent else { return nil }
         
@@ -75,42 +64,12 @@ class PlayerControlComponent: GKComponent {
         return rotated
     }
     
-    private var pitchAngularVelocity: CGFloat {
-        var angle: CGFloat = 0
-        
-        if motionInput.contains(.rotateUp) {
-            angle += pitchSpeed
-        }
-        if motionInput.contains(.rotateDown) {
-            angle -= pitchSpeed
-        }
-        
-        return angle
-    }
-    
-    private var yawAngularVelocity: CGFloat {
-        var angle: CGFloat = 0
-        
-        if motionInput.contains(.rotateLeft) {
-            angle += yawSpeed
-        }
-        if motionInput.contains(.rotateRight) {
-            angle -= yawSpeed
-        }
-        
-        return angle
-    }
-    
     /// A bit set that represents motion input, usually by the user.
     struct MotionInput: OptionSet {
         static let forward = MotionInput(rawValue: 1 << 0)
         static let back = MotionInput(rawValue: 1 << 1)
         static let left = MotionInput(rawValue: 1 << 2)
         static let right = MotionInput(rawValue: 1 << 3)
-        static let rotateLeft = MotionInput(rawValue: 1 << 4)
-        static let rotateRight = MotionInput(rawValue: 1 << 5)
-        static let rotateUp = MotionInput(rawValue: 1 << 6)
-        static let rotateDown = MotionInput(rawValue: 1 << 7)
         static let jump = MotionInput(rawValue: 1 << 8)
         static let sprint = MotionInput(rawValue: 1 << 9)
         
@@ -123,8 +82,7 @@ class PlayerControlComponent: GKComponent {
     
     override func update(deltaTime seconds: TimeInterval) {
         guard let node = node,
-              let velocity = velocity,
-              let pitchAxis = pitchAxis else { return }
+              let velocity = velocity else { return }
         
         let interval = throttler.interval
         throttler.run(deltaTime: seconds) {
@@ -138,13 +96,6 @@ class PlayerControlComponent: GKComponent {
             
             // Apply the movement
             node.runAction(.move(by: repulsion + velocity, duration: interval))
-            
-            // Rotate either pitch or yaw
-            if abs(pitchAngularVelocity) > angularValocityEpsilon {
-                node.runAction(.rotate(by: pitchAngularVelocity, around: pitchAxis, duration: interval))
-            } else if abs(yawAngularVelocity) > angularValocityEpsilon {
-                node.runAction(.rotate(by: yawAngularVelocity, around: yawAxis, duration: interval))
-            }
             
             // Jump if possible/needed
             if motionInput.contains(.jump),
