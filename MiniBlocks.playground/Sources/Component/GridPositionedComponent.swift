@@ -2,11 +2,13 @@ import GameplayKit
 
 class GridPositionedComponent: GKComponent {
     @Box private var pos: GridPos
-    private let node: SCNNode
     
-    init(pos: Box<GridPos>, node: SCNNode) {
+    private var node: SCNNode? {
+        entity?.component(ofType: SceneNodeComponent.self)?.node
+    }
+    
+    init(pos: Box<GridPos>) {
         _pos = pos
-        self.node = node
         super.init()
     }
     
@@ -15,6 +17,6 @@ class GridPositionedComponent: GKComponent {
     }
     
     override func update(deltaTime seconds: TimeInterval) {
-        node.position = pos.asSCNVector
+        node?.position = pos.asSCNVector
     }
 }

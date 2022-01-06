@@ -29,7 +29,7 @@ func makeBlockEntity(pos: GridPos) -> GKEntity {
     // Create entity
     let entity = GKEntity()
     entity.addComponent(SceneNodeComponent(node: node))
-    entity.addComponent(GridPositionedComponent(pos: pos, node: node))
+    entity.addComponent(GridPositionedComponent(pos: pos))
     
     return entity
 }
