@@ -133,12 +133,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     public override func keyDown(with event: NSEvent) {
         guard !debugModeEnabled && !event.isARepeat else { return }
         
-        if event.keyCode == KeyCodes.space {
-            // Jump!
-            for case let component as PlayerControlComponent in playerControlComponentSystem.components {
-                component.jump()
-            }
-        } else if let motion = motionInput(for: event.keyCode) {
+        if let motion = motionInput(for: event.keyCode) {
             // Pressed key could be mapped motion input, add it to the corresponding components
             for case let component as PlayerControlComponent in playerControlComponentSystem.components {
                 component.motionInput.insert(motion)
@@ -165,6 +160,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         case KeyCodes.arrowDown: return .rotateDown
         case KeyCodes.arrowLeft: return .rotateLeft
         case KeyCodes.arrowRight: return .rotateRight
+        case KeyCodes.space: return .jump
         default: return nil
         }
     }

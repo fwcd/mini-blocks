@@ -91,6 +91,7 @@ class PlayerControlComponent: GKComponent {
         static let rotateRight = MotionInput(rawValue: 1 << 5)
         static let rotateUp = MotionInput(rawValue: 1 << 6)
         static let rotateDown = MotionInput(rawValue: 1 << 7)
+        static let jump = MotionInput(rawValue: 1 << 8)
         
         let rawValue: Int
         
@@ -115,15 +116,14 @@ class PlayerControlComponent: GKComponent {
                 .rotate(by: pitchAngularVelocity, around: pitchAxis, duration: interval),
                 .rotate(by: yawAngularVelocity, around: yawAxis, duration: interval),
             ]))
-        }
-    }
-    
-    func jump() {
-        guard let gravityComponent = gravityComponent else { return }
- 
-        if gravityComponent.isOnGround {
-            gravityComponent.velocity = jumpSpeed
-            gravityComponent.leavesGround = true
+            
+            // Jump if possible/needed
+            if motionInput.contains(.jump),
+               let gravityComponent = gravityComponent,
+               gravityComponent.isOnGround {
+                gravityComponent.velocity = jumpSpeed
+                gravityComponent.leavesGround = true
+            }
         }
     }
 }
