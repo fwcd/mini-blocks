@@ -118,7 +118,7 @@ class PlayerControlComponent: GKComponent {
             let repulsion: SCNVector3 = world.flatMap { world in
                 let currentPos = GridPos3(rounding: feetPos)
                 let nextPos = GridPos3(rounding: feetPos + velocity)
-                return world.block(at: nextPos).map { _ in (currentPos - nextPos).asSCNVector }
+                return world.block(at: nextPos).map { _ in (currentPos - nextPos).asSCNVector * speed }
             } ?? SCNVector3(x: 0, y: 0, z: 0)
             
             // Apply the movement

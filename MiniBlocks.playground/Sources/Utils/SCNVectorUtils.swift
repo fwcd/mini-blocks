@@ -25,4 +25,16 @@ extension SCNVector3 {
     static prefix func -(rhs: Self) -> Self {
         Self(x: -rhs.x, y: -rhs.y, z: -rhs.z)
     }
+    
+    static func *(lhs: Self, rhs: CGFloat) -> Self {
+        Self(x: lhs.x * rhs, y: lhs.y * rhs, z: lhs.z * rhs)
+    }
+    
+    static func *(lhs: CGFloat, rhs: Self) -> Self {
+        rhs * lhs
+    }
+    
+    static func /(lhs: Self, rhs: CGFloat) -> Self {
+        Self(x: lhs.x / rhs, y: lhs.y / rhs, z: lhs.z / rhs)
+    }
 }
