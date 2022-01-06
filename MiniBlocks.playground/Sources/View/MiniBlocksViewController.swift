@@ -57,7 +57,7 @@ public final class MiniBlocksViewController: NSViewController {
         if !debugModeEnabled {
             let playerPhysics = SCNPhysicsBody(type: .dynamic, shape: playerShape)
             playerPhysics.isAffectedByGravity = true
-            playerPhysics.angularVelocityFactor = SCNVector3(x: 0, y: 0, z: 0)
+            playerPhysics.angularVelocityFactor = SCNVector3(x: 0, y: 1, z: 0)
             playerPhysics.friction = 0
             playerNode.physicsBody = playerPhysics
             self.playerPhysics = playerPhysics
@@ -139,7 +139,7 @@ public final class MiniBlocksViewController: NSViewController {
         guard !debugModeEnabled && !event.isARepeat else { return }
         
         let speed: CGFloat = 5
-        // TODO: Use actual direction?
+        // TODO: Use actual direction
         switch event.keyCode {
         case KeyCodes.w:
             updatePlayerVelocity(dz: -speed)
@@ -149,6 +149,11 @@ public final class MiniBlocksViewController: NSViewController {
             updatePlayerVelocity(dx: -speed)
         case KeyCodes.d:
             updatePlayerVelocity(dx: speed)
+        // TODO: Mouse camera control
+        case KeyCodes.arrowLeft:
+            playerPhysics?.applyTorque(SCNVector4(x: 0, y: 1, z: 0, w: 2), asImpulse: false)
+        case KeyCodes.arrowRight:
+            playerPhysics?.applyTorque(SCNVector4(x: 0, y: 1, z: 0, w: -2), asImpulse: false)
         case KeyCodes.space:
             playerPhysics?.applyForce(SCNVector3(x: 0, y: 500, z: 0), asImpulse: false)
         default:
