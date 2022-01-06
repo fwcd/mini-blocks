@@ -27,11 +27,11 @@ struct GridPos3: Hashable, Codable {
     }
     
     static func +(lhs: Self, rhs: Self) -> Self {
-        GridPos3(x: lhs.x + rhs.x, y: lhs.y + rhs.y, z: lhs.z + rhs.z)
+        Self(x: lhs.x + rhs.x, y: lhs.y + rhs.y, z: lhs.z + rhs.z)
     }
     
     static func -(lhs: Self, rhs: Self) -> Self {
-        GridPos3(x: lhs.x - rhs.x, y: lhs.y - rhs.y, z: lhs.z - rhs.z)
+        Self(x: lhs.x - rhs.x, y: lhs.y - rhs.y, z: lhs.z - rhs.z)
     }
     
     static func +=(lhs: inout Self, rhs: Self) {
@@ -44,5 +44,9 @@ struct GridPos3: Hashable, Codable {
         lhs.x -= rhs.x
         lhs.y -= rhs.y
         lhs.z -= rhs.z
+    }
+    
+    static prefix func -(rhs: Self) -> Self {
+        Self(x: -rhs.x, y: -rhs.y, z: -rhs.z)
     }
 }

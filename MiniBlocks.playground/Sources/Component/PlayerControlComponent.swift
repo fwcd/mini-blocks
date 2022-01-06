@@ -113,16 +113,16 @@ class PlayerControlComponent: GKComponent {
         
         let interval = throttler.interval
         throttler.run(deltaTime: seconds) {
-            // Move if possible
-            let canMove = world.map { world in
-                let nextPos = GridPos3(rounding: node.position + feetOffset + velocity) + GridPos3(y: 1)
-                // We allow moving if the target pos doesn't have a block or if
-                // we already are stuck in a block.
-                return world.block(at: nextPos) == nil
-            } ?? true
-            if canMove {
-                node.runAction(.move(by: velocity, duration: interval))
-            }
+            // Running into terrain pushes the player back
+            let feetPos = node.position + feetOffset + SCNVector3(x: 0, y: 1, z: 0)
+            let repulsion: SCNVector3 = world.flatMap { world in
+                let currentPos = GridPos3(rounding: feetPos)
+                let nextPos = GridPos3(rounding: feetPos + velocity)
+                return world.block(at: nextPos).map { _ in (currentPos - nextPos).asSCNVector }
+            } ?? SCNVector3(x: 0, y: 0, z: 0)
+            
+            // Apply the movement
+            node.runAction(.move(by: repulsion + velocity, duration: interval))
             
             // Rotate either pitch or yaw
             if abs(pitchAngularVelocity) > angularValocityEpsilon {
