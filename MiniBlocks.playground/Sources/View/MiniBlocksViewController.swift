@@ -159,6 +159,17 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         }
     }
     
+    public override func flagsChanged(with event: NSEvent) {
+        // Sprint on shift
+        controlPlayer { component in
+            if event.modifierFlags.contains(.shift) {
+                component.motionInput.insert(.sprint)
+            } else {
+                component.motionInput.remove(.sprint)
+            }
+        }
+    }
+    
     public override func mouseDown(with event: NSEvent) {
         mouseCaptured = true
     }

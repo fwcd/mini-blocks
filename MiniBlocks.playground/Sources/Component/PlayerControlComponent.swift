@@ -7,12 +7,17 @@ private let piHalf = CGFloat.pi / 2
 class PlayerControlComponent: GKComponent {
     var motionInput: MotionInput = []
     
-    private var speed: CGFloat = 1
+    private var baseSpeed: CGFloat = 0.8
     private var pitchSpeed: CGFloat = 0.4
     private var yawSpeed: CGFloat = 0.3
     private var jumpSpeed: CGFloat = 1.5
+    private var sprintFactor: CGFloat = 1.5
     private var pitchRange: ClosedRange<CGFloat> = -piHalf...piHalf
     private var throttler = Throttler(interval: 0.1)
+    
+    private var speed: CGFloat {
+        baseSpeed * (motionInput.contains(.sprint) ? sprintFactor : 1)
+    }
     
     private var node: SCNNode? {
         entity?.component(ofType: SceneNodeComponent.self)?.node
@@ -107,10 +112,11 @@ class PlayerControlComponent: GKComponent {
         static let rotateUp = MotionInput(rawValue: 1 << 6)
         static let rotateDown = MotionInput(rawValue: 1 << 7)
         static let jump = MotionInput(rawValue: 1 << 8)
+        static let sprint = MotionInput(rawValue: 1 << 9)
         
-        let rawValue: Int
+        let rawValue: UInt16
         
-        init(rawValue: Int) {
+        init(rawValue: UInt16) {
             self.rawValue = rawValue
         }
     }
