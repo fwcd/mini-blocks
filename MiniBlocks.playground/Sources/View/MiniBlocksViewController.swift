@@ -11,6 +11,20 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     // MARK: View properties
     
     private let sceneFrame: CGRect?
+    private var receivedFirstMouseEvent: Bool = false
+    private var mouseCaptured: Bool = false {
+        willSet {
+            if newValue != mouseCaptured {
+                if newValue {
+                    receivedFirstMouseEvent = false
+                    warpMouseCursorToCenter()
+                    CGDisplayHideCursor(kCGNullDirectDisplay)
+                } else {
+                    CGDisplayShowCursor(kCGNullDirectDisplay)
+                }
+            }
+        }
+    }
     
     // MARK: Model properties
     
@@ -128,7 +142,10 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     public override func keyDown(with event: NSEvent) {
         guard !debugModeEnabled && !event.isARepeat else { return }
         
-        if let motion = motionInput(for: event.keyCode) {
+        if event.keyCode == KeyCodes.escape {
+            // Uncapture cursor when user presses escape
+            mouseCaptured = false
+        } else if let motion = motionInput(for: event.keyCode) {
             // Pressed key could be mapped motion input, add it to the corresponding components
             controlPlayer { component in
                 component.motionInput.insert(motion)
@@ -145,15 +162,28 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         }
     }
     
+    public override func mouseDown(with event: NSEvent) {
+        mouseCaptured = true
+    }
+    
     public override func mouseMoved(with event: NSEvent) {
-        // Rotate view
-        controlPlayer { component in
-            component.rotateYaw(delta: -event.deltaX / 50)
-            component.rotatePitch(delta: -event.deltaY / 50)
+        print("Delta x: \(event.deltaX), \(event.deltaY)")
+        if mouseCaptured {
+            // Skip first event since this one may have large deltas
+            guard receivedFirstMouseEvent else {
+                receivedFirstMouseEvent = true
+                return
+            }
+            
+            // Rotate view
+            controlPlayer { component in
+                component.rotateYaw(delta: -event.deltaX / 50)
+                component.rotatePitch(delta: -event.deltaY / 50)
+            }
+            
+            // Keep mouse at center of window
+            warpMouseCursorToCenter()
         }
-        
-        // Lock mouse to center of window
-        warpMouseCursorToCenter()
     }
     
     private func warpMouseCursorToCenter() {
