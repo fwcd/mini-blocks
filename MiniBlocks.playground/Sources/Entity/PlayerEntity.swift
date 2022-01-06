@@ -25,6 +25,7 @@ func makePlayerEntity(world: Box<World>, physicsEnabled: Bool = true) -> GKEntit
     entity.addComponent(WorldComponent(world: world))
     entity.addComponent(SceneNodeComponent(node: node))
     entity.addComponent(PlayerControlComponent())
+    entity.addComponent(HeightAboveGroundComponent(heightAboveGround: height))
     entity.addComponent(GravityComponent())
     
     return entity
