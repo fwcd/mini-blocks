@@ -19,9 +19,6 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     // MARK: SceneKit properties
     
     private var scene: SCNScene!
-    private var playerNode: SCNNode!
-    private var playerPhysics: SCNPhysicsBody?
-    private var playerForce: SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
     
     // MARK: GameplayKit properties
     
@@ -122,18 +119,6 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         previousUpdateTime = time
     }
     
-    private func updatePlayerVelocity(dx: CGFloat? = nil, dy: CGFloat? = nil, dz: CGFloat? = nil) {
-        if let playerPhysics = playerPhysics {
-            let velocity = playerPhysics.velocity
-            print(playerPhysics.velocity)
-            playerPhysics.velocity = SCNVector3(
-                x: dx ?? velocity.x,
-                y: dy ?? velocity.y,
-                z: dz ?? velocity.z
-            )
-        }
-    }
-    
     public override func keyDown(with event: NSEvent) {
         guard !debugModeEnabled && !event.isARepeat else { return }
         
@@ -155,7 +140,21 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     }
     
     public override func mouseMoved(with event: NSEvent) {
-        print("Moved by \(event.deltaX) \(event.deltaY)")
+        print("Moved by \(event.deltaX), \(event.deltaY)")
+        
+        // Lock mouse to center of window
+        warpMouseCursorToCenter()
+    }
+    
+    private func warpMouseCursorToCenter() {
+        if let window = view.window, let screen = window.screen {
+            let frameInWindow = view.convert(view.bounds, to: nil)
+            let frameOnScreen = window.convertToScreen(frameInWindow)
+            let midX = frameOnScreen.midX
+            // AppKit and Quartz use different coordinate systems so we need to convert here
+            let midY = screen.frame.size.height - frameOnScreen.midY
+            CGWarpMouseCursorPosition(CGPoint(x: midX, y: midY))
+        }
     }
     
     private func motionInput(for keyCode: UInt16) -> PlayerControlComponent.MotionInput? {
