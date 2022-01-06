@@ -30,7 +30,9 @@ class PlayerControlComponent: GKComponent {
     
     private var pitchAxis: SCNVector3? {
         guard let node = node, let parent = node.parent else { return nil }
-        return node.convertVector(SCNVector3(x: 1, y: 0, z: 0), to: parent)
+        var rotated = node.convertVector(SCNVector3(x: 1, y: 0, z: 0), to: parent)
+        rotated.y = 0
+        return rotated
     }
     
     private var yawAxis: SCNVector3 {
@@ -139,5 +141,16 @@ class PlayerControlComponent: GKComponent {
                 gravityComponent.leavesGround = true
             }
         }
+    }
+    
+    func rotatePitch(delta: CGFloat) {
+        guard let node = node else { return }
+        SCNTransaction.animationDuration = 0.1
+        node.eulerAngles.x += delta * pitchSpeed
+    }
+    
+    func rotateYaw(delta: CGFloat) {
+        SCNTransaction.animationDuration = 0.1
+        node?.eulerAngles.y += delta * yawSpeed
     }
 }

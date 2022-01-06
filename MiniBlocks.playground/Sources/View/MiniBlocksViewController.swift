@@ -119,12 +119,18 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         previousUpdateTime = time
     }
     
+    private func controlPlayer(with action: (PlayerControlComponent) -> Void) {
+        for case let component as PlayerControlComponent in playerControlComponentSystem.components {
+            action(component)
+        }
+    }
+    
     public override func keyDown(with event: NSEvent) {
         guard !debugModeEnabled && !event.isARepeat else { return }
         
         if let motion = motionInput(for: event.keyCode) {
             // Pressed key could be mapped motion input, add it to the corresponding components
-            for case let component as PlayerControlComponent in playerControlComponentSystem.components {
+            controlPlayer { component in
                 component.motionInput.insert(motion)
             }
         }
@@ -133,7 +139,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     public override func keyUp(with event: NSEvent) {
         if let motion = motionInput(for: event.keyCode) {
             // Pressed key could be mapped motion input, remove it from the corresponding components
-            for case let component as PlayerControlComponent in playerControlComponentSystem.components {
+            controlPlayer { component in
                 component.motionInput.remove(motion)
             }
         }
@@ -141,6 +147,12 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     
     public override func mouseMoved(with event: NSEvent) {
         print("Moved by \(event.deltaX), \(event.deltaY)")
+        
+        // Rotate view
+        controlPlayer { component in
+            component.rotateYaw(delta: -event.deltaX / 10)
+            component.rotatePitch(delta: -event.deltaY / 10)
+        }
         
         // Lock mouse to center of window
         warpMouseCursorToCenter()
