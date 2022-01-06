@@ -61,4 +61,16 @@ struct GridPos3: Hashable, Codable {
     static func /(lhs: Self, rhs: Int) -> Self {
         Self(x: lhs.x / rhs, y: lhs.y / rhs, z: lhs.z / rhs)
     }
+    
+    static func *=(lhs: inout Self, rhs: Int) {
+        lhs.x *= rhs
+        lhs.y *= rhs
+        lhs.z *= rhs
+    }
+    
+    static func /=(lhs: inout Self, rhs: Int) {
+        lhs.x /= rhs
+        lhs.y /= rhs
+        lhs.z /= rhs
+    }
 }

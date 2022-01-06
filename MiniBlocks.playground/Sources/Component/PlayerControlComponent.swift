@@ -47,20 +47,25 @@ class PlayerControlComponent: GKComponent {
         var vector = SCNVector3(x: 0, y: 0, z: 0)
         
         if motionInput.contains(.forward) {
-            vector.z -= speed
+            vector.z -= 1
         }
         if motionInput.contains(.back) {
-            vector.z += speed
+            vector.z += 1
         }
         if motionInput.contains(.left) {
-            vector.x -= speed
+            vector.x -= 1
         }
         if motionInput.contains(.right) {
-            vector.x += speed
+            vector.x += 1
         }
         
         var rotated = node.convertVector(vector, to: parent)
         rotated.y = 0 // disable vertical movement
+        
+        if rotated.length > 0 {
+            rotated.normalize()
+            rotated *= speed
+        }
         
         return rotated
     }
