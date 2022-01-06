@@ -49,7 +49,10 @@ class PlayerControlComponent: GKComponent {
             vector.x += speed
         }
         
-        return node.convertVector(vector, to: parent)
+        var rotated = node.convertVector(vector, to: parent)
+        rotated.y = 0 // disable vertical movement
+        
+        return rotated
     }
     
     private var pitchAngularVelocity: CGFloat {
