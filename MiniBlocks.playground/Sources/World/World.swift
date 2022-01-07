@@ -5,7 +5,7 @@ struct World {
     var map: [GridPos2: Strip] = [:]
     
     /// Generates a world.
-    static func generate(radius: Int = 50, generator y: (GridPos2) -> Int) -> World {
+    static func generate(radius: Int = 48, generator y: (GridPos2) -> Int) -> World {
         World(map: Dictionary(uniqueKeysWithValues:
             (-radius...radius).flatMap { (x: Int) in
                 (-radius...radius).map { (z: Int) in
@@ -19,7 +19,7 @@ struct World {
     }
     
     /// Creates a simple demo world using a little bit of trigonometry.
-    static func wavyGrassHills(radius: Int = 50) -> World {
+    static func wavyGrassHills(radius: Int = 48) -> World {
         generate(radius: radius) { pos in
             Int((-5 * sin(CGFloat(pos.x) / 10) * cos(CGFloat(pos.z) / 10)).rounded())
         }
