@@ -1,4 +1,4 @@
-//: An open-world sandbox game.
+//: A procedurally generated open-world sandbox game.
 
 // +------------------------------------------------+
 // | Please make sure that your playgrounds preview |
