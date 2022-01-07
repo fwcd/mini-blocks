@@ -13,6 +13,11 @@ struct ChunkPos: Hashable, Codable, Sequence {
         GridPos2(x: (x + 1) * ChunkConstants.size, z: (z + 1) * ChunkConstants.size)
     }
     
+    init(containing pos: GridPos2) {
+        x = pos.x.floorDiv(ChunkConstants.size)
+        z = pos.z.floorDiv(ChunkConstants.size)
+    }
+    
     init(x: Int = 0, z: Int = 0) {
         self.x = x
         self.z = z

@@ -44,6 +44,7 @@
 		35EA352427889B560066DD82 /* ChunkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352327889B560066DD82 /* ChunkConstants.swift */; };
 		35EA352627889CBE0066DD82 /* GridIterator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352527889CBE0066DD82 /* GridIterator2.swift */; };
 		35EA353627889DD30066DD82 /* GridIterator2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA353527889DD30066DD82 /* GridIterator2Tests.swift */; };
+		35EA35382788A09E0066DD82 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35372788A09E0066DD82 /* MathUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		35EA352527889CBE0066DD82 /* GridIterator2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridIterator2.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridIterator2.swift; sourceTree = "<group>"; };
 		35EA352B27889DA10066DD82 /* MiniBlocksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniBlocksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EA353527889DD30066DD82 /* GridIterator2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridIterator2Tests.swift; sourceTree = "<group>"; };
+		35EA35372788A09E0066DD82 /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MathUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/MathUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				35A0C297278753AE00FA8570 /* Throttler.swift */,
 				3546255727878798000489E8 /* SceneKitUtils.swift */,
 				352D7A452787BD70008FB939 /* CoreGraphicsUtils.swift */,
+				35EA35372788A09E0066DD82 /* MathUtils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				35E7F416278688180067F0F7 /* KeyCodes.swift in Sources */,
 				35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */,
 				35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */,
+				35EA35382788A09E0066DD82 /* MathUtils.swift in Sources */,
 				352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */,
 				35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */,
 				35EA352427889B560066DD82 /* ChunkConstants.swift in Sources */,
