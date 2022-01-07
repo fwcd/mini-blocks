@@ -11,7 +11,7 @@ struct World: Sequence {
     /// Fetches the strip at the given position.
     subscript(pos: GridPos2) -> Strip {
         get { storedStrips[pos] ?? generator.generate(at: pos) }
-        set { storedStrips[pos] = newValue.nilIfEmpty }
+        set { storedStrips[pos] = newValue }
     }
     
     /// Creates an iterator over the strips.

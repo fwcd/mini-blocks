@@ -54,40 +54,57 @@ class WorldLoadComponent: GKComponent {
             let currentChunks = Set(loadedChunks.keys)
             let chunksToLoad = requestedChunks.subtracting(currentChunks)
             let chunksToUnload = currentChunks.subtracting(requestedChunks)
+            let stripsToReload = dirtyStrips.filter { !chunksToLoad.contains(ChunkPos(containing: $0)) }
             
             // Unload chunks by removing the corresponding scene nodes from their parents
-            for pos in chunksToUnload {
-                if let chunkNode = loadedChunks[pos] {
+            for chunkPos in chunksToUnload {
+                if let chunkNode = loadedChunks[chunkPos] {
                     chunkNode.removeFromParentNode()
-                    loadedChunks[pos] = nil
+                    loadedChunks[chunkPos] = nil
                 }
             }
             
             // Load chunks by creating the corresponding scene nodes and attaching them to the world node
-            for pos in chunksToLoad {
-                if let chunkNode = loadChunk(at: pos) {
-                    node.addChildNode(chunkNode)
-                    loadedChunks[pos] = chunkNode
+            for chunkPos in chunksToLoad {
+                let chunkNode = loadChunk(at: chunkPos)
+                node.addChildNode(chunkNode)
+                loadedChunks[chunkPos] = chunkNode
+            }
+            
+            // Reload dirty strips that aren't in the newly loaded chunks
+            for pos in stripsToReload {
+                let chunkPos = ChunkPos(containing: pos)
+                if let chunkNode = loadedChunks[chunkPos] {
+                    // TODO: Investigate efficiency here?
+                    for blockNode in chunkNode.childNodes where GridPos3(rounding: blockNode.position).asGridPos2 == pos {
+                        blockNode.removeFromParentNode()
+                    }
+                    loadStrip(at: pos, into: chunkNode)
                 }
             }
         }
     }
     
-    private func loadChunk(at chunkPos: ChunkPos) -> SCNNode? {
-        guard let world = world else { return nil }
+    private func loadChunk(at chunkPos: ChunkPos) -> SCNNode {
         let chunkNode = SCNNode()
         
         for pos in chunkPos {
-            for (y, block) in world[pos] {
-                let blockBox = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
-                blockBox.materials = [loadMaterial(for: block)]
-                let blockNode = SCNNode(geometry: blockBox)
-                blockNode.position = pos.with(y: y).asSCNVector
-                chunkNode.addChildNode(blockNode)
-            }
+            loadStrip(at: pos, into: chunkNode)
         }
         
         return chunkNode
+    }
+    
+    private func loadStrip(at pos: GridPos2, into chunkNode: SCNNode) {
+        guard let world = world else { return }
+        
+        for (y, block) in world[pos] {
+            let blockBox = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
+            blockBox.materials = [loadMaterial(for: block)]
+            let blockNode = SCNNode(geometry: blockBox)
+            blockNode.position = pos.with(y: y).asSCNVector
+            chunkNode.addChildNode(blockNode)
+        }
     }
     
     private func loadMaterial(for block: Block) -> SCNMaterial {
