@@ -44,9 +44,9 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     
     public init(
         sceneFrame: CGRect? = nil,
+        worldGenerator: WorldGeneratorType = .wavyHills,
         debugModeEnabled: Bool = false,
-        debugInteractionMode: SCNInteractionMode = .fly,
-        worldGenerator: WorldGeneratorType = .wavyHills
+        debugInteractionMode: SCNInteractionMode = .fly
     ) {
         self.sceneFrame = sceneFrame
         self.debugModeEnabled = debugModeEnabled
