@@ -72,6 +72,8 @@ class PlayerControlComponent: GKComponent {
         static let right = MotionInput(rawValue: 1 << 3)
         static let jump = MotionInput(rawValue: 1 << 8)
         static let sprint = MotionInput(rawValue: 1 << 9)
+        static let breakBlock = MotionInput(rawValue: 1 << 10)
+        static let useBlock = MotionInput(rawValue: 1 << 11)
         
         let rawValue: UInt16
         
@@ -104,14 +106,25 @@ class PlayerControlComponent: GKComponent {
                 gravityComponent.velocity = jumpSpeed
                 gravityComponent.leavesGround = true
             }
+            
+            // Break looked-at block if needed
+            if motionInput.contains(.breakBlock) {
+            }
+            
+            // Use looked-at block if needed
+            if motionInput.contains(.useBlock) {
+                
+            }
         }
     }
     
+    /// Rotates the node vertically by the given angle (in radians).
     func rotatePitch(by delta: CGFloat) {
         guard let node = node, canRotatePitch(by: delta) else { return }
         node.eulerAngles.x += delta * pitchSpeed
     }
     
+    /// Rotates the node horizontally by the given angle (in radians).
     func rotateYaw(by delta: CGFloat) {
         node?.eulerAngles.y += delta * yawSpeed
     }

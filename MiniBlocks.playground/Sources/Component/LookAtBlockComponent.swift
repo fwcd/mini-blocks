@@ -5,6 +5,9 @@ class LookAtBlockComponent: GKComponent {
     private let reachDistance: CGFloat = 10
     private var lastHit: SCNNode? = nil
     
+    /// The looked at block pos.
+    private(set) var blockPos: GridPos3? = nil
+    
     var node: SCNNode? {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
@@ -26,9 +29,10 @@ class LookAtBlockComponent: GKComponent {
         let facing = parent.convertVector(node.worldFront, to: worldNode)
         let hits = worldNode.hitTestWithSegment(from: pos, to: pos + facing * reachDistance)
         
-        if let hit = hits.first?.node {
-            hit.geometry?.materials.first?.diffuse.intensity = 0.5
-            lastHit = hit
-        }
+        let hit = hits.first?.node
+        hit?.geometry?.materials.first?.diffuse.intensity = 0.5
+        
+        blockPos = hit.map { GridPos3(rounding: $0.position) }
+        lastHit = hit
     }
 }
