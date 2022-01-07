@@ -17,9 +17,6 @@ func makeWorldEntity(world: World) -> GKEntity {
     // Create node
     let node = SCNNode()
     
-    // TODO: Add e.g. a WorldUpdateComponent that efficiently (through deltas, e.g. on strip-basis) updates the scene
-    
-    
     // Create entity
     let entity = GKEntity()
     entity.addComponent(WorldComponent(world: world))
