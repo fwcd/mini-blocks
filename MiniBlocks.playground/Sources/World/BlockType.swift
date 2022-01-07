@@ -1,4 +1,4 @@
 /// A 'kind' of block.
-enum BlockType {
+enum BlockType: Hashable {
     case grass
 }
