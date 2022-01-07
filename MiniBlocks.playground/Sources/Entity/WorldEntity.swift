@@ -18,20 +18,7 @@ func makeWorldEntity(world: World) -> GKEntity {
     let node = SCNNode()
     
     // TODO: Add e.g. a WorldUpdateComponent that efficiently (through deltas, e.g. on strip-basis) updates the scene
-    for (mapPos, strip) in world {
-        if let topmost = strip.topmost {
-            // Create block node
-            let material = SCNMaterial()
-            material.diffuse.contents = NSImage(named: "TextureGrass.png")
-            material.diffuse.minificationFilter = .none
-            material.diffuse.magnificationFilter = .none
-            let blockBox = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
-            blockBox.materials = [material]
-            let blockNode = SCNNode(geometry: blockBox)
-            blockNode.position = mapPos.with(y: topmost.y).asSCNVector
-            node.addChildNode(blockNode)
-        }
-    }
+    
     
     // Create entity
     let entity = GKEntity()
