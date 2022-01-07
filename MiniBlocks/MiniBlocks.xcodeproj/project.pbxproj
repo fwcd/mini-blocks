@@ -42,8 +42,8 @@
 		35EA351E278896F50066DD82 /* WorldAssociationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA351D278896F50066DD82 /* WorldAssociationComponent.swift */; };
 		35EA352227889B200066DD82 /* ChunkPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352127889B200066DD82 /* ChunkPos.swift */; };
 		35EA352427889B560066DD82 /* ChunkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352327889B560066DD82 /* ChunkConstants.swift */; };
-		35EA352627889CBE0066DD82 /* Grid2Iterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352527889CBE0066DD82 /* Grid2Iterator.swift */; };
-		35EA353627889DD30066DD82 /* Grid2IteratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA353527889DD30066DD82 /* Grid2IteratorTests.swift */; };
+		35EA352627889CBE0066DD82 /* GridIterator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352527889CBE0066DD82 /* GridIterator2.swift */; };
+		35EA353627889DD30066DD82 /* GridIterator2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA353527889DD30066DD82 /* GridIterator2Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,9 +94,9 @@
 		35EA351D278896F50066DD82 /* WorldAssociationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldAssociationComponent.swift; sourceTree = "<group>"; };
 		35EA352127889B200066DD82 /* ChunkPos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChunkPos.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkPos.swift; sourceTree = "<group>"; };
 		35EA352327889B560066DD82 /* ChunkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChunkConstants.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkConstants.swift; sourceTree = "<group>"; };
-		35EA352527889CBE0066DD82 /* Grid2Iterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Grid2Iterator.swift; path = ../../MiniBlocks.playground/Sources/Utils/Grid2Iterator.swift; sourceTree = "<group>"; };
+		35EA352527889CBE0066DD82 /* GridIterator2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridIterator2.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridIterator2.swift; sourceTree = "<group>"; };
 		35EA352B27889DA10066DD82 /* MiniBlocksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniBlocksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		35EA353527889DD30066DD82 /* Grid2IteratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid2IteratorTests.swift; sourceTree = "<group>"; };
+		35EA353527889DD30066DD82 /* GridIterator2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridIterator2Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +153,7 @@
 				35A0C2A2278757A700FA8570 /* GridPos2.swift */,
 				35EA352127889B200066DD82 /* ChunkPos.swift */,
 				35EA352327889B560066DD82 /* ChunkConstants.swift */,
-				35EA352527889CBE0066DD82 /* Grid2Iterator.swift */,
+				35EA352527889CBE0066DD82 /* GridIterator2.swift */,
 				35A0C28727873D2900FA8570 /* Box.swift */,
 				35A0C297278753AE00FA8570 /* Throttler.swift */,
 				3546255727878798000489E8 /* SceneKitUtils.swift */,
@@ -246,7 +246,7 @@
 		35EA353427889DBA0066DD82 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				35EA353527889DD30066DD82 /* Grid2IteratorTests.swift */,
+				35EA353527889DD30066DD82 /* GridIterator2Tests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -369,7 +369,7 @@
 				35A0C28827873D2900FA8570 /* Box.swift in Sources */,
 				352D7A402787B211008FB939 /* LookAtBlockComponent.swift in Sources */,
 				35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */,
-				35EA352627889CBE0066DD82 /* Grid2Iterator.swift in Sources */,
+				35EA352627889CBE0066DD82 /* GridIterator2.swift in Sources */,
 				35D9E8A3278888190058F0E6 /* AmbientLightEntity.swift in Sources */,
 				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
 				35A0C296278752E900FA8570 /* GravityComponent.swift in Sources */,
@@ -392,7 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35EA353627889DD30066DD82 /* Grid2IteratorTests.swift in Sources */,
+				35EA353627889DD30066DD82 /* GridIterator2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,8 +18,8 @@ struct ChunkPos: Hashable, Codable, Sequence {
         self.z = z
     }
     
-    func makeIterator() -> Grid2Iterator {
-        Grid2Iterator(topLeftInclusive: topLeftInclusive, bottomRightExclusive: bottomRightExclusive)
+    func makeIterator() -> GridIterator2 {
+        GridIterator2(topLeftInclusive: topLeftInclusive, bottomRightExclusive: bottomRightExclusive)
     }
     
     static func +(lhs: Self, rhs: Self) -> Self {

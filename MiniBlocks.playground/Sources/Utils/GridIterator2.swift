@@ -1,7 +1,7 @@
 import Foundation
 
 /// Iterates over a rectangle on the 2D grid.
-struct Grid2Iterator: IteratorProtocol, Sequence {
+struct GridIterator2: IteratorProtocol, Sequence {
     let topLeftInclusive: GridPos2
     let bottomRightExclusive: GridPos2
     var i: Int = 0
