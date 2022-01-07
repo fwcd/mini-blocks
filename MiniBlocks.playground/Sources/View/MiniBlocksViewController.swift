@@ -69,12 +69,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         overlayScene.isUserInteractionEnabled = false
         
         // Set up light
-        let light = SCNLight()
-        light.type = .omni
-        let lightNode = SCNNode()
-        lightNode.light = light
-        lightNode.position = SCNVector3(x: 0, y: 10, z: 10)
-        scene.rootNode.addChildNode(lightNode)
+        add(entity: makeLightEntity(position: SCNVector3(x: 0, y: 10, z: 0)))
 
         // Set up ambient light
         let ambientLight = SCNLight()
@@ -90,7 +85,8 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         add(entity: worldEntity)
         
         // Add player
-        let playerEntity = makePlayerEntity(world: _world, worldNode: worldNode)
+        let playerSpawnPos = SCNVector3(x: 0, y: 10, z: 0)
+        let playerEntity = makePlayerEntity(position: playerSpawnPos, world: _world, worldNode: worldNode)
         add(entity: playerEntity)
         
         // Add overlay HUD

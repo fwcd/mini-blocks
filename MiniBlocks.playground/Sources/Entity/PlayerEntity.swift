@@ -1,12 +1,16 @@
 import GameplayKit
 import SceneKit
 
-func makePlayerEntity(world: Box<World>, worldNode: SCNNode? = nil) -> GKEntity {
+func makePlayerEntity(
+    position: SCNVector3,
+    world: Box<World>,
+    worldNode: SCNNode? = nil
+) -> GKEntity {
     // Create node
     let height: CGFloat = 1.5
     let node = SCNNode()
     node.camera = SCNCamera()
-    node.position = SCNVector3(x: 0, y: 10, z: 15)
+    node.position = position
     
     // Create entity
     let entity = GKEntity()
