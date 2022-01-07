@@ -17,7 +17,7 @@ func makePlayerEntity(world: Box<World>, worldNode: SCNNode? = nil) -> GKEntity 
     entity.addComponent(GravityComponent())
     
     if let worldNode = worldNode {
-        entity.addComponent(PlayerLookAtBlockComponent(worldNode: worldNode))
+        entity.addComponent(LookAtBlockComponent(worldNode: worldNode))
     }
     
     return entity
