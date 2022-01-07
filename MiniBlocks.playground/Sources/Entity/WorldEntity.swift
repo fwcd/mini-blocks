@@ -37,6 +37,7 @@ func makeWorldEntity(world: World) -> GKEntity {
     let entity = GKEntity()
     entity.addComponent(WorldComponent(world: world))
     entity.addComponent(SceneNodeComponent(node: node))
+    entity.addComponent(WorldLoadComponent())
     
     return entity
 }

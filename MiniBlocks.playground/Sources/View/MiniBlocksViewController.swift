@@ -37,6 +37,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     private let playerControlComponentSystem = GKComponentSystem(componentClass: PlayerControlComponent.self)
     private let lookAtBlockComponentSystem = GKComponentSystem(componentClass: LookAtBlockComponent.self)
     private let gravityComponentSystem = GKComponentSystem(componentClass: GravityComponent.self)
+    private let worldLoadComponentSystem = GKComponentSystem(componentClass: WorldLoadComponent.self)
     private var entities: [GKEntity] = []
     
     public init(
@@ -124,6 +125,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         playerControlComponentSystem.addComponent(foundIn: entity)
         lookAtBlockComponentSystem.addComponent(foundIn: entity)
         gravityComponentSystem.addComponent(foundIn: entity)
+        worldLoadComponentSystem.addComponent(foundIn: entity)
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -133,6 +135,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         playerControlComponentSystem.update(deltaTime: deltaTime)
         lookAtBlockComponentSystem.update(deltaTime: deltaTime)
         gravityComponentSystem.update(deltaTime: deltaTime)
+        worldLoadComponentSystem.update(deltaTime: deltaTime)
         
         previousUpdateTime = time
     }
