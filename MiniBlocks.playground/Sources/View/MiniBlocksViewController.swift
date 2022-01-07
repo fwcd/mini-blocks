@@ -243,6 +243,14 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         }
     }
     
+    public override func mouseDragged(with event: NSEvent) {
+        mouseMoved(with: event)
+    }
+    
+    public override func rightMouseDragged(with event: NSEvent) {
+        mouseMoved(with: event)
+    }
+    
     private func warpMouseCursorToCenter() {
         if let window = view.window, let screen = window.screen {
             let frameInWindow = view.convert(view.bounds, to: nil)
