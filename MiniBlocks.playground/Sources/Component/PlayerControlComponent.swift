@@ -28,7 +28,7 @@ class PlayerControlComponent: GKComponent {
     }
     
     private var world: World? {
-        entity?.component(ofType: WorldComponent.self)?.world
+        entity?.component(ofType: WorldAssociationComponent.self)?.world
     }
     
     private var gravityComponent: GravityComponent? {

@@ -2,8 +2,6 @@ import GameplayKit
 
 /// Makes the associated node as being capable of looking at blocks (which will be highlighted accordingly).
 class LookAtBlockComponent: GKComponent {
-    let worldNode: SCNNode
-    
     private let reachDistance: CGFloat = 10
     private var lastHit: SCNNode? = nil
     
@@ -11,18 +9,14 @@ class LookAtBlockComponent: GKComponent {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
     
-    init(worldNode: SCNNode) {
-        self.worldNode = worldNode
-        super.init()
-    }
-    
-    required init?(coder: NSCoder) {
-        nil
+    var worldNode: SCNNode? {
+        entity?.component(ofType: WorldAssociationComponent.self)?.worldNode
     }
     
     override func update(deltaTime seconds: TimeInterval) {
         guard let node = node,
-              let parent = node.parent else { return }
+              let parent = node.parent,
+              let worldNode = worldNode else { return }
         
         // Find the node the player looks at and (for demo purposes) lower its opacity
         

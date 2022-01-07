@@ -39,6 +39,7 @@
 		35E7F416278688180067F0F7 /* KeyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F415278688180067F0F7 /* KeyCodes.swift */; };
 		35EA3518278895750066DD82 /* WorldLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA3517278895750066DD82 /* WorldLoadComponent.swift */; };
 		35EA351C278895D60066DD82 /* WorldRetainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA351B278895D60066DD82 /* WorldRetainComponent.swift */; };
+		35EA351E278896F50066DD82 /* WorldAssociationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA351D278896F50066DD82 /* WorldAssociationComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		35E7F415278688180067F0F7 /* KeyCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyCodes.swift; path = ../../MiniBlocks.playground/Sources/View/KeyCodes.swift; sourceTree = "<group>"; };
 		35EA3517278895750066DD82 /* WorldLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldLoadComponent.swift; sourceTree = "<group>"; };
 		35EA351B278895D60066DD82 /* WorldRetainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldRetainComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldRetainComponent.swift; sourceTree = "<group>"; };
+		35EA351D278896F50066DD82 /* WorldAssociationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldAssociationComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				35A0C295278752E900FA8570 /* GravityComponent.swift */,
 				35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */,
 				35A0C2A627875C7300FA8570 /* WorldComponent.swift */,
+				35EA351D278896F50066DD82 /* WorldAssociationComponent.swift */,
 				35EA3517278895750066DD82 /* WorldLoadComponent.swift */,
 				35EA351B278895D60066DD82 /* WorldRetainComponent.swift */,
 			);
@@ -278,6 +281,7 @@
 				352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */,
 				35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */,
 				35EA351C278895D60066DD82 /* WorldRetainComponent.swift in Sources */,
+				35EA351E278896F50066DD82 /* WorldAssociationComponent.swift in Sources */,
 				35A0C28A27873DB300FA8570 /* WorldEntity.swift in Sources */,
 				35A0C2902787475600FA8570 /* PlayerEntity.swift in Sources */,
 				35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */,

@@ -13,12 +13,12 @@ func makeDemoBlockPositions() -> [GridPos3] {
     }
 }
 
-func makeWorldEntity(world: Box<World>) -> GKEntity {
+func makeWorldEntity(world: World) -> GKEntity {
     // Create node
     let node = SCNNode()
     
     // TODO: Add e.g. a WorldUpdateComponent that efficiently (through deltas, e.g. on strip-basis) updates the scene
-    for (mapPos, strip) in world.wrappedValue.map {
+    for (mapPos, strip) in world.map {
         if let topmost = strip.topmost {
             // Create block node
             let material = SCNMaterial()

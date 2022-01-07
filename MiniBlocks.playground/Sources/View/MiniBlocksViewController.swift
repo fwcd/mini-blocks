@@ -27,10 +27,6 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         }
     }
     
-    // MARK: Model properties
-    
-    @Box private var world: World = World.wavyGrassHills()
-    
     // MARK: SpriteKit/SceneKit properties
     
     private var overlayScene: SKScene!
@@ -73,13 +69,13 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         add(entity: makeAmbientLightEntity())
         
         // Add the world
-        let worldEntity = makeWorldEntity(world: _world)
+        let worldEntity = makeWorldEntity(world: World.wavyGrassHills())
         let worldNode = worldEntity.component(ofType: SceneNodeComponent.self)?.node
         add(entity: worldEntity)
         
         // Add player
         let playerSpawnPos = SCNVector3(x: 0, y: 10, z: 0)
-        let playerEntity = makePlayerEntity(position: playerSpawnPos, world: _world, worldNode: worldNode)
+        let playerEntity = makePlayerEntity(position: playerSpawnPos, worldEntity: worldEntity)
         add(entity: playerEntity)
         
         // Add overlay HUD

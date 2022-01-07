@@ -1,12 +1,12 @@
 import SceneKit
 import GameplayKit
 
-/// Lets the associated entity interact with the given world.
+/// Lets the associated entity store the corresponding world.
 class WorldComponent: GKComponent {
-    @Box var world: World
+    var world: World
     
-    init(world: Box<World>) {
-        _world = world
+    init(world: World) {
+        self.world = world
         super.init()
     }
     
