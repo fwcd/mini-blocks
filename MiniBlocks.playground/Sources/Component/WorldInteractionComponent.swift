@@ -26,14 +26,14 @@ class WorldInteractionComponent: GKComponent {
         
         // Find the node the player looks at and (for demo purposes) lower its opacity
         
-        lastHit?.opacity = 1
+        lastHit?.geometry?.materials.first?.diffuse.intensity = 1
         
         let playerPos = playerParent.convertPosition(playerNode.position, to: node)
         let playerFacing = playerParent.convertVector(playerNode.worldFront, to: node)
         let hits = node.hitTestWithSegment(from: playerPos, to: playerPos + playerFacing * reachDistance)
         
         if let hit = hits.first?.node {
-            hit.opacity = 0.8
+            hit.geometry?.materials.first?.diffuse.intensity = 0.5
             lastHit = hit
         }
     }
