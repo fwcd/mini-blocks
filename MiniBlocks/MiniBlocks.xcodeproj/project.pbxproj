@@ -39,7 +39,6 @@
 		35E7F416278688180067F0F7 /* KeyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F415278688180067F0F7 /* KeyCodes.swift */; };
 		35EA3518278895750066DD82 /* WorldLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA3517278895750066DD82 /* WorldLoadComponent.swift */; };
 		35EA351C278895D60066DD82 /* WorldRetainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA351B278895D60066DD82 /* WorldRetainComponent.swift */; };
-		35EA351E278896F50066DD82 /* WorldAssociationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA351D278896F50066DD82 /* WorldAssociationComponent.swift */; };
 		35EA352227889B200066DD82 /* ChunkPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352127889B200066DD82 /* ChunkPos.swift */; };
 		35EA352427889B560066DD82 /* ChunkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352327889B560066DD82 /* ChunkConstants.swift */; };
 		35EA352627889CBE0066DD82 /* GridIterator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352527889CBE0066DD82 /* GridIterator2.swift */; };
@@ -47,6 +46,7 @@
 		35EA35382788A09E0066DD82 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35372788A09E0066DD82 /* MathUtils.swift */; };
 		35EA353A2788A1BF0066DD82 /* MathUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35392788A1BF0066DD82 /* MathUtilsTests.swift */; };
 		35EA353C2788A2520066DD82 /* ChunkPosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA353B2788A2520066DD82 /* ChunkPosTests.swift */; };
+		35EA353E2788A57C0066DD82 /* WorldAssociationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA353D2788A57B0066DD82 /* WorldAssociationComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +94,6 @@
 		35E7F415278688180067F0F7 /* KeyCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyCodes.swift; path = ../../MiniBlocks.playground/Sources/View/KeyCodes.swift; sourceTree = "<group>"; };
 		35EA3517278895750066DD82 /* WorldLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldLoadComponent.swift; sourceTree = "<group>"; };
 		35EA351B278895D60066DD82 /* WorldRetainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldRetainComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldRetainComponent.swift; sourceTree = "<group>"; };
-		35EA351D278896F50066DD82 /* WorldAssociationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldAssociationComponent.swift; sourceTree = "<group>"; };
 		35EA352127889B200066DD82 /* ChunkPos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChunkPos.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkPos.swift; sourceTree = "<group>"; };
 		35EA352327889B560066DD82 /* ChunkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChunkConstants.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkConstants.swift; sourceTree = "<group>"; };
 		35EA352527889CBE0066DD82 /* GridIterator2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridIterator2.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridIterator2.swift; sourceTree = "<group>"; };
@@ -103,6 +102,7 @@
 		35EA35372788A09E0066DD82 /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MathUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/MathUtils.swift; sourceTree = "<group>"; };
 		35EA35392788A1BF0066DD82 /* MathUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtilsTests.swift; sourceTree = "<group>"; };
 		35EA353B2788A2520066DD82 /* ChunkPosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChunkPosTests.swift; sourceTree = "<group>"; };
+		35EA353D2788A57B0066DD82 /* WorldAssociationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorldAssociationComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldAssociationComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +145,7 @@
 				35A0C295278752E900FA8570 /* GravityComponent.swift */,
 				35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */,
 				35A0C2A627875C7300FA8570 /* WorldComponent.swift */,
-				35EA351D278896F50066DD82 /* WorldAssociationComponent.swift */,
+				35EA353D2788A57B0066DD82 /* WorldAssociationComponent.swift */,
 				35EA3517278895750066DD82 /* WorldLoadComponent.swift */,
 				35EA351B278895D60066DD82 /* WorldRetainComponent.swift */,
 			);
@@ -363,13 +363,13 @@
 			files = (
 				35E7F416278688180067F0F7 /* KeyCodes.swift in Sources */,
 				35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */,
+				35EA353E2788A57C0066DD82 /* WorldAssociationComponent.swift in Sources */,
 				35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */,
 				35EA35382788A09E0066DD82 /* MathUtils.swift in Sources */,
 				352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */,
 				35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */,
 				35EA352427889B560066DD82 /* ChunkConstants.swift in Sources */,
 				35EA351C278895D60066DD82 /* WorldRetainComponent.swift in Sources */,
-				35EA351E278896F50066DD82 /* WorldAssociationComponent.swift in Sources */,
 				35A0C28A27873DB300FA8570 /* WorldEntity.swift in Sources */,
 				35A0C2902787475600FA8570 /* PlayerEntity.swift in Sources */,
 				35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */,
