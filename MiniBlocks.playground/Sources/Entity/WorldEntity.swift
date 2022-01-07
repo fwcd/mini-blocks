@@ -18,7 +18,7 @@ func makeWorldEntity(world: World) -> GKEntity {
     let node = SCNNode()
     
     // TODO: Add e.g. a WorldUpdateComponent that efficiently (through deltas, e.g. on strip-basis) updates the scene
-    for (mapPos, strip) in world.map {
+    for (mapPos, strip) in world {
         if let topmost = strip.topmost {
             // Create block node
             let material = SCNMaterial()

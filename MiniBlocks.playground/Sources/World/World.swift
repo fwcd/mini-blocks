@@ -1,12 +1,12 @@
 import Foundation
 
 /// A model of the world.
-struct World {
-    var map: [GridPos2: Strip] = [:]
+struct World: Sequence {
+    var strips: [GridPos2: Strip] = [:]
     
     /// Generates a world.
     static func generate(radius: Int = 48, generator y: (GridPos2) -> Int) -> World {
-        World(map: Dictionary(uniqueKeysWithValues:
+        World(strips: Dictionary(uniqueKeysWithValues:
             (-radius...radius).flatMap { (x: Int) in
                 (-radius...radius).map { (z: Int) in
                     let pos = GridPos2(x: x, z: z)
@@ -31,13 +31,24 @@ struct World {
         }
     }
     
+    /// Fetches the strip at the given position.
+    subscript(pos: GridPos2) -> Strip {
+        get { strips[pos] ?? Strip() }
+        set { strips[pos] = newValue.nilIfEmpty }
+    }
+    
+    /// Creates an iterator over the strips.
+    func makeIterator() -> Dictionary<GridPos2, Strip>.Iterator {
+        strips.makeIterator()
+    }
+    
     /// Fetches the height the given position. O(n) where n is the number of blocks in the strip at the given (x, z) coordinates.
     func height(at pos: GridPos2) -> Int? {
-        map[pos]?.topmost?.y
+        strips[pos]?.topmost?.y
     }
     
     /// Fetches the block at the given position. O(1).
     func block(at pos: GridPos3) -> Block? {
-        map[pos.asGridPos2]?.blocks[pos.y]
+        strips[pos.asGridPos2]?.blocks[pos.y]
     }
 }
