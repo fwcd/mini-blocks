@@ -5,7 +5,10 @@ private let piHalf = CGFloat.pi / 2
 
 /// Lets the user control the associated scene node, usually a player.
 class PlayerControlComponent: GKComponent {
-    var motionInput: MotionInput = []
+    /// The current motion input.
+    private var motionInput: MotionInput = []
+    /// The motion input after the next update cycle. The reason for making this a separate array is to handle very quick mouse inputs (i.e. those that are added and removed before an update cycle could happen).
+    private var nextMotionInput: MotionInput = []
     
     private var baseSpeed: CGFloat = 0.8
     private var pitchSpeed: CGFloat = 0.4
@@ -88,6 +91,9 @@ class PlayerControlComponent: GKComponent {
         static let breakBlock = MotionInput(rawValue: 1 << 10)
         static let useBlock = MotionInput(rawValue: 1 << 11)
         
+        /// See doc comment on motionInput and nextMotionInput above for explanation.
+        static let deferredHandleable: MotionInput = [.breakBlock, .useBlock]
+        
         let rawValue: UInt16
         
         init(rawValue: UInt16) {
@@ -136,8 +142,22 @@ class PlayerControlComponent: GKComponent {
                     worldLoadComponent?.markDirty(at: placePos.asGridPos2)
                 }
             }
+            
+            motionInput = nextMotionInput
         }
     }
+    
+    /// Adds motion input.
+    func add(motionInput delta: MotionInput) {
+        motionInput.insert(delta)
+        nextMotionInput.insert(delta)
+    }
+    
+    /// Removes motion input.
+    func remove(motionInput delta: MotionInput) {
+        motionInput.remove(delta.subtracting(.deferredHandleable))
+        nextMotionInput.remove(delta)
+    }///
     
     /// Rotates the node vertically by the given angle (in radians).
     func rotatePitch(by delta: CGFloat) {

@@ -160,7 +160,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         } else if let motion = motionInput(for: event.keyCode) {
             // Pressed key could be mapped motion input, add it to the corresponding components
             controlPlayer { component in
-                component.motionInput.insert(motion)
+                component.add(motionInput: motion)
             }
         }
     }
@@ -169,7 +169,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         if let motion = motionInput(for: event.keyCode) {
             // Pressed key could be mapped motion input, remove it from the corresponding components
             controlPlayer { component in
-                component.motionInput.remove(motion)
+                component.remove(motionInput: motion)
             }
         }
     }
@@ -178,9 +178,9 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         // Sprint on shift
         controlPlayer { component in
             if event.modifierFlags.contains(.shift) {
-                component.motionInput.insert(.sprint)
+                component.add(motionInput: .sprint)
             } else {
-                component.motionInput.remove(.sprint)
+                component.remove(motionInput: .sprint)
             }
         }
     }
@@ -189,7 +189,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         if mouseCaptured {
             // Break blocks on left-click if captured
             controlPlayer { component in
-                component.motionInput.insert(.breakBlock)
+                component.add(motionInput: .breakBlock)
             }
         } else {
             // Capture mouse otherwise
@@ -201,7 +201,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         if mouseCaptured {
             // Use blocks on right-click if captured
             controlPlayer { component in
-                component.motionInput.insert(.useBlock)
+                component.add(motionInput: .useBlock)
             }
         }
     }
@@ -210,7 +210,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         if mouseCaptured {
             // Stop breaking blocks
             controlPlayer { component in
-                component.motionInput.remove(.breakBlock)
+                component.remove(motionInput: .breakBlock)
             }
         }
     }
@@ -219,7 +219,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         if mouseCaptured {
             // Stop using blocks
             controlPlayer { component in
-                component.motionInput.remove(.useBlock)
+                component.remove(motionInput: .useBlock)
             }
         }
     }
