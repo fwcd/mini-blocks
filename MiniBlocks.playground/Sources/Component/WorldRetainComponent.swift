@@ -6,7 +6,7 @@ class WorldRetainComponent: GKComponent {
     private var throttler = Throttler(interval: 0.2)
     
     private var worldLoadComponent: WorldLoadComponent? {
-        entity?.component(ofType: WorldAssociationComponent.self)?.entity?.component(ofType: WorldLoadComponent.self)
+        entity?.component(ofType: WorldAssociationComponent.self)?.worldEntity.component(ofType: WorldLoadComponent.self)
     }
     
     private var node: SCNNode? {

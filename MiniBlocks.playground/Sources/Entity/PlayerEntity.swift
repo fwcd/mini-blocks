@@ -19,6 +19,7 @@ func makePlayerEntity(
     entity.addComponent(HeightAboveGroundComponent(heightAboveGround: 1 + height))
     entity.addComponent(GravityComponent())
     entity.addComponent(LookAtBlockComponent())
+    entity.addComponent(WorldRetainComponent()) // players retain chunks around themselves
     
     return entity
 }
