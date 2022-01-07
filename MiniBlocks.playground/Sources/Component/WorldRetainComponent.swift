@@ -6,7 +6,7 @@ class WorldRetainComponent: GKComponent {
     private var throttler = Throttler(interval: 0.2)
     
     /// Number of chunks to retain in each direction. Note that although we call it a 'radius', a square grid of chunks is loaded.
-    var retainRadius: Int = 4
+    var retainRadius: Int = 5
     
     /// Number of chunks which the player may 'stray' from the lastUpdatePos until an update to the retained chunks is triggered.
     private var skipUpdateRadius: Int {
