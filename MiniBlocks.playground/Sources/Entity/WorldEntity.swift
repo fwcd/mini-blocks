@@ -23,8 +23,10 @@ func makeWorldEntity(world: World) -> GKEntity {
     // Create entity
     let entity = GKEntity()
     entity.addComponent(WorldComponent(world: world))
+    entity.addComponent(WorldAssociationComponent(worldEntity: entity)) // a world is associated with itself too
     entity.addComponent(SceneNodeComponent(node: node))
     entity.addComponent(WorldLoadComponent())
+    entity.addComponent(WorldRetainComponent()) // keep spawn chunks retained
     
     return entity
 }
