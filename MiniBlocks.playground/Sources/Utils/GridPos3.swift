@@ -1,7 +1,7 @@
 import SceneKit
 
-/// A position in the 3D grid.
-struct GridPos3: Hashable, Codable {
+/// A position in the 3D block grid.
+struct GridPos3: Hashable, Codable, Pos3 {
     var x: Int
     var y: Int
     var z: Int
@@ -24,53 +24,5 @@ struct GridPos3: Hashable, Codable {
         x = Int(scnVector.x.rounded())
         y = Int(scnVector.y.rounded())
         z = Int(scnVector.z.rounded())
-    }
-    
-    static func +(lhs: Self, rhs: Self) -> Self {
-        Self(x: lhs.x + rhs.x, y: lhs.y + rhs.y, z: lhs.z + rhs.z)
-    }
-    
-    static func -(lhs: Self, rhs: Self) -> Self {
-        Self(x: lhs.x - rhs.x, y: lhs.y - rhs.y, z: lhs.z - rhs.z)
-    }
-    
-    static func +=(lhs: inout Self, rhs: Self) {
-        lhs.x += rhs.x
-        lhs.y += rhs.y
-        lhs.z += rhs.z
-    }
-    
-    static func -=(lhs: inout Self, rhs: Self) {
-        lhs.x -= rhs.x
-        lhs.y -= rhs.y
-        lhs.z -= rhs.z
-    }
-    
-    static prefix func -(rhs: Self) -> Self {
-        Self(x: -rhs.x, y: -rhs.y, z: -rhs.z)
-    }
-    
-    static func *(lhs: Self, rhs: Int) -> Self {
-        Self(x: lhs.x * rhs, y: lhs.y * rhs, z: lhs.z * rhs)
-    }
-    
-    static func *(lhs: Int, rhs: Self) -> Self {
-        rhs * lhs
-    }
-    
-    static func /(lhs: Self, rhs: Int) -> Self {
-        Self(x: lhs.x / rhs, y: lhs.y / rhs, z: lhs.z / rhs)
-    }
-    
-    static func *=(lhs: inout Self, rhs: Int) {
-        lhs.x *= rhs
-        lhs.y *= rhs
-        lhs.z *= rhs
-    }
-    
-    static func /=(lhs: inout Self, rhs: Int) {
-        lhs.x /= rhs
-        lhs.y /= rhs
-        lhs.z /= rhs
     }
 }

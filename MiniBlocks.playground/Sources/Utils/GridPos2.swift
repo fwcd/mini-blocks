@@ -1,6 +1,6 @@
 import SceneKit
 
-/// A flat position on the grid.
+/// A flat position on the block grid.
 struct GridPos2: Hashable, Codable, Pos2 {
     var x: Int
     var z: Int

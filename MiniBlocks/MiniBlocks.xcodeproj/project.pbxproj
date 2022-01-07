@@ -53,6 +53,7 @@
 		35EA35462788A69A0066DD82 /* WavyHillsWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35452788A69A0066DD82 /* WavyHillsWorldGenerator.swift */; };
 		35EA354A2788A8B00066DD82 /* ChunkRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35492788A8B00066DD82 /* ChunkRegion.swift */; };
 		35EA354C2788B1D30066DD82 /* Pos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354B2788B1D30066DD82 /* Pos2.swift */; };
+		35EA354E2788B3870066DD82 /* Pos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354D2788B3870066DD82 /* Pos3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		35EA35452788A69A0066DD82 /* WavyHillsWorldGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WavyHillsWorldGenerator.swift; path = ../../MiniBlocks.playground/Sources/World/WavyHillsWorldGenerator.swift; sourceTree = "<group>"; };
 		35EA35492788A8B00066DD82 /* ChunkRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChunkRegion.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkRegion.swift; sourceTree = "<group>"; };
 		35EA354B2788B1D30066DD82 /* Pos2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pos2.swift; path = ../../MiniBlocks.playground/Sources/Utils/Pos2.swift; sourceTree = "<group>"; };
+		35EA354D2788B3870066DD82 /* Pos3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pos3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Pos3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				35EA354B2788B1D30066DD82 /* Pos2.swift */,
+				35EA354D2788B3870066DD82 /* Pos3.swift */,
 				35A0C28527873D1100FA8570 /* GridPos3.swift */,
 				35A0C2A2278757A700FA8570 /* GridPos2.swift */,
 				35EA352127889B200066DD82 /* ChunkPos.swift */,
@@ -382,6 +385,7 @@
 				35E7F416278688180067F0F7 /* KeyCodes.swift in Sources */,
 				35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */,
 				35EA353E2788A57C0066DD82 /* WorldAssociationComponent.swift in Sources */,
+				35EA354E2788B3870066DD82 /* Pos3.swift in Sources */,
 				35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */,
 				35EA35382788A09E0066DD82 /* MathUtils.swift in Sources */,
 				352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */,
