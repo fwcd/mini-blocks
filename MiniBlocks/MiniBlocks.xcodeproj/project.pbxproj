@@ -40,6 +40,9 @@
 		35EA3518278895750066DD82 /* WorldLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA3517278895750066DD82 /* WorldLoadComponent.swift */; };
 		35EA351C278895D60066DD82 /* WorldRetainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA351B278895D60066DD82 /* WorldRetainComponent.swift */; };
 		35EA351E278896F50066DD82 /* WorldAssociationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA351D278896F50066DD82 /* WorldAssociationComponent.swift */; };
+		35EA352227889B200066DD82 /* ChunkPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352127889B200066DD82 /* ChunkPos.swift */; };
+		35EA352427889B560066DD82 /* ChunkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352327889B560066DD82 /* ChunkConstants.swift */; };
+		35EA352627889CBE0066DD82 /* Grid2Iterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352527889CBE0066DD82 /* Grid2Iterator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,9 @@
 		35EA3517278895750066DD82 /* WorldLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldLoadComponent.swift; sourceTree = "<group>"; };
 		35EA351B278895D60066DD82 /* WorldRetainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldRetainComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldRetainComponent.swift; sourceTree = "<group>"; };
 		35EA351D278896F50066DD82 /* WorldAssociationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldAssociationComponent.swift; sourceTree = "<group>"; };
+		35EA352127889B200066DD82 /* ChunkPos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChunkPos.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkPos.swift; sourceTree = "<group>"; };
+		35EA352327889B560066DD82 /* ChunkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChunkConstants.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkConstants.swift; sourceTree = "<group>"; };
+		35EA352527889CBE0066DD82 /* Grid2Iterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Grid2Iterator.swift; path = ../../MiniBlocks.playground/Sources/Utils/Grid2Iterator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,9 @@
 			children = (
 				35A0C28527873D1100FA8570 /* GridPos3.swift */,
 				35A0C2A2278757A700FA8570 /* GridPos2.swift */,
+				35EA352127889B200066DD82 /* ChunkPos.swift */,
+				35EA352327889B560066DD82 /* ChunkConstants.swift */,
+				35EA352527889CBE0066DD82 /* Grid2Iterator.swift */,
 				35A0C28727873D2900FA8570 /* Box.swift */,
 				35A0C297278753AE00FA8570 /* Throttler.swift */,
 				3546255727878798000489E8 /* SceneKitUtils.swift */,
@@ -280,6 +289,7 @@
 				35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */,
 				352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */,
 				35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */,
+				35EA352427889B560066DD82 /* ChunkConstants.swift in Sources */,
 				35EA351C278895D60066DD82 /* WorldRetainComponent.swift in Sources */,
 				35EA351E278896F50066DD82 /* WorldAssociationComponent.swift in Sources */,
 				35A0C28A27873DB300FA8570 /* WorldEntity.swift in Sources */,
@@ -291,6 +301,7 @@
 				35A0C28827873D2900FA8570 /* Box.swift in Sources */,
 				352D7A402787B211008FB939 /* LookAtBlockComponent.swift in Sources */,
 				35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */,
+				35EA352627889CBE0066DD82 /* Grid2Iterator.swift in Sources */,
 				35D9E8A3278888190058F0E6 /* AmbientLightEntity.swift in Sources */,
 				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
 				35A0C296278752E900FA8570 /* GravityComponent.swift in Sources */,
@@ -301,6 +312,7 @@
 				35A0C2A5278757EB00FA8570 /* Strip.swift in Sources */,
 				35A0C2A927875EC400FA8570 /* HeightAboveGroundComponent.swift in Sources */,
 				35D9E8A1278887960058F0E6 /* LightEntity.swift in Sources */,
+				35EA352227889B200066DD82 /* ChunkPos.swift in Sources */,
 				35A0C29B2787569600FA8570 /* World.swift in Sources */,
 				352D7A462787BD70008FB939 /* CoreGraphicsUtils.swift in Sources */,
 				35E7F412278683950067F0F7 /* main.swift in Sources */,
