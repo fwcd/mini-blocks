@@ -9,6 +9,10 @@ protocol Pos2 {
 }
 
 extension Pos2 {
+    var squaredLength: Coordinate {
+        (x * x) + (z * z)
+    }
+    
     init() {
         self.init(x: 0, z: 0)
     }
