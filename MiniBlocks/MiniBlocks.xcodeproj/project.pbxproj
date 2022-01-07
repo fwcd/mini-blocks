@@ -46,6 +46,7 @@
 		35EA353627889DD30066DD82 /* GridIterator2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA353527889DD30066DD82 /* GridIterator2Tests.swift */; };
 		35EA35382788A09E0066DD82 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35372788A09E0066DD82 /* MathUtils.swift */; };
 		35EA353A2788A1BF0066DD82 /* MathUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35392788A1BF0066DD82 /* MathUtilsTests.swift */; };
+		35EA353C2788A2520066DD82 /* ChunkPosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA353B2788A2520066DD82 /* ChunkPosTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		35EA353527889DD30066DD82 /* GridIterator2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridIterator2Tests.swift; sourceTree = "<group>"; };
 		35EA35372788A09E0066DD82 /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MathUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/MathUtils.swift; sourceTree = "<group>"; };
 		35EA35392788A1BF0066DD82 /* MathUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtilsTests.swift; sourceTree = "<group>"; };
+		35EA353B2788A2520066DD82 /* ChunkPosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChunkPosTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 			children = (
 				35EA353527889DD30066DD82 /* GridIterator2Tests.swift */,
 				35EA35392788A1BF0066DD82 /* MathUtilsTests.swift */,
+				35EA353B2788A2520066DD82 /* ChunkPosTests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35EA353C2788A2520066DD82 /* ChunkPosTests.swift in Sources */,
 				35EA353627889DD30066DD82 /* GridIterator2Tests.swift in Sources */,
 				35EA353A2788A1BF0066DD82 /* MathUtilsTests.swift in Sources */,
 			);
