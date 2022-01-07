@@ -97,9 +97,10 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         add(entity: makeCrosshairHUDEntity(at: CGPoint(x: overlayScene.frame.midX, y: overlayScene.frame.midY)))
         
         // Set up SCNView
-        let sceneView = sceneFrame.map { SCNView(frame: $0) } ?? SCNView()
+        let sceneView = sceneFrame.map { MiniBlocksSceneView(frame: $0) } ?? MiniBlocksSceneView()
         sceneView.scene = scene
         sceneView.delegate = self
+        sceneView.keyEventsDelegate = self
         sceneView.allowsCameraControl = debugModeEnabled
         sceneView.defaultCameraController.interactionMode = debugInteractionMode
         sceneView.showsStatistics = true

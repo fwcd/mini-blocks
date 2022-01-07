@@ -11,6 +11,7 @@
 		352D7A422787B89B008FB939 /* SpriteNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A412787B89B008FB939 /* SpriteNodeComponent.swift */; };
 		352D7A442787B90A008FB939 /* CrosshairHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */; };
 		352D7A462787BD70008FB939 /* CoreGraphicsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A452787BD70008FB939 /* CoreGraphicsUtils.swift */; };
+		352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A472787BF1C008FB939 /* MiniBlocksSceneView.swift */; };
 		3546255827878798000489E8 /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SceneKitUtils.swift */; };
 		35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28527873D1100FA8570 /* GridPos3.swift */; };
 		35A0C28827873D2900FA8570 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28727873D2900FA8570 /* Box.swift */; };
@@ -41,6 +42,7 @@
 		352D7A412787B89B008FB939 /* SpriteNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpriteNodeComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/SpriteNodeComponent.swift; sourceTree = "<group>"; };
 		352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CrosshairHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/CrosshairHUDEntity.swift; sourceTree = "<group>"; };
 		352D7A452787BD70008FB939 /* CoreGraphicsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreGraphicsUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/CoreGraphicsUtils.swift; sourceTree = "<group>"; };
+		352D7A472787BF1C008FB939 /* MiniBlocksSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MiniBlocksSceneView.swift; path = ../../MiniBlocks.playground/Sources/View/MiniBlocksSceneView.swift; sourceTree = "<group>"; };
 		3546255727878798000489E8 /* SceneKitUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneKitUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/SceneKitUtils.swift; sourceTree = "<group>"; };
 		35A0C28527873D1100FA8570 /* GridPos3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPos3.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridPos3.swift; sourceTree = "<group>"; };
 		35A0C28727873D2900FA8570 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Box.swift; path = ../../MiniBlocks.playground/Sources/Utils/Box.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */,
+				352D7A472787BF1C008FB939 /* MiniBlocksSceneView.swift */,
 				35E7F415278688180067F0F7 /* KeyCodes.swift */,
 			);
 			name = View;
@@ -260,6 +263,7 @@
 				35E7F416278688180067F0F7 /* KeyCodes.swift in Sources */,
 				35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */,
 				35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */,
+				352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */,
 				35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */,
 				35A0C28A27873DB300FA8570 /* WorldEntity.swift in Sources */,
 				35A0C2902787475600FA8570 /* PlayerEntity.swift in Sources */,
