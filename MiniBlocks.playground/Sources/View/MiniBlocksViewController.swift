@@ -7,6 +7,7 @@ import GameplayKit
 public final class MiniBlocksViewController: NSViewController, SCNSceneRendererDelegate {
     private let debugModeEnabled: Bool
     private let debugInteractionMode: SCNInteractionMode
+    private let worldGenerator: WorldGeneratorType
     private var previousUpdateTime: TimeInterval = 0
     
     // MARK: View properties
@@ -44,11 +45,13 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     public init(
         sceneFrame: CGRect? = nil,
         debugModeEnabled: Bool = false,
-        debugInteractionMode: SCNInteractionMode = .fly
+        debugInteractionMode: SCNInteractionMode = .fly,
+        worldGenerator: WorldGeneratorType = .wavyHills
     ) {
         self.sceneFrame = sceneFrame
         self.debugModeEnabled = debugModeEnabled
         self.debugInteractionMode = debugInteractionMode
+        self.worldGenerator = worldGenerator
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -71,7 +74,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         add(entity: makeAmbientLightEntity())
         
         // Add the world
-        let worldEntity = makeWorldEntity(world: World(generator: WavyHillsWorldGenerator()))
+        let worldEntity = makeWorldEntity(world: World(generator: worldGenerator))
         add(entity: worldEntity)
         
         // Add player

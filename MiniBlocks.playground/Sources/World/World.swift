@@ -6,7 +6,7 @@ struct World: Sequence {
     var storedStrips: [GridPos2: Strip] = [:]
     
     /// The procedural generator that generates new strips.
-    let generator: WorldGenerator
+    let generator: WorldGeneratorType
     
     /// Fetches the strip at the given position.
     subscript(pos: GridPos2) -> Strip {

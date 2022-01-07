@@ -54,6 +54,7 @@
 		35EA354A2788A8B00066DD82 /* ChunkRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35492788A8B00066DD82 /* ChunkRegion.swift */; };
 		35EA354C2788B1D30066DD82 /* Pos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354B2788B1D30066DD82 /* Pos2.swift */; };
 		35EA354E2788B3870066DD82 /* Pos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354D2788B3870066DD82 /* Pos3.swift */; };
+		35EA35502788B7850066DD82 /* WorldGeneratorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354F2788B7840066DD82 /* WorldGeneratorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		35EA35492788A8B00066DD82 /* ChunkRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChunkRegion.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkRegion.swift; sourceTree = "<group>"; };
 		35EA354B2788B1D30066DD82 /* Pos2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pos2.swift; path = ../../MiniBlocks.playground/Sources/Utils/Pos2.swift; sourceTree = "<group>"; };
 		35EA354D2788B3870066DD82 /* Pos3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pos3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Pos3.swift; sourceTree = "<group>"; };
+		35EA354F2788B7840066DD82 /* WorldGeneratorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldGeneratorType.swift; path = ../../MiniBlocks.playground/Sources/World/WorldGeneratorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			children = (
 				35A0C29A2787569600FA8570 /* World.swift */,
 				35EA353F2788A5AF0066DD82 /* WorldGenerator.swift */,
+				35EA354F2788B7840066DD82 /* WorldGeneratorType.swift */,
 				35EA35432788A6380066DD82 /* EmptyWorldGenerator.swift */,
 				35EA35412788A6190066DD82 /* FlatWorldGenerator.swift */,
 				35EA35452788A69A0066DD82 /* WavyHillsWorldGenerator.swift */,
@@ -416,6 +419,7 @@
 				35A0C2A5278757EB00FA8570 /* Strip.swift in Sources */,
 				35A0C2A927875EC400FA8570 /* HeightAboveGroundComponent.swift in Sources */,
 				35EA35462788A69A0066DD82 /* WavyHillsWorldGenerator.swift in Sources */,
+				35EA35502788B7850066DD82 /* WorldGeneratorType.swift in Sources */,
 				35D9E8A1278887960058F0E6 /* LightEntity.swift in Sources */,
 				35EA352227889B200066DD82 /* ChunkPos.swift in Sources */,
 				35A0C29B2787569600FA8570 /* World.swift in Sources */,
