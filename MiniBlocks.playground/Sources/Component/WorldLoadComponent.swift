@@ -11,6 +11,9 @@ class WorldLoadComponent: GKComponent {
     /// Number of chunks to render in each direction. Note that although we call it a 'radius', a square grid of chunks is loaded.
     var loadRadius: Int = 2
     
+    /// The 'reference-counts' of each chunk retainer (e.g. players).
+    private var retainCounts: [ChunkPos: Int] = [:]
+    
     /// The currently loaded chunks with their associated SceneKit nodes.
     private var loadedChunks: [ChunkPos: SCNNode] = [:]
     
@@ -22,6 +25,17 @@ class WorldLoadComponent: GKComponent {
     private var node: SCNNode? {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
+    
+    /// Increments the retain count for the given chunk.
+    func retainChunk(at pos: ChunkPos) {
+        retainCounts[pos] = (retainCounts[pos] ?? 0) + 1
+    }
+    
+    /// Decrements the retain count for the given chunk.
+    func releaseChunk(at pos: ChunkPos) {
+        let newCount = (retainCounts[pos] ?? 1) - 1
+        retainCounts[pos] = newCount == 0 ? nil : newCount
+    }///
     
     override func update(deltaTime seconds: TimeInterval) {
         // TODO
