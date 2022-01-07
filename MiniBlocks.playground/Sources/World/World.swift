@@ -26,6 +26,11 @@ struct World: Sequence {
     
     /// Fetches the block at the given position. O(1).
     func block(at pos: GridPos3) -> Block? {
-        self[pos.asGridPos2].blocks[pos.y]
+        self[pos.asGridPos2][pos.y]
+    }
+    
+    /// Removes the block at the given position. O(1).
+    mutating func breakBlock(at pos: GridPos3) {
+        self[pos.asGridPos2][pos.y] = nil
     }
 }

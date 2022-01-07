@@ -9,6 +9,11 @@ struct Strip: Sequence {
         blocks.max { $0.key < $1.key }.map { (y: $0.key, block: $0.value) }
     }
     
+    subscript(y: Int) -> Block? {
+        get { blocks[y] }
+        set { blocks[y] = newValue }
+    }
+    
     func makeIterator() -> Dictionary<Int, Block>.Iterator {
         blocks.makeIterator()
     }
