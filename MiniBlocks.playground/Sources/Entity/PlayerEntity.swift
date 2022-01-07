@@ -1,7 +1,7 @@
 import GameplayKit
 import SceneKit
 
-func makePlayerEntity(world: Box<World>) -> GKEntity {
+func makePlayerEntity(world: Box<World>, worldNode: SCNNode? = nil) -> GKEntity {
     // Create node
     let height: CGFloat = 1.5
     let node = SCNNode()
@@ -15,6 +15,10 @@ func makePlayerEntity(world: Box<World>) -> GKEntity {
     entity.addComponent(PlayerControlComponent())
     entity.addComponent(HeightAboveGroundComponent(heightAboveGround: 1 + height))
     entity.addComponent(GravityComponent())
+    
+    if let worldNode = worldNode {
+        entity.addComponent(PlayerLookAtBlockComponent(worldNode: worldNode))
+    }
     
     return entity
 }

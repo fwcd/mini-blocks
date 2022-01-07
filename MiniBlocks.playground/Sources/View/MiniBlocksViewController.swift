@@ -39,8 +39,8 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     // MARK: GameplayKit properties
     
     private let playerControlComponentSystem = GKComponentSystem(componentClass: PlayerControlComponent.self)
+    private let playerLookAtBlockComponentSystem = GKComponentSystem(componentClass: PlayerLookAtBlockComponent.self)
     private let gravityComponentSystem = GKComponentSystem(componentClass: GravityComponent.self)
-    private let worldInteractionComponentSystem = GKComponentSystem(componentClass: WorldInteractionComponent.self)
     private var entities: [GKEntity] = []
     
     public init(
@@ -68,11 +68,6 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         overlayScene = sceneFrame.map { SKScene(size: $0.size) } ?? SKScene()
         overlayScene.isUserInteractionEnabled = false
         
-        // Add player
-        let playerEntity = makePlayerEntity(world: _world)
-        let playerNode = playerEntity.component(ofType: SceneNodeComponent.self)!.node
-        add(entity: playerEntity)
-        
         // Set up light
         let light = SCNLight()
         light.type = .omni
@@ -90,8 +85,13 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         scene.rootNode.addChildNode(ambientLightNode)
         
         // Add the world
-        let worldEntity = makeWorldEntity(world: _world, playerNode: playerNode)
+        let worldEntity = makeWorldEntity(world: _world)
+        let worldNode = worldEntity.component(ofType: SceneNodeComponent.self)?.node
         add(entity: worldEntity)
+        
+        // Add player
+        let playerEntity = makePlayerEntity(world: _world, worldNode: worldNode)
+        add(entity: playerEntity)
         
         // Add overlay HUD
         add(entity: makeCrosshairHUDEntity(at: CGPoint(x: overlayScene.frame.midX, y: overlayScene.frame.midY)))
@@ -137,8 +137,8 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         
         // Add components to their corresponding systems
         playerControlComponentSystem.addComponent(foundIn: entity)
+        playerLookAtBlockComponentSystem.addComponent(foundIn: entity)
         gravityComponentSystem.addComponent(foundIn: entity)
-        worldInteractionComponentSystem.addComponent(foundIn: entity)
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -146,8 +146,8 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         
         // Perform updates to the components through their corresponding systems
         playerControlComponentSystem.update(deltaTime: deltaTime)
+        playerLookAtBlockComponentSystem.update(deltaTime: deltaTime)
         gravityComponentSystem.update(deltaTime: deltaTime)
-        worldInteractionComponentSystem.update(deltaTime: deltaTime)
         
         previousUpdateTime = time
     }
