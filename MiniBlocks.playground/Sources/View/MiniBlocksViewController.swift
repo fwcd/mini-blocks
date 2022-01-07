@@ -68,16 +68,9 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         overlayScene = sceneFrame.map { SKScene(size: $0.size) } ?? SKScene()
         overlayScene.isUserInteractionEnabled = false
         
-        // Set up light
+        // Add light
         add(entity: makeLightEntity(position: SCNVector3(x: 0, y: 10, z: 0)))
-
-        // Set up ambient light
-        let ambientLight = SCNLight()
-        ambientLight.type = .ambient
-        ambientLight.color = NSColor.darkGray
-        let ambientLightNode = SCNNode()
-        ambientLightNode.light = ambientLight
-        scene.rootNode.addChildNode(ambientLightNode)
+        add(entity: makeAmbientLightEntity())
         
         // Add the world
         let worldEntity = makeWorldEntity(world: _world)

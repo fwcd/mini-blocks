@@ -1,13 +1,13 @@
 import GameplayKit
 import SceneKit
 
-func makeLightEntity(position: SCNVector3) -> GKEntity {
+func makeAmbientLightEntity() -> GKEntity {
     // Create node
     let light = SCNLight()
-    light.type = .omni
+    light.type = .ambient
+    light.color = NSColor.darkGray
     let node = SCNNode()
     node.light = light
-    node.position = position
     
     // Create entity
     let entity = GKEntity()
