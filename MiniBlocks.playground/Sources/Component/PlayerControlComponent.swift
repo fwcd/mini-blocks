@@ -27,9 +27,17 @@ class PlayerControlComponent: GKComponent {
         entity?.component(ofType: HeightAboveGroundComponent.self)?.offset ?? SCNVector3(x: 0, y: 0, z: 0)
     }
     
+    private var worldAssocationComponent: WorldAssociationComponent? {
+        entity?.component(ofType: WorldAssociationComponent.self)
+    }
+    
     private var world: World? {
-        get { entity?.component(ofType: WorldAssociationComponent.self)?.world }
-        set { entity?.component(ofType: WorldAssociationComponent.self)?.world = newValue! }
+        get { worldAssocationComponent?.world }
+        set { worldAssocationComponent?.world = newValue! }
+    }
+    
+    private var worldLoadComponent: WorldLoadComponent? {
+        worldAssocationComponent?.worldLoadComponent
     }
     
     private var gravityComponent: GravityComponent? {
@@ -116,6 +124,7 @@ class PlayerControlComponent: GKComponent {
                 // Break looked-at block if needed
                 if motionInput.contains(.breakBlock) {
                     world?.breakBlock(at: lookedAtBlockPos)
+                    worldLoadComponent?.markDirty(at: lookedAtBlockPos.asGridPos2)
                 }
                 
                 // Use looked-at block if needed

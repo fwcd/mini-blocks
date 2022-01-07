@@ -16,7 +16,7 @@ class WorldRetainComponent: GKComponent {
     private var lastUpdatePos: ChunkPos? = nil
     
     private var worldLoadComponent: WorldLoadComponent? {
-        entity?.component(ofType: WorldAssociationComponent.self)?.worldEntity.component(ofType: WorldLoadComponent.self)
+        entity?.component(ofType: WorldAssociationComponent.self)?.worldLoadComponent
     }
     
     private var node: SCNNode? {

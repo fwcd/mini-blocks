@@ -14,6 +14,9 @@ class WorldLoadComponent: GKComponent {
     /// The currently loaded chunks with their associated SceneKit nodes.
     private var loadedChunks: [ChunkPos: SCNNode] = [:]
     
+    /// Strips marked as dirty (e.g. because the user placed/removed blocks there).
+    private var dirtyStrips: Set<GridPos2> = []
+    
     /// Throttles chunk loading to a fixed interval.
     private var throttler = Throttler(interval: 0.5)
     
@@ -35,7 +38,12 @@ class WorldLoadComponent: GKComponent {
     func releaseChunk(at pos: ChunkPos) {
         let newCount = (retainCounts[pos] ?? 1) - 1
         retainCounts[pos] = newCount == 0 ? nil : newCount
-    }///
+    }
+    
+    /// Marks a strip as dirty.
+    func markDirty(at pos: GridPos2) {
+        dirtyStrips.insert(pos)
+    }
     
     override func update(deltaTime seconds: TimeInterval) {
         guard let node = node else { return }
@@ -47,6 +55,7 @@ class WorldLoadComponent: GKComponent {
             let chunksToLoad = requestedChunks.subtracting(currentChunks)
             let chunksToUnload = currentChunks.subtracting(requestedChunks)
             
+            // Unload chunks by removing the corresponding scene nodes from their parents
             for pos in chunksToUnload {
                 if let chunkNode = loadedChunks[pos] {
                     chunkNode.removeFromParentNode()
@@ -54,6 +63,7 @@ class WorldLoadComponent: GKComponent {
                 }
             }
             
+            // Load chunks by creating the corresponding scene nodes and attaching them to the world node
             for pos in chunksToLoad {
                 if let chunkNode = loadChunk(at: pos) {
                     node.addChildNode(chunkNode)

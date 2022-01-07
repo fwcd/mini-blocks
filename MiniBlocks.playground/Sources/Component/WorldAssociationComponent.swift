@@ -13,6 +13,10 @@ class WorldAssociationComponent: GKComponent {
         worldEntity.component(ofType: SceneNodeComponent.self)?.node
     }
     
+    var worldLoadComponent: WorldLoadComponent? {
+        worldEntity.component(ofType: WorldLoadComponent.self)
+    }
+    
     init(worldEntity: GKEntity) {
         self.worldEntity = worldEntity
         super.init()
