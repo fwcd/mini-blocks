@@ -1,9 +1,12 @@
 import GameplayKit
 
-/// Lets the associated node keep the world at the corresponding 
+/// Lets the associated node keep the world's chunks retained at its position.
 class WorldRetainComponent: GKComponent {
-    private var previousChunkPos: ChunkPos?
+    private var previous: Set<ChunkPos> = []
     private var throttler = Throttler(interval: 0.2)
+    
+    /// Number of chunks to retain in each direction. Note that although we call it a 'radius', a square grid of chunks is loaded.
+    var retainRadius: Int = 2
     
     private var worldLoadComponent: WorldLoadComponent? {
         entity?.component(ofType: WorldAssociationComponent.self)?.worldEntity.component(ofType: WorldLoadComponent.self)
@@ -18,13 +21,21 @@ class WorldRetainComponent: GKComponent {
               let worldLoadComponent = worldLoadComponent else { return }
         
         throttler.run(deltaTime: seconds) {
-            if let previousChunkPos = previousChunkPos {
-                worldLoadComponent.releaseChunk(at: previousChunkPos)
+            // TODO: Do delta updates here?
+            
+            // Release previous chunks
+            for pos in previous {
+                worldLoadComponent.releaseChunk(at: pos)
             }
             
-            let chunkPos = ChunkPos(containing: GridPos3(rounding: node.position).asGridPos2)
-            worldLoadComponent.retainChunk(at: chunkPos)
-            previousChunkPos = chunkPos
+            previous = []
+            
+            // Retain new chunks
+            let centerPos = ChunkPos(containing: GridPos3(rounding: node.position).asGridPos2)
+            for pos in ChunkRegion(around: centerPos, radius: retainRadius) {
+                worldLoadComponent.retainChunk(at: pos)
+                previous.insert(pos)
+            }
         }
     }
 }

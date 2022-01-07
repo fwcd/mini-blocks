@@ -1,7 +1,7 @@
 import SceneKit
 
 /// A flat position on the chunk grid.
-struct ChunkPos: Hashable, Codable, Sequence {
+struct ChunkPos: Hashable, Codable, Sequence, Pos2 {
     var x: Int
     var z: Int
     
@@ -18,56 +18,12 @@ struct ChunkPos: Hashable, Codable, Sequence {
         z = pos.z.floorDiv(ChunkConstants.size)
     }
     
-    init(x: Int = 0, z: Int = 0) {
+    init(x: Int, z: Int) {
         self.x = x
         self.z = z
     }
     
-    func makeIterator() -> GridIterator2 {
+    func makeIterator() -> GridIterator2<GridPos2> {
         GridIterator2(topLeftInclusive: topLeftInclusive, bottomRightExclusive: bottomRightExclusive)
-    }
-    
-    static func +(lhs: Self, rhs: Self) -> Self {
-        Self(x: lhs.x + rhs.x, z: lhs.z + rhs.z)
-    }
-    
-    static func -(lhs: Self, rhs: Self) -> Self {
-        Self(x: lhs.x - rhs.x, z: lhs.z - rhs.z)
-    }
-    
-    static func +=(lhs: inout Self, rhs: Self) {
-        lhs.x += rhs.x
-        lhs.z += rhs.z
-    }
-    
-    static func -=(lhs: inout Self, rhs: Self) {
-        lhs.x -= rhs.x
-        lhs.z -= rhs.z
-    }
-    
-    static prefix func -(rhs: Self) -> Self {
-        Self(x: -rhs.x, z: -rhs.z)
-    }
-    
-    static func *(lhs: Self, rhs: Int) -> Self {
-        Self(x: lhs.x * rhs, z: lhs.z * rhs)
-    }
-    
-    static func *(lhs: Int, rhs: Self) -> Self {
-        rhs * lhs
-    }
-    
-    static func /(lhs: Self, rhs: Int) -> Self {
-        Self(x: lhs.x / rhs, z: lhs.z / rhs)
-    }
-    
-    static func *=(lhs: inout Self, rhs: Int) {
-        lhs.x *= rhs
-        lhs.z *= rhs
-    }
-    
-    static func /=(lhs: inout Self, rhs: Int) {
-        lhs.x /= rhs
-        lhs.z /= rhs
     }
 }

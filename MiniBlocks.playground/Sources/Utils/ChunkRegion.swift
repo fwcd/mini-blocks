@@ -16,10 +16,10 @@ struct ChunkRegion: Sequence {
         )
     }
     
-    func makeIterator() -> GridIterator2 {
+    func makeIterator() -> GridIterator2<ChunkPos> {
         GridIterator2(
-            topLeftInclusive: topLeftInclusive.topLeftInclusive,
-            bottomRightExclusive: bottomRightExclusive.bottomRightExclusive
+            topLeftInclusive: topLeftInclusive,
+            bottomRightExclusive: bottomRightExclusive
         )
     }
 }

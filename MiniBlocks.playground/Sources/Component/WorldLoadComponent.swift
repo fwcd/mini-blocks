@@ -8,9 +8,6 @@ private let textures: [BlockType: NSImage] = [
 
 /// Loads chunks from the world model into the SceneKit node.
 class WorldLoadComponent: GKComponent {
-    /// Number of chunks to render in each direction. Note that although we call it a 'radius', a square grid of chunks is loaded.
-    var loadRadius: Int = 2
-    
     /// The 'reference-counts' of each chunk retainer (e.g. players).
     private var retainCounts: [ChunkPos: Int] = [:]
     
