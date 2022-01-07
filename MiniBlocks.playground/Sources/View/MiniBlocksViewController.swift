@@ -70,8 +70,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         add(entity: makeAmbientLightEntity())
         
         // Add the world
-        let worldEntity = makeWorldEntity(world: World.wavyGrassHills())
-        let worldNode = worldEntity.component(ofType: SceneNodeComponent.self)?.node
+        let worldEntity = makeWorldEntity(world: World(generator: WavyHillsWorldGenerator()))
         add(entity: worldEntity)
         
         // Add player

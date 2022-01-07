@@ -51,6 +51,7 @@
 		35EA35422788A6190066DD82 /* FlatWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35412788A6190066DD82 /* FlatWorldGenerator.swift */; };
 		35EA35442788A6380066DD82 /* EmptyWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35432788A6380066DD82 /* EmptyWorldGenerator.swift */; };
 		35EA35462788A69A0066DD82 /* WavyHillsWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35452788A69A0066DD82 /* WavyHillsWorldGenerator.swift */; };
+		35EA354A2788A8B00066DD82 /* ChunkRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35492788A8B00066DD82 /* ChunkRegion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		35EA35412788A6190066DD82 /* FlatWorldGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FlatWorldGenerator.swift; path = ../../MiniBlocks.playground/Sources/World/FlatWorldGenerator.swift; sourceTree = "<group>"; };
 		35EA35432788A6380066DD82 /* EmptyWorldGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyWorldGenerator.swift; path = ../../MiniBlocks.playground/Sources/World/EmptyWorldGenerator.swift; sourceTree = "<group>"; };
 		35EA35452788A69A0066DD82 /* WavyHillsWorldGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WavyHillsWorldGenerator.swift; path = ../../MiniBlocks.playground/Sources/World/WavyHillsWorldGenerator.swift; sourceTree = "<group>"; };
+		35EA35492788A8B00066DD82 /* ChunkRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChunkRegion.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkRegion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				35A0C28527873D1100FA8570 /* GridPos3.swift */,
 				35A0C2A2278757A700FA8570 /* GridPos2.swift */,
 				35EA352127889B200066DD82 /* ChunkPos.swift */,
+				35EA35492788A8B00066DD82 /* ChunkRegion.swift */,
 				35EA352327889B560066DD82 /* ChunkConstants.swift */,
 				35EA352527889CBE0066DD82 /* GridIterator2.swift */,
 				35A0C28727873D2900FA8570 /* Box.swift */,
@@ -389,6 +392,7 @@
 				35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */,
 				35A0C29F278756EC00FA8570 /* BlockType.swift in Sources */,
 				352D7A422787B89B008FB939 /* SpriteNodeComponent.swift in Sources */,
+				35EA354A2788A8B00066DD82 /* ChunkRegion.swift in Sources */,
 				35A0C294278748EA00FA8570 /* PlayerControlComponent.swift in Sources */,
 				35A0C28827873D2900FA8570 /* Box.swift in Sources */,
 				352D7A402787B211008FB939 /* LookAtBlockComponent.swift in Sources */,
