@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		352D7A402787B211008FB939 /* WorldInteractionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A3F2787B211008FB939 /* WorldInteractionComponent.swift */; };
+		352D7A422787B89B008FB939 /* SpriteNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A412787B89B008FB939 /* SpriteNodeComponent.swift */; };
+		352D7A442787B90A008FB939 /* CrosshairHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */; };
 		3546255827878798000489E8 /* SCNVectorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SCNVectorUtils.swift */; };
 		35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28527873D1100FA8570 /* GridPos3.swift */; };
 		35A0C28827873D2900FA8570 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28727873D2900FA8570 /* Box.swift */; };
@@ -35,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		352D7A3F2787B211008FB939 /* WorldInteractionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldInteractionComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldInteractionComponent.swift; sourceTree = "<group>"; };
+		352D7A412787B89B008FB939 /* SpriteNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpriteNodeComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/SpriteNodeComponent.swift; sourceTree = "<group>"; };
+		352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CrosshairHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/CrosshairHUDEntity.swift; sourceTree = "<group>"; };
 		3546255727878798000489E8 /* SCNVectorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SCNVectorUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/SCNVectorUtils.swift; sourceTree = "<group>"; };
 		35A0C28527873D1100FA8570 /* GridPos3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPos3.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridPos3.swift; sourceTree = "<group>"; };
 		35A0C28727873D2900FA8570 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Box.swift; path = ../../MiniBlocks.playground/Sources/Utils/Box.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 			children = (
 				35A0C28927873DB300FA8570 /* WorldEntity.swift */,
 				35A0C28F2787475600FA8570 /* PlayerEntity.swift */,
+				352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -86,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */,
+				352D7A412787B89B008FB939 /* SpriteNodeComponent.swift */,
 				35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */,
 				35A0C295278752E900FA8570 /* GravityComponent.swift */,
 				35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */,
@@ -256,6 +262,7 @@
 				35A0C2902787475600FA8570 /* PlayerEntity.swift in Sources */,
 				35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */,
 				35A0C29F278756EC00FA8570 /* BlockType.swift in Sources */,
+				352D7A422787B89B008FB939 /* SpriteNodeComponent.swift in Sources */,
 				35A0C294278748EA00FA8570 /* PlayerControlComponent.swift in Sources */,
 				35A0C28827873D2900FA8570 /* Box.swift in Sources */,
 				352D7A402787B211008FB939 /* WorldInteractionComponent.swift in Sources */,
@@ -269,6 +276,7 @@
 				35A0C2A927875EC400FA8570 /* HeightAboveGroundComponent.swift in Sources */,
 				35A0C29B2787569600FA8570 /* World.swift in Sources */,
 				35E7F412278683950067F0F7 /* main.swift in Sources */,
+				352D7A442787B90A008FB939 /* CrosshairHUDEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,6 @@
 import Foundation
 import SceneKit
+import SpriteKit
 import GameplayKit
 
 /// The game's primary view controller.
@@ -30,8 +31,9 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     
     @Box private var world: World = World.wavyGrassHills()
     
-    // MARK: SceneKit properties
+    // MARK: SpriteKit/SceneKit properties
     
+    private var overlayScene: SKScene!
     private var scene: SCNScene!
     
     // MARK: GameplayKit properties
@@ -59,8 +61,12 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     
     /// Creates the initial scene.
     public override func loadView() {
-        // Create scene
+        // Create main scene
         scene = SCNScene(named: "MiniBlocksScene.scn")!
+        
+        // Create overlay scene
+        overlayScene = sceneFrame.map { SKScene(size: $0.size) } ?? SKScene()
+        overlayScene.isUserInteractionEnabled = false
         
         // Add player
         let playerEntity = makePlayerEntity(world: _world)
@@ -87,6 +93,9 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         let worldEntity = makeWorldEntity(world: _world, playerNode: playerNode)
         add(entity: worldEntity)
         
+        // Add overlay HUD
+        add(entity: makeCrosshairHUDEntity(at: CGPoint(x: overlayScene.frame.midX, y: overlayScene.frame.midY)))
+        
         // Set up SCNView
         let sceneView = sceneFrame.map { SCNView(frame: $0) } ?? SCNView()
         sceneView.scene = scene
@@ -95,6 +104,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         sceneView.defaultCameraController.interactionMode = debugInteractionMode
         sceneView.showsStatistics = true
         sceneView.backgroundColor = NSColor.black
+        sceneView.overlaySKScene = overlayScene
         
         // Keep scene active, otherwise it will stop sending renderer(_:updateAtTime:)s when nothing changes. See also https://stackoverflow.com/questions/39336509/how-do-you-set-up-a-game-loop-for-scenekit
         sceneView.isPlaying = true
@@ -115,8 +125,13 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         entities.append(entity)
         
         // Add attached node to the scene, if entity has the corresponding component
-        if let component = entity.component(ofType: SceneNodeComponent.self) {
-            scene.rootNode.addChildNode(component.node)
+        if let node = entity.component(ofType: SceneNodeComponent.self)?.node {
+            scene.rootNode.addChildNode(node)
+        }
+        
+        // Add attached sprite node to the overlay, if present
+        if let node = entity.component(ofType: SpriteNodeComponent.self)?.node {
+            overlayScene.addChild(node)
         }
         
         // Add components to their corresponding systems
