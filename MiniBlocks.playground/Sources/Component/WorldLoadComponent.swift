@@ -17,6 +17,9 @@ class WorldLoadComponent: GKComponent {
     /// The currently loaded chunks with their associated SceneKit nodes.
     private var loadedChunks: [ChunkPos: SCNNode] = [:]
     
+    /// Throttles chunk loading to a fixed interval.
+    private var throttler = Throttler(interval: 0.5)
+    
     private var world: World? {
         get { entity?.component(ofType: WorldComponent.self)?.world }
         set { entity?.component(ofType: WorldComponent.self)?.world = newValue! }
@@ -38,7 +41,26 @@ class WorldLoadComponent: GKComponent {
     }///
     
     override func update(deltaTime seconds: TimeInterval) {
-        // TODO
+        guard let node = node else { return }
+        
+        throttler.run(deltaTime: seconds) {
+            // Perform a delta update of the chunks
+            let requestedChunks = Set(retainCounts.keys)
+            let currentChunks = Set(loadedChunks.keys)
+            let chunksToLoad = requestedChunks.subtracting(currentChunks)
+            let chunksToUnload = currentChunks.subtracting(requestedChunks)
+            
+            for pos in chunksToUnload {
+                loadedChunks[pos]?.removeFromParentNode()
+            }
+            
+            for pos in chunksToLoad {
+                if let chunkNode = loadChunk(at: pos) {
+                    node.addChildNode(chunkNode)
+                    loadedChunks[pos] = chunkNode
+                }
+            }
+        }
     }
     
     private func loadChunk(at chunkPos: ChunkPos) -> SCNNode? {
