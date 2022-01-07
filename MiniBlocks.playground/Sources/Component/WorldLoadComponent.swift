@@ -48,8 +48,10 @@ class WorldLoadComponent: GKComponent {
             let chunksToUnload = currentChunks.subtracting(requestedChunks)
             
             for pos in chunksToUnload {
-                loadedChunks[pos]?.removeFromParentNode()
-                loadedChunks[pos] = nil
+                if let chunkNode = loadedChunks[pos] {
+                    chunkNode.removeFromParentNode()
+                    loadedChunks[pos] = nil
+                }
             }
             
             for pos in chunksToLoad {
