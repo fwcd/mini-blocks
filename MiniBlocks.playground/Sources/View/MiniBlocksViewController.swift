@@ -186,7 +186,42 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     }
     
     public override func mouseDown(with event: NSEvent) {
-        mouseCaptured = true
+        if mouseCaptured {
+            // Break blocks on left-click if captured
+            controlPlayer { component in
+                component.motionInput.insert(.breakBlock)
+            }
+        } else {
+            // Capture mouse otherwise
+            mouseCaptured = true
+        }
+    }
+    
+    public override func rightMouseDown(with event: NSEvent) {
+        if mouseCaptured {
+            // Use blocks on right-click if captured
+            controlPlayer { component in
+                component.motionInput.insert(.useBlock)
+            }
+        }
+    }
+    
+    public override func mouseUp(with event: NSEvent) {
+        if mouseCaptured {
+            // Stop breaking blocks
+            controlPlayer { component in
+                component.motionInput.remove(.breakBlock)
+            }
+        }
+    }
+    
+    public override func rightMouseUp(with event: NSEvent) {
+        if mouseCaptured {
+            // Stop using blocks
+            controlPlayer { component in
+                component.motionInput.remove(.useBlock)
+            }
+        }
     }
     
     public override func mouseMoved(with event: NSEvent) {
