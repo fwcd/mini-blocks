@@ -44,8 +44,8 @@ class PlayerControlComponent: GKComponent {
         entity?.component(ofType: GravityComponent.self)
     }
     
-    private var lookedAtBlockPos: GridPos3? {
-        entity?.component(ofType: LookAtBlockComponent.self)?.blockPos
+    private var lookAtBlockComponent: LookAtBlockComponent? {
+        entity?.component(ofType: LookAtBlockComponent.self)
     }
     
     private var velocity: SCNVector3? {
@@ -120,16 +120,20 @@ class PlayerControlComponent: GKComponent {
                 gravityComponent.leavesGround = true
             }
             
-            if let lookedAtBlockPos = lookedAtBlockPos {
+            if let lookedAtBlockPos = lookAtBlockComponent?.blockPos {
                 // Break looked-at block if needed
                 if motionInput.contains(.breakBlock) {
                     world?.breakBlock(at: lookedAtBlockPos)
                     worldLoadComponent?.markDirty(at: lookedAtBlockPos.asGridPos2)
                 }
-                
+            }
+            
+            if let placePos = lookAtBlockComponent?.blockPlacePos {
                 // Use looked-at block if needed
                 if motionInput.contains(.useBlock) {
-                    // TODO: Implement block placement etc.
+                    // TODO: Support other blocks etc.
+                    world?.place(block: Block(type: .grass), at: placePos)
+                    worldLoadComponent?.markDirty(at: placePos.asGridPos2)
                 }
             }
         }

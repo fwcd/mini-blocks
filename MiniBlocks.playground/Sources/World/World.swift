@@ -29,8 +29,13 @@ struct World: Sequence {
         self[pos.asGridPos2][pos.y]
     }
     
+    /// Place the given block at the given position. O(1).
+    mutating func place(block: Block?, at pos: GridPos3) {
+        self[pos.asGridPos2][pos.y] = block
+    }
+    
     /// Removes the block at the given position. O(1).
     mutating func breakBlock(at pos: GridPos3) {
-        self[pos.asGridPos2][pos.y] = nil
+        place(block: nil, at: pos)
     }
 }
