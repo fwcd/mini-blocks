@@ -72,15 +72,24 @@ class WorldLoadComponent: GKComponent {
             }
             
             // Reload dirty strips that aren't in the newly loaded chunks
-            for pos in stripsToReload {
-                let chunkPos = ChunkPos(containing: pos)
-                if let chunkNode = loadedChunks[chunkPos] {
-                    // TODO: Investigate efficiency here?
-                    for blockNode in chunkNode.childNodes where GridPos3(rounding: blockNode.position).asGridPos2 == pos {
-                        blockNode.removeFromParentNode()
-                    }
-                    loadStrip(at: pos, into: chunkNode)
+            reload(strips: stripsToReload)
+        } orElse: {
+            // Reload all dirty strips immediately if there are any
+            reload(strips: dirtyStrips)
+        }
+        
+        dirtyStrips = []
+    }
+    
+    private func reload(strips: Set<GridPos2>) {
+        for pos in strips {
+            let chunkPos = ChunkPos(containing: pos)
+            if let chunkNode = loadedChunks[chunkPos] {
+                // TODO: Investigate efficiency here?
+                for blockNode in chunkNode.childNodes where GridPos3(rounding: blockNode.position).asGridPos2 == pos {
+                    blockNode.removeFromParentNode()
                 }
+                loadStrip(at: pos, into: chunkNode)
             }
         }
     }
