@@ -6,8 +6,8 @@ struct NatureWorldGenerator: WorldGenerator {
     
     var amplitude: Float = 8
     var scale: Float = 80
-    var sandLevel: Int = 1
-    var waterLevel: Int = 0
+    var sandLevel: Int = 0
+    var waterLevel: Int = -1
     
     init(seed: String) {
         let noiseSeed: Int32 = seed.utf8.reduce(0) { ($0 << 1) ^ Int32($1) }
@@ -27,10 +27,10 @@ struct NatureWorldGenerator: WorldGenerator {
         
         if y > sandLevel {
             blocks = [y: Block(type: .grass)]
-        } else if y > waterLevel {
+        } else if y >= waterLevel {
             blocks = [y: Block(type: .sand), y - 1: Block(type: .stone)]
         } else {
-            blocks = [y: Block(type: .water), y - 1: Block(type: .stone)]
+            blocks = Dictionary(uniqueKeysWithValues: (y...waterLevel).map { ($0, Block(type: .water)) } + [(y - 1, Block(type: .stone))])
         }
                               
         return Strip(blocks: blocks)
