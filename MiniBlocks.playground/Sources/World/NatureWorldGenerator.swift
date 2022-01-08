@@ -6,6 +6,8 @@ struct NatureWorldGenerator: WorldGenerator {
     
     var amplitude: Float = 8
     var scale: Float = 80
+    var sandLevel: Int = 1
+    var waterLevel: Int = 0
     
     init(seed: String) {
         let noiseSeed: Int32 = seed.utf8.reduce(0) { ($0 << 1) ^ Int32($1) }
@@ -21,6 +23,7 @@ struct NatureWorldGenerator: WorldGenerator {
     
     func generate(at pos: GridPos2) -> Strip {
         let y = Int(amplitude * heightNoise.value(atPosition: vector_float2(x: Float(pos.x) / scale, y: Float(pos.z) / scale)))
-        return Strip(blocks: [y: Block(type: .grass)])
+        let blockType: BlockType = y > sandLevel ? .grass : y > waterLevel ? .sand : .water
+        return Strip(blocks: [y: Block(type: blockType)])
     }
 }
