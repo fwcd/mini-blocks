@@ -4,6 +4,7 @@ public enum WorldGeneratorType: Hashable, Codable, WorldGenerator {
     case flat
     case wavyHills
     case ocean
+    case nature
     
     var generator: WorldGenerator {
         switch self {
@@ -11,6 +12,7 @@ public enum WorldGeneratorType: Hashable, Codable, WorldGenerator {
         case .flat: return FlatWorldGenerator()
         case .wavyHills: return WavyHillsWorldGenerator()
         case .ocean: return OceanWorldGenerator()
+        case .nature: return NatureWorldGenerator()
         }
     }
     

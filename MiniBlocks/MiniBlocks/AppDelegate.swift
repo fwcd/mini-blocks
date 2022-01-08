@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.title = "MiniBlocks"
         window.contentViewController = MiniBlocksViewController(
             sceneFrame: CGRect(x: 0, y: 0, width: width, height: height),
-            worldGenerator: .ocean,
+            worldGenerator: .nature,
             renderDistance: 12,
             debugModeEnabled: false
         )
