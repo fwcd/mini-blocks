@@ -1,7 +1,7 @@
 import Foundation
 
 /// A model of the world.
-struct World: Sequence {
+struct World: Hashable, Codable, Sequence {
     /// The user-changed strips (which are to be saved).
     var storedStrips: [GridPos2: Strip] = [:]
     

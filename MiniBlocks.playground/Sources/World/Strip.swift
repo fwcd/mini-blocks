@@ -1,5 +1,5 @@
 /// A vertical 1x1 'slice' of blocks.
-struct Strip: Sequence {
+struct Strip: Hashable, Codable, Sequence {
     var blocks: [Int: Block] = [:]
     
     var isEmpty: Bool { blocks.isEmpty }
