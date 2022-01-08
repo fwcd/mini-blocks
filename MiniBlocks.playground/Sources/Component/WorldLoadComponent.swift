@@ -6,6 +6,22 @@ private let textures: [BlockType: NSImage] = [
     .grass: NSImage(named: "TextureGrass.png")!
 ]
 
+private func loadMaterial(for blockType: BlockType) -> SCNMaterial {
+    let material = SCNMaterial()
+    material.diffuse.contents = textures[blockType]
+    material.diffuse.minificationFilter = .none
+    material.diffuse.magnificationFilter = .none
+    return material
+}
+
+private func loadGeometry(for blockType: BlockType) -> SCNGeometry {
+    let box = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
+    box.materials = [loadMaterial(for: blockType)]
+    return box
+}
+
+private let geometries: [BlockType: SCNGeometry] = Dictionary(uniqueKeysWithValues: textures.keys.map { ($0, loadGeometry(for: $0)) })
+
 /// Loads chunks from the world model into the SceneKit node.
 class WorldLoadComponent: GKComponent {
     /// The 'reference-counts' of each chunk retainer (e.g. players).
@@ -108,19 +124,11 @@ class WorldLoadComponent: GKComponent {
         guard let world = world else { return }
         
         for (y, block) in world[pos] {
-            let blockBox = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
-            blockBox.materials = [loadMaterial(for: block)]
-            let blockNode = SCNNode(geometry: blockBox)
+            let blockNode = SCNNode(geometry: geometries[block.type])
             blockNode.position = pos.with(y: y).asSCNVector
             chunkNode.addChildNode(blockNode)
         }
     }
     
-    private func loadMaterial(for block: Block) -> SCNMaterial {
-        let material = SCNMaterial()
-        material.diffuse.contents = textures[block.type]
-        material.diffuse.minificationFilter = .none
-        material.diffuse.magnificationFilter = .none
-        return material
-    }
+    
 }

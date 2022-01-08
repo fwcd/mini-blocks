@@ -25,14 +25,17 @@ class LookAtBlockComponent: GKComponent {
         
         // Find the node the player looks at and (for demo purposes) lower its opacity
         
-        lastHit?.geometry?.materials.first?.diffuse.intensity = 1
+        lastHit?.filters = nil
         
         let pos = parent.convertPosition(node.position, to: worldNode)
         let facing = parent.convertVector(node.worldFront, to: worldNode)
         let hits = worldNode.hitTestWithSegment(from: pos, to: pos + facing * reachDistance)
-        
         let hit = hits.first
-        hit?.node.geometry?.materials.first?.diffuse.intensity = 0.5
+        
+        if let filter = CIFilter(name: "CIColorControls") {
+            filter.setValue(-0.1, forKey: kCIInputBrightnessKey)
+            hit?.node.filters = [filter]
+        }
         
         blockPos = hit.map { GridPos3(rounding: $0.node.position) }
         blockPlacePos = hit.map { GridPos3(rounding: $0.node.position + $0.worldNormal) }

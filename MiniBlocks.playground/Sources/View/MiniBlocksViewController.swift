@@ -95,6 +95,8 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         sceneView.showsStatistics = true
         sceneView.backgroundColor = NSColor.black
         sceneView.overlaySKScene = overlayScene
+        sceneView.antialiasingMode = .none
+        sceneView.isJitteringEnabled = false
         
         // Keep scene active, otherwise it will stop sending renderer(_:updateAtTime:)s when nothing changes. See also https://stackoverflow.com/questions/39336509/how-do-you-set-up-a-game-loop-for-scenekit
         sceneView.isPlaying = true
