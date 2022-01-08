@@ -13,8 +13,8 @@ struct NatureWorldGenerator: WorldGenerator {
         let noiseSeed: Int32 = seed.utf8.reduce(0) { ($0 << 1) ^ Int32($1) }
         
         heightNoise = GKNoise(GKPerlinNoiseSource(
-            frequency: 1,
-            octaveCount: 10,
+            frequency: 1.2,
+            octaveCount: 12,
             persistence: 0.8,
             lacunarity: 1.2,
             seed: noiseSeed
