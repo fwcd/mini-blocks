@@ -59,9 +59,12 @@ class WorldLoadComponent: GKComponent {
         retainCounts[pos] = newCount == 0 ? nil : newCount
     }
     
-    /// Marks a strip as dirty.
+    /// Marks a strip as dirty. Also marks the adjacent strips as dirty since occlusions might have changed.
     func markDirty(at pos: GridPos2) {
         dirtyStrips.insert(pos)
+        for neighbor in pos.neighbors {
+            dirtyStrips.insert(neighbor)
+        }
     }
     
     override func update(deltaTime seconds: TimeInterval) {
@@ -136,6 +139,4 @@ class WorldLoadComponent: GKComponent {
             }
         }
     }
-    
-    
 }

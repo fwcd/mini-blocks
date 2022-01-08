@@ -13,6 +13,15 @@ extension Pos2 {
         (x * x) + (z * z)
     }
     
+    var neighbors: [Self] {
+        [
+            self + Self(x: 1),
+            self - Self(x: 1),
+            self + Self(z: 1),
+            self - Self(z: 1)
+        ]
+    }
+    
     init() {
         self.init(x: 0, z: 0)
     }
