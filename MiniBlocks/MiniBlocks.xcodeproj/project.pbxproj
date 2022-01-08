@@ -17,6 +17,7 @@
 		3584BE292789BFE40037D0E0 /* TextureStone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE272789BFE40037D0E0 /* TextureStone.png */; };
 		3584BE2B2789C1330037D0E0 /* TextureWater.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE2A2789C1330037D0E0 /* TextureWater.png */; };
 		3584BE2D2789C1990037D0E0 /* OceanWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584BE2C2789C1990037D0E0 /* OceanWorldGenerator.swift */; };
+		3584BE2F2789C71D0037D0E0 /* StripConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3584BE2E2789C71D0037D0E0 /* StripConstants.swift */; };
 		35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28527873D1100FA8570 /* GridPos3.swift */; };
 		35A0C28827873D2900FA8570 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28727873D2900FA8570 /* Box.swift */; };
 		35A0C28A27873DB300FA8570 /* WorldEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28927873DB300FA8570 /* WorldEntity.swift */; };
@@ -82,6 +83,7 @@
 		3584BE272789BFE40037D0E0 /* TextureStone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureStone.png; path = ../../MiniBlocks.playground/Resources/TextureStone.png; sourceTree = "<group>"; };
 		3584BE2A2789C1330037D0E0 /* TextureWater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWater.png; path = ../../MiniBlocks.playground/Resources/TextureWater.png; sourceTree = "<group>"; };
 		3584BE2C2789C1990037D0E0 /* OceanWorldGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OceanWorldGenerator.swift; path = ../../MiniBlocks.playground/Sources/World/OceanWorldGenerator.swift; sourceTree = "<group>"; };
+		3584BE2E2789C71D0037D0E0 /* StripConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StripConstants.swift; path = ../../MiniBlocks.playground/Sources/World/StripConstants.swift; sourceTree = "<group>"; };
 		35A0C28527873D1100FA8570 /* GridPos3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPos3.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridPos3.swift; sourceTree = "<group>"; };
 		35A0C28727873D2900FA8570 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Box.swift; path = ../../MiniBlocks.playground/Sources/Utils/Box.swift; sourceTree = "<group>"; };
 		35A0C28927873DB300FA8570 /* WorldEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/WorldEntity.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				35EA35452788A69A0066DD82 /* WavyHillsWorldGenerator.swift */,
 				3584BE2C2789C1990037D0E0 /* OceanWorldGenerator.swift */,
 				35A0C2A4278757EB00FA8570 /* Strip.swift */,
+				3584BE2E2789C71D0037D0E0 /* StripConstants.swift */,
 				35A0C29C278756BE00FA8570 /* Block.swift */,
 				35A0C29E278756EC00FA8570 /* BlockType.swift */,
 			);
@@ -402,6 +405,7 @@
 			files = (
 				35E7F416278688180067F0F7 /* KeyCodes.swift in Sources */,
 				35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */,
+				3584BE2F2789C71D0037D0E0 /* StripConstants.swift in Sources */,
 				35EA353E2788A57C0066DD82 /* WorldAssociationComponent.swift in Sources */,
 				35EA354E2788B3870066DD82 /* Pos3.swift in Sources */,
 				35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */,

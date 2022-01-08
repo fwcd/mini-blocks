@@ -3,10 +3,14 @@ import Foundation
 /// A model of the world.
 struct World: Sequence {
     /// The user-changed strips (which are to be saved).
-    var storedStrips: [GridPos2: Strip] = [:]
+    private var storedStrips: [GridPos2: Strip] = [:]
     
     /// The procedural generator that generates new strips.
     let generator: WorldGeneratorType
+    
+    init(generator: WorldGeneratorType = .empty) {
+        self.generator = generator
+    }
     
     /// Fetches the strip at the given position.
     subscript(pos: GridPos2) -> Strip {
