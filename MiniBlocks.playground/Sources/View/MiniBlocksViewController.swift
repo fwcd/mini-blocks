@@ -45,7 +45,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     
     public init(
         sceneFrame: CGRect? = nil,
-        worldGenerator: WorldGeneratorType = .wavyHills,
+        worldGenerator: WorldGeneratorType = .nature,
         renderDistance: Int = 8,
         debugModeEnabled: Bool = false,
         debugInteractionMode: SCNInteractionMode = .fly
