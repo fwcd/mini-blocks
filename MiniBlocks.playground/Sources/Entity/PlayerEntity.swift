@@ -3,7 +3,8 @@ import SceneKit
 
 func makePlayerEntity(
     position: SCNVector3,
-    worldEntity: GKEntity
+    worldEntity: GKEntity,
+    retainRadius: Int
 ) -> GKEntity {
     // Create node
     let height: CGFloat = 1.5
@@ -19,7 +20,7 @@ func makePlayerEntity(
     entity.addComponent(HeightAboveGroundComponent(heightAboveGround: 1 + height))
     entity.addComponent(GravityComponent())
     entity.addComponent(LookAtBlockComponent())
-    entity.addComponent(WorldRetainComponent()) // players retain chunks around themselves
+    entity.addComponent(WorldRetainComponent(retainRadius: retainRadius)) // players retain chunks around themselves
     
     return entity
 }

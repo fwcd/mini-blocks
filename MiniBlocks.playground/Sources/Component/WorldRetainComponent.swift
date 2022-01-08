@@ -6,7 +6,7 @@ class WorldRetainComponent: GKComponent {
     private var throttler = Throttler(interval: 0.2)
     
     /// Number of chunks to retain in each direction. Note that although we call it a 'radius', a square grid of chunks is loaded.
-    var retainRadius: Int = 5
+    var retainRadius: Int
     
     /// Number of chunks which the player may 'stray' from the lastUpdatePos until an update to the retained chunks is triggered.
     private var skipUpdateRadius: Int = 1
@@ -29,6 +29,15 @@ class WorldRetainComponent: GKComponent {
         guard let lastUpdatePos = lastUpdatePos,
               let currentPos = currentPos else { return true }
         return (currentPos - lastUpdatePos).squaredLength > skipUpdateRadius * skipUpdateRadius
+    }
+    
+    init(retainRadius: Int = 6) {
+        self.retainRadius = retainRadius
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        nil
     }
     
     override func update(deltaTime seconds: TimeInterval) {

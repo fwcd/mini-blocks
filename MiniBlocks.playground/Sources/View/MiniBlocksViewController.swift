@@ -8,6 +8,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     private let debugModeEnabled: Bool
     private let debugInteractionMode: SCNInteractionMode
     private let worldGenerator: WorldGeneratorType
+    private let renderDistance: Int
     private var previousUpdateTime: TimeInterval = 0
     
     // MARK: View properties
@@ -45,13 +46,15 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     public init(
         sceneFrame: CGRect? = nil,
         worldGenerator: WorldGeneratorType = .wavyHills,
+        renderDistance: Int = 8,
         debugModeEnabled: Bool = false,
         debugInteractionMode: SCNInteractionMode = .fly
     ) {
         self.sceneFrame = sceneFrame
+        self.worldGenerator = worldGenerator
+        self.renderDistance = renderDistance
         self.debugModeEnabled = debugModeEnabled
         self.debugInteractionMode = debugInteractionMode
-        self.worldGenerator = worldGenerator
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -79,7 +82,11 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         
         // Add player
         let playerSpawnPos = SCNVector3(x: 0, y: 10, z: 0)
-        let playerEntity = makePlayerEntity(position: playerSpawnPos, worldEntity: worldEntity)
+        let playerEntity = makePlayerEntity(
+            position: playerSpawnPos,
+            worldEntity: worldEntity,
+            retainRadius: renderDistance
+        )
         add(entity: playerEntity)
         
         // Add overlay HUD
