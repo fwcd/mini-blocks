@@ -2,7 +2,7 @@
 
 // +------------------------------------------------+
 // | Please make sure that your playgrounds preview |
-// | is wide enough to display the app!             |
+// | is wide enough to display the scene!           |
 // +------------------------------------------------+
 
 import PlaygroundSupport
