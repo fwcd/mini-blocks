@@ -36,6 +36,9 @@ class WorldLoadComponent: GKComponent {
     /// Strips marked as dirty (e.g. because the user placed/removed blocks there).
     private var dirtyStrips: Set<GridPos2> = []
     
+    /// Performs occlusion checking before rendering. Makes chunk loading slower and rendering faster.
+    private var checkOcclusions: Bool = true
+    
     /// Throttles chunk loading to a fixed interval.
     private var throttler = Throttler(interval: 0.5)
     
@@ -132,7 +135,7 @@ class WorldLoadComponent: GKComponent {
         for (y, block) in world[pos] {
             let blockPos = pos.with(y: y)
             // Only add blocks that aren't fully occluded
-            if !world.isOccluded(at: blockPos) {
+            if !checkOcclusions || !world.isOccluded(at: blockPos) {
                 let blockNode = SCNNode(geometry: geometries[block.type])
                 blockNode.position = blockPos.asSCNVector
                 chunkNode.addChildNode(blockNode)
