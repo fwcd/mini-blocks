@@ -23,7 +23,16 @@ struct NatureWorldGenerator: WorldGenerator {
     
     func generate(at pos: GridPos2) -> Strip {
         let y = Int(amplitude * heightNoise.value(atPosition: vector_float2(x: Float(pos.x) / scale, y: Float(pos.z) / scale)))
-        let blockType: BlockType = y > sandLevel ? .grass : y > waterLevel ? .sand : .water
-        return Strip(blocks: [y: Block(type: blockType)])
+        let blocks: [Int: Block]
+        
+        if y > sandLevel {
+            blocks = [y: Block(type: .grass)]
+        } else if y > waterLevel {
+            blocks = [y: Block(type: .sand), y - 1: Block(type: .stone)]
+        } else {
+            blocks = [y: Block(type: .water), y - 1: Block(type: .stone)]
+        }
+                              
+        return Strip(blocks: blocks)
     }
 }
