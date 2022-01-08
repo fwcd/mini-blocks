@@ -127,9 +127,13 @@ class WorldLoadComponent: GKComponent {
         guard let world = world else { return }
         
         for (y, block) in world[pos] {
-            let blockNode = SCNNode(geometry: geometries[block.type])
-            blockNode.position = pos.with(y: y).asSCNVector
-            chunkNode.addChildNode(blockNode)
+            let blockPos = pos.with(y: y)
+            // Only add blocks that aren't fully occluded
+            if !world.isOccluded(at: blockPos) {
+                let blockNode = SCNNode(geometry: geometries[block.type])
+                blockNode.position = blockPos.asSCNVector
+                chunkNode.addChildNode(blockNode)
+            }
         }
     }
     

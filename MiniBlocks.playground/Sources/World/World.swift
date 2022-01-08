@@ -29,6 +29,16 @@ struct World: Sequence {
         self[pos.asGridPos2][pos.y]
     }
     
+    /// Checks whether the block at the given position is fully occluded by others. O(1).
+    func isOccluded(at pos: GridPos3) -> Bool {
+           block(at: pos + GridPos3(x: 1)) != nil
+        && block(at: pos - GridPos3(x: 1)) != nil
+        && block(at: pos + GridPos3(y: 1)) != nil
+        && block(at: pos - GridPos3(y: 1)) != nil
+        && block(at: pos + GridPos3(z: 1)) != nil
+        && block(at: pos - GridPos3(z: 1)) != nil
+    }
+    
     /// Place the given block at the given position. O(1).
     mutating func place(block: Block?, at pos: GridPos3) {
         self[pos.asGridPos2][pos.y] = block
