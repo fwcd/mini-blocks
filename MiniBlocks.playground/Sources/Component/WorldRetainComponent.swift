@@ -9,7 +9,7 @@ class WorldRetainComponent: GKComponent {
     var retainRadius: Int
     
     /// Number of chunks which the player may 'stray' from the lastUpdatePos until an update to the retained chunks is triggered.
-    private var skipUpdateRadius: Int = 2
+    private var skipUpdateRadius: Int { min(2, retainRadius - 1) }
     
     private var lastUpdatePos: ChunkPos? = nil
     
