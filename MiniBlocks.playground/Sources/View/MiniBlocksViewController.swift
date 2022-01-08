@@ -9,6 +9,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     private let debugInteractionMode: SCNInteractionMode
     private let worldGenerator: WorldGeneratorType
     private let renderDistance: Int
+    private let ambientOcclusionEnabled: Bool
     private var previousUpdateTime: TimeInterval = 0
     
     // MARK: View properties
@@ -47,12 +48,14 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         sceneFrame: CGRect? = nil,
         worldGenerator: WorldGeneratorType = .nature(seed: "default"),
         renderDistance: Int = 8,
+        ambientOcclusionEnabled: Bool = false,
         debugModeEnabled: Bool = false,
         debugInteractionMode: SCNInteractionMode = .fly
     ) {
         self.sceneFrame = sceneFrame
         self.worldGenerator = worldGenerator
         self.renderDistance = renderDistance
+        self.ambientOcclusionEnabled = ambientOcclusionEnabled
         self.debugModeEnabled = debugModeEnabled
         self.debugInteractionMode = debugInteractionMode
         
@@ -85,7 +88,8 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         let playerEntity = makePlayerEntity(
             position: playerSpawnPos,
             worldEntity: worldEntity,
-            retainRadius: renderDistance
+            retainRadius: renderDistance,
+            ambientOcclusionEnabled: ambientOcclusionEnabled
         )
         add(entity: playerEntity)
         

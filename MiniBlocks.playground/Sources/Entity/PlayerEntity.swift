@@ -4,12 +4,18 @@ import SceneKit
 func makePlayerEntity(
     position: SCNVector3,
     worldEntity: GKEntity,
-    retainRadius: Int
+    retainRadius: Int,
+    ambientOcclusionEnabled: Bool
 ) -> GKEntity {
     // Create node
     let height: CGFloat = 1.5
+    let camera = SCNCamera()
+    if ambientOcclusionEnabled {
+        camera.screenSpaceAmbientOcclusionIntensity = 0.5
+        camera.screenSpaceAmbientOcclusionRadius = 0.5
+    }
     let node = SCNNode()
-    node.camera = SCNCamera()
+    node.camera = camera
     node.position = position
     
     // Create entity

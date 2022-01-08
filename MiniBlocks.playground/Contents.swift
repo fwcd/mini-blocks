@@ -17,6 +17,8 @@ PlaygroundPage.current.liveView = MiniBlocksViewController(
     worldGenerator: .nature(seed: "Hello WWDC 2022!"),
     // How many chunks to render in each direction. Large values may impact performance and memory usage. Note that this does not affect SceneKit's far plane, so the actual number of visible chunks may be lower.
     renderDistance: 8,
+    // Ambient occlusion renders shadows in block corners for a more realistic look (which is, however, computationally more expensive). Disable to get better performance.
+    ambientOcclusionEnabled: true,
     // In debug mode gravity for the player is disabled, the camera can be moved freely and scene statistics will be shown.
     debugModeEnabled: false,
     // The camera interaction mode. Only used if debug mode is enabled.
