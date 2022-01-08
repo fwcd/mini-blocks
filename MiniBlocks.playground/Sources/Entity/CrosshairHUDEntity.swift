@@ -3,7 +3,7 @@ import GameplayKit
 
 private func makeCrosshairPart(size: CGSize) -> SKNode {
     let node = SKShapeNode(rect: CGRect(center: CGPoint(x: 0, y: 0), size: size))
-    node.fillColor = .black
+    node.fillColor = .white
     node.strokeColor = .clear
     return node
 }
