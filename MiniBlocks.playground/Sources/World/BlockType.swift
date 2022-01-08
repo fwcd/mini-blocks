@@ -3,4 +3,5 @@ enum BlockType: Hashable {
     case grass
     case sand
     case stone
+    case water
 }
