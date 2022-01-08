@@ -3,7 +3,9 @@ import SceneKit
 
 /// The texture mappings for every block type.
 private let textures: [BlockType: NSImage] = [
-    .grass: NSImage(named: "TextureGrass.png")!
+    .grass: NSImage(named: "TextureGrass.png")!,
+    .sand: NSImage(named: "TextureSand.png")!,
+    .stone: NSImage(named: "TextureStone.png")!,
 ]
 
 private func loadMaterial(for blockType: BlockType) -> SCNMaterial {
