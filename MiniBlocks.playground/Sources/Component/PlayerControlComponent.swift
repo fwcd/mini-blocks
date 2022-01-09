@@ -115,7 +115,7 @@ class PlayerControlComponent: GKComponent {
             var finalVelocity = velocity
             var iterations = 0
             
-            while let hit = worldNode?.hitTestWithSegment(from: feetPos, to: feetPos + finalVelocity * 1.4).first, iterations < maxCollisionIterations {
+            while let hit = worldNode?.hitTestWithSegment(from: feetPos, to: feetPos + finalVelocity).first, iterations < maxCollisionIterations {
                 let repulsion = hit.worldNormal * abs(finalVelocity.dot(hit.worldNormal))
                 finalVelocity += repulsion
                 iterations += 1
