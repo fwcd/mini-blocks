@@ -6,8 +6,20 @@ extension SCNVector3 {
         (x * x + y * y + z * z).squareRoot()
     }
     
-    var normalized: SCNVector3 {
+    var manhattanLength: CGFloat {
+        abs(x) + abs(y)
+    }
+    
+    var normalized: Self {
         self / length
+    }
+    
+    func manhattanDistance(to rhs: Self) -> CGFloat {
+        (self - rhs).manhattanLength
+    }
+    
+    func dot(_ rhs: Self) -> CGFloat {
+        x * rhs.x + y * rhs.y + z * rhs.z
     }
     
     static func +(lhs: Self, rhs: Self) -> Self {

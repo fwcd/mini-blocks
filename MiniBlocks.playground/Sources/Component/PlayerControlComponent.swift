@@ -13,6 +13,7 @@ class PlayerControlComponent: GKComponent {
     private var yawSpeed: CGFloat = 0.3
     private var jumpSpeed: CGFloat = 1.5
     private var sprintFactor: CGFloat = 1.5
+    private var maxCollisionIterations: Int = 5
     private var pitchRange: ClosedRange<CGFloat> = -piHalf...piHalf
     
     private var throttler = Throttler(interval: 0.1)
@@ -32,6 +33,10 @@ class PlayerControlComponent: GKComponent {
     
     private var worldAssocationComponent: WorldAssociationComponent? {
         entity?.component(ofType: WorldAssociationComponent.self)
+    }
+    
+    private var worldNode: SCNNode? {
+        worldAssocationComponent?.worldNode
     }
     
     private var world: World? {
@@ -104,16 +109,20 @@ class PlayerControlComponent: GKComponent {
         
         let interval = throttler.interval
         throttler.run(deltaTime: seconds) {
-            // Running into terrain pushes the player back
+            // Running into terrain pushes the player back, causing them to 'slide' along the block.
+            // For more info, look up 'AABB sliding collision response'.
             let feetPos = node.position + feetOffset + SCNVector3(x: 0, y: 1, z: 0)
-            let repulsion: SCNVector3 = world.flatMap { world in
-                let currentPos = GridPos3(rounding: feetPos)
-                let nextPos = GridPos3(rounding: feetPos + velocity)
-                return world.block(at: nextPos).map { _ in (currentPos - nextPos).asSCNVector * speed }
-            } ?? SCNVector3(x: 0, y: 0, z: 0)
+            var finalVelocity = velocity
+            var iterations = 0
+            
+            while let hit = worldNode?.hitTestWithSegment(from: feetPos, to: feetPos + finalVelocity * 1.4).first, iterations < maxCollisionIterations {
+                let repulsion = hit.worldNormal * abs(finalVelocity.dot(hit.worldNormal))
+                finalVelocity += repulsion
+                iterations += 1
+            }
             
             // Apply the movement
-            node.runAction(.move(by: repulsion + velocity, duration: interval))
+            node.runAction(.move(by: finalVelocity, duration: interval))
             
             // Jump if possible/needed
             if motionInput.contains(.jump),

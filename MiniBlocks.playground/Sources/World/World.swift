@@ -29,14 +29,19 @@ struct World: Hashable, Codable, Sequence {
         self[pos.asGridPos2][pos.y]
     }
     
+    /// Checks whether there is a block at the given position. O(1).
+    func hasBlock(at pos: GridPos3) -> Bool {
+        block(at: pos) != nil
+    }
+    
     /// Checks whether the block at the given position is fully occluded by others. O(1).
     func isOccluded(at pos: GridPos3) -> Bool {
-           block(at: pos + GridPos3(x: 1)) != nil
-        && block(at: pos - GridPos3(x: 1)) != nil
-        && block(at: pos + GridPos3(y: 1)) != nil
-        && block(at: pos - GridPos3(y: 1)) != nil
-        && block(at: pos + GridPos3(z: 1)) != nil
-        && block(at: pos - GridPos3(z: 1)) != nil
+           hasBlock(at: pos + GridPos3(x: 1))
+        && hasBlock(at: pos - GridPos3(x: 1))
+        && hasBlock(at: pos + GridPos3(y: 1))
+        && hasBlock(at: pos - GridPos3(y: 1))
+        && hasBlock(at: pos + GridPos3(z: 1))
+        && hasBlock(at: pos - GridPos3(z: 1))
     }
     
     /// Place the given block at the given position. O(1).
