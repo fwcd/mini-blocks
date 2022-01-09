@@ -141,8 +141,8 @@ class PlayerControlComponent: GKComponent {
             }
             
             if let placePos = lookAtBlockComponent?.blockPlacePos {
-                // Use looked-at block if needed
-                if motionInput.contains(.useBlock) {
+                // Use or place on looked-at block if needed
+                if motionInput.contains(.useBlock) && placePos != GridPos3(rounding: feetPos) {
                     // TODO: Support other blocks etc.
                     world?.place(block: Block(type: .grass), at: placePos)
                     worldLoadComponent?.markDirty(at: placePos.asGridPos2)
