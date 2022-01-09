@@ -8,7 +8,7 @@ struct NatureWorldGenerator: WorldGenerator {
     var scale: Float = 80
     var sandLevel: Int = 0
     var waterLevel: Int = -1
-    var treeHeight: Int = 5
+    var treeBaseHeight: Int = 5
     var leavesBaseHeight: Int = 2
     
     init(seed: String) {
@@ -38,13 +38,14 @@ struct NatureWorldGenerator: WorldGenerator {
         
         // Generate trees
         if isTree(at: pos) {
-            for i in 1...treeHeight {
+            let height = treeHeight(at: pos)
+            for i in 1...height {
                 blocks[y + i] = Block(type: .wood)
             }
-            blocks[y + treeHeight + 1] = Block(type: .leaves)
+            blocks[y + height + 1] = Block(type: .leaves)
         } else if let treePos = pos.neighbors.first(where: isTree(at:)) {
-            for i in 0..<max(0, leavesBaseHeight + (treePos.x ^ treePos.z) % 2) {
-                blocks[terrainHeight(at: treePos) + treeHeight - i] = Block(type: .leaves)
+            for i in 0..<leavesHeight(at: treePos) {
+                blocks[terrainHeight(at: treePos) + treeHeight(at: treePos) - i] = Block(type: .leaves)
             }
         }
                               
@@ -53,6 +54,14 @@ struct NatureWorldGenerator: WorldGenerator {
     
     private func terrainHeight(at pos: GridPos2) -> Int {
         Int(amplitude * heightNoise.value(atPosition: vectorOf(pos: pos)))
+    }
+    
+    private func treeHeight(at pos: GridPos2) -> Int {
+        treeBaseHeight + min(3, ((((pos.x) << 1) % 10) ^ ((pos.z << 4) % 9)) % 4)
+    }
+    
+    private func leavesHeight(at pos: GridPos2) -> Int {
+        max(0, leavesBaseHeight + (pos.x ^ pos.z) % 2)
     }
     
     private func isTree(at pos: GridPos2) -> Bool {
