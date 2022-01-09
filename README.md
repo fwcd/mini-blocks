@@ -12,4 +12,4 @@ World generation is provided through a variety of world generators. The most int
 
 World loading happens in chunked deltas, i.e. only the new/obsolete chunks are added to/removed from the scene as the player moves.
 
-On the technical side the game uses the AppKit framework for input event handling, the SceneKit framework for rendering and is structured using a combination of the entity-component architecture provided by GameplayKit and classic model-view separation. This choice of architecture makes it easily extendible, avoiding common pitfalls in traditional inheritance-heavy designs, and provides great modularity on top.
+On the technical side the game uses the AppKit framework for input event handling, the SceneKit framework for rendering and is structured using a combination of the entity-component architecture provided by GameplayKit and classic model-view separation. This choice of architecture makes it extensible, avoiding common pitfalls in traditional inheritance-heavy designs, and provides great modularity on top.
