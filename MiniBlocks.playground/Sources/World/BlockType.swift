@@ -5,4 +5,5 @@ enum BlockType: Int, Hashable, Codable {
     case stone
     case water
     case wood
+    case leaves
 }

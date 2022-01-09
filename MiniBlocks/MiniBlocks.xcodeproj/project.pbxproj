@@ -34,6 +34,7 @@
 		35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A627875C7300FA8570 /* WorldComponent.swift */; };
 		35A0C2A927875EC400FA8570 /* HeightAboveGroundComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */; };
 		35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
+		35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
 		35D9E8A1278887960058F0E6 /* LightEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* LightEntity.swift */; };
 		35D9E8A3278888190058F0E6 /* AmbientLightEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A2278888190058F0E6 /* AmbientLightEntity.swift */; };
 		35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F3E927867ED10067F0F7 /* AppDelegate.swift */; };
@@ -101,6 +102,7 @@
 		35A0C2A627875C7300FA8570 /* WorldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldComponent.swift; sourceTree = "<group>"; };
 		35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeightAboveGroundComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HeightAboveGroundComponent.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.playground/Resources/TextureWood.png; sourceTree = "<group>"; };
+		35D8D9ED278B3F470056ACAA /* TextureLeaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureLeaves.png; path = ../../MiniBlocks.playground/Resources/TextureLeaves.png; sourceTree = "<group>"; };
 		35D9E8A0278887960058F0E6 /* LightEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LightEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/LightEntity.swift; sourceTree = "<group>"; };
 		35D9E8A2278888190058F0E6 /* AmbientLightEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbientLightEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/AmbientLightEntity.swift; sourceTree = "<group>"; };
 		35E7F3E627867ED10067F0F7 /* MiniBlocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBlocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +272,7 @@
 				3584BE272789BFE40037D0E0 /* TextureStone.png */,
 				3584BE2A2789C1330037D0E0 /* TextureWater.png */,
 				35D8D9EB278B3D5A0056ACAA /* TextureWood.png */,
+				35D8D9ED278B3F470056ACAA /* TextureLeaves.png */,
 			);
 			name = PlaygroundResources;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				3584BE292789BFE40037D0E0 /* TextureStone.png in Resources */,
 				3584BE282789BFE40037D0E0 /* TextureSand.png in Resources */,
 				35E7F40C278682C60067F0F7 /* MiniBlocksScene.scn in Resources */,
+				35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */,
 				35E7F3F027867ED20067F0F7 /* Assets.xcassets in Resources */,
 				3584BE2B2789C1330037D0E0 /* TextureWater.png in Resources */,
 			);

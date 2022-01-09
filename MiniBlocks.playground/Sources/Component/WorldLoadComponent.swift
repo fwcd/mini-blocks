@@ -7,7 +7,8 @@ private let textures: [BlockType: NSImage] = [
     .sand: NSImage(named: "TextureSand.png")!,
     .stone: NSImage(named: "TextureStone.png")!,
     .water: NSImage(named: "TextureWater.png")!,
-    .wood: NSImage(named: "TextureWood.png")!
+    .wood: NSImage(named: "TextureWood.png")!,
+    .leaves: NSImage(named: "TextureLeaves.png")!,
 ]
 
 private func loadMaterial(for blockType: BlockType) -> SCNMaterial {
