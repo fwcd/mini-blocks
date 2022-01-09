@@ -4,4 +4,5 @@ enum BlockType: Int, Hashable, Codable {
     case sand
     case stone
     case water
+    case wood
 }
