@@ -76,7 +76,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         overlayScene.isUserInteractionEnabled = false
         
         // Add light
-        add(entity: makeLightEntity(position: SCNVector3(x: 0, y: 10, z: 0)))
+        add(entity: makeSunEntity())
         add(entity: makeAmbientLightEntity())
         
         // Add the world

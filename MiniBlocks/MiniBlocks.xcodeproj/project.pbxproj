@@ -35,7 +35,7 @@
 		35A0C2A927875EC400FA8570 /* HeightAboveGroundComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */; };
 		35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
-		35D9E8A1278887960058F0E6 /* LightEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* LightEntity.swift */; };
+		35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
 		35D9E8A3278888190058F0E6 /* AmbientLightEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A2278888190058F0E6 /* AmbientLightEntity.swift */; };
 		35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F3E927867ED10067F0F7 /* AppDelegate.swift */; };
 		35E7F3F027867ED20067F0F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F3EF27867ED20067F0F7 /* Assets.xcassets */; };
@@ -103,7 +103,7 @@
 		35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeightAboveGroundComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HeightAboveGroundComponent.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.playground/Resources/TextureWood.png; sourceTree = "<group>"; };
 		35D8D9ED278B3F470056ACAA /* TextureLeaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureLeaves.png; path = ../../MiniBlocks.playground/Resources/TextureLeaves.png; sourceTree = "<group>"; };
-		35D9E8A0278887960058F0E6 /* LightEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LightEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/LightEntity.swift; sourceTree = "<group>"; };
+		35D9E8A0278887960058F0E6 /* SunEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SunEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/SunEntity.swift; sourceTree = "<group>"; };
 		35D9E8A2278888190058F0E6 /* AmbientLightEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbientLightEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/AmbientLightEntity.swift; sourceTree = "<group>"; };
 		35E7F3E627867ED10067F0F7 /* MiniBlocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBlocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E7F3E927867ED10067F0F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 			children = (
 				35A0C28927873DB300FA8570 /* WorldEntity.swift */,
 				35A0C28F2787475600FA8570 /* PlayerEntity.swift */,
-				35D9E8A0278887960058F0E6 /* LightEntity.swift */,
+				35D9E8A0278887960058F0E6 /* SunEntity.swift */,
 				35D9E8A2278888190058F0E6 /* AmbientLightEntity.swift */,
 				352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */,
 			);
@@ -447,7 +447,7 @@
 				35A0C2A927875EC400FA8570 /* HeightAboveGroundComponent.swift in Sources */,
 				35EA35462788A69A0066DD82 /* WavyHillsWorldGenerator.swift in Sources */,
 				35EA35502788B7850066DD82 /* WorldGeneratorType.swift in Sources */,
-				35D9E8A1278887960058F0E6 /* LightEntity.swift in Sources */,
+				35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */,
 				35EA352227889B200066DD82 /* ChunkPos.swift in Sources */,
 				35A0C29B2787569600FA8570 /* World.swift in Sources */,
 				3584BE2D2789C1990037D0E0 /* OceanWorldGenerator.swift in Sources */,
