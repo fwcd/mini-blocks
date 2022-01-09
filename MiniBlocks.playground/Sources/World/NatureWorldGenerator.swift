@@ -9,6 +9,7 @@ struct NatureWorldGenerator: WorldGenerator {
     var sandLevel: Int = 0
     var waterLevel: Int = -1
     var treeHeight: Int = 5
+    var leavesBaseHeight: Int = 2
     
     init(seed: String) {
         let noiseSeed: Int32 = seed.utf8.reduce(0) { ($0 << 1) ^ Int32($1) }
@@ -40,11 +41,11 @@ struct NatureWorldGenerator: WorldGenerator {
             for i in 1...treeHeight {
                 blocks[y + i] = Block(type: .wood)
             }
-        } else if isTree(at: pos + GridPos2(x: 1))
-               || isTree(at: pos - GridPos2(x: 1))
-               || isTree(at: pos + GridPos2(z: 1))
-               || isTree(at: pos - GridPos2(z: 1)) {
-            blocks[y + treeHeight] = Block(type: .leaves)
+            blocks[y + treeHeight + 1] = Block(type: .leaves)
+        } else if let treePos = pos.neighbors.first(where: isTree(at:)) {
+            for i in 0..<max(0, leavesBaseHeight + (treePos.x ^ treePos.z) % 2) {
+                blocks[terrainHeight(at: treePos) + treeHeight - i] = Block(type: .leaves)
+            }
         }
                               
         return Strip(blocks: blocks)
