@@ -12,6 +12,7 @@
 		352D7A442787B90A008FB939 /* CrosshairHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */; };
 		352D7A462787BD70008FB939 /* CoreGraphicsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A452787BD70008FB939 /* CoreGraphicsUtils.swift */; };
 		352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A472787BF1C008FB939 /* MiniBlocksSceneView.swift */; };
+		35391BA7278BBAA400B22954 /* TextureBedrock.png in Resources */ = {isa = PBXBuildFile; fileRef = 35391BA6278BBAA400B22954 /* TextureBedrock.png */; };
 		3546255827878798000489E8 /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SceneKitUtils.swift */; };
 		3584BE282789BFE40037D0E0 /* TextureSand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE262789BFE40037D0E0 /* TextureSand.png */; };
 		3584BE292789BFE40037D0E0 /* TextureStone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE272789BFE40037D0E0 /* TextureStone.png */; };
@@ -80,6 +81,7 @@
 		352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CrosshairHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/CrosshairHUDEntity.swift; sourceTree = "<group>"; };
 		352D7A452787BD70008FB939 /* CoreGraphicsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreGraphicsUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/CoreGraphicsUtils.swift; sourceTree = "<group>"; };
 		352D7A472787BF1C008FB939 /* MiniBlocksSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MiniBlocksSceneView.swift; path = ../../MiniBlocks.playground/Sources/View/MiniBlocksSceneView.swift; sourceTree = "<group>"; };
+		35391BA6278BBAA400B22954 /* TextureBedrock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureBedrock.png; path = ../../MiniBlocks.playground/Resources/TextureBedrock.png; sourceTree = "<group>"; };
 		3546255727878798000489E8 /* SceneKitUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneKitUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/SceneKitUtils.swift; sourceTree = "<group>"; };
 		3584BE262789BFE40037D0E0 /* TextureSand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureSand.png; path = ../../MiniBlocks.playground/Resources/TextureSand.png; sourceTree = "<group>"; };
 		3584BE272789BFE40037D0E0 /* TextureStone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureStone.png; path = ../../MiniBlocks.playground/Resources/TextureStone.png; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				3584BE2A2789C1330037D0E0 /* TextureWater.png */,
 				35D8D9EB278B3D5A0056ACAA /* TextureWood.png */,
 				35D8D9ED278B3F470056ACAA /* TextureLeaves.png */,
+				35391BA6278BBAA400B22954 /* TextureBedrock.png */,
 			);
 			name = PlaygroundResources;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */,
+				35391BA7278BBAA400B22954 /* TextureBedrock.png in Resources */,
 				35E7F40D278682C60067F0F7 /* TextureGrass.png in Resources */,
 				3584BE292789BFE40037D0E0 /* TextureStone.png in Resources */,
 				3584BE282789BFE40037D0E0 /* TextureSand.png in Resources */,
