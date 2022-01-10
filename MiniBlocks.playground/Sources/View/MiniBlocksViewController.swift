@@ -16,6 +16,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     // MARK: View properties
     
     private let sceneFrame: CGRect?
+    
     #if canImport(AppKit)
     private var receivedFirstMouseEvent: Bool = false
     private var mouseCaptured: Bool = false {
@@ -173,6 +174,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
     }
     
+    // MARK: Mouse/keyboard controls
+    
     #if canImport(AppKit)
     
     public override func keyDown(with event: NSEvent) {
@@ -256,7 +259,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
                 return
             }
             
-            // Rotate view
+            // Rotate camera
             controlPlayer { component in
                 component.rotateYaw(by: -event.deltaX / 50)
                 component.rotatePitch(by: -event.deltaY / 50)
@@ -296,6 +299,32 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         default: return nil
         }
     }
+    
+    #endif
+    
+    // MARK: Touch controls
+    
+    #if canImport(UIKit)
+    
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
+    
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let previousPos = touch.previousLocation(in: view)
+        let currentPos = touch.location(in: view)
+        
+        // Compute touch motion delta
+        let deltaX = currentPos.x - previousPos.x
+        let deltaY = currentPos.y - previousPos.y
+        
+        // Rotate camera
+        controlPlayer { component in
+            component.rotateYaw(by: -SceneFloat(deltaX) / 50)
+            component.rotatePitch(by: -SceneFloat(deltaY) / 50)
+        }
+    }
+    
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {}
     
     #endif
 }
