@@ -6,6 +6,9 @@ class HotbarHUDLoadComponent: GKComponent {
     /// The inventory last rendered to a SpriteKit node.
     private var lastInventory: Inventory?
     
+    private var selectedSlotLineThickness: CGFloat = 4
+    private var normalSlotLineThickness: CGFloat = 2
+    
     private var node: SKNode? {
         entity?.component(ofType: SpriteNodeComponent.self)?.node
     }
@@ -19,12 +22,17 @@ class HotbarHUDLoadComponent: GKComponent {
         entity?.component(ofType: PlayerAssociationComponent.self)?.playerName
     }
     
-    private var inventory: Inventory? {
-        get { playerName.flatMap { world?[playerInfoFor: $0].hotbar } }
+    private var playerInfo: PlayerInfo? {
+        get { playerName.flatMap { world?[playerInfoFor: $0] } }
         set {
             guard let playerName = playerName else { return }
-            world?[playerInfoFor: playerName].hotbar = newValue!
+            world?[playerInfoFor: playerName] = newValue!
         }
+    }
+    
+    private var inventory: Inventory? {
+        get { playerInfo?.hotbar }
+        set { playerInfo?.hotbar = newValue! }
     }
     
     override func update(deltaTime seconds: TimeInterval) {
@@ -38,12 +46,17 @@ class HotbarHUDLoadComponent: GKComponent {
             let width = CGFloat(inventory.slotCount) * slotSize
             
             for i in 0..<inventory.slotCount {
-                let slotNode = makeHotbarHUDSlotNode(size: slotSize)
+                let lineThickness = slotLineThickness(for: i)
+                let slotNode = makeHotbarHUDSlotNode(size: slotSize, lineThickness: lineThickness)
                 slotNode.position = CGPoint(x: (CGFloat(i) * slotSize) - (width / 2) + (slotSize / 2), y: slotSize / 2)
                 node.addChild(slotNode)
             }
         }
         
         lastInventory = inventory
+    }
+    
+    private func slotLineThickness(for i: Int) -> CGFloat {
+        playerInfo?.selectedHotbarSlot == i ? selectedSlotLineThickness : normalSlotLineThickness
     }
 }

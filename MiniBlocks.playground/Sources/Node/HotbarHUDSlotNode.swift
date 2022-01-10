@@ -1,9 +1,10 @@
 import SpriteKit
 
-func makeHotbarHUDSlotNode(size: CGFloat) -> SKNode {
+func makeHotbarHUDSlotNode(size: CGFloat, lineThickness: CGFloat) -> SKNode {
     let node = SKShapeNode(rect: CGRect(center: CGPoint(x: 0, y: 0), size: CGSize(width: size, height: size)))
     node.strokeColor = .black
-    node.lineWidth = 2
+    node.lineWidth = lineThickness
+    node.lineJoin = .bevel
     node.fillColor = .black.withAlphaComponent(0.7)
     return node
 }

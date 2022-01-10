@@ -6,6 +6,8 @@ struct PlayerInfo: Codable, Hashable {
     var inventory: Inventory = Inventory(slotCount: 24)
     /// The player's hotbar.
     var hotbar: Inventory = Inventory(slotCount: 8)
+    /// The hotbar slot index which is currently active.
+    var selectedHotbarSlot: Int = 0
     
     // TODO: Store player position?
 }
