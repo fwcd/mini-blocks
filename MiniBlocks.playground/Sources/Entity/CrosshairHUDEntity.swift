@@ -5,7 +5,6 @@ func makeCrosshairHUDEntity(size: CGFloat = 20, thickness: CGFloat = 2, in frame
     // Create node
     let node = CrosshairHUDNode()
     node.position = CGPoint(x: frame.midX, y: frame.midY)
-    node.addChild(node)
     
     // Create entity
     let entity = GKEntity()
