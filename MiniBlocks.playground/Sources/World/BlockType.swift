@@ -7,4 +7,12 @@ enum BlockType: Int, Hashable, Codable {
     case wood
     case leaves
     case bedrock
+    
+    var isTranslucent: Bool {
+        [.water, .leaves].contains(self)
+    }
+    
+    var isOpaque: Bool {
+        !isTranslucent
+    }
 }
