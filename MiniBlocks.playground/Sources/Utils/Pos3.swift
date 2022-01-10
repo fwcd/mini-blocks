@@ -26,6 +26,17 @@ extension Pos3 {
         self.init(x: 0, y: 0, z: z)
     }
     
+    var neighbors: [Self] {
+        [
+            self + Self(x: 1),
+            self - Self(x: 1),
+            self + Self(y: 1),
+            self - Self(y: 1),
+            self + Self(z: 1),
+            self - Self(z: 1)
+        ]
+    }
+    
     static func +(lhs: Self, rhs: Self) -> Self {
         Self(x: lhs.x + rhs.x, y: lhs.y + rhs.y, z: lhs.z + rhs.z)
     }
