@@ -5,10 +5,10 @@ func makeSunEntity() -> GKEntity {
     // Create node
     let light = SCNLight()
     light.type = .directional
-    light.color = NSColor.white
+    light.color = Color.white
     let node = SCNNode()
     node.light = light
-    node.eulerAngles = SCNVector3(x: -CGFloat.pi / 3, y: -CGFloat.pi / 3, z: 0)
+    node.eulerAngles = SCNVector3(x: -.pi / 3, y: -.pi / 3, z: 0)
     
     // Create entity
     let entity = GKEntity()

@@ -5,7 +5,7 @@ func makeAmbientLightEntity() -> GKEntity {
     // Create node
     let light = SCNLight()
     light.type = .ambient
-    light.color = NSColor.gray
+    light.color = Color.gray
     let node = SCNNode()
     node.light = light
     

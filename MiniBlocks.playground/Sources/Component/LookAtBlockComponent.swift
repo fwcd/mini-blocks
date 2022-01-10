@@ -2,7 +2,7 @@ import GameplayKit
 
 /// Makes the associated node as being capable of looking at blocks (which will be highlighted accordingly).
 class LookAtBlockComponent: GKComponent {
-    private let reachDistance: CGFloat = 10
+    private let reachDistance: SceneFloat = 10
     private var lastHit: SCNNode? = nil
     
     /// The looked at block pos.

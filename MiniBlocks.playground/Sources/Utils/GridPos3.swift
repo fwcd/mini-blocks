@@ -7,7 +7,7 @@ struct GridPos3: Hashable, Codable, Pos3 {
     var z: Int
     
     var asSCNVector: SCNVector3 {
-        SCNVector3(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z))
+        SCNVector3(x: SceneFloat(x), y: SceneFloat(y), z: SceneFloat(z))
     }
     
     var asGridPos2: GridPos2 {

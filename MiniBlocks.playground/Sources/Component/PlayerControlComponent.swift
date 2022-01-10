@@ -1,25 +1,25 @@
 import GameplayKit
 
-private let angularValocityEpsilon: CGFloat = 0.01
-private let piHalf = CGFloat.pi / 2
+private let angularValocityEpsilon: SceneFloat = 0.01
+private let piHalf = SceneFloat.pi / 2
 
 /// Lets the user control the associated scene node, usually a player.
 class PlayerControlComponent: GKComponent {
     /// The current motion input.
     private var motionInput: MotionInput = []
     
-    private var baseSpeed: CGFloat = 0.8
-    private var pitchSpeed: CGFloat = 0.4
-    private var yawSpeed: CGFloat = 0.3
-    private var jumpSpeed: CGFloat = 1.5
-    private var sprintFactor: CGFloat = 1.5
+    private var baseSpeed: SceneFloat = 0.8
+    private var pitchSpeed: SceneFloat = 0.4
+    private var yawSpeed: SceneFloat = 0.3
+    private var jumpSpeed: SceneFloat = 1.5
+    private var sprintFactor: SceneFloat = 1.5
     private var maxCollisionIterations: Int = 5
-    private var pitchRange: ClosedRange<CGFloat> = -piHalf...piHalf
+    private var pitchRange: ClosedRange<SceneFloat> = -piHalf...piHalf
     
     private var throttler = Throttler(interval: 0.1)
     private var deferrableThrottler = Throttler(interval: 0.3)
     
-    private var speed: CGFloat {
+    private var speed: SceneFloat {
         baseSpeed * (motionInput.contains(.sprint) ? sprintFactor : 1)
     }
     
@@ -162,17 +162,17 @@ class PlayerControlComponent: GKComponent {
     }///
     
     /// Rotates the node vertically by the given angle (in radians).
-    func rotatePitch(by delta: CGFloat) {
+    func rotatePitch(by delta: SceneFloat) {
         guard let node = node, canRotatePitch(by: delta) else { return }
         node.eulerAngles.x += delta * pitchSpeed
     }
     
     /// Rotates the node horizontally by the given angle (in radians).
-    func rotateYaw(by delta: CGFloat) {
+    func rotateYaw(by delta: SceneFloat) {
         node?.eulerAngles.y += delta * yawSpeed
     }
     
-    private func canRotatePitch(by delta: CGFloat) -> Bool {
+    private func canRotatePitch(by delta: SceneFloat) -> Bool {
         guard let node = node else { return true }
         return pitchRange.contains(node.eulerAngles.x + delta * pitchSpeed)
     }

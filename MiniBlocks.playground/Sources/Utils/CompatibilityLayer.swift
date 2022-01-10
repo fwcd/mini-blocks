@@ -1,4 +1,5 @@
 import Foundation
+import CoreGraphics
 
 /// A small compatibility layer for running the playground on different platforms
 /// like macOS and iOS while sharing a common codebase. This works, since AppKit
@@ -9,7 +10,10 @@ import Foundation
 
 import AppKit
 
-typealias Color = NSColor
+public typealias Color = NSColor
+public typealias Image = NSImage
+public typealias ViewController = NSViewController
+public typealias SceneFloat = CGFloat
 
 #endif
 
@@ -17,6 +21,9 @@ typealias Color = NSColor
 
 import UIKit
 
-typealias Color = UIColor
+public typealias Color = UIColor
+public typealias Image = UIImage
+public typealias ViewController = UIViewController
+public typealias SceneFloat = Float
 
 #endif

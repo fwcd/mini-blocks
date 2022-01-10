@@ -2,11 +2,11 @@ import SceneKit
 
 /// The missing operator overloads for SceneKit vectors.
 extension SCNVector3 {
-    var length: CGFloat {
+    var length: SceneFloat {
         (x * x + y * y + z * z).squareRoot()
     }
     
-    var manhattanLength: CGFloat {
+    var manhattanLength: SceneFloat {
         abs(x) + abs(y)
     }
     
@@ -14,11 +14,11 @@ extension SCNVector3 {
         self / length
     }
     
-    func manhattanDistance(to rhs: Self) -> CGFloat {
+    func manhattanDistance(to rhs: Self) -> SceneFloat {
         (self - rhs).manhattanLength
     }
     
-    func dot(_ rhs: Self) -> CGFloat {
+    func dot(_ rhs: Self) -> SceneFloat {
         x * rhs.x + y * rhs.y + z * rhs.z
     }
     
@@ -46,25 +46,25 @@ extension SCNVector3 {
         Self(x: -rhs.x, y: -rhs.y, z: -rhs.z)
     }
     
-    static func *(lhs: Self, rhs: CGFloat) -> Self {
+    static func *(lhs: Self, rhs: SceneFloat) -> Self {
         Self(x: lhs.x * rhs, y: lhs.y * rhs, z: lhs.z * rhs)
     }
     
-    static func *(lhs: CGFloat, rhs: Self) -> Self {
+    static func *(lhs: SceneFloat, rhs: Self) -> Self {
         rhs * lhs
     }
     
-    static func /(lhs: Self, rhs: CGFloat) -> Self {
+    static func /(lhs: Self, rhs: SceneFloat) -> Self {
         Self(x: lhs.x / rhs, y: lhs.y / rhs, z: lhs.z / rhs)
     }
     
-    static func *=(lhs: inout Self, rhs: CGFloat) {
+    static func *=(lhs: inout Self, rhs: SceneFloat) {
         lhs.x *= rhs
         lhs.y *= rhs
         lhs.z *= rhs
     }
     
-    static func /=(lhs: inout Self, rhs: CGFloat) {
+    static func /=(lhs: inout Self, rhs: SceneFloat) {
         lhs.x /= rhs
         lhs.y /= rhs
         lhs.z /= rhs

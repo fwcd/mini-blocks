@@ -2,14 +2,14 @@ import GameplayKit
 import SceneKit
 
 /// The texture mappings for every block type.
-private let textures: [BlockType: NSImage] = [
-    .grass: NSImage(named: "TextureGrass.png")!,
-    .sand: NSImage(named: "TextureSand.png")!,
-    .stone: NSImage(named: "TextureStone.png")!,
-    .water: NSImage(named: "TextureWater.png")!,
-    .wood: NSImage(named: "TextureWood.png")!,
-    .leaves: NSImage(named: "TextureLeaves.png")!,
-    .bedrock: NSImage(named: "TextureBedrock.png")!,
+private let textures: [BlockType: Image] = [
+    .grass: Image(named: "TextureGrass.png")!,
+    .sand: Image(named: "TextureSand.png")!,
+    .stone: Image(named: "TextureStone.png")!,
+    .water: Image(named: "TextureWater.png")!,
+    .wood: Image(named: "TextureWood.png")!,
+    .leaves: Image(named: "TextureLeaves.png")!,
+    .bedrock: Image(named: "TextureBedrock.png")!,
 ]
 
 private func loadMaterial(for blockType: BlockType) -> SCNMaterial {

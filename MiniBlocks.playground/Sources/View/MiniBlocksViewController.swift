@@ -1,10 +1,11 @@
 import Foundation
+import CoreGraphics
 import SceneKit
 import SpriteKit
 import GameplayKit
 
 /// The game's primary view controller.
-public final class MiniBlocksViewController: NSViewController, SCNSceneRendererDelegate {
+public final class MiniBlocksViewController: ViewController, SCNSceneRendererDelegate {
     private let debugModeEnabled: Bool
     private let debugInteractionMode: SCNInteractionMode
     private let worldGenerator: WorldGeneratorType
@@ -15,6 +16,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
     // MARK: View properties
     
     private let sceneFrame: CGRect?
+    #if canImport(AppKit)
     private var receivedFirstMouseEvent: Bool = false
     private var mouseCaptured: Bool = false {
         willSet {
@@ -29,6 +31,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
             }
         }
     }
+    #endif
     
     // MARK: SpriteKit/SceneKit properties
     
@@ -101,17 +104,19 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         let sceneView = sceneFrame.map { MiniBlocksSceneView(frame: $0) } ?? MiniBlocksSceneView()
         sceneView.scene = scene
         sceneView.delegate = self
-        sceneView.keyEventsDelegate = self
         sceneView.allowsCameraControl = debugModeEnabled
         sceneView.defaultCameraController.interactionMode = debugInteractionMode
         sceneView.showsStatistics = true
-        sceneView.backgroundColor = NSColor.black
+        sceneView.backgroundColor = Color.black
         sceneView.overlaySKScene = overlayScene
         sceneView.antialiasingMode = .none
         sceneView.isJitteringEnabled = false
         
         // Keep scene active, otherwise it will stop sending renderer(_:updateAtTime:)s when nothing changes. See also https://stackoverflow.com/questions/39336509/how-do-you-set-up-a-game-loop-for-scenekit
         sceneView.isPlaying = true
+        
+        #if canImport(AppKit)
+        sceneView.keyEventsDelegate = self
         
         if let sceneFrame = sceneFrame {
             sceneView.addTrackingArea(NSTrackingArea(
@@ -121,6 +126,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
                 userInfo: nil
             ))
         }
+        #endif
         
         view = sceneView
     }
@@ -164,6 +170,8 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
             action(component)
         }
     }
+    
+    #if canImport(AppKit)
     
     public override func keyDown(with event: NSEvent) {
         guard !debugModeEnabled && !event.isARepeat else { return }
@@ -286,5 +294,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         default: return nil
         }
     }
+    
+    #endif
 }
 
