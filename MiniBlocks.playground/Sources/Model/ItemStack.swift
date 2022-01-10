@@ -1,4 +1,4 @@
 struct ItemStack: Codable, Hashable {
-    let item: Item
-    let count: Int
+    var item: Item
+    var count: Int = 1
 }
