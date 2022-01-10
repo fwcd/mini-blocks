@@ -15,7 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Set up window
         let window = UIWindow(windowScene: scene)
-        window.rootViewController = MiniBlocksViewController()
+        window.rootViewController = MiniBlocksViewController(
+            sceneFrame: scene.screen.bounds
+        )
         self.window = window
         window.makeKeyAndVisible()
     }

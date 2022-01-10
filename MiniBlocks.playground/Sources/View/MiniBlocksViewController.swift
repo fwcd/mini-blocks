@@ -129,6 +129,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         #endif
         
         view = sceneView
+        
+        print("Loaded view")
     }
     
     private func add(entity: GKEntity) {
