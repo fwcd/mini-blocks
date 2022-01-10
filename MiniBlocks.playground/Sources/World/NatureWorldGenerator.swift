@@ -8,6 +8,8 @@ struct NatureWorldGenerator: WorldGenerator {
     var scale: Float = 80
     var sandLevel: Int = 0
     var waterLevel: Int = -1
+    var bedrockLevel: Int = -8
+    
     var treeBaseHeight: Int = 5
     var leavesBaseHeight: Int = 2
     
@@ -31,10 +33,18 @@ struct NatureWorldGenerator: WorldGenerator {
         if y > sandLevel {
             blocks = [y: Block(type: .grass)]
         } else if y >= waterLevel {
-            blocks = [y: Block(type: .sand), y - 1: Block(type: .stone)]
+            blocks = [y: Block(type: .sand)]
         } else {
-            blocks = Dictionary(uniqueKeysWithValues: (y...waterLevel).map { ($0, Block(type: .water)) } + [(y - 1, Block(type: .stone))])
+            blocks = Dictionary(uniqueKeysWithValues: (y...waterLevel).map { ($0, Block(type: .water)) })
         }
+        
+        // Generate ground below terrain
+        if bedrockLevel + 1 < y {
+            for i in (bedrockLevel + 1)..<y {
+                blocks[i] = Block(type: .stone)
+            }
+        }
+        blocks[bedrockLevel] = Block(type: .bedrock)
         
         // Generate trees
         if isTree(at: pos) {
