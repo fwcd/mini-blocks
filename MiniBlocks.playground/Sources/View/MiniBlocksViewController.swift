@@ -52,6 +52,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private let worldLoadComponentSystem = GKComponentSystem(componentClass: WorldLoadComponent.self)
     private let worldRetainComponentSystem = GKComponentSystem(componentClass: WorldRetainComponent.self)
     private let hotbarHUDLoadComponentSystem = GKComponentSystem(componentClass: HotbarHUDLoadComponent.self)
+    private let hotbarHUDControlComponentSystem = GKComponentSystem(componentClass: HotbarHUDControlComponent.self)
     private var entities: [GKEntity] = []
     
     public init(
@@ -176,6 +177,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         worldLoadComponentSystem.addComponent(foundIn: entity)
         worldRetainComponentSystem.addComponent(foundIn: entity)
         hotbarHUDLoadComponentSystem.addComponent(foundIn: entity)
+        hotbarHUDControlComponentSystem.addComponent(foundIn: entity)
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -194,6 +196,12 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     private func controlPlayer(with action: (PlayerControlComponent) -> Void) {
         for case let component as PlayerControlComponent in playerControlComponentSystem.components {
+            action(component)
+        }
+    }
+    
+    private func controlHotbarHUD(with action: (HotbarHUDControlComponent) -> Void) {
+        for case let component as HotbarHUDControlComponent in hotbarHUDControlComponentSystem.components {
             action(component)
         }
     }
@@ -291,6 +299,17 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             
             // Keep mouse at center of window
             warpMouseCursorToCenter()
+        }
+    }
+    
+    public override func scrollWheel(with event: NSEvent) {
+        if mouseCaptured {
+            let slotDelta = Int(event.scrollingDeltaX + event.scrollingDeltaY)
+            
+            // Move the selected slot
+            controlHotbarHUD { component in
+                component.moveSelection(by: slotDelta)
+            }
         }
     }
     

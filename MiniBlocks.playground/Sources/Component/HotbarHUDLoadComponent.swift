@@ -5,6 +5,8 @@ import GameplayKit
 class HotbarHUDLoadComponent: GKComponent {
     /// The inventory last rendered to a SpriteKit node.
     private var lastInventory: Inventory?
+    /// The slot selection last rendered to a SpriteKit node.
+    private var lastSelectedHotbarSlot: Int?
     
     private var selectedSlotLineThickness: CGFloat = 4
     private var normalSlotLineThickness: CGFloat = 2
@@ -35,8 +37,12 @@ class HotbarHUDLoadComponent: GKComponent {
         set { playerInfo?.hotbar = newValue! }
     }
     
+    private var hasChanged: Bool {
+        inventory != lastInventory || playerInfo?.selectedHotbarSlot != lastSelectedHotbarSlot
+    }
+    
     override func update(deltaTime seconds: TimeInterval) {
-        guard inventory != lastInventory, let node = node else { return }
+        guard hasChanged, let node = node else { return }
         
         // TODO: Delta updates?
         node.removeAllChildren()

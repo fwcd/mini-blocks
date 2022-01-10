@@ -121,6 +121,8 @@
 		35A55560278C4BEA006FA70D /* HotbarHUDSlotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5555E278C4BEA006FA70D /* HotbarHUDSlotNode.swift */; };
 		35A55562278C4C2D006FA70D /* HotbarHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */; };
 		35A55563278C4C2D006FA70D /* HotbarHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */; };
+		35A55565278C5323006FA70D /* HotbarHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55564278C5323006FA70D /* HotbarHUDControlComponent.swift */; };
+		35A55566278C5323006FA70D /* HotbarHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55564278C5323006FA70D /* HotbarHUDControlComponent.swift */; };
 		35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
 		35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
@@ -210,6 +212,7 @@
 		35A5555B278C497F006FA70D /* ItemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemNode.swift; path = ../../MiniBlocks.playground/Sources/Node/ItemNode.swift; sourceTree = "<group>"; };
 		35A5555E278C4BEA006FA70D /* HotbarHUDSlotNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HotbarHUDSlotNode.swift; path = ../../MiniBlocks.playground/Sources/Node/HotbarHUDSlotNode.swift; sourceTree = "<group>"; };
 		35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotbarHUDLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HotbarHUDLoadComponent.swift; sourceTree = "<group>"; };
+		35A55564278C5323006FA70D /* HotbarHUDControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HotbarHUDControlComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HotbarHUDControlComponent.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.playground/Resources/TextureWood.png; sourceTree = "<group>"; };
 		35D8D9ED278B3F470056ACAA /* TextureLeaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureLeaves.png; path = ../../MiniBlocks.playground/Resources/TextureLeaves.png; sourceTree = "<group>"; };
 		35D9E8A0278887960058F0E6 /* SunEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SunEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/SunEntity.swift; sourceTree = "<group>"; };
@@ -305,6 +308,7 @@
 				35EA3517278895750066DD82 /* WorldLoadComponent.swift */,
 				35EA351B278895D60066DD82 /* WorldRetainComponent.swift */,
 				35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */,
+				35A55564278C5323006FA70D /* HotbarHUDControlComponent.swift */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -628,6 +632,7 @@
 				35A55563278C4C2D006FA70D /* HotbarHUDLoadComponent.swift in Sources */,
 				35A55538278C3B42006FA70D /* Inventory.swift in Sources */,
 				35391BCA278BC5D800B22954 /* Pos2.swift in Sources */,
+				35A55566278C5323006FA70D /* HotbarHUDControlComponent.swift in Sources */,
 				35A5553E278C3DB6006FA70D /* NameComponent.swift in Sources */,
 				35A55541278C3EBF006FA70D /* HotbarHUDEntity.swift in Sources */,
 				35A55525278C3AE0006FA70D /* WorldGenerator.swift in Sources */,
@@ -693,6 +698,7 @@
 				35A55562278C4C2D006FA70D /* HotbarHUDLoadComponent.swift in Sources */,
 				35A55522278C3AE0006FA70D /* BlockType.swift in Sources */,
 				35A5551C278C3AE0006FA70D /* World.swift in Sources */,
+				35A55565278C5323006FA70D /* HotbarHUDControlComponent.swift in Sources */,
 				35A55534278C3AE0006FA70D /* OceanWorldGenerator.swift in Sources */,
 				35A55549278C421C006FA70D /* PlayerAssocationComponent.swift in Sources */,
 				35A0C294278748EA00FA8570 /* PlayerControlComponent.swift in Sources */,
