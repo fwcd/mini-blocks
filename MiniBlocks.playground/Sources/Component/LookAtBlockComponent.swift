@@ -33,7 +33,7 @@ class LookAtBlockComponent: GKComponent {
         let hit = hits.first
         
         if let filter = CIFilter(name: "CIColorControls") {
-            filter.setValue(-0.1, forKey: kCIInputBrightnessKey)
+            filter.setValue(-0.05, forKey: kCIInputBrightnessKey)
             hit?.node.filters = [filter]
         }
         
