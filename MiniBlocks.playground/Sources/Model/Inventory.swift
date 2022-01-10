@@ -1,5 +1,5 @@
 /// An ordered container for items.
-struct Inventory: Codable, Sequence {
+struct Inventory: Codable, Hashable, Sequence {
     var items: [Item] = []
     
     func makeIterator() -> Array<Item>.Iterator {

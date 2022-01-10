@@ -3,18 +3,22 @@ import Foundation
 /// A model of the world.
 struct World: Codable, Sequence {
     enum CodingKeys: String, CodingKey {
-        case storedStrips = "strips"
         case generator
+        case storedStrips = "strips"
+        case playerInfos
     }
-    
-    /// The user-changed strips (which are to be saved).
-    var storedStrips: [GridPos2: Strip] = [:]
     
     /// The procedural generator that generates new strips.
     let generator: WorldGeneratorType
     
+    /// The user-changed strips (which are to be saved).
+    var storedStrips: [GridPos2: Strip] = [:]
+    
     /// The cached strips.
     @Box private var cachedStrips: [GridPos2: Strip] = [:]
+    
+    /// Information about the players, keyed by username.
+    var playerInfos: [String: PlayerInfo] = [:]
     
     /// Fetches the strip at the given position.
     subscript(pos: GridPos2) -> Strip {
