@@ -16,4 +16,16 @@ class MathUtilsTests: XCTestCase {
         XCTAssertEqual((-25).floorDiv(5), -5)
         XCTAssertEqual((-26).floorDiv(5), -6)
     }
+    
+    func testFloorMod() {
+        XCTAssertEqual(5.floorMod(4), 1)
+        XCTAssertEqual(4.floorMod(4), 0)
+        XCTAssertEqual(3.floorMod(4), 3)
+        XCTAssertEqual(0.floorMod(4), 0)
+        XCTAssertEqual((-1).floorMod(4), 3)
+        XCTAssertEqual((-2).floorMod(4), 2)
+        XCTAssertEqual((-3).floorMod(4), 1)
+        XCTAssertEqual((-4).floorMod(4), 0)
+        XCTAssertEqual((-5).floorMod(4), 3)
+    }
 }

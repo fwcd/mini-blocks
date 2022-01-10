@@ -12,7 +12,6 @@ struct PlayerInfo: Codable, Hashable {
     // TODO: Store player position?
     
     mutating func moveHotbarSelection(by delta: Int) {
-        // TODO: Proper modulo
-        selectedHotbarSlot = (selectedHotbarSlot + delta) % hotbar.slotCount
+        selectedHotbarSlot = (selectedHotbarSlot + delta).floorMod(hotbar.slotCount)
     }
 }
