@@ -20,10 +20,10 @@ class HotbarHUDLoadComponent: GKComponent {
     }
     
     private var inventory: Inventory? {
-        get { playerName.flatMap { world?.playerInfos[$0]?.hotbar } }
+        get { playerName.flatMap { world?[playerInfoFor: $0].hotbar } }
         set {
-            guard world != nil, let playerName = playerName else { return }
-            world!.playerInfos[playerName]?.hotbar = newValue!
+            guard let playerName = playerName else { return }
+            world?[playerInfoFor: playerName].hotbar = newValue!
         }
     }
     
@@ -39,9 +39,11 @@ class HotbarHUDLoadComponent: GKComponent {
             
             for i in 0..<inventory.slotCount {
                 let slotNode = makeHotbarHUDSlotNode(size: slotSize)
-                slotNode.position = CGPoint(x: (CGFloat(i) * slotSize) - (width / 2), y: 0)
+                slotNode.position = CGPoint(x: (CGFloat(i) * slotSize) - (width / 2) + (slotSize / 2), y: 0)
                 node.addChild(slotNode)
             }
         }
+        
+        lastInventory = inventory
     }
 }

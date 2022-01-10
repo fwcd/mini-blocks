@@ -18,10 +18,10 @@ struct World: Codable, Sequence {
     @Box private var cachedStrips: [GridPos2: Strip] = [:]
     
     /// Information about the players, keyed by username.
-    var playerInfos: [String: PlayerInfo] = [:]
+    private(set) var playerInfos: [String: PlayerInfo] = [:]
     
     /// Fetches the strip at the given position.
-    subscript(pos: GridPos2) -> Strip {
+    subscript(_ pos: GridPos2) -> Strip {
         get {
             if let strip = storedStrips[pos] ?? cachedStrips[pos] {
                 return strip
@@ -34,6 +34,12 @@ struct World: Codable, Sequence {
         set {
             storedStrips[pos] = newValue
         }
+    }
+    
+    /// Fetches the player info for the given player name.
+    subscript(playerInfoFor name: String) -> PlayerInfo {
+        get { playerInfos[name] ?? PlayerInfo() }
+        set { playerInfos[name] = newValue }
     }
     
     /// Removes the given strip from the cache. Doesn't change anything about the world semantically. O(1).

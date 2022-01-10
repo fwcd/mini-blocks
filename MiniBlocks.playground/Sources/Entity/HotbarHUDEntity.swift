@@ -3,7 +3,7 @@ import GameplayKit
 
 func makeHotbarHUDEntity(in frame: CGRect, playerEntity: GKEntity) -> GKEntity {
     // Create node
-    let node = SKShapeNode(circleOfRadius: 20)
+    let node = SKNode()
     node.position = CGPoint(x: frame.midX, y: frame.minY)
     
     // Create entity
