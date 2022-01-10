@@ -1,33 +1,6 @@
 import GameplayKit
 import SceneKit
 
-/// The texture mappings for every block type.
-private let textures: [BlockType: Image] = [
-    .grass: Image(named: "TextureGrass.png")!,
-    .sand: Image(named: "TextureSand.png")!,
-    .stone: Image(named: "TextureStone.png")!,
-    .water: Image(named: "TextureWater.png")!,
-    .wood: Image(named: "TextureWood.png")!,
-    .leaves: Image(named: "TextureLeaves.png")!,
-    .bedrock: Image(named: "TextureBedrock.png")!,
-]
-
-private func loadMaterial(for blockType: BlockType) -> SCNMaterial {
-    let material = SCNMaterial()
-    material.diffuse.contents = textures[blockType]
-    material.diffuse.minificationFilter = .none
-    material.diffuse.magnificationFilter = .none
-    return material
-}
-
-private func loadGeometry(for blockType: BlockType) -> SCNGeometry {
-    let box = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
-    box.materials = [loadMaterial(for: blockType)]
-    return box
-}
-
-private let geometries: [BlockType: SCNGeometry] = Dictionary(uniqueKeysWithValues: textures.keys.map { ($0, loadGeometry(for: $0)) })
-
 /// Loads chunks from the world model into the SceneKit node.
 class WorldLoadComponent: GKComponent {
     /// The 'reference-counts' of each chunk retainer (e.g. players).
@@ -143,7 +116,7 @@ class WorldLoadComponent: GKComponent {
             let blockPos = pos.with(y: y)
             // Only add blocks that aren't fully occluded
             if !checkOcclusions || !world.isOccluded(at: blockPos) {
-                let blockNode = SCNNode(geometry: geometries[block.type])
+                let blockNode = makeBlockNode(for: block)
                 blockNode.position = blockPos.asSCNVector
                 chunkNode.addChildNode(blockNode)
             }

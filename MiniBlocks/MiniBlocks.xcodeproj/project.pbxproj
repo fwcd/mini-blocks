@@ -115,6 +115,8 @@
 		35A5554D278C44CC006FA70D /* HotbarHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5554B278C44CC006FA70D /* HotbarHUDLoadComponent.swift */; };
 		35A55556278C4806006FA70D /* CrosshairHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55555278C4806006FA70D /* CrosshairHUDNode.swift */; };
 		35A55557278C4806006FA70D /* CrosshairHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55555278C4806006FA70D /* CrosshairHUDNode.swift */; };
+		35A55559278C4868006FA70D /* BlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55558278C4868006FA70D /* BlockNode.swift */; };
+		35A5555A278C4868006FA70D /* BlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55558278C4868006FA70D /* BlockNode.swift */; };
 		35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
 		35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
@@ -201,6 +203,7 @@
 		35A55548278C421C006FA70D /* PlayerAssocationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerAssocationComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/PlayerAssocationComponent.swift; sourceTree = "<group>"; };
 		35A5554B278C44CC006FA70D /* HotbarHUDLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotbarHUDLoadComponent.swift; sourceTree = "<group>"; };
 		35A55555278C4806006FA70D /* CrosshairHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CrosshairHUDNode.swift; path = ../../MiniBlocks.playground/Sources/Node/CrosshairHUDNode.swift; sourceTree = "<group>"; };
+		35A55558278C4868006FA70D /* BlockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlockNode.swift; path = ../../MiniBlocks.playground/Sources/Node/BlockNode.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.playground/Resources/TextureWood.png; sourceTree = "<group>"; };
 		35D8D9ED278B3F470056ACAA /* TextureLeaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureLeaves.png; path = ../../MiniBlocks.playground/Resources/TextureLeaves.png; sourceTree = "<group>"; };
 		35D9E8A0278887960058F0E6 /* SunEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SunEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/SunEntity.swift; sourceTree = "<group>"; };
@@ -348,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				35A55555278C4806006FA70D /* CrosshairHUDNode.swift */,
+				35A55558278C4868006FA70D /* BlockNode.swift */,
 			);
 			name = Node;
 			sourceTree = "<group>";
@@ -597,6 +601,7 @@
 				35A55529278C3AE0006FA70D /* EmptyWorldGenerator.swift in Sources */,
 				35391BC3278BC5D800B22954 /* MathUtils.swift in Sources */,
 				35391BE0278BC5EE00B22954 /* WorldRetainComponent.swift in Sources */,
+				35A5555A278C4868006FA70D /* BlockNode.swift in Sources */,
 				35A5554A278C421C006FA70D /* PlayerAssocationComponent.swift in Sources */,
 				35391BDE278BC5EE00B22954 /* WorldLoadComponent.swift in Sources */,
 				35391BF5278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */,
@@ -659,6 +664,7 @@
 				35A55526278C3AE0006FA70D /* NatureWorldGenerator.swift in Sources */,
 				35A5553D278C3DB6006FA70D /* NameComponent.swift in Sources */,
 				35EA354E2788B3870066DD82 /* Pos3.swift in Sources */,
+				35A55559278C4868006FA70D /* BlockNode.swift in Sources */,
 				35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */,
 				35EA35382788A09E0066DD82 /* MathUtils.swift in Sources */,
 				352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */,
