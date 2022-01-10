@@ -73,7 +73,8 @@ class WorldLoadComponent: GKComponent {
     }
     
     override func update(deltaTime seconds: TimeInterval) {
-        guard let node = node else { return }
+        guard let node = node,
+              let world = world else { return }
         
         throttler.run(deltaTime: seconds) {
             // Perform a delta update of the chunks
@@ -88,6 +89,9 @@ class WorldLoadComponent: GKComponent {
                 if let chunkNode = loadedChunks[chunkPos] {
                     chunkNode.removeFromParentNode()
                     loadedChunks[chunkPos] = nil
+                }
+                for pos in chunkPos {
+                    world.uncache(at: pos)
                 }
             }
             

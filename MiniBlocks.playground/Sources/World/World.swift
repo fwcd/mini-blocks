@@ -1,17 +1,40 @@
 import Foundation
 
 /// A model of the world.
-struct World: Hashable, Codable, Sequence {
+struct World: Codable, Sequence {
+    enum CodingKeys: String, CodingKey {
+        case storedStrips = "strips"
+        case generator
+    }
+    
     /// The user-changed strips (which are to be saved).
     var storedStrips: [GridPos2: Strip] = [:]
     
     /// The procedural generator that generates new strips.
     let generator: WorldGeneratorType
     
+    /// The cached strips.
+    @Box private var cachedStrips: [GridPos2: Strip] = [:]
+    
     /// Fetches the strip at the given position.
     subscript(pos: GridPos2) -> Strip {
-        get { storedStrips[pos] ?? generator.generate(at: pos) }
-        set { storedStrips[pos] = newValue }
+        get {
+            if let strip = storedStrips[pos] ?? cachedStrips[pos] {
+                return strip
+            } else {
+                let strip = generator.generate(at: pos)
+                cachedStrips[pos] = strip
+                return strip
+            }
+        }
+        set {
+            storedStrips[pos] = newValue
+        }
+    }
+    
+    /// Removes the given strip from the cache. Doesn't change anything about the world semantically. O(1).
+    func uncache(at pos: GridPos2) {
+        cachedStrips[pos] = nil
     }
     
     /// Creates an iterator over the strips.
