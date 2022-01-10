@@ -12,7 +12,7 @@ struct World: Codable, Sequence {
     let generator: WorldGeneratorType
     
     /// The user-changed strips (which are to be saved).
-    var storedStrips: [GridPos2: Strip] = [:]
+    private(set) var storedStrips: [GridPos2: Strip] = [:]
     
     /// The cached strips.
     @Box private var cachedStrips: [GridPos2: Strip] = [:]

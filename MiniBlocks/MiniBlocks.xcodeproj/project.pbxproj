@@ -110,6 +110,8 @@
 		35A55541278C3EBF006FA70D /* HotbarHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5553F278C3EBF006FA70D /* HotbarHUDEntity.swift */; };
 		35A55543278C3EF1006FA70D /* HotbarHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55542278C3EF1006FA70D /* HotbarHUDNode.swift */; };
 		35A55544278C3EF1006FA70D /* HotbarHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55542278C3EF1006FA70D /* HotbarHUDNode.swift */; };
+		35A55546278C408C006FA70D /* ItemStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55545278C408C006FA70D /* ItemStack.swift */; };
+		35A55547278C408C006FA70D /* ItemStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55545278C408C006FA70D /* ItemStack.swift */; };
 		35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
 		35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
@@ -194,6 +196,7 @@
 		35A5553C278C3DB6006FA70D /* NameComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NameComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/NameComponent.swift; sourceTree = "<group>"; };
 		35A5553F278C3EBF006FA70D /* HotbarHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HotbarHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/HotbarHUDEntity.swift; sourceTree = "<group>"; };
 		35A55542278C3EF1006FA70D /* HotbarHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HotbarHUDNode.swift; path = ../../MiniBlocks.playground/Sources/GUI/HotbarHUDNode.swift; sourceTree = "<group>"; };
+		35A55545278C408C006FA70D /* ItemStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemStack.swift; path = ../../MiniBlocks.playground/Sources/Model/ItemStack.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.playground/Resources/TextureWood.png; sourceTree = "<group>"; };
 		35D8D9ED278B3F470056ACAA /* TextureLeaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureLeaves.png; path = ../../MiniBlocks.playground/Resources/TextureLeaves.png; sourceTree = "<group>"; };
 		35D9E8A0278887960058F0E6 /* SunEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SunEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/SunEntity.swift; sourceTree = "<group>"; };
@@ -328,6 +331,7 @@
 				35A55512278C3AE0006FA70D /* BlockType.swift */,
 				35A55539278C3CA5006FA70D /* PlayerInfo.swift */,
 				35A55536278C3B42006FA70D /* Inventory.swift */,
+				35A55545278C408C006FA70D /* ItemStack.swift */,
 				35A55517278C3AE0006FA70D /* Item.swift */,
 				35A5551A278C3AE0006FA70D /* ItemType.swift */,
 			);
@@ -619,6 +623,7 @@
 				35391BE6278BC5F700B22954 /* MiniBlocksSceneView.swift in Sources */,
 				35391BAF278BC5A800B22954 /* AppDelegate.swift in Sources */,
 				35A5552B278C3AE0006FA70D /* WavyHillsWorldGenerator.swift in Sources */,
+				35A55547278C408C006FA70D /* ItemStack.swift in Sources */,
 				35391BDB278BC5EE00B22954 /* HeightAboveGroundComponent.swift in Sources */,
 				35391BBF278BC5D800B22954 /* ChunkRegion.swift in Sources */,
 				35A5553B278C3CA5006FA70D /* PlayerInfo.swift in Sources */,
@@ -669,6 +674,7 @@
 				35A0C294278748EA00FA8570 /* PlayerControlComponent.swift in Sources */,
 				35A55524278C3AE0006FA70D /* WorldGenerator.swift in Sources */,
 				35A55520278C3AE0006FA70D /* Block.swift in Sources */,
+				35A55546278C408C006FA70D /* ItemStack.swift in Sources */,
 				35A0C28827873D2900FA8570 /* Box.swift in Sources */,
 				352D7A402787B211008FB939 /* LookAtBlockComponent.swift in Sources */,
 				35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */,
