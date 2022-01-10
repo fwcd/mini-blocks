@@ -57,20 +57,21 @@ struct World: Codable, Sequence {
         block(at: pos) != nil
     }
     
-    /// Checks whether there is an opaque block at the given position. O(1).
-    func hasOpaqueBlock(at pos: GridPos3) -> Bool {
-        block(at: pos)?.type.isOpaque ?? false
-    }
-    
     /// Checks whether the block at the given position is fully occluded by others. O(1).
     func isOccluded(at pos: GridPos3) -> Bool {
-        // Since this method is often on the hot path, we explicitly enumerate all neighbors here instead of using higher level constructs such as neighbor arrays, which the Swift compiler currently isn't smart enough to optimize away.
-           hasOpaqueBlock(at: pos + GridPos3(x: 1))
-        && hasOpaqueBlock(at: pos - GridPos3(x: 1))
-        && hasOpaqueBlock(at: pos + GridPos3(y: 1))
-        && hasOpaqueBlock(at: pos - GridPos3(y: 1))
-        && hasOpaqueBlock(at: pos + GridPos3(z: 1))
-        && hasOpaqueBlock(at: pos - GridPos3(z: 1))
+        eachNeighbor(at: pos) {
+            block(at: $0).map { $0.type.isOpaque || $0.type.isLiquid } ?? false
+        }
+    }
+    
+    /// Checks whether something applies to all neighbors. We use this instead of e.g. reducing over the neighbor array for performance as many such checks (e.g. isOccluded) are on the hot path.
+    func eachNeighbor(at pos: GridPos3, satisfies predicate: (GridPos3) -> Bool) -> Bool {
+           predicate(pos + GridPos3(x: 1))
+        && predicate(pos - GridPos3(x: 1))
+        && predicate(pos + GridPos3(y: 1))
+        && predicate(pos - GridPos3(y: 1))
+        && predicate(pos + GridPos3(z: 1))
+        && predicate(pos - GridPos3(z: 1))
     }
     
     /// Place the given block at the given position. O(1).

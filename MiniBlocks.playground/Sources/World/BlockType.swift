@@ -15,4 +15,8 @@ enum BlockType: Int, Hashable, Codable {
     var isOpaque: Bool {
         !isTranslucent
     }
+    
+    var isLiquid: Bool {
+        self == .water
+    }
 }
