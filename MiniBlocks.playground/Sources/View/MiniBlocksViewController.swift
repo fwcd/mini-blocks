@@ -11,6 +11,7 @@ private let log = Logger(subsystem: "MiniBlocks", category: "MiniBlocksViewContr
 public final class MiniBlocksViewController: ViewController, SCNSceneRendererDelegate, GestureRecognizerDelegate {
     private let debugModeEnabled: Bool
     private let debugInteractionMode: SCNInteractionMode
+    private let playerName: String
     private let worldGenerator: WorldGeneratorType
     private let renderDistance: Int
     private let ambientOcclusionEnabled: Bool
@@ -54,6 +55,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     public init(
         sceneFrame: CGRect? = nil,
+        playerName: String = "Player",
         worldGenerator: WorldGeneratorType = .nature(seed: "default"),
         renderDistance: Int = 8,
         ambientOcclusionEnabled: Bool = false,
@@ -61,6 +63,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         debugInteractionMode: SCNInteractionMode = .fly
     ) {
         self.sceneFrame = sceneFrame
+        self.playerName = playerName
         self.worldGenerator = worldGenerator
         self.renderDistance = renderDistance
         self.ambientOcclusionEnabled = ambientOcclusionEnabled
@@ -95,6 +98,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         // Add player
         let playerSpawnPos = SCNVector3(x: 0, y: 10, z: 0)
         let playerEntity = makePlayerEntity(
+            name: playerName,
             position: playerSpawnPos,
             worldEntity: worldEntity,
             retainRadius: renderDistance,

@@ -104,6 +104,8 @@
 		35A55538278C3B42006FA70D /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55536278C3B42006FA70D /* Inventory.swift */; };
 		35A5553A278C3CA5006FA70D /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55539278C3CA5006FA70D /* PlayerInfo.swift */; };
 		35A5553B278C3CA5006FA70D /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55539278C3CA5006FA70D /* PlayerInfo.swift */; };
+		35A5553D278C3DB6006FA70D /* NameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5553C278C3DB6006FA70D /* NameComponent.swift */; };
+		35A5553E278C3DB6006FA70D /* NameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5553C278C3DB6006FA70D /* NameComponent.swift */; };
 		35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
 		35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
@@ -185,6 +187,7 @@
 		35A5551B278C3AE0006FA70D /* OceanWorldGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OceanWorldGenerator.swift; path = ../../MiniBlocks.playground/Sources/Model/OceanWorldGenerator.swift; sourceTree = "<group>"; };
 		35A55536278C3B42006FA70D /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Inventory.swift; path = ../../MiniBlocks.playground/Sources/Model/Inventory.swift; sourceTree = "<group>"; };
 		35A55539278C3CA5006FA70D /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerInfo.swift; path = ../../MiniBlocks.playground/Sources/Model/PlayerInfo.swift; sourceTree = "<group>"; };
+		35A5553C278C3DB6006FA70D /* NameComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NameComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/NameComponent.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.playground/Resources/TextureWood.png; sourceTree = "<group>"; };
 		35D8D9ED278B3F470056ACAA /* TextureLeaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureLeaves.png; path = ../../MiniBlocks.playground/Resources/TextureLeaves.png; sourceTree = "<group>"; };
 		35D9E8A0278887960058F0E6 /* SunEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SunEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/SunEntity.swift; sourceTree = "<group>"; };
@@ -272,6 +275,7 @@
 				352D7A3F2787B211008FB939 /* LookAtBlockComponent.swift */,
 				35A0C295278752E900FA8570 /* GravityComponent.swift */,
 				35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */,
+				35A5553C278C3DB6006FA70D /* NameComponent.swift */,
 				35A0C2A627875C7300FA8570 /* WorldComponent.swift */,
 				35EA353D2788A57B0066DD82 /* WorldAssociationComponent.swift */,
 				35EA3517278895750066DD82 /* WorldLoadComponent.swift */,
@@ -591,6 +595,7 @@
 				35391BC4278BC5D800B22954 /* GridPos2.swift in Sources */,
 				35A55538278C3B42006FA70D /* Inventory.swift in Sources */,
 				35391BCA278BC5D800B22954 /* Pos2.swift in Sources */,
+				35A5553E278C3DB6006FA70D /* NameComponent.swift in Sources */,
 				35A55525278C3AE0006FA70D /* WorldGenerator.swift in Sources */,
 				35A5551D278C3AE0006FA70D /* World.swift in Sources */,
 				35A5551F278C3AE0006FA70D /* Strip.swift in Sources */,
@@ -630,6 +635,7 @@
 				35EA353E2788A57C0066DD82 /* WorldAssociationComponent.swift in Sources */,
 				35A55530278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
 				35A55526278C3AE0006FA70D /* NatureWorldGenerator.swift in Sources */,
+				35A5553D278C3DB6006FA70D /* NameComponent.swift in Sources */,
 				35EA354E2788B3870066DD82 /* Pos3.swift in Sources */,
 				35A55507278C35C5006FA70D /* CrosshairHUDNode.swift in Sources */,
 				35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */,

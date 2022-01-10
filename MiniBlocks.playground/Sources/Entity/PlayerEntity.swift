@@ -2,6 +2,7 @@ import GameplayKit
 import SceneKit
 
 func makePlayerEntity(
+    name: String,
     position: SCNVector3,
     worldEntity: GKEntity,
     retainRadius: Int,
@@ -21,6 +22,7 @@ func makePlayerEntity(
     
     // Create entity
     let entity = GKEntity()
+    entity.addComponent(NameComponent(name: name))
     entity.addComponent(WorldAssociationComponent(worldEntity: worldEntity))
     entity.addComponent(SceneNodeComponent(node: node))
     entity.addComponent(PlayerControlComponent())
