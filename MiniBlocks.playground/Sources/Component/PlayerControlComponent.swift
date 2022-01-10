@@ -48,6 +48,18 @@ class PlayerControlComponent: GKComponent {
         worldAssocationComponent?.worldLoadComponent
     }
     
+    private var playerName: String? {
+        entity?.component(ofType: PlayerAssociationComponent.self)?.playerName
+    }
+    
+    private var playerInfo: PlayerInfo? {
+        get { playerName.flatMap { world?[playerInfoFor: $0] } }
+        set {
+            guard let playerName = playerName else { return }
+            world?[playerInfoFor: playerName] = newValue!
+        }
+    }
+    
     private var gravityComponent: GravityComponent? {
         entity?.component(ofType: GravityComponent.self)
     }
@@ -132,21 +144,21 @@ class PlayerControlComponent: GKComponent {
                 gravityComponent.leavesGround = true
             }
             
-            if let lookedAtBlockPos = lookAtBlockComponent?.blockPos {
-                // Break looked-at block if needed
-                if motionInput.contains(.breakBlock) {
-                    world?.breakBlock(at: lookedAtBlockPos)
-                    worldLoadComponent?.markDirty(at: lookedAtBlockPos.asGridPos2)
-                }
+            // Break looked-at block if needed
+            if let lookedAtBlockPos = lookAtBlockComponent?.blockPos,
+               motionInput.contains(.breakBlock) {
+                world?.breakBlock(at: lookedAtBlockPos)
+                worldLoadComponent?.markDirty(at: lookedAtBlockPos.asGridPos2)
             }
             
-            if let placePos = lookAtBlockComponent?.blockPlacePos {
-                // Use or place on looked-at block if needed
-                if motionInput.contains(.useBlock) && placePos != GridPos3(rounding: feetPos) {
-                    // TODO: Support other blocks etc.
-                    world?.place(block: Block(type: .grass), at: placePos)
-                    worldLoadComponent?.markDirty(at: placePos.asGridPos2)
-                }
+            // Place on looked-at block if needed
+            if let placePos = lookAtBlockComponent?.blockPlacePos,
+               case let .block(blockType)? = playerInfo?.selectedHotbarStack?.item.type,
+               motionInput.contains(.useBlock),
+               placePos != GridPos3(rounding: feetPos) {
+                // TODO: Decrement item stack
+                world?.place(block: Block(type: blockType), at: placePos)
+                worldLoadComponent?.markDirty(at: placePos.asGridPos2)
             }
         }
     }

@@ -10,6 +10,12 @@ struct PlayerInfo: Codable, Hashable {
     @Wraparound(modulus: InventoryConstants.hotbarSlotCount)
     var selectedHotbarSlot: Int = 0
     
+    /// The currently selected stack on the hotbar.
+    var selectedHotbarStack: ItemStack? {
+        get { hotbar[selectedHotbarSlot] }
+        set { hotbar[selectedHotbarSlot] = newValue }
+    }
+    
     init() {
         // TODO: This is only for debugging purposes
         hotbar[0] = ItemStack(item: Item(type: .block(.grass)))
