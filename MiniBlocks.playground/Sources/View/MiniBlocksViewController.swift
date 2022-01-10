@@ -73,6 +73,7 @@ public final class MiniBlocksViewController: NSViewController, SCNSceneRendererD
         
         // Create overlay scene
         overlayScene = sceneFrame.map { SKScene(size: $0.size) } ?? SKScene()
+        overlayScene.scaleMode = .aspectFill
         overlayScene.isUserInteractionEnabled = false
         
         // Add light
