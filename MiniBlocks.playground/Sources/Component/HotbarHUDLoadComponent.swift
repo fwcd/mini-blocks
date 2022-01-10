@@ -34,12 +34,12 @@ class HotbarHUDLoadComponent: GKComponent {
         node.removeAllChildren()
         
         if let inventory = inventory {
-            let slotSize: CGFloat = 80
+            let slotSize: CGFloat = 40
             let width = CGFloat(inventory.slotCount) * slotSize
             
             for i in 0..<inventory.slotCount {
                 let slotNode = makeHotbarHUDSlotNode(size: slotSize)
-                slotNode.position = CGPoint(x: (CGFloat(i) * slotSize) - (width / 2) + (slotSize / 2), y: 0)
+                slotNode.position = CGPoint(x: (CGFloat(i) * slotSize) - (width / 2) + (slotSize / 2), y: slotSize / 2)
                 node.addChild(slotNode)
             }
         }
