@@ -329,12 +329,11 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     @objc
     private func handlePan(_ recognizer: UIPanGestureRecognizer) {
         let delta = recognizer.velocity(in: view)
-        print(delta)
         
         // Rotate camera
         controlPlayer { component in
-            component.rotateYaw(by: -SceneFloat(delta.x) / 50)
-            component.rotatePitch(by: -SceneFloat(delta.y) / 50)
+            component.rotateYaw(by: -SceneFloat(delta.x) / 700)
+            component.rotatePitch(by: -SceneFloat(delta.y) / 700)
         }
     }
     
