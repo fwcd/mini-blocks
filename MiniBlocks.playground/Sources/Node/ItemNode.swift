@@ -14,8 +14,8 @@ private func loadSpriteTexture(for itemType: ItemType) -> SKTexture {
 
 // TODO: Cache SKTextures?
 
-func makeItemNode(for item: Item) -> SKNode {
+func makeItemNode(for item: Item, size: CGFloat) -> SKNode {
     let node = SKSpriteNode(texture: loadSpriteTexture(for: item.type))
-    
+    node.size = CGSize(width: size, height: size)
     return node
 }

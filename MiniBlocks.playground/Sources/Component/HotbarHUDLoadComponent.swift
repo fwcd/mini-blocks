@@ -49,12 +49,17 @@ class HotbarHUDLoadComponent: GKComponent {
         
         if let inventory = inventory {
             let slotSize: CGFloat = 40
+            let itemSize: CGFloat = slotSize * 0.8
             let width = CGFloat(inventory.slotCount) * slotSize
             
             for i in 0..<inventory.slotCount {
                 let lineThickness = slotLineThickness(for: i)
                 let slotNode = makeHotbarHUDSlotNode(size: slotSize, lineThickness: lineThickness)
                 slotNode.position = CGPoint(x: (CGFloat(i) * slotSize) - (width / 2) + (slotSize / 2), y: slotSize / 2)
+                if let stack = inventory[i] {
+                    // TODO: Render stack count
+                    slotNode.addChild(makeItemNode(for: stack.item, size: itemSize))
+                }
                 node.addChild(slotNode)
             }
         }
