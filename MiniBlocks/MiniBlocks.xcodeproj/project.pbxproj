@@ -90,6 +90,7 @@
 		35A0C2A5278757EB00FA8570 /* Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A4278757EB00FA8570 /* Strip.swift */; };
 		35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A627875C7300FA8570 /* WorldComponent.swift */; };
 		35A0C2A927875EC400FA8570 /* HeightAboveGroundComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */; };
+		35A55507278C35C5006FA70D /* CrosshairHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55506278C35C5006FA70D /* CrosshairHUDNode.swift */; };
 		35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
 		35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
@@ -166,6 +167,7 @@
 		35A0C2A4278757EB00FA8570 /* Strip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Strip.swift; path = ../../MiniBlocks.playground/Sources/World/Strip.swift; sourceTree = "<group>"; };
 		35A0C2A627875C7300FA8570 /* WorldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldComponent.swift; sourceTree = "<group>"; };
 		35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeightAboveGroundComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HeightAboveGroundComponent.swift; sourceTree = "<group>"; };
+		35A55506278C35C5006FA70D /* CrosshairHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CrosshairHUDNode.swift; path = ../../MiniBlocks.playground/Sources/GUI/CrosshairHUDNode.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.playground/Resources/TextureWood.png; sourceTree = "<group>"; };
 		35D8D9ED278B3F470056ACAA /* TextureLeaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureLeaves.png; path = ../../MiniBlocks.playground/Resources/TextureLeaves.png; sourceTree = "<group>"; };
 		35D9E8A0278887960058F0E6 /* SunEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SunEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/SunEntity.swift; sourceTree = "<group>"; };
@@ -305,6 +307,14 @@
 			name = World;
 			sourceTree = "<group>";
 		};
+		35A55505278C3595006FA70D /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				35A55506278C35C5006FA70D /* CrosshairHUDNode.swift */,
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
 		35E7F3DD27867ED10067F0F7 = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +354,7 @@
 				35A0C28427873D0400FA8570 /* Utils */,
 				35A0C2992787568300FA8570 /* World */,
 				35A0C27E27872CB500FA8570 /* Component */,
+				35A55505278C3595006FA70D /* GUI */,
 				35A0C27D27872CAB00FA8570 /* Entity */,
 				35E7F40E278682CC0067F0F7 /* View */,
 			);
@@ -594,6 +605,7 @@
 				35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */,
 				35EA353E2788A57C0066DD82 /* WorldAssociationComponent.swift in Sources */,
 				35EA354E2788B3870066DD82 /* Pos3.swift in Sources */,
+				35A55507278C35C5006FA70D /* CrosshairHUDNode.swift in Sources */,
 				35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */,
 				35EA35382788A09E0066DD82 /* MathUtils.swift in Sources */,
 				352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */,
