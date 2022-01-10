@@ -10,6 +10,7 @@ func makePlayerEntity(
     // Create node
     let height: CGFloat = 1.5
     let camera = SCNCamera()
+    camera.zNear = 0.1
     if ambientOcclusionEnabled {
         camera.screenSpaceAmbientOcclusionIntensity = 0.5
         camera.screenSpaceAmbientOcclusionRadius = 0.5
