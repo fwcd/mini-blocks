@@ -1,6 +1,6 @@
 # MiniBlocks
 
-A procedurally generated open-world sandbox game for macOS, inspired by Minecraft.
+A procedurally generated open-world sandbox game for macOS and iOS, inspired by Minecraft.
 
 ![Screenshot](screenshot.png)
 
