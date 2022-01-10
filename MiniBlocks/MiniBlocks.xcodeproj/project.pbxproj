@@ -123,6 +123,10 @@
 		35A55563278C4C2D006FA70D /* HotbarHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */; };
 		35A55565278C5323006FA70D /* HotbarHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55564278C5323006FA70D /* HotbarHUDControlComponent.swift */; };
 		35A55566278C5323006FA70D /* HotbarHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55564278C5323006FA70D /* HotbarHUDControlComponent.swift */; };
+		35A55568278C5760006FA70D /* Wraparound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55567278C5760006FA70D /* Wraparound.swift */; };
+		35A55569278C5760006FA70D /* Wraparound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55567278C5760006FA70D /* Wraparound.swift */; };
+		35A5556B278C5829006FA70D /* InventoryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5556A278C5829006FA70D /* InventoryConstants.swift */; };
+		35A5556C278C5829006FA70D /* InventoryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5556A278C5829006FA70D /* InventoryConstants.swift */; };
 		35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
 		35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
@@ -213,6 +217,8 @@
 		35A5555E278C4BEA006FA70D /* HotbarHUDSlotNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HotbarHUDSlotNode.swift; path = ../../MiniBlocks.playground/Sources/Node/HotbarHUDSlotNode.swift; sourceTree = "<group>"; };
 		35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotbarHUDLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HotbarHUDLoadComponent.swift; sourceTree = "<group>"; };
 		35A55564278C5323006FA70D /* HotbarHUDControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HotbarHUDControlComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HotbarHUDControlComponent.swift; sourceTree = "<group>"; };
+		35A55567278C5760006FA70D /* Wraparound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Wraparound.swift; path = ../../MiniBlocks.playground/Sources/Utils/Wraparound.swift; sourceTree = "<group>"; };
+		35A5556A278C5829006FA70D /* InventoryConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InventoryConstants.swift; path = ../../MiniBlocks.playground/Sources/Model/InventoryConstants.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.playground/Resources/TextureWood.png; sourceTree = "<group>"; };
 		35D8D9ED278B3F470056ACAA /* TextureLeaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureLeaves.png; path = ../../MiniBlocks.playground/Resources/TextureLeaves.png; sourceTree = "<group>"; };
 		35D9E8A0278887960058F0E6 /* SunEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SunEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/SunEntity.swift; sourceTree = "<group>"; };
@@ -330,6 +336,7 @@
 				352D7A452787BD70008FB939 /* CoreGraphicsUtils.swift */,
 				35EA35372788A09E0066DD82 /* MathUtils.swift */,
 				35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */,
+				35A55567278C5760006FA70D /* Wraparound.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -349,6 +356,7 @@
 				35A55511278C3AE0006FA70D /* Block.swift */,
 				35A55512278C3AE0006FA70D /* BlockType.swift */,
 				35A55539278C3CA5006FA70D /* PlayerInfo.swift */,
+				35A5556A278C5829006FA70D /* InventoryConstants.swift */,
 				35A55536278C3B42006FA70D /* Inventory.swift */,
 				35A55545278C408C006FA70D /* ItemStack.swift */,
 				35A55517278C3AE0006FA70D /* Item.swift */,
@@ -644,6 +652,7 @@
 				35391BD7278BC5EE00B22954 /* LookAtBlockComponent.swift in Sources */,
 				35391BC9278BC5D800B22954 /* ChunkPos.swift in Sources */,
 				35391BC6278BC5D800B22954 /* Throttler.swift in Sources */,
+				35A55569278C5760006FA70D /* Wraparound.swift in Sources */,
 				35391BE3278BC5F400B22954 /* PlayerEntity.swift in Sources */,
 				35391BE2278BC5F400B22954 /* AmbientLightEntity.swift in Sources */,
 				35391BE6278BC5F700B22954 /* MiniBlocksSceneView.swift in Sources */,
@@ -660,6 +669,7 @@
 				35391BC7278BC5D800B22954 /* SceneKitUtils.swift in Sources */,
 				35391BC1278BC5D800B22954 /* Pos3.swift in Sources */,
 				35391BE8278BC5F700B22954 /* MiniBlocksViewController.swift in Sources */,
+				35A5556C278C5829006FA70D /* InventoryConstants.swift in Sources */,
 				35A55523278C3AE0006FA70D /* BlockType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -710,6 +720,7 @@
 				352D7A402787B211008FB939 /* LookAtBlockComponent.swift in Sources */,
 				35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */,
 				35A5552C278C3AE0006FA70D /* Item.swift in Sources */,
+				35A55568278C5760006FA70D /* Wraparound.swift in Sources */,
 				35A55528278C3AE0006FA70D /* EmptyWorldGenerator.swift in Sources */,
 				35EA352627889CBE0066DD82 /* GridIterator2.swift in Sources */,
 				35D9E8A3278888190058F0E6 /* AmbientLightEntity.swift in Sources */,
@@ -726,6 +737,7 @@
 				35EA352227889B200066DD82 /* ChunkPos.swift in Sources */,
 				352D7A462787BD70008FB939 /* CoreGraphicsUtils.swift in Sources */,
 				35E7F412278683950067F0F7 /* main.swift in Sources */,
+				35A5556B278C5829006FA70D /* InventoryConstants.swift in Sources */,
 				352D7A442787B90A008FB939 /* CrosshairHUDEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

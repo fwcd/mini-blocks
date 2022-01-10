@@ -212,10 +212,18 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     public override func keyDown(with event: NSEvent) {
         guard !debugModeEnabled && !event.isARepeat else { return }
+        print(event.keyCode)
         
         if event.keyCode == KeyCodes.escape {
             // Uncapture cursor when user presses escape
             mouseCaptured = false
+        } else if let n = event.characters?.compactMap({ Int(String($0)) }).first {
+            if (0..<InventoryConstants.hotbarSlotCount).contains(n) {
+                // Select hotbar slot
+                controlHotbarHUD { component in
+                    component.select(n - 1)
+                }
+            }
         } else if let motion = motionInput(for: event.keyCode) {
             // Pressed key could be mapped motion input, add it to the corresponding components
             controlPlayer { component in

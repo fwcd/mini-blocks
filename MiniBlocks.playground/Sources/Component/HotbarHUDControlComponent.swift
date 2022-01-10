@@ -20,6 +20,10 @@ class HotbarHUDControlComponent: GKComponent {
     }
     
     func moveSelection(by delta: Int) {
-        playerInfo?.moveHotbarSelection(by: delta)
+        playerInfo?.selectedHotbarSlot += delta
+    }
+    
+    func select(_ i: Int) {
+        playerInfo?.selectedHotbarSlot = i
     }
 }
