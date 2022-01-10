@@ -111,6 +111,8 @@
 		35A55547278C408C006FA70D /* ItemStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55545278C408C006FA70D /* ItemStack.swift */; };
 		35A55549278C421C006FA70D /* PlayerAssocationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55548278C421C006FA70D /* PlayerAssocationComponent.swift */; };
 		35A5554A278C421C006FA70D /* PlayerAssocationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55548278C421C006FA70D /* PlayerAssocationComponent.swift */; };
+		35A5554C278C44CC006FA70D /* HotbarHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5554B278C44CC006FA70D /* HotbarHUDLoadComponent.swift */; };
+		35A5554D278C44CC006FA70D /* HotbarHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5554B278C44CC006FA70D /* HotbarHUDLoadComponent.swift */; };
 		35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
 		35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
@@ -195,6 +197,7 @@
 		35A5553F278C3EBF006FA70D /* HotbarHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HotbarHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/HotbarHUDEntity.swift; sourceTree = "<group>"; };
 		35A55545278C408C006FA70D /* ItemStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemStack.swift; path = ../../MiniBlocks.playground/Sources/Model/ItemStack.swift; sourceTree = "<group>"; };
 		35A55548278C421C006FA70D /* PlayerAssocationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerAssocationComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/PlayerAssocationComponent.swift; sourceTree = "<group>"; };
+		35A5554B278C44CC006FA70D /* HotbarHUDLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotbarHUDLoadComponent.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.playground/Resources/TextureWood.png; sourceTree = "<group>"; };
 		35D8D9ED278B3F470056ACAA /* TextureLeaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureLeaves.png; path = ../../MiniBlocks.playground/Resources/TextureLeaves.png; sourceTree = "<group>"; };
 		35D9E8A0278887960058F0E6 /* SunEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SunEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/SunEntity.swift; sourceTree = "<group>"; };
@@ -289,6 +292,7 @@
 				35EA353D2788A57B0066DD82 /* WorldAssociationComponent.swift */,
 				35EA3517278895750066DD82 /* WorldLoadComponent.swift */,
 				35EA351B278895D60066DD82 /* WorldRetainComponent.swift */,
+				35A5554B278C44CC006FA70D /* HotbarHUDLoadComponent.swift */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -591,6 +595,7 @@
 				35391BE7278BC5F700B22954 /* KeyCodes.swift in Sources */,
 				35A55533278C3AE0006FA70D /* ItemType.swift in Sources */,
 				35391BF2278BC79A00B22954 /* SceneDelegate.swift in Sources */,
+				35A5554D278C44CC006FA70D /* HotbarHUDLoadComponent.swift in Sources */,
 				35A55531278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
 				35391BD9278BC5EE00B22954 /* SceneNodeComponent.swift in Sources */,
 				35391BC0278BC5D800B22954 /* GridPos3.swift in Sources */,
@@ -651,6 +656,7 @@
 				35EA351C278895D60066DD82 /* WorldRetainComponent.swift in Sources */,
 				35A0C28A27873DB300FA8570 /* WorldEntity.swift in Sources */,
 				35A0C2902787475600FA8570 /* PlayerEntity.swift in Sources */,
+				35A5554C278C44CC006FA70D /* HotbarHUDLoadComponent.swift in Sources */,
 				35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */,
 				352D7A422787B89B008FB939 /* SpriteNodeComponent.swift in Sources */,
 				35EA354A2788A8B00066DD82 /* ChunkRegion.swift in Sources */,

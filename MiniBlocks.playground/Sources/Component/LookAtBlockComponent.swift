@@ -10,11 +10,11 @@ class LookAtBlockComponent: GKComponent {
     /// The block pos for a new block.
     private(set) var blockPlacePos: GridPos3? = nil
     
-    var node: SCNNode? {
+    private var node: SCNNode? {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
     
-    var worldNode: SCNNode? {
+    private var worldNode: SCNNode? {
         entity?.component(ofType: WorldAssociationComponent.self)?.worldNode
     }
     
