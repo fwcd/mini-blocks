@@ -39,6 +39,10 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     }
     #endif
     
+    #if canImport(UIKit)
+    public override var prefersHomeIndicatorAutoHidden: Bool { true }
+    #endif
+    
     // MARK: SpriteKit/SceneKit properties
     
     private var overlayScene: SKScene!
