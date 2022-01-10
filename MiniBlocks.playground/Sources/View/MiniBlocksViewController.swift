@@ -119,6 +119,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         // Keep scene active, otherwise it will stop sending renderer(_:updateAtTime:)s when nothing changes. See also https://stackoverflow.com/questions/39336509/how-do-you-set-up-a-game-loop-for-scenekit
         sceneView.isPlaying = true
         
+        // Set up mouse/keyboard handling when using AppKit (on macOS)
         #if canImport(AppKit)
         sceneView.keyEventsDelegate = self
         
@@ -132,6 +133,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
         #endif
         
+        // Set up touch gesture handling when using UIKit (on iOS)
         #if canImport(UIKit)
         let pressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         pressRecognizer.minimumPressDuration = 0.5
