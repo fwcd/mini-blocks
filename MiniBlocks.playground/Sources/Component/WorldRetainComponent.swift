@@ -1,4 +1,7 @@
 import GameplayKit
+import OSLog
+
+private let log = Logger(subsystem: "MiniBlocks", category: "WorldRetainComponent")
 
 /// Lets the associated node keep the world's chunks retained at its position.
 class WorldRetainComponent: GKComponent {
@@ -46,7 +49,7 @@ class WorldRetainComponent: GKComponent {
         
         throttler.run(deltaTime: seconds) {
             guard shouldUpdate else { return }
-            print("Updating retained chunks...")
+            log.info("Updating retained chunks...")
             
             // TODO: Do delta updates here?
             
