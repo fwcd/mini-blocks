@@ -1,7 +1,7 @@
 import SceneKit
 
 /// The texture mappings for every block type.
-private let textures: [BlockType: Image] = [
+let blockTextureImages: [BlockType: Image] = [
     .grass: Image(named: "TextureGrass.png")!,
     .sand: Image(named: "TextureSand.png")!,
     .stone: Image(named: "TextureStone.png")!,
@@ -13,7 +13,7 @@ private let textures: [BlockType: Image] = [
 
 private func loadMaterial(for blockType: BlockType) -> SCNMaterial {
     let material = SCNMaterial()
-    material.diffuse.contents = textures[blockType]
+    material.diffuse.contents = blockTextureImages[blockType]
     material.diffuse.minificationFilter = .none
     material.diffuse.magnificationFilter = .none
     return material
@@ -26,7 +26,7 @@ private func loadGeometry(for blockType: BlockType) -> SCNGeometry {
 }
 
 private let geometries: [BlockType: SCNGeometry] = Dictionary(
-    uniqueKeysWithValues: textures.keys.map { ($0, loadGeometry(for: $0)) }
+    uniqueKeysWithValues: blockTextureImages.keys.map { ($0, loadGeometry(for: $0)) }
 )
 
 func makeBlockNode(for block: Block) -> SCNNode {
