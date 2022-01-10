@@ -212,9 +212,9 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     public override func keyDown(with event: NSEvent) {
         guard !debugModeEnabled && !event.isARepeat else { return }
-        print(event.keyCode)
+        let keyCode = KeyCode(rawValue: event.keyCode)
         
-        if event.keyCode == KeyCodes.escape {
+        if keyCode == .escape {
             // Uncapture cursor when user presses escape
             mouseCaptured = false
         } else if let n = event.characters?.compactMap({ Int(String($0)) }).first {
@@ -224,7 +224,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
                     component.select(n - 1)
                 }
             }
-        } else if let motion = motionInput(for: event.keyCode) {
+        } else if let motion = motionInput(for: keyCode) {
             // Pressed key could be mapped motion input, add it to the corresponding components
             controlPlayer { component in
                 component.add(motionInput: motion)
@@ -233,7 +233,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     }
     
     public override func keyUp(with event: NSEvent) {
-        if let motion = motionInput(for: event.keyCode) {
+        let keyCode = KeyCode(rawValue: event.keyCode)
+        if let motion = motionInput(for: keyCode) {
             // Pressed key could be mapped motion input, remove it from the corresponding components
             controlPlayer { component in
                 component.remove(motionInput: motion)
@@ -340,13 +341,13 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
     }
     
-    private func motionInput(for keyCode: UInt16) -> PlayerControlComponent.MotionInput? {
+    private func motionInput(for keyCode: KeyCode) -> PlayerControlComponent.MotionInput? {
         switch keyCode {
-        case KeyCodes.w: return .forward
-        case KeyCodes.s: return .back
-        case KeyCodes.a: return .left
-        case KeyCodes.d: return .right
-        case KeyCodes.space: return .jump
+        case .w: return .forward
+        case .s: return .back
+        case .a: return .left
+        case .d: return .right
+        case .space: return .jump
         default: return nil
         }
     }

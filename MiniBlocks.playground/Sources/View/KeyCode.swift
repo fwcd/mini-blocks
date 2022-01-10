@@ -1,0 +1,25 @@
+/// Cocoa key codes for convenience, based on https://stackoverflow.com/questions/36900825/where-are-all-the-cocoa-keycodes.
+struct KeyCode: RawRepresentable, Hashable {
+    static let a = Self(rawValue: 0)
+    static let s = Self(rawValue: 1)
+    static let d = Self(rawValue: 2)
+    static let w = Self(rawValue: 13)
+    static let one = Self(rawValue: 18)
+    static let two = Self(rawValue: 19)
+    static let three = Self(rawValue: 20)
+    static let four = Self(rawValue: 21)
+    static let five = Self(rawValue: 23)
+    static let six = Self(rawValue: 22)
+    static let seven = Self(rawValue: 26)
+    static let eight = Self(rawValue: 28)
+    static let nine = Self(rawValue: 25)
+    static let zero = Self(rawValue: 29)
+    static let space = Self(rawValue: 49)
+    static let escape = Self(rawValue: 53)
+    static let arrowLeft = Self(rawValue: 123)
+    static let arrowRight = Self(rawValue: 124)
+    static let arrowDown = Self(rawValue: 125)
+    static let arrowUp = Self(rawValue: 126)
+    
+    let rawValue: UInt16
+}

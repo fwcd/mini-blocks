@@ -45,7 +45,7 @@
 		35391BE4278BC5F400B22954 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
 		35391BE5278BC5F400B22954 /* CrosshairHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */; };
 		35391BE6278BC5F700B22954 /* MiniBlocksSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A472787BF1C008FB939 /* MiniBlocksSceneView.swift */; };
-		35391BE7278BC5F700B22954 /* KeyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F415278688180067F0F7 /* KeyCodes.swift */; };
+		35391BE7278BC5F700B22954 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F415278688180067F0F7 /* KeyCode.swift */; };
 		35391BE8278BC5F700B22954 /* MiniBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */; };
 		35391BE9278BC5FB00B22954 /* MiniBlocksScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40A278682C60067F0F7 /* MiniBlocksScene.scn */; };
 		35391BEA278BC5FB00B22954 /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
@@ -137,7 +137,7 @@
 		35E7F40D278682C60067F0F7 /* TextureGrass.png in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40B278682C60067F0F7 /* TextureGrass.png */; };
 		35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */; };
 		35E7F412278683950067F0F7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F411278683950067F0F7 /* main.swift */; };
-		35E7F416278688180067F0F7 /* KeyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F415278688180067F0F7 /* KeyCodes.swift */; };
+		35E7F416278688180067F0F7 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F415278688180067F0F7 /* KeyCode.swift */; };
 		35EA3518278895750066DD82 /* WorldLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA3517278895750066DD82 /* WorldLoadComponent.swift */; };
 		35EA351C278895D60066DD82 /* WorldRetainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA351B278895D60066DD82 /* WorldRetainComponent.swift */; };
 		35EA352227889B200066DD82 /* ChunkPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352127889B200066DD82 /* ChunkPos.swift */; };
@@ -231,7 +231,7 @@
 		35E7F40B278682C60067F0F7 /* TextureGrass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureGrass.png; path = ../../MiniBlocks.playground/Resources/TextureGrass.png; sourceTree = "<group>"; };
 		35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiniBlocksViewController.swift; path = ../../MiniBlocks.playground/Sources/View/MiniBlocksViewController.swift; sourceTree = "<group>"; };
 		35E7F411278683950067F0F7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		35E7F415278688180067F0F7 /* KeyCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyCodes.swift; path = ../../MiniBlocks.playground/Sources/View/KeyCodes.swift; sourceTree = "<group>"; };
+		35E7F415278688180067F0F7 /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyCode.swift; path = ../../MiniBlocks.playground/Sources/View/KeyCode.swift; sourceTree = "<group>"; };
 		35EA3517278895750066DD82 /* WorldLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldLoadComponent.swift; sourceTree = "<group>"; };
 		35EA351B278895D60066DD82 /* WorldRetainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldRetainComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldRetainComponent.swift; sourceTree = "<group>"; };
 		35EA352127889B200066DD82 /* ChunkPos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChunkPos.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkPos.swift; sourceTree = "<group>"; };
@@ -442,7 +442,7 @@
 			children = (
 				35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */,
 				352D7A472787BF1C008FB939 /* MiniBlocksSceneView.swift */,
-				35E7F415278688180067F0F7 /* KeyCodes.swift */,
+				35E7F415278688180067F0F7 /* KeyCode.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -630,7 +630,7 @@
 				35391BDC278BC5EE00B22954 /* WorldComponent.swift in Sources */,
 				35391BCB278BC5D800B22954 /* CoreGraphicsUtils.swift in Sources */,
 				35391BC2278BC5D800B22954 /* GridIterator2.swift in Sources */,
-				35391BE7278BC5F700B22954 /* KeyCodes.swift in Sources */,
+				35391BE7278BC5F700B22954 /* KeyCode.swift in Sources */,
 				35A55533278C3AE0006FA70D /* ItemType.swift in Sources */,
 				35391BF2278BC79A00B22954 /* SceneDelegate.swift in Sources */,
 				35A55531278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
@@ -680,7 +680,7 @@
 			files = (
 				35A5553A278C3CA5006FA70D /* PlayerInfo.swift in Sources */,
 				35A5552E278C3AE0006FA70D /* FlatWorldGenerator.swift in Sources */,
-				35E7F416278688180067F0F7 /* KeyCodes.swift in Sources */,
+				35E7F416278688180067F0F7 /* KeyCode.swift in Sources */,
 				35A55537278C3B42006FA70D /* Inventory.swift in Sources */,
 				35A55532278C3AE0006FA70D /* ItemType.swift in Sources */,
 				35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */,
