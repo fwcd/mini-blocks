@@ -8,3 +8,11 @@ func makeHotbarHUDSlotNode(size: CGFloat, lineThickness: CGFloat) -> SKNode {
     node.fillColor = .black.withAlphaComponent(0.7)
     return node
 }
+
+func updateHotbarHUDSlotNode(_ node: SKNode, lineThickness: CGFloat?) {
+    guard let node = node as? SKShapeNode else { return }
+    
+    if let lineThickness = lineThickness {
+        node.lineWidth = lineThickness
+    }
+}
