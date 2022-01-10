@@ -19,6 +19,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     // MARK: View properties
     
     private let sceneFrame: CGRect?
+    private var inputSensivity: SceneFloat = 1
     
     #if canImport(AppKit)
     private var receivedFirstMouseEvent: Bool = false
@@ -276,8 +277,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             
             // Rotate camera
             controlPlayer { component in
-                component.rotateYaw(by: -event.deltaX / 50)
-                component.rotatePitch(by: -event.deltaY / 50)
+                component.rotateYaw(by: -(event.deltaX * inputSensivity) / 50)
+                component.rotatePitch(by: -(event.deltaY * inputSensivity) / 50)
             }
             
             // Keep mouse at center of window
@@ -332,8 +333,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         
         // Rotate camera
         controlPlayer { component in
-            component.rotateYaw(by: -SceneFloat(delta.x) / 700)
-            component.rotatePitch(by: -SceneFloat(delta.y) / 700)
+            component.rotateYaw(by: (-SceneFloat(delta.x) * inputSensivity) / 800)
+            component.rotatePitch(by: (-SceneFloat(delta.y) * inputSensivity) / 800)
         }
     }
     
