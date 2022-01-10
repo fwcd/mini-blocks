@@ -217,8 +217,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         if keyCode == .escape {
             // Uncapture cursor when user presses escape
             mouseCaptured = false
-        } else if let n = event.characters?.compactMap({ Int(String($0)) }).first {
-            if (0..<InventoryConstants.hotbarSlotCount).contains(n) {
+        } else if let n = keyCode.numericValue {
+            if (1...InventoryConstants.hotbarSlotCount).contains(n) {
                 // Select hotbar slot
                 controlHotbarHUD { component in
                     component.select(n - 1)
