@@ -73,7 +73,6 @@
 		35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A2278757A700FA8570 /* GridPos2.swift */; };
 		35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A627875C7300FA8570 /* WorldComponent.swift */; };
 		35A0C2A927875EC400FA8570 /* HeightAboveGroundComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */; };
-		35A55507278C35C5006FA70D /* CrosshairHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55506278C35C5006FA70D /* CrosshairHUDNode.swift */; };
 		35A5551C278C3AE0006FA70D /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5550F278C3AE0006FA70D /* World.swift */; };
 		35A5551D278C3AE0006FA70D /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5550F278C3AE0006FA70D /* World.swift */; };
 		35A5551E278C3AE0006FA70D /* Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55510278C3AE0006FA70D /* Strip.swift */; };
@@ -108,8 +107,6 @@
 		35A5553E278C3DB6006FA70D /* NameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5553C278C3DB6006FA70D /* NameComponent.swift */; };
 		35A55540278C3EBF006FA70D /* HotbarHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5553F278C3EBF006FA70D /* HotbarHUDEntity.swift */; };
 		35A55541278C3EBF006FA70D /* HotbarHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5553F278C3EBF006FA70D /* HotbarHUDEntity.swift */; };
-		35A55543278C3EF1006FA70D /* HotbarHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55542278C3EF1006FA70D /* HotbarHUDNode.swift */; };
-		35A55544278C3EF1006FA70D /* HotbarHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55542278C3EF1006FA70D /* HotbarHUDNode.swift */; };
 		35A55546278C408C006FA70D /* ItemStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55545278C408C006FA70D /* ItemStack.swift */; };
 		35A55547278C408C006FA70D /* ItemStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55545278C408C006FA70D /* ItemStack.swift */; };
 		35A55549278C421C006FA70D /* PlayerAssocationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55548278C421C006FA70D /* PlayerAssocationComponent.swift */; };
@@ -179,7 +176,6 @@
 		35A0C2A2278757A700FA8570 /* GridPos2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridPos2.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridPos2.swift; sourceTree = "<group>"; };
 		35A0C2A627875C7300FA8570 /* WorldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldComponent.swift; sourceTree = "<group>"; };
 		35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeightAboveGroundComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HeightAboveGroundComponent.swift; sourceTree = "<group>"; };
-		35A55506278C35C5006FA70D /* CrosshairHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CrosshairHUDNode.swift; path = ../../MiniBlocks.playground/Sources/GUI/CrosshairHUDNode.swift; sourceTree = "<group>"; };
 		35A5550F278C3AE0006FA70D /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = World.swift; path = ../../MiniBlocks.playground/Sources/Model/World.swift; sourceTree = "<group>"; };
 		35A55510278C3AE0006FA70D /* Strip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Strip.swift; path = ../../MiniBlocks.playground/Sources/Model/Strip.swift; sourceTree = "<group>"; };
 		35A55511278C3AE0006FA70D /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Block.swift; path = ../../MiniBlocks.playground/Sources/Model/Block.swift; sourceTree = "<group>"; };
@@ -197,7 +193,6 @@
 		35A55539278C3CA5006FA70D /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerInfo.swift; path = ../../MiniBlocks.playground/Sources/Model/PlayerInfo.swift; sourceTree = "<group>"; };
 		35A5553C278C3DB6006FA70D /* NameComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NameComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/NameComponent.swift; sourceTree = "<group>"; };
 		35A5553F278C3EBF006FA70D /* HotbarHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HotbarHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/HotbarHUDEntity.swift; sourceTree = "<group>"; };
-		35A55542278C3EF1006FA70D /* HotbarHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HotbarHUDNode.swift; path = ../../MiniBlocks.playground/Sources/GUI/HotbarHUDNode.swift; sourceTree = "<group>"; };
 		35A55545278C408C006FA70D /* ItemStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemStack.swift; path = ../../MiniBlocks.playground/Sources/Model/ItemStack.swift; sourceTree = "<group>"; };
 		35A55548278C421C006FA70D /* PlayerAssocationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerAssocationComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/PlayerAssocationComponent.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.playground/Resources/TextureWood.png; sourceTree = "<group>"; };
@@ -342,15 +337,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		35A55505278C3595006FA70D /* GUI */ = {
-			isa = PBXGroup;
-			children = (
-				35A55506278C35C5006FA70D /* CrosshairHUDNode.swift */,
-				35A55542278C3EF1006FA70D /* HotbarHUDNode.swift */,
-			);
-			name = GUI;
-			sourceTree = "<group>";
-		};
 		35E7F3DD27867ED10067F0F7 = {
 			isa = PBXGroup;
 			children = (
@@ -389,7 +375,6 @@
 			children = (
 				35A0C28427873D0400FA8570 /* Utils */,
 				35A0C2992787568300FA8570 /* Model */,
-				35A55505278C3595006FA70D /* GUI */,
 				35A0C27E27872CB500FA8570 /* Component */,
 				35A0C27D27872CAB00FA8570 /* Entity */,
 				35E7F40E278682CC0067F0F7 /* View */,
@@ -607,7 +592,6 @@
 				35A55533278C3AE0006FA70D /* ItemType.swift in Sources */,
 				35391BF2278BC79A00B22954 /* SceneDelegate.swift in Sources */,
 				35A55531278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
-				35A55544278C3EF1006FA70D /* HotbarHUDNode.swift in Sources */,
 				35391BD9278BC5EE00B22954 /* SceneNodeComponent.swift in Sources */,
 				35391BC0278BC5D800B22954 /* GridPos3.swift in Sources */,
 				35391BC4278BC5D800B22954 /* GridPos2.swift in Sources */,
@@ -657,7 +641,6 @@
 				35A55526278C3AE0006FA70D /* NatureWorldGenerator.swift in Sources */,
 				35A5553D278C3DB6006FA70D /* NameComponent.swift in Sources */,
 				35EA354E2788B3870066DD82 /* Pos3.swift in Sources */,
-				35A55507278C35C5006FA70D /* CrosshairHUDNode.swift in Sources */,
 				35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */,
 				35EA35382788A09E0066DD82 /* MathUtils.swift in Sources */,
 				352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */,
@@ -668,7 +651,6 @@
 				35EA351C278895D60066DD82 /* WorldRetainComponent.swift in Sources */,
 				35A0C28A27873DB300FA8570 /* WorldEntity.swift in Sources */,
 				35A0C2902787475600FA8570 /* PlayerEntity.swift in Sources */,
-				35A55543278C3EF1006FA70D /* HotbarHUDNode.swift in Sources */,
 				35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */,
 				352D7A422787B89B008FB939 /* SpriteNodeComponent.swift in Sources */,
 				35EA354A2788A8B00066DD82 /* ChunkRegion.swift in Sources */,
