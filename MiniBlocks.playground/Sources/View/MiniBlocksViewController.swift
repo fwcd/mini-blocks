@@ -8,7 +8,7 @@ import OSLog
 private let log = Logger(subsystem: "MiniBlocks", category: "MiniBlocksViewController")
 
 /// The game's primary view controller.
-public final class MiniBlocksViewController: ViewController, SCNSceneRendererDelegate {
+public final class MiniBlocksViewController: ViewController, SCNSceneRendererDelegate, GestureRecognizerDelegate {
     private let debugModeEnabled: Bool
     private let debugInteractionMode: SCNInteractionMode
     private let worldGenerator: WorldGeneratorType
@@ -135,8 +135,13 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         
         // Set up touch gesture handling when using UIKit (on iOS)
         #if canImport(UIKit)
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
+        panRecognizer.delegate = self
+        sceneView.addGestureRecognizer(panRecognizer)
+        
         let pressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         pressRecognizer.minimumPressDuration = 0.5
+        pressRecognizer.delegate = self
         sceneView.addGestureRecognizer(pressRecognizer)
         #endif
         
@@ -316,26 +321,25 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     #if canImport(UIKit)
     
-    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
+    public func gestureRecognizer(_ recognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith other: UIGestureRecognizer) -> Bool {
+        // We want to support multi-touch
+        true
+    }
     
-    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        let previousPos = touch.previousLocation(in: view)
-        let currentPos = touch.location(in: view)
-        
-        // Compute touch motion delta
-        let deltaX = currentPos.x - previousPos.x
-        let deltaY = currentPos.y - previousPos.y
+    @objc
+    private func handlePan(_ recognizer: UIPanGestureRecognizer) {
+        let delta = recognizer.velocity(in: view)
+        print(delta)
         
         // Rotate camera
         controlPlayer { component in
-            component.rotateYaw(by: -SceneFloat(deltaX) / 50)
-            component.rotatePitch(by: -SceneFloat(deltaY) / 50)
+            component.rotateYaw(by: -SceneFloat(delta.x) / 50)
+            component.rotatePitch(by: -SceneFloat(delta.y) / 50)
         }
     }
     
     @objc
-    private func handleLongPress(_ recognizer: UIGestureRecognizer) {
+    private func handleLongPress(_ recognizer: UILongPressGestureRecognizer) {
         controlPlayer { component in
             switch recognizer.state {
             case .began:
@@ -347,8 +351,6 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             }
         }
     }
-    
-    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {}
     
     #endif
 }

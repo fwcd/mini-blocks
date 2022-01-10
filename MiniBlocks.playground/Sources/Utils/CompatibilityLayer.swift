@@ -15,6 +15,9 @@ public typealias Image = NSImage
 public typealias ViewController = NSViewController
 public typealias SceneFloat = CGFloat
 
+/// Dummy protocol.
+public protocol GestureRecognizerDelegate {}
+
 #endif
 
 #if canImport(UIKit)
@@ -25,5 +28,6 @@ public typealias Color = UIColor
 public typealias Image = UIImage
 public typealias ViewController = UIViewController
 public typealias SceneFloat = Float
+public typealias GestureRecognizerDelegate = UIGestureRecognizerDelegate
 
 #endif
