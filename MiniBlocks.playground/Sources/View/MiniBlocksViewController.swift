@@ -3,6 +3,9 @@ import CoreGraphics
 import SceneKit
 import SpriteKit
 import GameplayKit
+import OSLog
+
+private let log = Logger(subsystem: "MiniBlocks", category: "MiniBlocksViewController")
 
 /// The game's primary view controller.
 public final class MiniBlocksViewController: ViewController, SCNSceneRendererDelegate {
@@ -129,9 +132,14 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
         #endif
         
-        view = sceneView
+        #if canImport(UIKit)
+        let pressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        pressRecognizer.minimumPressDuration = 0.5
+        sceneView.addGestureRecognizer(pressRecognizer)
+        #endif
         
-        print("Loaded view")
+        view = sceneView
+        log.info("Loaded view")
     }
     
     private func add(entity: GKEntity) {
@@ -321,6 +329,20 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         controlPlayer { component in
             component.rotateYaw(by: -SceneFloat(deltaX) / 50)
             component.rotatePitch(by: -SceneFloat(deltaY) / 50)
+        }
+    }
+    
+    @objc
+    private func handleLongPress(_ recognizer: UIGestureRecognizer) {
+        controlPlayer { component in
+            switch recognizer.state {
+            case .began:
+                component.add(motionInput: .breakBlock)
+            case .ended:
+                component.remove(motionInput: .breakBlock)
+            default:
+                break
+            }
         }
     }
     
