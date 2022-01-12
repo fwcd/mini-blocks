@@ -17,3 +17,8 @@ On the technical side the game uses the SceneKit framework for rendering and is 
 By including a compatibility layer, the game can use either AppKit or UIKit for input handling, thereby making it possible to play the game both using mouse/keyboard on macOS and using on-screen touch controls on iOS.
 
 The game and assets are created entirely from scratch and © fwcd 2022.
+
+## See also
+
+* [MiniCut](https://github.com/fwcd/mini-cut), a tiny video editor built with SpriteKit (my 2021 project)
+* [MiniJam](https://github.com/fwcd/mini-jam), a tiny digital audio workstation built with SwiftUI (my 2020 project)
