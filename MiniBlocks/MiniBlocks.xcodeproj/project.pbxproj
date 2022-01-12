@@ -155,6 +155,7 @@
 		35FEC154278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
 		35FEC157278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
+		35FEC159278E700D00E2000E /* CyclicDequeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC158278E700D00E2000E /* CyclicDequeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +253,7 @@
 		35EA354D2788B3870066DD82 /* Pos3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pos3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Pos3.swift; sourceTree = "<group>"; };
 		35FEC152278E6B1B00E2000E /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Deque.swift; path = ../../MiniBlocks.playground/Sources/Utils/Deque.swift; sourceTree = "<group>"; };
 		35FEC155278E6BD900E2000E /* CyclicDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CyclicDeque.swift; path = ../../MiniBlocks.playground/Sources/Utils/CyclicDeque.swift; sourceTree = "<group>"; };
+		35FEC158278E700D00E2000E /* CyclicDequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicDequeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,6 +471,7 @@
 				35EA353527889DD30066DD82 /* GridIterator2Tests.swift */,
 				35EA35392788A1BF0066DD82 /* MathUtilsTests.swift */,
 				35EA353B2788A2520066DD82 /* ChunkPosTests.swift */,
+				35FEC158278E700D00E2000E /* CyclicDequeTests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -761,6 +764,7 @@
 				35EA353C2788A2520066DD82 /* ChunkPosTests.swift in Sources */,
 				35EA353627889DD30066DD82 /* GridIterator2Tests.swift in Sources */,
 				35EA353A2788A1BF0066DD82 /* MathUtilsTests.swift in Sources */,
+				35FEC159278E700D00E2000E /* CyclicDequeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

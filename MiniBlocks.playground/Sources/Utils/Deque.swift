@@ -5,6 +5,12 @@ protocol Deque: Sequence {
     /// The number of elements.
     var count: Int { get }
     
+    /// Peeks at the front.
+    var first: Element? { get }
+    
+    /// Peeks at the end.
+    var last: Element? { get }
+    
     /// Inserts an element at the beginning.
     mutating func pushFront(_ element: Element)
     
@@ -12,9 +18,11 @@ protocol Deque: Sequence {
     mutating func pushBack(_ element: Element)
     
     /// Extracts an element at the beginning.
+    @discardableResult
     mutating func popFront() -> Element?
     
     /// Extracts an element at the end.
+    @discardableResult
     mutating func popBack() -> Element?
 }
 

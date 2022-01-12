@@ -11,12 +11,22 @@ struct CyclicDeque<Element>: Deque {
     let capacity: Int
     /// The current size of the queue.
     private(set) var count: Int = 0
+    /// Whether the queue has reached its maximum size.
+    var isFull: Bool { count == capacity }
+    
+    var first: Element? {
+        guard count > 0 else { return nil }
+        return elements[front]
+    }
+    
+    var last: Element? {
+        guard count > 0 else { return nil }
+        return elements[(back - 1).floorMod(capacity)]
+    }
     
     init(capacity: Int) {
         self.capacity = capacity
-        
-        elements = []
-        elements.reserveCapacity(capacity)
+        elements = Array(repeating: nil, count: capacity)
     }
     
     private mutating func incrementCountIfNeeded() {
@@ -35,48 +45,61 @@ struct CyclicDeque<Element>: Deque {
     mutating func pushFront(_ element: Element) {
         let nextFront = (front - 1).floorMod(capacity)
         elements[nextFront] = element
+        if isFull {
+            assert(front == back)
+            back = nextFront
+        }
         front = nextFront
         incrementCountIfNeeded()
     }
     
     /// Inserts an element at the back. O(1).
     mutating func pushBack(_ element: Element) {
+        let nextBack = (back + 1) % capacity
         elements[back] = element
-        back = (back + 1) % capacity
+        if isFull {
+            assert(front == back)
+            front = nextBack
+        }
+        back = nextBack
         incrementCountIfNeeded()
     }
     
     /// Extracts an element at the front. O(1).
+    @discardableResult
     mutating func popFront() -> Element? {
         guard count > 0 else { return nil }
         let element = elements[front]
+        elements[front] = nil
         front = (front + 1) % capacity
         decrementCountIfNeeded()
         return element
     }
     
     /// Extracts an element at the back. O(1).
+    @discardableResult
     mutating func popBack() -> Element? {
         guard count > 0 else { return nil }
         let nextBack = (back - 1).floorMod(capacity)
         let element = elements[nextBack]
+        elements[nextBack] = nil
         back = nextBack
         decrementCountIfNeeded()
         return element
     }
     
     func makeIterator() -> Iterator {
-        Iterator(deque: self, i: front)
+        Iterator(deque: self)
     }
     
     struct Iterator: IteratorProtocol {
         let deque: CyclicDeque<Element>
-        var i: Int
+        var i: Int = 0
         
         mutating func next() -> Element? {
-            guard i != deque.back else { return nil }
-            let element = deque.elements[i]
-            i = (i + 1) % deque.capacity
+            guard i < deque.count else { return nil }
+            let element: Element = deque.elements[(deque.front + i) % deque.capacity]!
+            i += 1
             return element
         }
     }
