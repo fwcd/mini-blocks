@@ -151,6 +151,10 @@
 		35EA354A2788A8B00066DD82 /* ChunkRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35492788A8B00066DD82 /* ChunkRegion.swift */; };
 		35EA354C2788B1D30066DD82 /* Pos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354B2788B1D30066DD82 /* Pos2.swift */; };
 		35EA354E2788B3870066DD82 /* Pos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354D2788B3870066DD82 /* Pos3.swift */; };
+		35FEC153278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
+		35FEC154278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
+		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
+		35FEC157278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,6 +250,8 @@
 		35EA35492788A8B00066DD82 /* ChunkRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChunkRegion.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkRegion.swift; sourceTree = "<group>"; };
 		35EA354B2788B1D30066DD82 /* Pos2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pos2.swift; path = ../../MiniBlocks.playground/Sources/Utils/Pos2.swift; sourceTree = "<group>"; };
 		35EA354D2788B3870066DD82 /* Pos3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pos3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Pos3.swift; sourceTree = "<group>"; };
+		35FEC152278E6B1B00E2000E /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Deque.swift; path = ../../MiniBlocks.playground/Sources/Utils/Deque.swift; sourceTree = "<group>"; };
+		35FEC155278E6BD900E2000E /* CyclicDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CyclicDeque.swift; path = ../../MiniBlocks.playground/Sources/Utils/CyclicDeque.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +343,8 @@
 				35EA35372788A09E0066DD82 /* MathUtils.swift */,
 				35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */,
 				35A55567278C5760006FA70D /* Wraparound.swift */,
+				35FEC152278E6B1B00E2000E /* Deque.swift */,
+				35FEC155278E6BD900E2000E /* CyclicDeque.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -650,6 +658,7 @@
 				35A55521278C3AE0006FA70D /* Block.swift in Sources */,
 				35A55535278C3AE0006FA70D /* OceanWorldGenerator.swift in Sources */,
 				35391BD7278BC5EE00B22954 /* LookAtBlockComponent.swift in Sources */,
+				35FEC157278E6BD900E2000E /* CyclicDeque.swift in Sources */,
 				35391BC9278BC5D800B22954 /* ChunkPos.swift in Sources */,
 				35391BC6278BC5D800B22954 /* Throttler.swift in Sources */,
 				35A55569278C5760006FA70D /* Wraparound.swift in Sources */,
@@ -658,6 +667,7 @@
 				35391BE6278BC5F700B22954 /* MiniBlocksSceneView.swift in Sources */,
 				35391BAF278BC5A800B22954 /* AppDelegate.swift in Sources */,
 				35A5552B278C3AE0006FA70D /* WavyHillsWorldGenerator.swift in Sources */,
+				35FEC154278E6B1B00E2000E /* Deque.swift in Sources */,
 				35A55547278C408C006FA70D /* ItemStack.swift in Sources */,
 				35391BDB278BC5EE00B22954 /* HeightAboveGroundComponent.swift in Sources */,
 				35391BBF278BC5D800B22954 /* ChunkRegion.swift in Sources */,
@@ -718,6 +728,7 @@
 				35A55546278C408C006FA70D /* ItemStack.swift in Sources */,
 				35A0C28827873D2900FA8570 /* Box.swift in Sources */,
 				352D7A402787B211008FB939 /* LookAtBlockComponent.swift in Sources */,
+				35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */,
 				35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */,
 				35A5552C278C3AE0006FA70D /* Item.swift in Sources */,
 				35A55568278C5760006FA70D /* Wraparound.swift in Sources */,
@@ -726,6 +737,7 @@
 				35D9E8A3278888190058F0E6 /* AmbientLightEntity.swift in Sources */,
 				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
 				35A0C296278752E900FA8570 /* GravityComponent.swift in Sources */,
+				35FEC153278E6B1B00E2000E /* Deque.swift in Sources */,
 				35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */,
 				3546255827878798000489E8 /* SceneKitUtils.swift in Sources */,
 				35A5552A278C3AE0006FA70D /* WavyHillsWorldGenerator.swift in Sources */,
