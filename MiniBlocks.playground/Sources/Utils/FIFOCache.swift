@@ -11,7 +11,7 @@ struct FIFOCache<Key, Value> where Key: Hashable {
         mappings[key]
     }
     
-    mutating func insert(key: Key, value: Value) {
+    mutating func insert(_ key: Key, _ value: Value) {
         mappings[key] = value
         if let removed = queue.pushBack(key) {
             mappings[removed] = nil

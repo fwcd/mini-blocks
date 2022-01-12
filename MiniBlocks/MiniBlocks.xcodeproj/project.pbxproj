@@ -158,6 +158,8 @@
 		35FEC159278E700D00E2000E /* CyclicDequeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC158278E700D00E2000E /* CyclicDequeTests.swift */; };
 		35FEC15B278E76D900E2000E /* FIFOCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC15A278E76D900E2000E /* FIFOCache.swift */; };
 		35FEC15C278E76D900E2000E /* FIFOCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC15A278E76D900E2000E /* FIFOCache.swift */; };
+		35FEC15E278E796600E2000E /* CachedNoise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC15D278E796600E2000E /* CachedNoise.swift */; };
+		35FEC15F278E796600E2000E /* CachedNoise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC15D278E796600E2000E /* CachedNoise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -257,6 +259,7 @@
 		35FEC155278E6BD900E2000E /* CyclicDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CyclicDeque.swift; path = ../../MiniBlocks.playground/Sources/Utils/CyclicDeque.swift; sourceTree = "<group>"; };
 		35FEC158278E700D00E2000E /* CyclicDequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicDequeTests.swift; sourceTree = "<group>"; };
 		35FEC15A278E76D900E2000E /* FIFOCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FIFOCache.swift; path = ../../MiniBlocks.playground/Sources/Utils/FIFOCache.swift; sourceTree = "<group>"; };
+		35FEC15D278E796600E2000E /* CachedNoise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CachedNoise.swift; path = ../../MiniBlocks.playground/Sources/Utils/CachedNoise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +354,7 @@
 				35FEC152278E6B1B00E2000E /* Deque.swift */,
 				35FEC155278E6BD900E2000E /* CyclicDeque.swift */,
 				35FEC15A278E76D900E2000E /* FIFOCache.swift */,
+				35FEC15D278E796600E2000E /* CachedNoise.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -671,6 +675,7 @@
 				35391BC6278BC5D800B22954 /* Throttler.swift in Sources */,
 				35A55569278C5760006FA70D /* Wraparound.swift in Sources */,
 				35391BE3278BC5F400B22954 /* PlayerEntity.swift in Sources */,
+				35FEC15F278E796600E2000E /* CachedNoise.swift in Sources */,
 				35391BE2278BC5F400B22954 /* AmbientLightEntity.swift in Sources */,
 				35391BE6278BC5F700B22954 /* MiniBlocksSceneView.swift in Sources */,
 				35391BAF278BC5A800B22954 /* AppDelegate.swift in Sources */,
@@ -742,6 +747,7 @@
 				35A5552C278C3AE0006FA70D /* Item.swift in Sources */,
 				35A55568278C5760006FA70D /* Wraparound.swift in Sources */,
 				35A55528278C3AE0006FA70D /* EmptyWorldGenerator.swift in Sources */,
+				35FEC15E278E796600E2000E /* CachedNoise.swift in Sources */,
 				35EA352627889CBE0066DD82 /* GridIterator2.swift in Sources */,
 				35D9E8A3278888190058F0E6 /* AmbientLightEntity.swift in Sources */,
 				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
