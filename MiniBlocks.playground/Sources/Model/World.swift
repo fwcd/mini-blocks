@@ -32,6 +32,7 @@ struct World: Codable, Sequence {
             }
         }
         set {
+            uncache(at: pos)
             storedStrips[pos] = newValue
         }
     }
