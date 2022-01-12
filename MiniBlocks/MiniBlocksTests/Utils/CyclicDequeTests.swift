@@ -43,36 +43,36 @@ class CyclicDequeTests: XCTestCase {
         
         var b = CyclicDeque<Int>(capacity: 2)
         
-        b.pushFront(1)
+        XCTAssertNil(b.pushFront(1))
         XCTAssertEqual(b.count, 1)
         
-        b.pushFront(2)
-        b.pushFront(9)
-        b.pushFront(7)
+        XCTAssertNil(b.pushFront(2))
+        XCTAssertEqual(b.pushFront(9), 1)
+        XCTAssertEqual(b.pushFront(7), 2)
         XCTAssertEqual(b.count, 2)
         XCTAssertEqual(Array(b), [7, 9])
         
-        b.pushBack(12)
+        XCTAssertEqual(b.pushBack(12), 7)
         XCTAssertEqual(b.count, 2)
         XCTAssertEqual(Array(b), [9, 12])
         
-        b.popFront()
+        XCTAssertEqual(b.popFront(), 9)
         XCTAssertEqual(b.count, 1)
         XCTAssertEqual(Array(b), [12])
         
-        b.pushFront(98)
+        XCTAssertNil(b.pushFront(98))
         XCTAssertEqual(b.count, 2)
         XCTAssertEqual(Array(b), [98, 12])
         
-        b.popBack()
+        XCTAssertEqual(b.popBack(), 12)
         XCTAssertEqual(b.count, 1)
         XCTAssertEqual(Array(b), [98])
         
-        b.pushBack(70)
+        XCTAssertNil(b.pushBack(70))
         XCTAssertEqual(b.count, 2)
         XCTAssertEqual(Array(b), [98, 70])
         
-        b.pushBack(34)
+        XCTAssertEqual(b.pushBack(34), 98)
         XCTAssertEqual(b.count, 2)
         XCTAssertEqual(Array(b), [70, 34])
     }

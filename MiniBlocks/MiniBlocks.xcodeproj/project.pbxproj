@@ -156,6 +156,8 @@
 		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
 		35FEC157278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
 		35FEC159278E700D00E2000E /* CyclicDequeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC158278E700D00E2000E /* CyclicDequeTests.swift */; };
+		35FEC15B278E76D900E2000E /* FIFOCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC15A278E76D900E2000E /* FIFOCache.swift */; };
+		35FEC15C278E76D900E2000E /* FIFOCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC15A278E76D900E2000E /* FIFOCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +256,7 @@
 		35FEC152278E6B1B00E2000E /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Deque.swift; path = ../../MiniBlocks.playground/Sources/Utils/Deque.swift; sourceTree = "<group>"; };
 		35FEC155278E6BD900E2000E /* CyclicDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CyclicDeque.swift; path = ../../MiniBlocks.playground/Sources/Utils/CyclicDeque.swift; sourceTree = "<group>"; };
 		35FEC158278E700D00E2000E /* CyclicDequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicDequeTests.swift; sourceTree = "<group>"; };
+		35FEC15A278E76D900E2000E /* FIFOCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FIFOCache.swift; path = ../../MiniBlocks.playground/Sources/Utils/FIFOCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +350,7 @@
 				35A55567278C5760006FA70D /* Wraparound.swift */,
 				35FEC152278E6B1B00E2000E /* Deque.swift */,
 				35FEC155278E6BD900E2000E /* CyclicDeque.swift */,
+				35FEC15A278E76D900E2000E /* FIFOCache.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -655,6 +659,7 @@
 				35A5553E278C3DB6006FA70D /* NameComponent.swift in Sources */,
 				35A55541278C3EBF006FA70D /* HotbarHUDEntity.swift in Sources */,
 				35A55525278C3AE0006FA70D /* WorldGenerator.swift in Sources */,
+				35FEC15C278E76D900E2000E /* FIFOCache.swift in Sources */,
 				35A55560278C4BEA006FA70D /* HotbarHUDSlotNode.swift in Sources */,
 				35A5551D278C3AE0006FA70D /* World.swift in Sources */,
 				35A5551F278C3AE0006FA70D /* Strip.swift in Sources */,
@@ -725,6 +730,7 @@
 				35A55534278C3AE0006FA70D /* OceanWorldGenerator.swift in Sources */,
 				35A55549278C421C006FA70D /* PlayerAssocationComponent.swift in Sources */,
 				35A0C294278748EA00FA8570 /* PlayerControlComponent.swift in Sources */,
+				35FEC15B278E76D900E2000E /* FIFOCache.swift in Sources */,
 				35A5555F278C4BEA006FA70D /* HotbarHUDSlotNode.swift in Sources */,
 				35A55524278C3AE0006FA70D /* WorldGenerator.swift in Sources */,
 				35A55520278C3AE0006FA70D /* Block.swift in Sources */,

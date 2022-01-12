@@ -42,27 +42,35 @@ struct CyclicDeque<Element>: Deque {
     }
     
     /// Inserts an element at the front. O(1).
-    mutating func pushFront(_ element: Element) {
+    @discardableResult
+    mutating func pushFront(_ element: Element) -> Element? {
         let nextFront = (front - 1).floorMod(capacity)
-        elements[nextFront] = element
+        var removedElement: Element? = nil
         if isFull {
             assert(front == back)
+            removedElement = elements[nextFront]
             back = nextFront
         }
+        elements[nextFront] = element
         front = nextFront
         incrementCountIfNeeded()
+        return removedElement
     }
     
     /// Inserts an element at the back. O(1).
-    mutating func pushBack(_ element: Element) {
+    @discardableResult
+    mutating func pushBack(_ element: Element) -> Element? {
         let nextBack = (back + 1) % capacity
-        elements[back] = element
+        var removedElement: Element? = nil
         if isFull {
             assert(front == back)
+            removedElement = elements[back]
             front = nextBack
         }
+        elements[back] = element
         back = nextBack
         incrementCountIfNeeded()
+        return removedElement
     }
     
     /// Extracts an element at the front. O(1).

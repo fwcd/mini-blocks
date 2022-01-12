@@ -11,11 +11,13 @@ protocol Deque: Sequence {
     /// Peeks at the end.
     var last: Element? { get }
     
-    /// Inserts an element at the beginning.
-    mutating func pushFront(_ element: Element)
+    /// Inserts an element at the beginning. May return a removed element.
+    @discardableResult
+    mutating func pushFront(_ element: Element) -> Element?
     
-    /// Inserts an element at the end.
-    mutating func pushBack(_ element: Element)
+    /// Inserts an element at the end. May return a removed element.
+    @discardableResult
+    mutating func pushBack(_ element: Element) -> Element?
     
     /// Extracts an element at the beginning.
     @discardableResult
