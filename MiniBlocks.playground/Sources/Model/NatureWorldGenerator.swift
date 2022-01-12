@@ -2,10 +2,9 @@ import GameplayKit
 
 /// Generates a world with realistic terrain and natural features.
 struct NatureWorldGenerator: WorldGenerator {
-    private let heightNoise: GKNoise
+    private let heightNoise: CachedNoise
     
     var amplitude: Float = 8
-    var scale: Float = 80
     var sandLevel: Int = 0
     var waterLevel: Int = -1
     var bedrockLevel: Int = -8
@@ -16,13 +15,13 @@ struct NatureWorldGenerator: WorldGenerator {
     init(seed: String) {
         let noiseSeed: Int32 = seed.utf8.reduce(0) { ($0 << 1) ^ Int32($1) }
         
-        heightNoise = GKNoise(GKPerlinNoiseSource(
+        heightNoise = CachedNoise(noise: GKNoise(GKPerlinNoiseSource(
             frequency: 1.2,
             octaveCount: 12,
             persistence: 0.8,
             lacunarity: 1.2,
             seed: noiseSeed
-        ))
+        )), scale: 80)
     }
     
     func generate(at pos: GridPos2) -> Strip {
@@ -63,7 +62,7 @@ struct NatureWorldGenerator: WorldGenerator {
     }
     
     private func terrainHeight(at pos: GridPos2) -> Int {
-        Int(amplitude * heightNoise.value(atPosition: vectorOf(pos: pos)))
+        Int(amplitude * heightNoise.value(at: pos))
     }
     
     private func treeHeight(at pos: GridPos2) -> Int {
@@ -78,9 +77,5 @@ struct NatureWorldGenerator: WorldGenerator {
         guard terrainHeight(at: pos) > sandLevel else { return false }
         let x = ((pos.x % 30) << 1) ^ pos.z % 100
         return x == 23
-    }
-    
-    private func vectorOf(pos: GridPos2) -> vector_float2 {
-        vector_float2(x: Float(pos.x) / scale, y: Float(pos.z) / scale)
     }
 }
