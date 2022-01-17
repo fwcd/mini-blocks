@@ -4,7 +4,7 @@ private let angularValocityEpsilon: SceneFloat = 0.01
 private let piHalf = SceneFloat.pi / 2
 private let velocityId = "PlayerControlComponent"
 
-/// Lets the user control the associated scene node, usually a player.
+/// Lets the user control the associated player.
 class PlayerControlComponent: GKComponent {
     /// The current motion input.
     private var motionInput: MotionInput = []
@@ -110,19 +110,18 @@ class PlayerControlComponent: GKComponent {
     }
     
     override func update(deltaTime seconds: TimeInterval) {
-        guard let node = node,
-              let requestedVelocity = requestedVelocity,
+        guard let requestedVelocity = requestedVelocity,
               var playerInfo = playerInfo else { return }
         
         throttler.run(deltaTime: seconds) {
             // Fetch position and velocity
-            var position = playerInfo.position
+            let position = playerInfo.position
             var velocity = playerInfo.velocity
             
             // Running into terrain pushes the player back, causing them to 'slide' along the block.
             // For more info, look up 'AABB sliding collision response'.
             let feetPos = position + feetOffset + Vec3(y: 1)
-            var finalVelocity = velocity
+            var finalVelocity = requestedVelocity
             var iterations = 0
             
             while let hit = worldNode?.hitTestWithSegment(from: SCNVector3(feetPos), to: SCNVector3(feetPos + finalVelocity)).first, iterations < maxCollisionIterations {
