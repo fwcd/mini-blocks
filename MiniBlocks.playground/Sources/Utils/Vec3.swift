@@ -1,6 +1,6 @@
 /// A 3D grid-like position.
 protocol Vec3 {
-    associatedtype Coordinate: SignedInteger
+    associatedtype Coordinate: SignedNumeric
     
     var x: Coordinate { get set }
     var y: Coordinate { get set }
@@ -69,14 +69,28 @@ extension Vec3 {
         rhs * lhs
     }
     
-    static func /(lhs: Self, rhs: Coordinate) -> Self {
-        Self(x: lhs.x / rhs, y: lhs.y / rhs, z: lhs.z / rhs)
-    }
-    
     static func *=(lhs: inout Self, rhs: Coordinate) {
         lhs.x *= rhs
         lhs.y *= rhs
         lhs.z *= rhs
+    }
+}
+
+extension Vec3 where Coordinate: FloatingPoint {
+    static func /(lhs: Self, rhs: Coordinate) -> Self {
+        Self(x: lhs.x / rhs, y: lhs.y / rhs, z: lhs.z / rhs)
+    }
+    
+    static func /=(lhs: inout Self, rhs: Coordinate) {
+        lhs.x /= rhs
+        lhs.y /= rhs
+        lhs.z /= rhs
+    }
+}
+
+extension Vec3 where Coordinate: SignedInteger {
+    static func /(lhs: Self, rhs: Coordinate) -> Self {
+        Self(x: lhs.x / rhs, y: lhs.y / rhs, z: lhs.z / rhs)
     }
     
     static func /=(lhs: inout Self, rhs: Coordinate) {

@@ -1,6 +1,6 @@
 /// A 2D grid-like position.
 protocol Vec2 {
-    associatedtype Coordinate: SignedInteger
+    associatedtype Coordinate: SignedNumeric
     
     var x: Coordinate { get set }
     var z: Coordinate { get set }
@@ -64,13 +64,26 @@ extension Vec2 {
         rhs * lhs
     }
     
+    static func *=(lhs: inout Self, rhs: Coordinate) {
+        lhs.x *= rhs
+        lhs.z *= rhs
+    }
+}
+
+extension Vec2 where Coordinate: FloatingPoint {
     static func /(lhs: Self, rhs: Coordinate) -> Self {
         Self(x: lhs.x / rhs, z: lhs.z / rhs)
     }
     
-    static func *=(lhs: inout Self, rhs: Coordinate) {
-        lhs.x *= rhs
-        lhs.z *= rhs
+    static func /=(lhs: inout Self, rhs: Coordinate) {
+        lhs.x /= rhs
+        lhs.z /= rhs
+    }
+}
+
+extension Vec2 where Coordinate: SignedInteger {
+    static func /(lhs: Self, rhs: Coordinate) -> Self {
+        Self(x: lhs.x / rhs, z: lhs.z / rhs)
     }
     
     static func /=(lhs: inout Self, rhs: Coordinate) {
