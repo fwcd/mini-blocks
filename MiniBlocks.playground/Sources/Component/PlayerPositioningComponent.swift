@@ -3,6 +3,8 @@ import SceneKit
 
 /// Positions the node according to the position and velocity from the associated player info.
 class PlayerPositioningComponent: GKComponent {
+    private var throttler = Throttler(interval: 1 / 60)
+    
     private var node: SCNNode? {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
@@ -30,8 +32,12 @@ class PlayerPositioningComponent: GKComponent {
     
     override func update(deltaTime seconds: TimeInterval) {
         guard let node = node,
-              let playerInfo = playerInfo else { return }
+              var playerInfo = playerInfo else { return }
         
-        node.position = SCNVector3(playerInfo.position)
+        throttler.run(deltaTime: seconds) {
+            node.position = SCNVector3(playerInfo.position)
+            playerInfo.applyVelocity()
+            self.playerInfo = playerInfo
+        }
     }
 }
