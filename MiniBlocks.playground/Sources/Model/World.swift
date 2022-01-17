@@ -60,7 +60,7 @@ struct World: Codable, Sequence {
     
     /// Fetches the block at the given position. O(1).
     func block(at pos: BlockPos3) -> Block? {
-        self[pos.asBlockPos2][pos.y]
+        self[pos.asVec2][pos.y]
     }
     
     /// Checks whether there is a block at the given position. O(1).
@@ -87,7 +87,7 @@ struct World: Codable, Sequence {
     
     /// Place the given block at the given position. O(1).
     mutating func place(block: Block?, at pos: BlockPos3) {
-        self[pos.asBlockPos2][pos.y] = block
+        self[pos.asVec2][pos.y] = block
     }
     
     /// Removes the block at the given position. O(1).

@@ -148,7 +148,7 @@ class PlayerControlComponent: GKComponent {
             if let lookedAtBlockPos = lookAtBlockComponent?.blockPos,
                motionInput.contains(.breakBlock) {
                 world?.breakBlock(at: lookedAtBlockPos)
-                worldLoadComponent?.markDirty(at: lookedAtBlockPos.asBlockPos2)
+                worldLoadComponent?.markDirty(at: lookedAtBlockPos.asVec2)
             }
             
             // Place on looked-at block if needed
@@ -158,7 +158,7 @@ class PlayerControlComponent: GKComponent {
                placePos != BlockPos3(rounding: feetPos) {
                 // TODO: Decrement item stack
                 world?.place(block: Block(type: blockType), at: placePos)
-                worldLoadComponent?.markDirty(at: placePos.asBlockPos2)
+                worldLoadComponent?.markDirty(at: placePos.asVec2)
             }
         }
     }

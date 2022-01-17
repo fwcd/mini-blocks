@@ -65,6 +65,10 @@
 		3572144827957961003C640F /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144627957961003C640F /* Vec2.swift */; };
 		3572144A27957970003C640F /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144927957970003C640F /* Vec3.swift */; };
 		3572144B27957970003C640F /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144927957970003C640F /* Vec3.swift */; };
+		3572144D27957B11003C640F /* Vec2Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144C27957B11003C640F /* Vec2Convertible.swift */; };
+		3572144E27957B11003C640F /* Vec2Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144C27957B11003C640F /* Vec2Convertible.swift */; };
+		3572145027957B56003C640F /* Vec3Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144F27957B56003C640F /* Vec3Convertible.swift */; };
+		3572145127957B56003C640F /* Vec3Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144F27957B56003C640F /* Vec3Convertible.swift */; };
 		3584BE282789BFE40037D0E0 /* TextureSand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE262789BFE40037D0E0 /* TextureSand.png */; };
 		3584BE292789BFE40037D0E0 /* TextureStone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE272789BFE40037D0E0 /* TextureStone.png */; };
 		3584BE2B2789C1330037D0E0 /* TextureWater.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE2A2789C1330037D0E0 /* TextureWater.png */; };
@@ -194,6 +198,8 @@
 		357214402795747A003C640F /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameMode.swift; path = ../../MiniBlocks.playground/Sources/Model/GameMode.swift; sourceTree = "<group>"; };
 		3572144627957961003C640F /* Vec2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec2.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec2.swift; sourceTree = "<group>"; };
 		3572144927957970003C640F /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3.swift; sourceTree = "<group>"; };
+		3572144C27957B11003C640F /* Vec2Convertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec2Convertible.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec2Convertible.swift; sourceTree = "<group>"; };
+		3572144F27957B56003C640F /* Vec3Convertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3Convertible.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3Convertible.swift; sourceTree = "<group>"; };
 		3584BE262789BFE40037D0E0 /* TextureSand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureSand.png; path = ../../MiniBlocks.playground/Resources/TextureSand.png; sourceTree = "<group>"; };
 		3584BE272789BFE40037D0E0 /* TextureStone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureStone.png; path = ../../MiniBlocks.playground/Resources/TextureStone.png; sourceTree = "<group>"; };
 		3584BE2A2789C1330037D0E0 /* TextureWater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWater.png; path = ../../MiniBlocks.playground/Resources/TextureWater.png; sourceTree = "<group>"; };
@@ -344,6 +350,8 @@
 			children = (
 				35EA354B2788B1D30066DD82 /* Vec2Protocol.swift */,
 				35EA354D2788B3870066DD82 /* Vec3Protocol.swift */,
+				3572144C27957B11003C640F /* Vec2Convertible.swift */,
+				3572144F27957B56003C640F /* Vec3Convertible.swift */,
 				3572144627957961003C640F /* Vec2.swift */,
 				3572144927957970003C640F /* Vec3.swift */,
 				35A0C2A2278757A700FA8570 /* BlockPos2.swift */,
@@ -682,10 +690,12 @@
 				35FEC157278E6BD900E2000E /* CyclicDeque.swift in Sources */,
 				35391BC9278BC5D800B22954 /* ChunkPos.swift in Sources */,
 				3572144B27957970003C640F /* Vec3.swift in Sources */,
+				3572144E27957B11003C640F /* Vec2Convertible.swift in Sources */,
 				35391BC6278BC5D800B22954 /* Throttler.swift in Sources */,
 				35A55569278C5760006FA70D /* Wraparound.swift in Sources */,
 				35391BE3278BC5F400B22954 /* PlayerEntity.swift in Sources */,
 				35391BE2278BC5F400B22954 /* AmbientLightEntity.swift in Sources */,
+				3572145127957B56003C640F /* Vec3Convertible.swift in Sources */,
 				35391BE6278BC5F700B22954 /* MiniBlocksSceneView.swift in Sources */,
 				35391BAF278BC5A800B22954 /* AppDelegate.swift in Sources */,
 				35A5552B278C3AE0006FA70D /* WavyHillsWorldGenerator.swift in Sources */,
@@ -756,10 +766,12 @@
 				35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */,
 				35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */,
 				3572144A27957970003C640F /* Vec3.swift in Sources */,
+				3572144D27957B11003C640F /* Vec2Convertible.swift in Sources */,
 				35A5552C278C3AE0006FA70D /* Item.swift in Sources */,
 				35A55568278C5760006FA70D /* Wraparound.swift in Sources */,
 				35A55528278C3AE0006FA70D /* EmptyWorldGenerator.swift in Sources */,
 				35EA352627889CBE0066DD82 /* GridIterator2.swift in Sources */,
+				3572145027957B56003C640F /* Vec3Convertible.swift in Sources */,
 				35D9E8A3278888190058F0E6 /* AmbientLightEntity.swift in Sources */,
 				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
 				35A0C296278752E900FA8570 /* GravityComponent.swift in Sources */,

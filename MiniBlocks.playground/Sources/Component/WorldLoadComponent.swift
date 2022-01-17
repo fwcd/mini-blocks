@@ -91,7 +91,7 @@ class WorldLoadComponent: GKComponent {
             let chunkPos = ChunkPos(containing: pos)
             if let chunkNode = loadedChunks[chunkPos] {
                 // TODO: Investigate efficiency here?
-                for blockNode in chunkNode.childNodes where BlockPos3(rounding: blockNode.position).asBlockPos2 == pos {
+                for blockNode in chunkNode.childNodes where BlockPos3(rounding: blockNode.position).asVec2 == pos {
                     blockNode.removeFromParentNode()
                 }
                 loadStrip(at: pos, into: chunkNode)
