@@ -25,7 +25,7 @@ class WorldRetainComponent: GKComponent {
     }
     
     private var currentPos: ChunkPos? {
-        node.map { ChunkPos(containing: GridPos3(rounding: $0.position).asGridPos2) }
+        node.map { ChunkPos(containing: BlockPos3(rounding: $0.position).asBlockPos2) }
     }
     
     private var shouldUpdate: Bool {

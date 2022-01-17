@@ -1,7 +1,7 @@
 import SceneKit
 
 /// A flat position on the block grid.
-struct GridPos2: Hashable, Codable, Pos2 {
+struct BlockPos2: Hashable, Codable, Vec2 {
     var x: Int
     var z: Int
     
@@ -10,7 +10,7 @@ struct GridPos2: Hashable, Codable, Pos2 {
         self.z = z
     }
     
-    func with(y: Int) -> GridPos3 {
-        GridPos3(x: x, y: y, z: z)
+    func with(y: Int) -> BlockPos3 {
+        BlockPos3(x: x, y: y, z: z)
     }
 }

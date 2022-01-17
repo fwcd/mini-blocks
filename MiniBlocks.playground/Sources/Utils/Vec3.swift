@@ -1,5 +1,5 @@
 /// A 3D grid-like position.
-protocol Pos3 {
+protocol Vec3 {
     associatedtype Coordinate: SignedInteger
     
     var x: Coordinate { get set }
@@ -9,7 +9,7 @@ protocol Pos3 {
     init(x: Coordinate, y: Coordinate, z: Coordinate)
 }
 
-extension Pos3 {
+extension Vec3 {
     init() {
         self.init(x: 0, y: 0, z: 0)
     }

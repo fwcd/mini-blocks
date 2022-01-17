@@ -1,10 +1,10 @@
 import GameplayKit
 
-func makeDemoBlockPositions() -> [GridPos3] {
+func makeDemoBlockPositions() -> [BlockPos3] {
     let radius = 50
     return (-radius...radius).flatMap { x in
         (-radius...radius).map { z in
-            GridPos3(
+            BlockPos3(
                 x: x,
                 y: Int((-5 * sin(CGFloat(x) / 10) * cos(CGFloat(z) / 10)).rounded()),
                 z: z

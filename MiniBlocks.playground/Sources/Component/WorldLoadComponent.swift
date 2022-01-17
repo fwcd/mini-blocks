@@ -10,7 +10,7 @@ class WorldLoadComponent: GKComponent {
     private var loadedChunks: [ChunkPos: SCNNode] = [:]
     
     /// Strips marked as dirty (e.g. because the user placed/removed blocks there).
-    private var dirtyStrips: Set<GridPos2> = []
+    private var dirtyStrips: Set<BlockPos2> = []
     
     /// Performs occlusion checking before rendering. Makes chunk loading slower and rendering faster.
     private var checkOcclusions: Bool = true
@@ -39,7 +39,7 @@ class WorldLoadComponent: GKComponent {
     }
     
     /// Marks a strip as dirty. Also marks the adjacent strips as dirty since occlusions might have changed.
-    func markDirty(at pos: GridPos2) {
+    func markDirty(at pos: BlockPos2) {
         dirtyStrips.insert(pos)
         for neighbor in pos.neighbors {
             dirtyStrips.insert(neighbor)
@@ -86,12 +86,12 @@ class WorldLoadComponent: GKComponent {
         dirtyStrips = []
     }
     
-    private func reload(strips: Set<GridPos2>) {
+    private func reload(strips: Set<BlockPos2>) {
         for pos in strips {
             let chunkPos = ChunkPos(containing: pos)
             if let chunkNode = loadedChunks[chunkPos] {
                 // TODO: Investigate efficiency here?
-                for blockNode in chunkNode.childNodes where GridPos3(rounding: blockNode.position).asGridPos2 == pos {
+                for blockNode in chunkNode.childNodes where BlockPos3(rounding: blockNode.position).asBlockPos2 == pos {
                     blockNode.removeFromParentNode()
                 }
                 loadStrip(at: pos, into: chunkNode)
@@ -109,7 +109,7 @@ class WorldLoadComponent: GKComponent {
         return chunkNode
     }
     
-    private func loadStrip(at pos: GridPos2, into chunkNode: SCNNode) {
+    private func loadStrip(at pos: BlockPos2, into chunkNode: SCNNode) {
         guard let world = world else { return }
         
         for (y, block) in world[pos] {

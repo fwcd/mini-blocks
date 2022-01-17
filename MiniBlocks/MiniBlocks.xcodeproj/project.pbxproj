@@ -17,17 +17,17 @@
 		35391BB8278BC5A900B22954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35391BB7278BC5A900B22954 /* Assets.xcassets */; };
 		35391BBB278BC5A900B22954 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35391BB9278BC5A900B22954 /* LaunchScreen.storyboard */; };
 		35391BBF278BC5D800B22954 /* ChunkRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35492788A8B00066DD82 /* ChunkRegion.swift */; };
-		35391BC0278BC5D800B22954 /* GridPos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28527873D1100FA8570 /* GridPos3.swift */; };
-		35391BC1278BC5D800B22954 /* Pos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354D2788B3870066DD82 /* Pos3.swift */; };
+		35391BC0278BC5D800B22954 /* BlockPos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28527873D1100FA8570 /* BlockPos3.swift */; };
+		35391BC1278BC5D800B22954 /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354D2788B3870066DD82 /* Vec3.swift */; };
 		35391BC2278BC5D800B22954 /* GridIterator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352527889CBE0066DD82 /* GridIterator2.swift */; };
 		35391BC3278BC5D800B22954 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35372788A09E0066DD82 /* MathUtils.swift */; };
-		35391BC4278BC5D800B22954 /* GridPos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A2278757A700FA8570 /* GridPos2.swift */; };
+		35391BC4278BC5D800B22954 /* BlockPos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A2278757A700FA8570 /* BlockPos2.swift */; };
 		35391BC5278BC5D800B22954 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28727873D2900FA8570 /* Box.swift */; };
 		35391BC6278BC5D800B22954 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C297278753AE00FA8570 /* Throttler.swift */; };
 		35391BC7278BC5D800B22954 /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SceneKitUtils.swift */; };
 		35391BC8278BC5D800B22954 /* ChunkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352327889B560066DD82 /* ChunkConstants.swift */; };
 		35391BC9278BC5D800B22954 /* ChunkPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352127889B200066DD82 /* ChunkPos.swift */; };
-		35391BCA278BC5D800B22954 /* Pos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354B2788B1D30066DD82 /* Pos2.swift */; };
+		35391BCA278BC5D800B22954 /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354B2788B1D30066DD82 /* Vec2.swift */; };
 		35391BCB278BC5D800B22954 /* CoreGraphicsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A452787BD70008FB939 /* CoreGraphicsUtils.swift */; };
 		35391BD7278BC5EE00B22954 /* LookAtBlockComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A3F2787B211008FB939 /* LookAtBlockComponent.swift */; };
 		35391BD8278BC5EE00B22954 /* GravityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C295278752E900FA8570 /* GravityComponent.swift */; };
@@ -63,7 +63,7 @@
 		3584BE282789BFE40037D0E0 /* TextureSand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE262789BFE40037D0E0 /* TextureSand.png */; };
 		3584BE292789BFE40037D0E0 /* TextureStone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE272789BFE40037D0E0 /* TextureStone.png */; };
 		3584BE2B2789C1330037D0E0 /* TextureWater.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE2A2789C1330037D0E0 /* TextureWater.png */; };
-		35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28527873D1100FA8570 /* GridPos3.swift */; };
+		35A0C28627873D1100FA8570 /* BlockPos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28527873D1100FA8570 /* BlockPos3.swift */; };
 		35A0C28827873D2900FA8570 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28727873D2900FA8570 /* Box.swift */; };
 		35A0C28A27873DB300FA8570 /* WorldEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28927873DB300FA8570 /* WorldEntity.swift */; };
 		35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */; };
@@ -71,7 +71,7 @@
 		35A0C294278748EA00FA8570 /* PlayerControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */; };
 		35A0C296278752E900FA8570 /* GravityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C295278752E900FA8570 /* GravityComponent.swift */; };
 		35A0C298278753AE00FA8570 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C297278753AE00FA8570 /* Throttler.swift */; };
-		35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A2278757A700FA8570 /* GridPos2.swift */; };
+		35A0C2A3278757A700FA8570 /* BlockPos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A2278757A700FA8570 /* BlockPos2.swift */; };
 		35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A627875C7300FA8570 /* WorldComponent.swift */; };
 		35A0C2A927875EC400FA8570 /* HeightAboveGroundComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */; };
 		35A5551C278C3AE0006FA70D /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5550F278C3AE0006FA70D /* World.swift */; };
@@ -150,8 +150,8 @@
 		35EA353C2788A2520066DD82 /* ChunkPosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA353B2788A2520066DD82 /* ChunkPosTests.swift */; };
 		35EA353E2788A57C0066DD82 /* WorldAssociationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA353D2788A57B0066DD82 /* WorldAssociationComponent.swift */; };
 		35EA354A2788A8B00066DD82 /* ChunkRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35492788A8B00066DD82 /* ChunkRegion.swift */; };
-		35EA354C2788B1D30066DD82 /* Pos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354B2788B1D30066DD82 /* Pos2.swift */; };
-		35EA354E2788B3870066DD82 /* Pos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354D2788B3870066DD82 /* Pos3.swift */; };
+		35EA354C2788B1D30066DD82 /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354B2788B1D30066DD82 /* Vec2.swift */; };
+		35EA354E2788B3870066DD82 /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354D2788B3870066DD82 /* Vec3.swift */; };
 		35FEC153278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC154278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
@@ -190,7 +190,7 @@
 		3584BE262789BFE40037D0E0 /* TextureSand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureSand.png; path = ../../MiniBlocks.playground/Resources/TextureSand.png; sourceTree = "<group>"; };
 		3584BE272789BFE40037D0E0 /* TextureStone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureStone.png; path = ../../MiniBlocks.playground/Resources/TextureStone.png; sourceTree = "<group>"; };
 		3584BE2A2789C1330037D0E0 /* TextureWater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWater.png; path = ../../MiniBlocks.playground/Resources/TextureWater.png; sourceTree = "<group>"; };
-		35A0C28527873D1100FA8570 /* GridPos3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPos3.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridPos3.swift; sourceTree = "<group>"; };
+		35A0C28527873D1100FA8570 /* BlockPos3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockPos3.swift; path = ../../MiniBlocks.playground/Sources/Utils/BlockPos3.swift; sourceTree = "<group>"; };
 		35A0C28727873D2900FA8570 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Box.swift; path = ../../MiniBlocks.playground/Sources/Utils/Box.swift; sourceTree = "<group>"; };
 		35A0C28927873DB300FA8570 /* WorldEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/WorldEntity.swift; sourceTree = "<group>"; };
 		35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneNodeComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/SceneNodeComponent.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 		35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerControlComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/PlayerControlComponent.swift; sourceTree = "<group>"; };
 		35A0C295278752E900FA8570 /* GravityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GravityComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/GravityComponent.swift; sourceTree = "<group>"; };
 		35A0C297278753AE00FA8570 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Throttler.swift; path = ../../MiniBlocks.playground/Sources/Utils/Throttler.swift; sourceTree = "<group>"; };
-		35A0C2A2278757A700FA8570 /* GridPos2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridPos2.swift; path = ../../MiniBlocks.playground/Sources/Utils/GridPos2.swift; sourceTree = "<group>"; };
+		35A0C2A2278757A700FA8570 /* BlockPos2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlockPos2.swift; path = ../../MiniBlocks.playground/Sources/Utils/BlockPos2.swift; sourceTree = "<group>"; };
 		35A0C2A627875C7300FA8570 /* WorldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldComponent.swift; sourceTree = "<group>"; };
 		35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeightAboveGroundComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HeightAboveGroundComponent.swift; sourceTree = "<group>"; };
 		35A5550F278C3AE0006FA70D /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = World.swift; path = ../../MiniBlocks.playground/Sources/Model/World.swift; sourceTree = "<group>"; };
@@ -253,8 +253,8 @@
 		35EA353B2788A2520066DD82 /* ChunkPosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChunkPosTests.swift; sourceTree = "<group>"; };
 		35EA353D2788A57B0066DD82 /* WorldAssociationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorldAssociationComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldAssociationComponent.swift; sourceTree = "<group>"; };
 		35EA35492788A8B00066DD82 /* ChunkRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChunkRegion.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkRegion.swift; sourceTree = "<group>"; };
-		35EA354B2788B1D30066DD82 /* Pos2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pos2.swift; path = ../../MiniBlocks.playground/Sources/Utils/Pos2.swift; sourceTree = "<group>"; };
-		35EA354D2788B3870066DD82 /* Pos3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pos3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Pos3.swift; sourceTree = "<group>"; };
+		35EA354B2788B1D30066DD82 /* Vec2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec2.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec2.swift; sourceTree = "<group>"; };
+		35EA354D2788B3870066DD82 /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3.swift; sourceTree = "<group>"; };
 		35FEC152278E6B1B00E2000E /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Deque.swift; path = ../../MiniBlocks.playground/Sources/Utils/Deque.swift; sourceTree = "<group>"; };
 		35FEC155278E6BD900E2000E /* CyclicDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CyclicDeque.swift; path = ../../MiniBlocks.playground/Sources/Utils/CyclicDeque.swift; sourceTree = "<group>"; };
 		35FEC158278E700D00E2000E /* CyclicDequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicDequeTests.swift; sourceTree = "<group>"; };
@@ -335,10 +335,10 @@
 		35A0C28427873D0400FA8570 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				35EA354B2788B1D30066DD82 /* Pos2.swift */,
-				35EA354D2788B3870066DD82 /* Pos3.swift */,
-				35A0C28527873D1100FA8570 /* GridPos3.swift */,
-				35A0C2A2278757A700FA8570 /* GridPos2.swift */,
+				35EA354B2788B1D30066DD82 /* Vec2.swift */,
+				35EA354D2788B3870066DD82 /* Vec3.swift */,
+				35A0C28527873D1100FA8570 /* BlockPos3.swift */,
+				35A0C2A2278757A700FA8570 /* BlockPos2.swift */,
 				35EA352127889B200066DD82 /* ChunkPos.swift */,
 				35EA35492788A8B00066DD82 /* ChunkRegion.swift */,
 				35EA352327889B560066DD82 /* ChunkConstants.swift */,
@@ -653,11 +653,11 @@
 				35391BF2278BC79A00B22954 /* SceneDelegate.swift in Sources */,
 				35A55531278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
 				35391BD9278BC5EE00B22954 /* SceneNodeComponent.swift in Sources */,
-				35391BC0278BC5D800B22954 /* GridPos3.swift in Sources */,
-				35391BC4278BC5D800B22954 /* GridPos2.swift in Sources */,
+				35391BC0278BC5D800B22954 /* BlockPos3.swift in Sources */,
+				35391BC4278BC5D800B22954 /* BlockPos2.swift in Sources */,
 				35A55563278C4C2D006FA70D /* HotbarHUDLoadComponent.swift in Sources */,
 				35A55538278C3B42006FA70D /* Inventory.swift in Sources */,
-				35391BCA278BC5D800B22954 /* Pos2.swift in Sources */,
+				35391BCA278BC5D800B22954 /* Vec2.swift in Sources */,
 				35A55566278C5323006FA70D /* HotbarHUDControlComponent.swift in Sources */,
 				35A5553E278C3DB6006FA70D /* NameComponent.swift in Sources */,
 				35A55541278C3EBF006FA70D /* HotbarHUDEntity.swift in Sources */,
@@ -688,7 +688,7 @@
 				35A5555D278C497F006FA70D /* ItemNode.swift in Sources */,
 				35391BE4278BC5F400B22954 /* SunEntity.swift in Sources */,
 				35391BC7278BC5D800B22954 /* SceneKitUtils.swift in Sources */,
-				35391BC1278BC5D800B22954 /* Pos3.swift in Sources */,
+				35391BC1278BC5D800B22954 /* Vec3.swift in Sources */,
 				35391BE8278BC5F700B22954 /* MiniBlocksViewController.swift in Sources */,
 				35A5556C278C5829006FA70D /* InventoryConstants.swift in Sources */,
 				35A55523278C3AE0006FA70D /* BlockType.swift in Sources */,
@@ -705,20 +705,20 @@
 				35A55537278C3B42006FA70D /* Inventory.swift in Sources */,
 				35A55532278C3AE0006FA70D /* ItemType.swift in Sources */,
 				357214412795747A003C640F /* GameMode.swift in Sources */,
-				35A0C28627873D1100FA8570 /* GridPos3.swift in Sources */,
+				35A0C28627873D1100FA8570 /* BlockPos3.swift in Sources */,
 				35EA353E2788A57C0066DD82 /* WorldAssociationComponent.swift in Sources */,
 				35A55530278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
 				35A55526278C3AE0006FA70D /* NatureWorldGenerator.swift in Sources */,
 				35A5553D278C3DB6006FA70D /* NameComponent.swift in Sources */,
-				35EA354E2788B3870066DD82 /* Pos3.swift in Sources */,
+				35EA354E2788B3870066DD82 /* Vec3.swift in Sources */,
 				35A55559278C4868006FA70D /* BlockNode.swift in Sources */,
-				35A0C2A3278757A700FA8570 /* GridPos2.swift in Sources */,
+				35A0C2A3278757A700FA8570 /* BlockPos2.swift in Sources */,
 				35EA35382788A09E0066DD82 /* MathUtils.swift in Sources */,
 				352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */,
 				35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */,
 				35A55556278C4806006FA70D /* CrosshairHUDNode.swift in Sources */,
 				35EA352427889B560066DD82 /* ChunkConstants.swift in Sources */,
-				35EA354C2788B1D30066DD82 /* Pos2.swift in Sources */,
+				35EA354C2788B1D30066DD82 /* Vec2.swift in Sources */,
 				35391BF4278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */,
 				35EA351C278895D60066DD82 /* WorldRetainComponent.swift in Sources */,
 				35A0C28A27873DB300FA8570 /* WorldEntity.swift in Sources */,

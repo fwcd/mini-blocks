@@ -148,17 +148,17 @@ class PlayerControlComponent: GKComponent {
             if let lookedAtBlockPos = lookAtBlockComponent?.blockPos,
                motionInput.contains(.breakBlock) {
                 world?.breakBlock(at: lookedAtBlockPos)
-                worldLoadComponent?.markDirty(at: lookedAtBlockPos.asGridPos2)
+                worldLoadComponent?.markDirty(at: lookedAtBlockPos.asBlockPos2)
             }
             
             // Place on looked-at block if needed
             if let placePos = lookAtBlockComponent?.blockPlacePos,
                case let .block(blockType)? = playerInfo?.selectedHotbarStack?.item.type,
                motionInput.contains(.useBlock),
-               placePos != GridPos3(rounding: feetPos) {
+               placePos != BlockPos3(rounding: feetPos) {
                 // TODO: Decrement item stack
                 world?.place(block: Block(type: blockType), at: placePos)
-                worldLoadComponent?.markDirty(at: placePos.asGridPos2)
+                worldLoadComponent?.markDirty(at: placePos.asBlockPos2)
             }
         }
     }

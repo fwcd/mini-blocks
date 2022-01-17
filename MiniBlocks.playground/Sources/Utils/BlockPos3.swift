@@ -1,7 +1,7 @@
 import SceneKit
 
 /// A position in the 3D block grid.
-struct GridPos3: Hashable, Codable, Pos3 {
+struct BlockPos3: Hashable, Codable, Vec3 {
     var x: Int
     var y: Int
     var z: Int
@@ -10,8 +10,8 @@ struct GridPos3: Hashable, Codable, Pos3 {
         SCNVector3(x: SceneFloat(x), y: SceneFloat(y), z: SceneFloat(z))
     }
     
-    var asGridPos2: GridPos2 {
-        GridPos2(x: x, z: z)
+    var asBlockPos2: BlockPos2 {
+        BlockPos2(x: x, z: z)
     }
     
     init(x: Int = 0, y: Int = 0, z: Int = 0) {

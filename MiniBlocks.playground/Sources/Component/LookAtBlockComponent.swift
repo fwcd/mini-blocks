@@ -6,9 +6,9 @@ class LookAtBlockComponent: GKComponent {
     private var lastHit: SCNNode? = nil
     
     /// The looked at block pos.
-    private(set) var blockPos: GridPos3? = nil
+    private(set) var blockPos: BlockPos3? = nil
     /// The block pos for a new block.
-    private(set) var blockPlacePos: GridPos3? = nil
+    private(set) var blockPlacePos: BlockPos3? = nil
     
     private var node: SCNNode? {
         entity?.component(ofType: SceneNodeComponent.self)?.node
@@ -37,8 +37,8 @@ class LookAtBlockComponent: GKComponent {
             hit?.node.filters = [filter]
         }
         
-        blockPos = hit.map { GridPos3(rounding: $0.node.position) }
-        blockPlacePos = hit.map { GridPos3(rounding: $0.node.position + $0.worldNormal) }
+        blockPos = hit.map { BlockPos3(rounding: $0.node.position) }
+        blockPlacePos = hit.map { BlockPos3(rounding: $0.node.position + $0.worldNormal) }
         lastHit = hit?.node
     }
 }

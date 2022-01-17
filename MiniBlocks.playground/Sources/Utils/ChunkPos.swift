@@ -1,19 +1,19 @@
 import SceneKit
 
 /// A flat position on the chunk grid.
-struct ChunkPos: Hashable, Codable, Sequence, Pos2 {
+struct ChunkPos: Hashable, Codable, Sequence, Vec2 {
     var x: Int
     var z: Int
     
-    var topLeftInclusive: GridPos2 {
-        GridPos2(x: x * ChunkConstants.size, z: z * ChunkConstants.size)
+    var topLeftInclusive: BlockPos2 {
+        BlockPos2(x: x * ChunkConstants.size, z: z * ChunkConstants.size)
     }
     
-    var bottomRightExclusive: GridPos2 {
-        GridPos2(x: (x + 1) * ChunkConstants.size, z: (z + 1) * ChunkConstants.size)
+    var bottomRightExclusive: BlockPos2 {
+        BlockPos2(x: (x + 1) * ChunkConstants.size, z: (z + 1) * ChunkConstants.size)
     }
     
-    init(containing pos: GridPos2) {
+    init(containing pos: BlockPos2) {
         x = pos.x.floorDiv(ChunkConstants.size)
         z = pos.z.floorDiv(ChunkConstants.size)
     }
@@ -23,7 +23,7 @@ struct ChunkPos: Hashable, Codable, Sequence, Pos2 {
         self.z = z
     }
     
-    func makeIterator() -> GridIterator2<GridPos2> {
+    func makeIterator() -> GridIterator2<BlockPos2> {
         GridIterator2(topLeftInclusive: topLeftInclusive, bottomRightExclusive: bottomRightExclusive)
     }
 }

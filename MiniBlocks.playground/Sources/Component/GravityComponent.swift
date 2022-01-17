@@ -28,7 +28,7 @@ class GravityComponent: GKComponent {
         let interval = throttler.interval
         throttler.run(deltaTime: seconds) {
             let y = node.position.y - heightAboveGround
-            let mapPos = GridPos2(x: Int(node.position.x.rounded()), z: Int(node.position.z.rounded()))
+            let mapPos = BlockPos2(x: Int(node.position.x.rounded()), z: Int(node.position.z.rounded()))
             // TODO: Instead of using height, check for the block below the player instead (since we shouldn't assume that the terrain is always just a single surface)
             let groundY = world.height(at: mapPos)
             

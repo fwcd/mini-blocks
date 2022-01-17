@@ -25,7 +25,7 @@ struct NatureWorldGenerator: WorldGenerator {
         ))
     }
     
-    func generate(at pos: GridPos2) -> Strip {
+    func generate(at pos: BlockPos2) -> Strip {
         var blocks: [Int: Block]
         
         // Generate terrain
@@ -62,25 +62,25 @@ struct NatureWorldGenerator: WorldGenerator {
         return Strip(blocks: blocks)
     }
     
-    private func terrainHeight(at pos: GridPos2) -> Int {
+    private func terrainHeight(at pos: BlockPos2) -> Int {
         Int(amplitude * heightNoise.value(atPosition: vectorOf(pos: pos)))
     }
     
-    private func treeHeight(at pos: GridPos2) -> Int {
+    private func treeHeight(at pos: BlockPos2) -> Int {
         treeBaseHeight + min(3, ((((pos.x) << 1) % 10) ^ ((pos.z << 4) % 9)) % 4)
     }
     
-    private func leavesHeight(at pos: GridPos2) -> Int {
+    private func leavesHeight(at pos: BlockPos2) -> Int {
         max(0, leavesBaseHeight + (pos.x ^ pos.z) % 2)
     }
     
-    private func isTree(at pos: GridPos2) -> Bool {
+    private func isTree(at pos: BlockPos2) -> Bool {
         guard terrainHeight(at: pos) > sandLevel else { return false }
         let x = ((pos.x % 30) << 1) ^ pos.z % 100
         return x == 23
     }
     
-    private func vectorOf(pos: GridPos2) -> vector_float2 {
+    private func vectorOf(pos: BlockPos2) -> vector_float2 {
         vector_float2(x: Float(pos.x) / scale, y: Float(pos.z) / scale)
     }
 }
