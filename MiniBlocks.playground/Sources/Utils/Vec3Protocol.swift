@@ -10,6 +10,8 @@ protocol Vec3Protocol {
 }
 
 extension Vec3Protocol {
+    static var zero: Self { Self() }
+    
     init() {
         self.init(x: 0, y: 0, z: 0)
     }
