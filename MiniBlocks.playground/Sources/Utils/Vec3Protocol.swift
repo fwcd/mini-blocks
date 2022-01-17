@@ -93,6 +93,14 @@ extension Vec3Protocol where Coordinate: FloatingPoint {
         self / length
     }
     
+    init<V>(_ other: V) where V: Vec3Protocol, V.Coordinate: BinaryInteger {
+        self.init(
+            x: Coordinate(other.x),
+            y: Coordinate(other.y),
+            z: Coordinate(other.z)
+        )
+    }
+    
     func manhattanDistance(to rhs: Self) -> Coordinate {
         (self - rhs).manhattanLength
     }
@@ -121,5 +129,33 @@ extension Vec3Protocol where Coordinate: SignedInteger {
         lhs.x /= rhs
         lhs.y /= rhs
         lhs.z /= rhs
+    }
+}
+
+extension Vec3Protocol where Coordinate: BinaryFloatingPoint {
+    init<V>(_ other: V) where V: Vec3Protocol, V.Coordinate: BinaryFloatingPoint {
+        self.init(
+            x: Coordinate(other.x),
+            y: Coordinate(other.y),
+            z: Coordinate(other.z)
+        )
+    }
+}
+
+extension Vec3Protocol where Coordinate: BinaryInteger {
+    init<V>(rounding other: V) where V: Vec3Protocol, V.Coordinate: BinaryFloatingPoint {
+        self.init(
+            x: Coordinate(other.x.rounded()),
+            y: Coordinate(other.y.rounded()),
+            z: Coordinate(other.z.rounded())
+        )
+    }
+    
+    init<V>(_ other: V) where V: Vec3Protocol, V.Coordinate: BinaryInteger {
+        self.init(
+            x: Coordinate(other.x),
+            y: Coordinate(other.y),
+            z: Coordinate(other.z)
+        )
     }
 }

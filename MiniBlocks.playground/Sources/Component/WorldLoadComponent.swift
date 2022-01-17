@@ -117,7 +117,7 @@ class WorldLoadComponent: GKComponent {
             // Only add blocks that aren't fully occluded
             if !checkOcclusions || !world.isOccluded(at: blockPos) {
                 let blockNode = makeBlockNode(for: block)
-                blockNode.position = blockPos.asSCNVector
+                blockNode.position = SCNVector3(blockPos)
                 chunkNode.addChildNode(blockNode)
             }
         }
