@@ -9,6 +9,8 @@ struct PlayerInfo: Codable, Hashable {
     /// The hotbar slot index which is currently active.
     @Wraparound(modulus: InventoryConstants.hotbarSlotCount)
     var selectedHotbarSlot: Int = 0
+    /// The game mode the player is in.
+    var gameMode: GameMode = .creative
     
     /// The currently selected stack on the hotbar.
     var selectedHotbarStack: ItemStack? {
