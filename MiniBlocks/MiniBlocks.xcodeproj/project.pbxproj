@@ -69,6 +69,8 @@
 		3572144E27957B11003C640F /* Vec2Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144C27957B11003C640F /* Vec2Convertible.swift */; };
 		3572145027957B56003C640F /* Vec3Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144F27957B56003C640F /* Vec3Convertible.swift */; };
 		3572145127957B56003C640F /* Vec3Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144F27957B56003C640F /* Vec3Convertible.swift */; };
+		3572145327958172003C640F /* PlayerPositioningComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572145227958172003C640F /* PlayerPositioningComponent.swift */; };
+		3572145427958172003C640F /* PlayerPositioningComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572145227958172003C640F /* PlayerPositioningComponent.swift */; };
 		3584BE282789BFE40037D0E0 /* TextureSand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE262789BFE40037D0E0 /* TextureSand.png */; };
 		3584BE292789BFE40037D0E0 /* TextureStone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE272789BFE40037D0E0 /* TextureStone.png */; };
 		3584BE2B2789C1330037D0E0 /* TextureWater.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE2A2789C1330037D0E0 /* TextureWater.png */; };
@@ -200,6 +202,7 @@
 		3572144927957970003C640F /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3.swift; sourceTree = "<group>"; };
 		3572144C27957B11003C640F /* Vec2Convertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec2Convertible.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec2Convertible.swift; sourceTree = "<group>"; };
 		3572144F27957B56003C640F /* Vec3Convertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3Convertible.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3Convertible.swift; sourceTree = "<group>"; };
+		3572145227958172003C640F /* PlayerPositioningComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerPositioningComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/PlayerPositioningComponent.swift; sourceTree = "<group>"; };
 		3584BE262789BFE40037D0E0 /* TextureSand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureSand.png; path = ../../MiniBlocks.playground/Resources/TextureSand.png; sourceTree = "<group>"; };
 		3584BE272789BFE40037D0E0 /* TextureStone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureStone.png; path = ../../MiniBlocks.playground/Resources/TextureStone.png; sourceTree = "<group>"; };
 		3584BE2A2789C1330037D0E0 /* TextureWater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWater.png; path = ../../MiniBlocks.playground/Resources/TextureWater.png; sourceTree = "<group>"; };
@@ -330,6 +333,7 @@
 				35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */,
 				352D7A412787B89B008FB939 /* SpriteNodeComponent.swift */,
 				35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */,
+				3572145227958172003C640F /* PlayerPositioningComponent.swift */,
 				352D7A3F2787B211008FB939 /* LookAtBlockComponent.swift */,
 				35A0C295278752E900FA8570 /* GravityComponent.swift */,
 				35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */,
@@ -687,6 +691,7 @@
 				35A55521278C3AE0006FA70D /* Block.swift in Sources */,
 				35A55535278C3AE0006FA70D /* OceanWorldGenerator.swift in Sources */,
 				35391BD7278BC5EE00B22954 /* LookAtBlockComponent.swift in Sources */,
+				3572145427958172003C640F /* PlayerPositioningComponent.swift in Sources */,
 				35FEC157278E6BD900E2000E /* CyclicDeque.swift in Sources */,
 				35391BC9278BC5D800B22954 /* ChunkPos.swift in Sources */,
 				3572144B27957970003C640F /* Vec3.swift in Sources */,
@@ -763,6 +768,7 @@
 				35A55546278C408C006FA70D /* ItemStack.swift in Sources */,
 				35A0C28827873D2900FA8570 /* Box.swift in Sources */,
 				352D7A402787B211008FB939 /* LookAtBlockComponent.swift in Sources */,
+				3572145327958172003C640F /* PlayerPositioningComponent.swift in Sources */,
 				35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */,
 				35E7F410278682D40067F0F7 /* MiniBlocksViewController.swift in Sources */,
 				3572144A27957970003C640F /* Vec3.swift in Sources */,

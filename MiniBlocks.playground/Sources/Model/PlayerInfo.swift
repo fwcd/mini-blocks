@@ -9,6 +9,8 @@ struct PlayerInfo: Codable, Hashable {
     /// The hotbar slot index which is currently active.
     @Wraparound(modulus: InventoryConstants.hotbarSlotCount)
     var selectedHotbarSlot: Int = 0
+    /// The position of the player.
+    var position: Vec3 = Vec3()
     /// The game mode the player is in.
     var gameMode: GameMode = .creative
     
@@ -26,6 +28,4 @@ struct PlayerInfo: Codable, Hashable {
         hotbar[3] = ItemStack(item: Item(type: .block(.wood)))
         hotbar[4] = ItemStack(item: Item(type: .block(.leaves)))
     }
-    
-    // TODO: Store player position?
 }
