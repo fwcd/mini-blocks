@@ -106,6 +106,10 @@ extension Vec3Protocol where Coordinate: FloatingPoint {
         lhs.y /= rhs
         lhs.z /= rhs
     }
+    
+    mutating func normalize() {
+        self /= length
+    }
 }
 
 extension Vec3Protocol where Coordinate: SignedInteger {
