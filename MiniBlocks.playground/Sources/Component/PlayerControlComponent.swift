@@ -9,11 +9,11 @@ class PlayerControlComponent: GKComponent {
     /// The current motion input.
     private var motionInput: MotionInput = []
     
-    private var baseSpeed: Double = 0.4
+    private var baseSpeed: Double = 0.5
     private var pitchSpeed: SceneFloat = 0.4
     private var yawSpeed: SceneFloat = 0.3
-    private var jumpSpeed: Double = 0.8
-    private var sprintFactor: Double = 1.5
+    private var jumpSpeed: Double = 1.2
+    private var sprintFactor: Double = 1.8
     private var maxCollisionIterations: Int = 5
     private var pitchRange: ClosedRange<SceneFloat> = -piHalf...piHalf
     
