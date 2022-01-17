@@ -106,12 +106,13 @@ class PlayerControlComponent: GKComponent {
     }
     
     override func update(deltaTime seconds: TimeInterval) {
+        // Note that we don't use the if-var-and-assign idiom for playerInfo due to responsiveness issues (and inout bindings aren't in Swift yet)
         guard let requestedVelocity = requestedVelocity,
-              var playerInfo = playerInfo else { return }
+              playerInfo != nil else { return }
         
         // Fetch position and velocity
-        let position = playerInfo.position
-        var velocity = playerInfo.velocity
+        let position = playerInfo!.position
+        var velocity = playerInfo!.velocity
         
         // Running into terrain pushes the player back, causing them to 'slide' along the block.
         // For more info, look up 'AABB sliding collision response'.
@@ -131,9 +132,9 @@ class PlayerControlComponent: GKComponent {
         velocity.z = finalVelocity.z
         
         // Jump if possible/needed
-        if motionInput.contains(.jump) && playerInfo.isOnGround {
+        if motionInput.contains(.jump) && playerInfo!.isOnGround {
             velocity.y = jumpSpeed
-            playerInfo.leavesGround = true
+            playerInfo!.leavesGround = true
             // TODO: Move this into player info
             // gravityComponent.leavesGround = true
         }
@@ -147,7 +148,7 @@ class PlayerControlComponent: GKComponent {
         
         // Place on looked-at block if needed
         if let placePos = lookAtBlockComponent?.blockPlacePos,
-           case let .block(blockType)? = playerInfo.selectedHotbarStack?.item.type,
+           case let .block(blockType)? = playerInfo!.selectedHotbarStack?.item.type,
            motionInput.contains(.useBlock),
            placePos != BlockPos3(rounding: feetPos) {
             // TODO: Decrement item stack
@@ -155,10 +156,8 @@ class PlayerControlComponent: GKComponent {
             worldLoadComponent?.markDirty(at: placePos.asVec2)
         }
         
-        playerInfo.position = position
-        playerInfo.velocity = velocity
-        
-        self.playerInfo = playerInfo
+        playerInfo!.position = position
+        playerInfo!.velocity = velocity
     }
     
     /// Adds motion input.
