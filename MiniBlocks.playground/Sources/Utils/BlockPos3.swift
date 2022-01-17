@@ -6,10 +6,6 @@ struct BlockPos3: Hashable, Codable, Vec3Protocol {
     var y: Int
     var z: Int
     
-    var asSCNVector: SCNVector3 {
-        SCNVector3(x: SceneFloat(x), y: SceneFloat(y), z: SceneFloat(z))
-    }
-    
     var asBlockPos2: BlockPos2 {
         BlockPos2(x: x, z: z)
     }
@@ -18,11 +14,5 @@ struct BlockPos3: Hashable, Codable, Vec3Protocol {
         self.x = x
         self.y = y
         self.z = z
-    }
-    
-    init(rounding scnVector: SCNVector3) {
-        x = Int(scnVector.x.rounded())
-        y = Int(scnVector.y.rounded())
-        z = Int(scnVector.z.rounded())
     }
 }
