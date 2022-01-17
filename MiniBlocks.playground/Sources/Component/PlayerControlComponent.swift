@@ -9,15 +9,15 @@ class PlayerControlComponent: GKComponent {
     /// The current motion input.
     private var motionInput: MotionInput = []
     
-    private var baseSpeed: Double = 0.8
+    private var baseSpeed: Double = 0.4
     private var pitchSpeed: SceneFloat = 0.4
     private var yawSpeed: SceneFloat = 0.3
-    private var jumpSpeed: Double = 1.5
+    private var jumpSpeed: Double = 0.8
     private var sprintFactor: Double = 1.5
     private var maxCollisionIterations: Int = 5
     private var pitchRange: ClosedRange<SceneFloat> = -piHalf...piHalf
     
-    private var throttler = Throttler(interval: 0.1)
+    private var throttler = Throttler(interval: 0.05)
     private var deferrableThrottler = Throttler(interval: 0.3)
     
     private var speed: Double {
@@ -26,10 +26,6 @@ class PlayerControlComponent: GKComponent {
     
     private var node: SCNNode? {
         entity?.component(ofType: SceneNodeComponent.self)?.node
-    }
-    
-    private var feetOffset: Vec3 {
-        entity?.component(ofType: HeightAboveGroundComponent.self)?.offset ?? .zero
     }
     
     private var worldAssocationComponent: WorldAssociationComponent? {
@@ -113,57 +109,56 @@ class PlayerControlComponent: GKComponent {
         guard let requestedVelocity = requestedVelocity,
               var playerInfo = playerInfo else { return }
         
-        throttler.run(deltaTime: seconds) {
-            // Fetch position and velocity
-            let position = playerInfo.position
-            var velocity = playerInfo.velocity
-            
-            // Running into terrain pushes the player back, causing them to 'slide' along the block.
-            // For more info, look up 'AABB sliding collision response'.
-            let feetPos = position + feetOffset + Vec3(y: 1)
-            var finalVelocity = requestedVelocity
-            var iterations = 0
-            
-            while let hit = worldNode?.hitTestWithSegment(from: SCNVector3(feetPos), to: SCNVector3(feetPos + finalVelocity)).first, iterations < maxCollisionIterations {
-                let normal = Vec3(hit.worldNormal)
-                let repulsion = normal * abs(finalVelocity.dot(normal))
-                finalVelocity += repulsion
-                iterations += 1
-            }
-            
-            // Apply the movement
-            velocity.x = finalVelocity.x
-            velocity.z = finalVelocity.z
-            
-            // Jump if possible/needed
-            if motionInput.contains(.jump) && velocity.y == 0 {
-                velocity.y = jumpSpeed
-                // TODO: Move this into player info
-                // gravityComponent.leavesGround = true
-            }
-            
-            // Break looked-at block if needed
-            if let lookedAtBlockPos = lookAtBlockComponent?.blockPos,
-               motionInput.contains(.breakBlock) {
-                world?.breakBlock(at: lookedAtBlockPos)
-                worldLoadComponent?.markDirty(at: lookedAtBlockPos.asVec2)
-            }
-            
-            // Place on looked-at block if needed
-            if let placePos = lookAtBlockComponent?.blockPlacePos,
-               case let .block(blockType)? = playerInfo.selectedHotbarStack?.item.type,
-               motionInput.contains(.useBlock),
-               placePos != BlockPos3(rounding: feetPos) {
-                // TODO: Decrement item stack
-                world?.place(block: Block(type: blockType), at: placePos)
-                worldLoadComponent?.markDirty(at: placePos.asVec2)
-            }
-            
-            playerInfo.position = position
-            playerInfo.velocity = velocity
-            
-            self.playerInfo = playerInfo
+        // Fetch position and velocity
+        let position = playerInfo.position
+        var velocity = playerInfo.velocity
+        
+        // Running into terrain pushes the player back, causing them to 'slide' along the block.
+        // For more info, look up 'AABB sliding collision response'.
+        let feetPos = position + Vec3(y: 1)
+        var finalVelocity = requestedVelocity
+        var iterations = 0
+        
+        while let hit = worldNode?.hitTestWithSegment(from: SCNVector3(feetPos), to: SCNVector3(feetPos + finalVelocity)).first, iterations < maxCollisionIterations {
+            let normal = Vec3(hit.worldNormal)
+            let repulsion = normal * abs(finalVelocity.dot(normal))
+            finalVelocity += repulsion
+            iterations += 1
         }
+        
+        // Apply the movement
+        velocity.x = finalVelocity.x
+        velocity.z = finalVelocity.z
+        
+        // Jump if possible/needed
+        if motionInput.contains(.jump) && playerInfo.isOnGround {
+            velocity.y = jumpSpeed
+            playerInfo.leavesGround = true
+            // TODO: Move this into player info
+            // gravityComponent.leavesGround = true
+        }
+        
+        // Break looked-at block if needed
+        if let lookedAtBlockPos = lookAtBlockComponent?.blockPos,
+           motionInput.contains(.breakBlock) {
+            world?.breakBlock(at: lookedAtBlockPos)
+            worldLoadComponent?.markDirty(at: lookedAtBlockPos.asVec2)
+        }
+        
+        // Place on looked-at block if needed
+        if let placePos = lookAtBlockComponent?.blockPlacePos,
+           case let .block(blockType)? = playerInfo.selectedHotbarStack?.item.type,
+           motionInput.contains(.useBlock),
+           placePos != BlockPos3(rounding: feetPos) {
+            // TODO: Decrement item stack
+            world?.place(block: Block(type: blockType), at: placePos)
+            worldLoadComponent?.markDirty(at: placePos.asVec2)
+        }
+        
+        playerInfo.position = position
+        playerInfo.velocity = velocity
+        
+        self.playerInfo = playerInfo
     }
     
     /// Adds motion input.

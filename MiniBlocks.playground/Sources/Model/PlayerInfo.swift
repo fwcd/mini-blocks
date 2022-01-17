@@ -13,6 +13,10 @@ struct PlayerInfo: Codable, Hashable {
     var position: Vec3 = .zero
     /// The velocity of the player.
     var velocity: Vec3 = .zero
+    /// Whether the player is on the ground.
+    var isOnGround: Bool = false
+    /// Whether the player is about to leave the ground (e.g. due to a jump).
+    var leavesGround: Bool = false
     /// The game mode the player is in.
     var gameMode: GameMode = .creative
     
