@@ -1,7 +1,7 @@
 import SceneKit
 
 /// A position in the 3D block grid.
-struct BlockPos3: Hashable, Codable, Vec3 {
+struct BlockPos3: Hashable, Codable, Vec3Protocol {
     var x: Int
     var y: Int
     var z: Int

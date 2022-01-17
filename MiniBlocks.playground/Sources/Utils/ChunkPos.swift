@@ -1,7 +1,7 @@
 import SceneKit
 
 /// A flat position on the chunk grid.
-struct ChunkPos: Hashable, Codable, Sequence, Vec2 {
+struct ChunkPos: Hashable, Codable, Sequence, Vec2Protocol {
     var x: Int
     var z: Int
     

@@ -1,7 +1,7 @@
 import SceneKit
 
 /// A flat position on the block grid.
-struct BlockPos2: Hashable, Codable, Vec2 {
+struct BlockPos2: Hashable, Codable, Vec2Protocol {
     var x: Int
     var z: Int
     
