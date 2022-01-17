@@ -74,9 +74,29 @@ extension Vec3Protocol {
         lhs.y *= rhs
         lhs.z *= rhs
     }
+    
+    func dot(_ rhs: Self) -> Coordinate {
+        x * rhs.x + y * rhs.y + z * rhs.z
+    }
 }
 
 extension Vec3Protocol where Coordinate: FloatingPoint {
+    var length: Coordinate {
+        (x * x + y * y + z * z).squareRoot()
+    }
+    
+    var manhattanLength: Coordinate {
+        abs(x) + abs(y)
+    }
+    
+    var normalized: Self {
+        self / length
+    }
+    
+    func manhattanDistance(to rhs: Self) -> Coordinate {
+        (self - rhs).manhattanLength
+    }
+    
     static func /(lhs: Self, rhs: Coordinate) -> Self {
         Self(x: lhs.x / rhs, y: lhs.y / rhs, z: lhs.z / rhs)
     }

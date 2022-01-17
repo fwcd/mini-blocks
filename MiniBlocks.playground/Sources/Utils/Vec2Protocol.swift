@@ -68,6 +68,10 @@ extension Vec2Protocol {
         lhs.x *= rhs
         lhs.z *= rhs
     }
+    
+    func dot(_ rhs: Self) -> Coordinate {
+        x * rhs.x + z * rhs.z
+    }
 }
 
 extension Vec2Protocol where Coordinate: FloatingPoint {
