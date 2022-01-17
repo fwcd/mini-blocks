@@ -135,8 +135,6 @@ class PlayerControlComponent: GKComponent {
         if motionInput.contains(.jump) && playerInfo!.isOnGround {
             velocity.y = jumpSpeed
             playerInfo!.leavesGround = true
-            // TODO: Move this into player info
-            // gravityComponent.leavesGround = true
         }
         
         // Break looked-at block if needed
