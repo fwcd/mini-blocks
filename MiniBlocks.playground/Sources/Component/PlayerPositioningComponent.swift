@@ -9,25 +9,13 @@ class PlayerPositioningComponent: GKComponent {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
     
-    private var worldAssocationComponent: WorldAssociationComponent? {
-        entity?.component(ofType: WorldAssociationComponent.self)
-    }
-    
-    private var world: World? {
-        get { worldAssocationComponent?.world }
-        set { worldAssocationComponent?.world = newValue! }
-    }
-    
-    private var playerName: String? {
-        entity?.component(ofType: PlayerAssociationComponent.self)?.playerName
+    private var playerAssociationComponent: PlayerAssociationComponent? {
+        entity?.component(ofType: PlayerAssociationComponent.self)
     }
     
     private var playerInfo: PlayerInfo? {
-        get { playerName.flatMap { world?[playerInfoFor: $0] } }
-        set {
-            guard let playerName = playerName else { return }
-            world?[playerInfoFor: playerName] = newValue!
-        }
+        get { playerAssociationComponent?.playerInfo }
+        set { playerAssociationComponent?.playerInfo = newValue! }
     }
     
     override func update(deltaTime seconds: TimeInterval) {

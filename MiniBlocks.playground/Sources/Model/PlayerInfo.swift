@@ -10,14 +10,11 @@ struct PlayerInfo: Codable, Hashable {
     @Wraparound(modulus: InventoryConstants.hotbarSlotCount)
     var selectedHotbarSlot: Int = 0
     /// The position of the player.
-    var position: Vec3 = Vec3()
-    /// The velocities of the player, keyed by some fixed id for every component interested in providing one.
-    var velocities: [String: Vec3] = [:]
+    var position: Vec3 = .zero
+    /// The velocity of the player.
+    var velocity: Vec3 = .zero
     /// The game mode the player is in.
     var gameMode: GameMode = .creative
-    
-    /// The total velocity of this player.
-    var velocity: Vec3 { velocities.values.reduce(.zero, +) }
     
     /// The currently selected stack on the hotbar.
     var selectedHotbarStack: ItemStack? {

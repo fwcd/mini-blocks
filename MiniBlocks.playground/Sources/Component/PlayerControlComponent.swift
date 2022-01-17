@@ -2,24 +2,25 @@ import GameplayKit
 
 private let angularValocityEpsilon: SceneFloat = 0.01
 private let piHalf = SceneFloat.pi / 2
+private let velocityId = "PlayerControlComponent"
 
 /// Lets the user control the associated scene node, usually a player.
 class PlayerControlComponent: GKComponent {
     /// The current motion input.
     private var motionInput: MotionInput = []
     
-    private var baseSpeed: SceneFloat = 0.8
+    private var baseSpeed: Double = 0.8
     private var pitchSpeed: SceneFloat = 0.4
     private var yawSpeed: SceneFloat = 0.3
-    private var jumpSpeed: SceneFloat = 1.5
-    private var sprintFactor: SceneFloat = 1.5
+    private var jumpSpeed: Double = 1.5
+    private var sprintFactor: Double = 1.5
     private var maxCollisionIterations: Int = 5
     private var pitchRange: ClosedRange<SceneFloat> = -piHalf...piHalf
     
     private var throttler = Throttler(interval: 0.1)
     private var deferrableThrottler = Throttler(interval: 0.3)
     
-    private var speed: SceneFloat {
+    private var speed: Double {
         baseSpeed * (motionInput.contains(.sprint) ? sprintFactor : 1)
     }
     
@@ -27,8 +28,8 @@ class PlayerControlComponent: GKComponent {
         entity?.component(ofType: SceneNodeComponent.self)?.node
     }
     
-    private var feetOffset: SCNVector3 {
-        entity?.component(ofType: HeightAboveGroundComponent.self)?.offset ?? SCNVector3(x: 0, y: 0, z: 0)
+    private var feetOffset: Vec3 {
+        entity?.component(ofType: HeightAboveGroundComponent.self)?.offset ?? .zero
     }
     
     private var worldAssocationComponent: WorldAssociationComponent? {
@@ -48,27 +49,20 @@ class PlayerControlComponent: GKComponent {
         worldAssocationComponent?.worldLoadComponent
     }
     
-    private var playerName: String? {
-        entity?.component(ofType: PlayerAssociationComponent.self)?.playerName
+    private var playerAssociationComponent: PlayerAssociationComponent? {
+        entity?.component(ofType: PlayerAssociationComponent.self)
     }
     
     private var playerInfo: PlayerInfo? {
-        get { playerName.flatMap { world?[playerInfoFor: $0] } }
-        set {
-            guard let playerName = playerName else { return }
-            world?[playerInfoFor: playerName] = newValue!
-        }
-    }
-    
-    private var gravityComponent: GravityComponent? {
-        entity?.component(ofType: GravityComponent.self)
+        get { playerAssociationComponent?.playerInfo }
+        set { playerAssociationComponent?.playerInfo = newValue! }
     }
     
     private var lookAtBlockComponent: LookAtBlockComponent? {
         entity?.component(ofType: LookAtBlockComponent.self)
     }
     
-    private var velocity: SCNVector3? {
+    private var requestedVelocity: Vec3? {
         guard let node = node, let parent = node.parent else { return nil }
         
         var vector = SCNVector3(x: 0, y: 0, z: 0)
@@ -94,7 +88,7 @@ class PlayerControlComponent: GKComponent {
             rotated *= speed
         }
         
-        return rotated
+        return Vec3(rotated)
     }
     
     /// A bit set that represents motion input, usually by the user.
@@ -117,31 +111,36 @@ class PlayerControlComponent: GKComponent {
     
     override func update(deltaTime seconds: TimeInterval) {
         guard let node = node,
-              let velocity = velocity else { return }
+              let requestedVelocity = requestedVelocity,
+              var playerInfo = playerInfo else { return }
         
-        let interval = throttler.interval
         throttler.run(deltaTime: seconds) {
+            // Fetch position and velocity
+            var position = playerInfo.position
+            var velocity = playerInfo.velocity
+            
             // Running into terrain pushes the player back, causing them to 'slide' along the block.
             // For more info, look up 'AABB sliding collision response'.
-            let feetPos = node.position + feetOffset + SCNVector3(x: 0, y: 1, z: 0)
+            let feetPos = position + feetOffset + Vec3(y: 1)
             var finalVelocity = velocity
             var iterations = 0
             
-            while let hit = worldNode?.hitTestWithSegment(from: feetPos, to: feetPos + finalVelocity).first, iterations < maxCollisionIterations {
-                let repulsion = hit.worldNormal * abs(finalVelocity.dot(hit.worldNormal))
+            while let hit = worldNode?.hitTestWithSegment(from: SCNVector3(feetPos), to: SCNVector3(feetPos + finalVelocity)).first, iterations < maxCollisionIterations {
+                let normal = Vec3(hit.worldNormal)
+                let repulsion = normal * abs(finalVelocity.dot(normal))
                 finalVelocity += repulsion
                 iterations += 1
             }
             
             // Apply the movement
-            node.runAction(.move(by: finalVelocity, duration: interval))
+            velocity.x = finalVelocity.x
+            velocity.z = finalVelocity.z
             
             // Jump if possible/needed
-            if motionInput.contains(.jump),
-               let gravityComponent = gravityComponent,
-               gravityComponent.isOnGround {
-                gravityComponent.velocity = jumpSpeed
-                gravityComponent.leavesGround = true
+            if motionInput.contains(.jump) && velocity.y == 0 {
+                velocity.y = jumpSpeed
+                // TODO: Move this into player info
+                // gravityComponent.leavesGround = true
             }
             
             // Break looked-at block if needed
@@ -153,13 +152,18 @@ class PlayerControlComponent: GKComponent {
             
             // Place on looked-at block if needed
             if let placePos = lookAtBlockComponent?.blockPlacePos,
-               case let .block(blockType)? = playerInfo?.selectedHotbarStack?.item.type,
+               case let .block(blockType)? = playerInfo.selectedHotbarStack?.item.type,
                motionInput.contains(.useBlock),
                placePos != BlockPos3(rounding: feetPos) {
                 // TODO: Decrement item stack
                 world?.place(block: Block(type: blockType), at: placePos)
                 worldLoadComponent?.markDirty(at: placePos.asVec2)
             }
+            
+            playerInfo.position = position
+            playerInfo.velocity = velocity
+            
+            self.playerInfo = playerInfo
         }
     }
     

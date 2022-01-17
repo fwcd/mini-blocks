@@ -53,7 +53,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private let playerControlComponentSystem = GKComponentSystem(componentClass: PlayerControlComponent.self)
     private let playerPositioningComponentSystem = GKComponentSystem(componentClass: PlayerPositioningComponent.self)
     private let lookAtBlockComponentSystem = GKComponentSystem(componentClass: LookAtBlockComponent.self)
-    private let gravityComponentSystem = GKComponentSystem(componentClass: GravityComponent.self)
+    private let playerGravityComponentSystem = GKComponentSystem(componentClass: PlayerGravityComponent.self)
     private let worldLoadComponentSystem = GKComponentSystem(componentClass: WorldLoadComponent.self)
     private let worldRetainComponentSystem = GKComponentSystem(componentClass: WorldRetainComponent.self)
     private let hotbarHUDLoadComponentSystem = GKComponentSystem(componentClass: HotbarHUDLoadComponent.self)
@@ -178,8 +178,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         // Add components to their corresponding systems
         playerControlComponentSystem.addComponent(foundIn: entity)
         playerPositioningComponentSystem.addComponent(foundIn: entity)
+        playerGravityComponentSystem.addComponent(foundIn: entity)
         lookAtBlockComponentSystem.addComponent(foundIn: entity)
-        gravityComponentSystem.addComponent(foundIn: entity)
         worldLoadComponentSystem.addComponent(foundIn: entity)
         worldRetainComponentSystem.addComponent(foundIn: entity)
         hotbarHUDLoadComponentSystem.addComponent(foundIn: entity)
@@ -192,8 +192,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         // Perform updates to the components through their corresponding systems
         playerControlComponentSystem.update(deltaTime: deltaTime)
         playerPositioningComponentSystem.update(deltaTime: deltaTime)
+        playerGravityComponentSystem.update(deltaTime: deltaTime)
         lookAtBlockComponentSystem.update(deltaTime: deltaTime)
-        gravityComponentSystem.update(deltaTime: deltaTime)
         worldLoadComponentSystem.update(deltaTime: deltaTime)
         worldRetainComponentSystem.update(deltaTime: deltaTime)
         hotbarHUDLoadComponentSystem.update(deltaTime: deltaTime)

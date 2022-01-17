@@ -30,7 +30,7 @@
 		35391BCA278BC5D800B22954 /* Vec2Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354B2788B1D30066DD82 /* Vec2Protocol.swift */; };
 		35391BCB278BC5D800B22954 /* CoreGraphicsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A452787BD70008FB939 /* CoreGraphicsUtils.swift */; };
 		35391BD7278BC5EE00B22954 /* LookAtBlockComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A3F2787B211008FB939 /* LookAtBlockComponent.swift */; };
-		35391BD8278BC5EE00B22954 /* GravityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C295278752E900FA8570 /* GravityComponent.swift */; };
+		35391BD8278BC5EE00B22954 /* PlayerGravityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C295278752E900FA8570 /* PlayerGravityComponent.swift */; };
 		35391BD9278BC5EE00B22954 /* SceneNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */; };
 		35391BDA278BC5EE00B22954 /* SpriteNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A412787B89B008FB939 /* SpriteNodeComponent.swift */; };
 		35391BDB278BC5EE00B22954 /* HeightAboveGroundComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */; };
@@ -80,7 +80,7 @@
 		35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */; };
 		35A0C2902787475600FA8570 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28F2787475600FA8570 /* PlayerEntity.swift */; };
 		35A0C294278748EA00FA8570 /* PlayerControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */; };
-		35A0C296278752E900FA8570 /* GravityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C295278752E900FA8570 /* GravityComponent.swift */; };
+		35A0C296278752E900FA8570 /* PlayerGravityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C295278752E900FA8570 /* PlayerGravityComponent.swift */; };
 		35A0C298278753AE00FA8570 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C297278753AE00FA8570 /* Throttler.swift */; };
 		35A0C2A3278757A700FA8570 /* BlockPos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A2278757A700FA8570 /* BlockPos2.swift */; };
 		35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A627875C7300FA8570 /* WorldComponent.swift */; };
@@ -212,7 +212,7 @@
 		35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneNodeComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/SceneNodeComponent.swift; sourceTree = "<group>"; };
 		35A0C28F2787475600FA8570 /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/PlayerEntity.swift; sourceTree = "<group>"; };
 		35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerControlComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/PlayerControlComponent.swift; sourceTree = "<group>"; };
-		35A0C295278752E900FA8570 /* GravityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GravityComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/GravityComponent.swift; sourceTree = "<group>"; };
+		35A0C295278752E900FA8570 /* PlayerGravityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerGravityComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/PlayerGravityComponent.swift; sourceTree = "<group>"; };
 		35A0C297278753AE00FA8570 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Throttler.swift; path = ../../MiniBlocks.playground/Sources/Utils/Throttler.swift; sourceTree = "<group>"; };
 		35A0C2A2278757A700FA8570 /* BlockPos2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlockPos2.swift; path = ../../MiniBlocks.playground/Sources/Utils/BlockPos2.swift; sourceTree = "<group>"; };
 		35A0C2A627875C7300FA8570 /* WorldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/WorldComponent.swift; sourceTree = "<group>"; };
@@ -334,8 +334,8 @@
 				352D7A412787B89B008FB939 /* SpriteNodeComponent.swift */,
 				35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */,
 				3572145227958172003C640F /* PlayerPositioningComponent.swift */,
+				35A0C295278752E900FA8570 /* PlayerGravityComponent.swift */,
 				352D7A3F2787B211008FB939 /* LookAtBlockComponent.swift */,
-				35A0C295278752E900FA8570 /* GravityComponent.swift */,
 				35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */,
 				35A5553C278C3DB6006FA70D /* NameComponent.swift */,
 				35A55548278C421C006FA70D /* PlayerAssocationComponent.swift */,
@@ -665,7 +665,7 @@
 				35A5554A278C421C006FA70D /* PlayerAssocationComponent.swift in Sources */,
 				35391BDE278BC5EE00B22954 /* WorldLoadComponent.swift in Sources */,
 				35391BF5278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */,
-				35391BD8278BC5EE00B22954 /* GravityComponent.swift in Sources */,
+				35391BD8278BC5EE00B22954 /* PlayerGravityComponent.swift in Sources */,
 				35A55557278C4806006FA70D /* CrosshairHUDNode.swift in Sources */,
 				35391BDC278BC5EE00B22954 /* WorldComponent.swift in Sources */,
 				35391BCB278BC5D800B22954 /* CoreGraphicsUtils.swift in Sources */,
@@ -780,7 +780,7 @@
 				3572145027957B56003C640F /* Vec3Convertible.swift in Sources */,
 				35D9E8A3278888190058F0E6 /* AmbientLightEntity.swift in Sources */,
 				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
-				35A0C296278752E900FA8570 /* GravityComponent.swift in Sources */,
+				35A0C296278752E900FA8570 /* PlayerGravityComponent.swift in Sources */,
 				35FEC153278E6B1B00E2000E /* Deque.swift in Sources */,
 				35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */,
 				3546255827878798000489E8 /* SceneKitUtils.swift in Sources */,
