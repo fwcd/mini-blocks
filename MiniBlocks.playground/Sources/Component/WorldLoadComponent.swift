@@ -9,6 +9,9 @@ class WorldLoadComponent: GKComponent {
     /// The currently loaded chunks with their associated SceneKit nodes.
     private var loadedChunks: [ChunkPos: SCNNode] = [:]
     
+    /// The chunks for which an unload has been requested.
+    private var unloadRequestedChunks: Set<ChunkPos> = []
+    
     /// Strips marked as dirty (e.g. because the user placed/removed blocks there).
     private var dirtyStrips: Set<BlockPos2> = []
     
@@ -17,6 +20,9 @@ class WorldLoadComponent: GKComponent {
     
     /// Throttles chunk loading to a fixed interval.
     private var throttler = Throttler(interval: 0.5)
+    
+    /// Debounces chunk unloading to a fixed interval.
+    private var debouncer = Debouncer(interval: 2)
     
     private var world: World? {
         get { entity?.component(ofType: WorldComponent.self)?.world }
@@ -58,16 +64,10 @@ class WorldLoadComponent: GKComponent {
             let chunksToUnload = currentChunks.subtracting(requestedChunks)
             let stripsToReload = dirtyStrips.filter { !chunksToLoad.contains(ChunkPos(containing: $0)) }
             
-            // Unload chunks by removing the corresponding scene nodes from their parents
-            for chunkPos in chunksToUnload {
-                if let chunkNode = loadedChunks[chunkPos] {
-                    chunkNode.removeFromParentNode()
-                    loadedChunks[chunkPos] = nil
-                }
-                for pos in chunkPos {
-                    world.uncache(at: pos)
-                }
-            }
+            // Unload chunks by marking their chunks as requested for unloading
+            // (we don't unload them directly by removing them from the loadedChunks and the scene since especially the latter seems to be an expensive operation).
+            unloadRequestedChunks.subtract(chunksToLoad)
+            unloadRequestedChunks.formUnion(chunksToUnload)
             
             // Load chunks by creating the corresponding scene nodes and attaching them to the world node
             for chunkPos in chunksToLoad {
@@ -81,6 +81,25 @@ class WorldLoadComponent: GKComponent {
         } orElse: {
             // Reload all dirty strips immediately if there are any
             reload(strips: dirtyStrips)
+        }
+        
+        let playersIdling = world.playerInfos.values.allSatisfy { $0.velocity == .zero }
+        let unloadingOverdue = unloadRequestedChunks.count > 200
+        
+        debouncer.submit(deltaTime: seconds, defer: !playersIdling, force: unloadingOverdue) {
+            // Unload chunks
+            print("Unloading chunks...") // DEBUG
+            for chunkPos in unloadRequestedChunks {
+                if let chunkNode = loadedChunks[chunkPos] {
+                    chunkNode.removeFromParentNode()
+                    loadedChunks[chunkPos] = nil
+                }
+                for pos in chunkPos {
+                    world.uncache(at: pos)
+                }
+            }
+            
+            unloadRequestedChunks = []
         }
         
         dirtyStrips = []
