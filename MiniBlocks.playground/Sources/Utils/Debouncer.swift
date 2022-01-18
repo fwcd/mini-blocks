@@ -26,11 +26,13 @@ struct Debouncer {
                 }
             case .deferring(timeSinceLastRun: var timeSinceLastRun):
                 timeSinceLastRun += deltaTime
-                if !`defer` && timeSinceLastRun > interval {
+                if `defer` {
+                    state = .deferring(timeSinceLastRun: 0)
+                } else if timeSinceLastRun <= interval {
+                    state = .deferring(timeSinceLastRun: timeSinceLastRun)
+                } else {
                     action()
                     state = .idling
-                } else {
-                    state = .deferring(timeSinceLastRun: timeSinceLastRun)
                 }
             }
         }
