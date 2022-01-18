@@ -71,6 +71,8 @@
 		3572145127957B56003C640F /* Vec3Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144F27957B56003C640F /* Vec3Convertible.swift */; };
 		3572145327958172003C640F /* PlayerPositioningComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572145227958172003C640F /* PlayerPositioningComponent.swift */; };
 		3572145427958172003C640F /* PlayerPositioningComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572145227958172003C640F /* PlayerPositioningComponent.swift */; };
+		357EB0CC279640B00004CA6E /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357EB0CB279640B00004CA6E /* Debouncer.swift */; };
+		357EB0CD279640B00004CA6E /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357EB0CB279640B00004CA6E /* Debouncer.swift */; };
 		3584BE282789BFE40037D0E0 /* TextureSand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE262789BFE40037D0E0 /* TextureSand.png */; };
 		3584BE292789BFE40037D0E0 /* TextureStone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE272789BFE40037D0E0 /* TextureStone.png */; };
 		3584BE2B2789C1330037D0E0 /* TextureWater.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE2A2789C1330037D0E0 /* TextureWater.png */; };
@@ -203,6 +205,7 @@
 		3572144C27957B11003C640F /* Vec2Convertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec2Convertible.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec2Convertible.swift; sourceTree = "<group>"; };
 		3572144F27957B56003C640F /* Vec3Convertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3Convertible.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3Convertible.swift; sourceTree = "<group>"; };
 		3572145227958172003C640F /* PlayerPositioningComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerPositioningComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/PlayerPositioningComponent.swift; sourceTree = "<group>"; };
+		357EB0CB279640B00004CA6E /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Debouncer.swift; path = ../../MiniBlocks.playground/Sources/Utils/Debouncer.swift; sourceTree = "<group>"; };
 		3584BE262789BFE40037D0E0 /* TextureSand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureSand.png; path = ../../MiniBlocks.playground/Resources/TextureSand.png; sourceTree = "<group>"; };
 		3584BE272789BFE40037D0E0 /* TextureStone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureStone.png; path = ../../MiniBlocks.playground/Resources/TextureStone.png; sourceTree = "<group>"; };
 		3584BE2A2789C1330037D0E0 /* TextureWater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWater.png; path = ../../MiniBlocks.playground/Resources/TextureWater.png; sourceTree = "<group>"; };
@@ -366,6 +369,7 @@
 				35EA352527889CBE0066DD82 /* GridIterator2.swift */,
 				35A0C28727873D2900FA8570 /* Box.swift */,
 				35A0C297278753AE00FA8570 /* Throttler.swift */,
+				357EB0CB279640B00004CA6E /* Debouncer.swift */,
 				3546255727878798000489E8 /* SceneKitUtils.swift */,
 				352D7A452787BD70008FB939 /* CoreGraphicsUtils.swift */,
 				35EA35372788A09E0066DD82 /* MathUtils.swift */,
@@ -657,6 +661,7 @@
 				35721442279577C7003C640F /* GameMode.swift in Sources */,
 				35391BC5278BC5D800B22954 /* Box.swift in Sources */,
 				35391BC8278BC5D800B22954 /* ChunkConstants.swift in Sources */,
+				357EB0CD279640B00004CA6E /* Debouncer.swift in Sources */,
 				35A5552D278C3AE0006FA70D /* Item.swift in Sources */,
 				35A55529278C3AE0006FA70D /* EmptyWorldGenerator.swift in Sources */,
 				35391BC3278BC5D800B22954 /* MathUtils.swift in Sources */,
@@ -734,6 +739,7 @@
 				357214412795747A003C640F /* GameMode.swift in Sources */,
 				35A0C28627873D1100FA8570 /* BlockPos3.swift in Sources */,
 				35EA353E2788A57C0066DD82 /* WorldAssociationComponent.swift in Sources */,
+				357EB0CC279640B00004CA6E /* Debouncer.swift in Sources */,
 				35A55530278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
 				35A55526278C3AE0006FA70D /* NatureWorldGenerator.swift in Sources */,
 				35A5553D278C3DB6006FA70D /* NameComponent.swift in Sources */,
