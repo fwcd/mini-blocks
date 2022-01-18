@@ -3,7 +3,7 @@ import Foundation
 /// A facility that only executes an action if it hasn't executed within the last interval.
 struct Throttler {
     let interval: TimeInterval
-    private var timeSinceLastRun: TimeInterval = 0
+    private var timeSinceLastRun: TimeInterval = .infinity
     
     init(interval: TimeInterval) {
         self.interval = interval

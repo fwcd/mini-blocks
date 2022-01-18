@@ -73,6 +73,7 @@
 		3572145427958172003C640F /* PlayerPositioningComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572145227958172003C640F /* PlayerPositioningComponent.swift */; };
 		357EB0CC279640B00004CA6E /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357EB0CB279640B00004CA6E /* Debouncer.swift */; };
 		357EB0CD279640B00004CA6E /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357EB0CB279640B00004CA6E /* Debouncer.swift */; };
+		357EB0CF279643720004CA6E /* ThrottlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357EB0CE279643720004CA6E /* ThrottlerTests.swift */; };
 		3584BE282789BFE40037D0E0 /* TextureSand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE262789BFE40037D0E0 /* TextureSand.png */; };
 		3584BE292789BFE40037D0E0 /* TextureStone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE272789BFE40037D0E0 /* TextureStone.png */; };
 		3584BE2B2789C1330037D0E0 /* TextureWater.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE2A2789C1330037D0E0 /* TextureWater.png */; };
@@ -206,6 +207,7 @@
 		3572144F27957B56003C640F /* Vec3Convertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3Convertible.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3Convertible.swift; sourceTree = "<group>"; };
 		3572145227958172003C640F /* PlayerPositioningComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerPositioningComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/PlayerPositioningComponent.swift; sourceTree = "<group>"; };
 		357EB0CB279640B00004CA6E /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Debouncer.swift; path = ../../MiniBlocks.playground/Sources/Utils/Debouncer.swift; sourceTree = "<group>"; };
+		357EB0CE279643720004CA6E /* ThrottlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrottlerTests.swift; sourceTree = "<group>"; };
 		3584BE262789BFE40037D0E0 /* TextureSand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureSand.png; path = ../../MiniBlocks.playground/Resources/TextureSand.png; sourceTree = "<group>"; };
 		3584BE272789BFE40037D0E0 /* TextureStone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureStone.png; path = ../../MiniBlocks.playground/Resources/TextureStone.png; sourceTree = "<group>"; };
 		3584BE2A2789C1330037D0E0 /* TextureWater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWater.png; path = ../../MiniBlocks.playground/Resources/TextureWater.png; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				35EA35392788A1BF0066DD82 /* MathUtilsTests.swift */,
 				35EA353B2788A2520066DD82 /* ChunkPosTests.swift */,
 				35FEC158278E700D00E2000E /* CyclicDequeTests.swift */,
+				357EB0CE279643720004CA6E /* ThrottlerTests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 			files = (
 				35EA353C2788A2520066DD82 /* ChunkPosTests.swift in Sources */,
 				35EA353627889DD30066DD82 /* GridIterator2Tests.swift in Sources */,
+				357EB0CF279643720004CA6E /* ThrottlerTests.swift in Sources */,
 				35EA353A2788A1BF0066DD82 /* MathUtilsTests.swift in Sources */,
 				35FEC159278E700D00E2000E /* CyclicDequeTests.swift in Sources */,
 			);
