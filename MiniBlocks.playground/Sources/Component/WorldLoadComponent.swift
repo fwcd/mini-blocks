@@ -1,5 +1,8 @@
 import GameplayKit
 import SceneKit
+import OSLog
+
+private let log = Logger(subsystem: "MiniBlocks", category: "WorldLoadComponent")
 
 /// Loads chunks from the world model into the SceneKit node.
 class WorldLoadComponent: GKComponent {
@@ -69,6 +72,10 @@ class WorldLoadComponent: GKComponent {
             unloadRequestedChunks.subtract(chunksToLoad)
             unloadRequestedChunks.formUnion(chunksToUnload)
             
+            if !chunksToLoad.isEmpty {
+                log.info("Loading \(chunksToLoad.count) chunk(s)...")
+            }
+            
             // Load chunks by creating the corresponding scene nodes and attaching them to the world node
             for chunkPos in chunksToLoad {
                 let chunkNode = loadChunk(at: chunkPos)
@@ -84,11 +91,15 @@ class WorldLoadComponent: GKComponent {
         }
         
         let playersIdling = world.playerInfos.values.allSatisfy { $0.velocity == .zero }
-        let unloadingOverdue = unloadRequestedChunks.count > 200
+        let unloadCount = unloadRequestedChunks.count
+        let unloadingOverdue = unloadCount > 200
         
         debouncer.submit(deltaTime: seconds, defer: !playersIdling, force: unloadingOverdue) {
+            if unloadCount > 0 {
+                log.info("Unloading \(unloadCount) chunk(s)...")
+            }
+            
             // Unload chunks
-            print("Unloading chunks...") // DEBUG
             for chunkPos in unloadRequestedChunks {
                 if let chunkNode = loadedChunks[chunkPos] {
                     chunkNode.removeFromParentNode()
