@@ -8,6 +8,23 @@ class PlayerAssociationComponent: GKComponent {
         playerEntity.component(ofType: NameComponent.self)?.name
     }
     
+    private var worldAssocationComponent: WorldAssociationComponent? {
+        entity?.component(ofType: WorldAssociationComponent.self)
+    }
+    
+    private var world: World? {
+        get { worldAssocationComponent?.world }
+        set { worldAssocationComponent?.world = newValue! }
+    }
+    
+    var playerInfo: PlayerInfo? {
+        get { playerName.flatMap { world?[playerInfoFor: $0] } }
+        set {
+            guard let playerName = playerName else { return }
+            world?[playerInfoFor: playerName] = newValue!
+        }
+    }
+    
     init(playerEntity: GKEntity) {
         self.playerEntity = playerEntity
         super.init()

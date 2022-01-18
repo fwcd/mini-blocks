@@ -27,8 +27,9 @@ func makePlayerEntity(
     entity.addComponent(WorldRetainComponent(retainRadius: retainRadius)) // players retain chunks around themselves
     entity.addComponent(SceneNodeComponent(node: node))
     entity.addComponent(PlayerControlComponent())
+    entity.addComponent(PlayerPositioningComponent())
     entity.addComponent(HeightAboveGroundComponent(heightAboveGround: 1 + height))
-    entity.addComponent(GravityComponent())
+    entity.addComponent(PlayerGravityComponent())
     entity.addComponent(LookAtBlockComponent())
     entity.addComponent(PlayerAssociationComponent(playerEntity: entity)) // a player is associated with itself too
     

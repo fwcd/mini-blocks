@@ -9,6 +9,8 @@ protocol Vec2Protocol {
 }
 
 extension Vec2Protocol {
+    static var zero: Self { Self() }
+    
     var squaredLength: Coordinate {
         (x * x) + (z * z)
     }
