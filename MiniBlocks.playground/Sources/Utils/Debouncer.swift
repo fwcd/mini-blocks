@@ -20,11 +20,13 @@ struct Debouncer {
             if `defer` {
                 state = .deferring(timeSinceLastRun: 0)
             }
-        case .deferring(timeSinceLastRun: let timeSinceLastRun):
+        case .deferring(timeSinceLastRun: var timeSinceLastRun):
+            timeSinceLastRun += deltaTime
             if `defer` {
-                state = .deferring(timeSinceLastRun: timeSinceLastRun + deltaTime)
+                state = .deferring(timeSinceLastRun: timeSinceLastRun)
             } else if timeSinceLastRun > interval {
                 action()
+                state = .idling
             }
         }
     }
