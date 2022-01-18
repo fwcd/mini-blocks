@@ -92,7 +92,7 @@ class WorldLoadComponent: GKComponent {
         
         let playersIdling = world.playerInfos.values.allSatisfy { $0.velocity == .zero }
         let unloadCount = unloadRequestedChunks.count
-        let unloadingOverdue = unloadCount > 200
+        let unloadingOverdue = unloadCount > 350
         
         debouncer.submit(deltaTime: seconds, defer: !playersIdling, force: unloadingOverdue) {
             if unloadCount > 0 {
