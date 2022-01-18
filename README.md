@@ -18,6 +18,10 @@ By including a compatibility layer, the game can use either AppKit or UIKit for 
 
 The game and assets are created entirely from scratch and © fwcd 2022.
 
+## Repository Structure
+
+The code is located [in the playground](MiniBlocks.playground/Sources) to comply with the Swift Student Challenge's requirements, an Xcode project along with actual macOS/iOS targets and unit tests is however provided too for convenience.
+
 ## See also
 
 * [MiniCut](https://github.com/fwcd/mini-cut), a tiny video editor built with SpriteKit (my 2021 project)
