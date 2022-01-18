@@ -24,7 +24,7 @@ class PlayerGravityComponent: GKComponent {
         guard let world = world,
               playerInfo != nil else { return }
         
-        throttler.run(deltaTime: seconds) {
+        throttler.submit(deltaTime: seconds) {
             // Fetch position and velocity
             var position = playerInfo!.position
             var velocity = playerInfo!.velocity

@@ -14,7 +14,7 @@ struct Debouncer {
         self.interval = interval
     }
     
-    mutating func run(deltaTime: TimeInterval, defer: Bool, action: () -> Void) {
+    mutating func submit(deltaTime: TimeInterval, defer: Bool, action: () -> Void) {
         switch state {
         case .idling:
             if `defer` {

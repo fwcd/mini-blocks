@@ -47,7 +47,7 @@ class WorldRetainComponent: GKComponent {
         guard let worldLoadComponent = worldLoadComponent,
               let centerPos = currentPos else { return }
         
-        throttler.run(deltaTime: seconds) {
+        throttler.submit(deltaTime: seconds) {
             guard shouldUpdate else { return }
             log.info("Updating retained chunks...")
             

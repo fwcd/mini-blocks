@@ -27,7 +27,7 @@ class PlayerPositioningComponent: GKComponent {
               var playerInfo = playerInfo else { return }
         
         let interval = throttler.interval
-        throttler.run(deltaTime: seconds) {
+        throttler.submit(deltaTime: seconds) {
             node.runAction(.move(to: SCNVector3(playerInfo.position - heightOffset), duration: interval))
             playerInfo.applyVelocity()
             self.playerInfo = playerInfo

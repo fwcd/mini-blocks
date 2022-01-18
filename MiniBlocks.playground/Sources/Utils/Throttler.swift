@@ -9,7 +9,7 @@ struct Throttler {
         self.interval = interval
     }
     
-    mutating func run(deltaTime: TimeInterval, action: () -> Void, orElse alternativeAction: () -> Void = {}) {
+    mutating func submit(deltaTime: TimeInterval, action: () -> Void, orElse alternativeAction: () -> Void = {}) {
         timeSinceLastRun += deltaTime
         if timeSinceLastRun > interval {
             action()

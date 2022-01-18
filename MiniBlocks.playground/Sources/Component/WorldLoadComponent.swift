@@ -50,7 +50,7 @@ class WorldLoadComponent: GKComponent {
         guard let node = node,
               let world = world else { return }
         
-        throttler.run(deltaTime: seconds) {
+        throttler.submit(deltaTime: seconds) {
             // Perform a delta update of the chunks
             let requestedChunks = Set(retainCounts.keys)
             let currentChunks = Set(loadedChunks.keys)
