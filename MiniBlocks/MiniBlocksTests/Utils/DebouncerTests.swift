@@ -27,5 +27,8 @@ class DebouncerTests: XCTestCase {
         
         debouncer.submit(deltaTime: 1.2, defer: false, action: action)
         XCTAssertEqual(counter, 2)
+        
+        debouncer.submit(deltaTime: 0.3, defer: true, force: true, action: action)
+        XCTAssertEqual(counter, 3)
     }
 }

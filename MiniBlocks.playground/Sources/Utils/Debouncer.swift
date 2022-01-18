@@ -14,19 +14,24 @@ struct Debouncer {
         self.interval = interval
     }
     
-    mutating func submit(deltaTime: TimeInterval, defer: Bool, action: () -> Void) {
-        switch state {
-        case .idling:
-            if `defer` {
-                state = .deferring(timeSinceLastRun: 0)
-            }
-        case .deferring(timeSinceLastRun: var timeSinceLastRun):
-            timeSinceLastRun += deltaTime
-            if `defer` {
-                state = .deferring(timeSinceLastRun: timeSinceLastRun)
-            } else if timeSinceLastRun > interval {
-                action()
-                state = .idling
+    mutating func submit(deltaTime: TimeInterval, defer: Bool, force: Bool = false, action: () -> Void) {
+        if force {
+            action()
+            state = .idling
+        } else {
+            switch state {
+            case .idling:
+                if `defer` {
+                    state = .deferring(timeSinceLastRun: 0)
+                }
+            case .deferring(timeSinceLastRun: var timeSinceLastRun):
+                timeSinceLastRun += deltaTime
+                if !`defer` && timeSinceLastRun > interval {
+                    action()
+                    state = .idling
+                } else {
+                    state = .deferring(timeSinceLastRun: timeSinceLastRun)
+                }
             }
         }
     }
