@@ -3,7 +3,8 @@ import SceneKit
 
 func makePlayerEntity(
     name: String,
-    position: SCNVector3,
+    position: Vec3,
+    gameMode: GameMode,
     worldEntity: GKEntity,
     retainRadius: Int,
     ambientOcclusionEnabled: Bool
@@ -18,7 +19,6 @@ func makePlayerEntity(
     }
     let node = SCNNode()
     node.camera = camera
-    node.position = position
     
     // Create entity
     let entity = GKEntity()
@@ -32,6 +32,16 @@ func makePlayerEntity(
     entity.addComponent(PlayerGravityComponent())
     entity.addComponent(LookAtBlockComponent())
     entity.addComponent(PlayerAssociationComponent(playerEntity: entity)) // a player is associated with itself too
+    
+    // Set initial player info
+    if let component = worldEntity.component(ofType: WorldComponent.self) {
+        var playerInfo = component.world[playerInfoFor: name]
+        
+        playerInfo.position = position
+        playerInfo.gameMode = gameMode
+        
+        component.world[playerInfoFor: name] = playerInfo
+    }
     
     return entity
 }

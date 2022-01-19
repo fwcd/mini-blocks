@@ -9,12 +9,12 @@ private let log = Logger(subsystem: "MiniBlocks", category: "MiniBlocksViewContr
 
 /// The game's primary view controller.
 public final class MiniBlocksViewController: ViewController, SCNSceneRendererDelegate, GestureRecognizerDelegate {
-    private let debugModeEnabled: Bool
-    private let debugInteractionMode: SCNInteractionMode
     private let playerName: String
+    private let gameMode: GameMode
     private let worldGenerator: WorldGeneratorType
     private let renderDistance: Int
     private let ambientOcclusionEnabled: Bool
+    private let debugStatsShown: Bool
     private var previousUpdateTime: TimeInterval = 0
     
     // MARK: View properties
@@ -64,18 +64,18 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         sceneFrame: CGRect? = nil,
         playerName: String = "Player",
         worldGenerator: WorldGeneratorType = .nature(seed: "default"),
+        gameMode: GameMode = .survival,
         renderDistance: Int = 8,
         ambientOcclusionEnabled: Bool = false,
-        debugModeEnabled: Bool = false,
-        debugInteractionMode: SCNInteractionMode = .fly
+        debugStatsShown: Bool = false
     ) {
         self.sceneFrame = sceneFrame
         self.playerName = playerName
         self.worldGenerator = worldGenerator
+        self.gameMode = gameMode
         self.renderDistance = renderDistance
         self.ambientOcclusionEnabled = ambientOcclusionEnabled
-        self.debugModeEnabled = debugModeEnabled
-        self.debugInteractionMode = debugInteractionMode
+        self.debugStatsShown = debugStatsShown
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -103,10 +103,11 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         add(entity: worldEntity)
         
         // Add player
-        let playerSpawnPos = SCNVector3(x: 0, y: 10, z: 0)
+        let playerSpawnPos = Vec3(y: 10)
         let playerEntity = makePlayerEntity(
             name: playerName,
             position: playerSpawnPos,
+            gameMode: gameMode,
             worldEntity: worldEntity,
             retainRadius: renderDistance,
             ambientOcclusionEnabled: ambientOcclusionEnabled
@@ -121,9 +122,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         let sceneView = sceneFrame.map { MiniBlocksSceneView(frame: $0) } ?? MiniBlocksSceneView()
         sceneView.scene = scene
         sceneView.delegate = self
-        sceneView.allowsCameraControl = debugModeEnabled
-        sceneView.defaultCameraController.interactionMode = debugInteractionMode
-        sceneView.showsStatistics = true
+        sceneView.allowsCameraControl = false
+        sceneView.showsStatistics = debugStatsShown
         sceneView.backgroundColor = Color.black
         sceneView.overlaySKScene = overlayScene
         sceneView.antialiasingMode = .none
@@ -218,7 +218,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     #if canImport(AppKit)
     
     public override func keyDown(with event: NSEvent) {
-        guard !debugModeEnabled && !event.isARepeat else { return }
+        guard !event.isARepeat else { return }
         let keyCode = KeyCode(rawValue: event.keyCode)
         
         if keyCode == .escape {

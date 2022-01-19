@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             sceneFrame: CGRect(x: 0, y: 0, width: width, height: height),
             worldGenerator: .nature(seed: "default"),
             renderDistance: 12,
-            debugModeEnabled: false
+            debugStatsShown: true
         )
         window.makeKeyAndOrderFront(nil)
     }
