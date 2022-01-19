@@ -10,11 +10,12 @@ class PlayerControlComponent: GKComponent {
     private var motionInput: MotionInput = []
     
     private var baseSpeed: Double = 0.5
+    private var flightFactor: Double = 1.4
+    private var sprintFactor: Double = 1.8
     private var pitchSpeed: SceneFloat = 0.4
     private var yawSpeed: SceneFloat = 0.3
     private var jumpSpeed: Double = 1
     private var ascendSpeed: Double = 1
-    private var sprintFactor: Double = 1.8
     private var maxCollisionIterations: Int = 5
     private var pitchRange: ClosedRange<SceneFloat> = -piHalf...piHalf
     
@@ -22,7 +23,9 @@ class PlayerControlComponent: GKComponent {
     private var deferrableThrottler = Throttler(interval: 0.3)
     
     private var speed: Double {
-        baseSpeed * (motionInput.contains(.sprint) ? sprintFactor : 1)
+        baseSpeed
+            * (motionInput.contains(.sprint) ? sprintFactor : 1)
+            * ((playerInfo?.gameMode.permitsFlight ?? false) ? flightFactor : 1)
     }
     
     private var node: SCNNode? {
@@ -133,14 +136,7 @@ class PlayerControlComponent: GKComponent {
         velocity.x = finalVelocity.x
         velocity.z = finalVelocity.z
         
-        switch playerInfo!.gameMode {
-        case .survival:
-            // Jump if needed/possible
-            if motionInput.contains(.jump) && playerInfo!.isOnGround {
-                velocity.y = jumpSpeed
-                playerInfo!.leavesGround = true
-            }
-        case .creative:
+        if playerInfo!.gameMode.permitsFlight {
             // Ascend/descend as needed
             velocity.y = 0
             if motionInput.contains(.jump) {
@@ -148,6 +144,12 @@ class PlayerControlComponent: GKComponent {
             }
             if motionInput.contains(.sneak) {
                 velocity.y -= ascendSpeed
+            }
+        } else {
+            // Jump if needed/possible
+            if motionInput.contains(.jump) && playerInfo!.isOnGround {
+                velocity.y = jumpSpeed
+                playerInfo!.leavesGround = true
             }
         }
         
