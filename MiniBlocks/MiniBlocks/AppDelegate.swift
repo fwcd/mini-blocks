@@ -32,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.contentViewController = MiniBlocksViewController(
             sceneFrame: CGRect(x: 0, y: 0, width: width, height: height),
             worldGenerator: .nature(seed: "default"),
-            gameMode: .creative,
+            gameMode: .survival,
             renderDistance: 12,
             debugStatsShown: true
         )
