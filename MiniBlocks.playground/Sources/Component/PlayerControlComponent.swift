@@ -10,7 +10,7 @@ class PlayerControlComponent: GKComponent {
     private var motionInput: MotionInput = []
     
     private var baseSpeed: Double = 0.5
-    private var flightFactor: Double = 1.4
+    private var flightFactor: Double = 2
     private var sprintFactor: Double = 1.8
     private var pitchSpeed: SceneFloat = 0.4
     private var yawSpeed: SceneFloat = 0.3
