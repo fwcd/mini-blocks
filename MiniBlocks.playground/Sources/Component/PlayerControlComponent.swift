@@ -13,6 +13,7 @@ class PlayerControlComponent: GKComponent {
     private var pitchSpeed: SceneFloat = 0.4
     private var yawSpeed: SceneFloat = 0.3
     private var jumpSpeed: Double = 1
+    private var ascendSpeed: Double = 1
     private var sprintFactor: Double = 1.8
     private var maxCollisionIterations: Int = 5
     private var pitchRange: ClosedRange<SceneFloat> = -piHalf...piHalf
@@ -97,6 +98,7 @@ class PlayerControlComponent: GKComponent {
         static let sprint = MotionInput(rawValue: 1 << 9)
         static let breakBlock = MotionInput(rawValue: 1 << 10)
         static let useBlock = MotionInput(rawValue: 1 << 11)
+        static let sneak = MotionInput(rawValue: 1 << 12)
         
         let rawValue: UInt16
         
@@ -131,10 +133,22 @@ class PlayerControlComponent: GKComponent {
         velocity.x = finalVelocity.x
         velocity.z = finalVelocity.z
         
-        // Jump if possible/needed
-        if motionInput.contains(.jump) && playerInfo!.isOnGround {
-            velocity.y = jumpSpeed
-            playerInfo!.leavesGround = true
+        switch playerInfo!.gameMode {
+        case .survival:
+            // Jump if needed/possible
+            if motionInput.contains(.jump) && playerInfo!.isOnGround {
+                velocity.y = jumpSpeed
+                playerInfo!.leavesGround = true
+            }
+        case .creative:
+            // Ascend/descend as needed
+            velocity.y = 0
+            if motionInput.contains(.jump) {
+                velocity.y += ascendSpeed
+            }
+            if motionInput.contains(.sneak) {
+                velocity.y -= ascendSpeed
+            }
         }
         
         // Break looked-at block if needed

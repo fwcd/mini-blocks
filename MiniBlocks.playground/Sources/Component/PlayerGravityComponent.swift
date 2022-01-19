@@ -22,7 +22,8 @@ class PlayerGravityComponent: GKComponent {
     override func update(deltaTime seconds: TimeInterval) {
         // Note that we don't use the if-var-and-assign idiom for playerInfo due to responsiveness issues (and inout bindings aren't in Swift yet)
         guard let world = world,
-              playerInfo != nil else { return }
+              playerInfo != nil,
+              case .survival = playerInfo!.gameMode else { return }
         
         throttler.submit(deltaTime: seconds) {
             // Fetch position and velocity
