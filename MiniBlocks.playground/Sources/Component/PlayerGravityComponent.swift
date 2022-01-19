@@ -23,7 +23,7 @@ class PlayerGravityComponent: GKComponent {
         // Note that we don't use the if-var-and-assign idiom for playerInfo due to responsiveness issues (and inout bindings aren't in Swift yet)
         guard let world = world,
               playerInfo != nil,
-              case .survival = playerInfo!.gameMode else { return }
+              playerInfo!.gameMode.enablesGravityAndCollisions else { return }
         
         throttler.submit(deltaTime: seconds) {
             // Fetch position and velocity

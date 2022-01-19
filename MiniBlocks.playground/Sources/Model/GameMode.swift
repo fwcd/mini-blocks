@@ -5,4 +5,8 @@ public enum GameMode: Int, Codable, Hashable {
     var permitsFlight: Bool {
         [.creative].contains(self)
     }
+    
+    var enablesGravityAndCollisions: Bool {
+        [.survival].contains(self)
+    }
 }
