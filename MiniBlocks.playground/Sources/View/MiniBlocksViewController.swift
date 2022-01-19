@@ -231,7 +231,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
                     component.select(n - 1)
                 }
             }
-        } else if let motion = motionInput(for: keyCode) {
+        } else {
+            let motion = motionInput(for: keyCode)
             // Pressed key could be mapped motion input, add it to the corresponding components
             controlPlayer { component in
                 component.add(motionInput: motion)
@@ -240,22 +241,28 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     }
     
     public override func keyUp(with event: NSEvent) {
-        let keyCode = KeyCode(rawValue: event.keyCode)
-        if let motion = motionInput(for: keyCode) {
-            // Pressed key could be mapped motion input, remove it from the corresponding components
-            controlPlayer { component in
-                component.remove(motionInput: motion)
-            }
+        let motion = motionInput(for: KeyCode(rawValue: event.keyCode))
+        // Pressed key could be mapped motion input, remove it from the corresponding components
+        controlPlayer { component in
+            component.remove(motionInput: motion)
         }
     }
     
     public override func flagsChanged(with event: NSEvent) {
+        let flags = event.modifierFlags
+        
         // Sprint on shift
         controlPlayer { component in
-            if event.modifierFlags.contains(.shift) {
+            if flags.contains(.shift) {
                 component.add(motionInput: .sprint)
             } else {
                 component.remove(motionInput: .sprint)
+            }
+            
+            if flags.contains(.control) {
+                component.add(motionInput: .sneak)
+            } else {
+                component.remove(motionInput: .sneak)
             }
         }
     }
@@ -348,14 +355,14 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
     }
     
-    private func motionInput(for keyCode: KeyCode) -> PlayerControlComponent.MotionInput? {
+    private func motionInput(for keyCode: KeyCode) -> PlayerControlComponent.MotionInput {
         switch keyCode {
         case .w: return .forward
         case .s: return .back
         case .a: return .left
         case .d: return .right
         case .space: return .jump
-        default: return nil
+        default: return []
         }
     }
     
