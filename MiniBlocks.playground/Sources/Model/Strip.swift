@@ -6,12 +6,19 @@ struct Strip: Hashable, Codable, Sequence {
     var nilIfEmpty: Self? { isEmpty ? nil : self }
     
     var topmost: (y: Int, block: Block)? {
-        blocks.max { $0.key < $1.key }.map { (y: $0.key, block: $0.value) }
+        block(below: nil)
     }
     
     subscript(y: Int) -> Block? {
         get { blocks[y] }
         set { blocks[y] = newValue }
+    }
+    
+    func block(below y: Int?) -> (y: Int, Block)? {
+        blocks
+            .filter { $0.key <= (y ?? .max) }
+            .max { $0.key < $1.key }
+            .map { (y: $0.key, block: $0.value) }
     }
     
     func makeIterator() -> Dictionary<Int, Block>.Iterator {

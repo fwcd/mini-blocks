@@ -31,9 +31,7 @@ class PlayerGravityComponent: GKComponent {
             var velocity = playerInfo!.velocity
             
             let y = position.y
-            let mapPos = BlockPos3(rounding: position).asVec2
-            // TODO: Instead of using height, check for the block below the player instead (since we shouldn't assume that the terrain is always just a single surface)
-            let groundY = world.height(at: mapPos)
+            let groundY = world.height(below: BlockPos3(rounding: position) + BlockPos3(y: 1))
             
             let willBeOnGround = !playerInfo!.leavesGround && groundY.map { y + velocity.y <= Double($0) } ?? false
             

@@ -58,6 +58,11 @@ struct World: Codable, Sequence {
         self[pos].topmost?.y
     }
     
+    /// Fetches the height below the given position. O(n) where n is the number of blocks in the strip at the given (x, z) coordinates.
+    func height(below pos: BlockPos3) -> Int? {
+        self[pos.asVec2].block(below: pos.y)?.y
+    }
+    
     /// Fetches the block at the given position. O(1).
     func block(at pos: BlockPos3) -> Block? {
         self[pos.asVec2][pos.y]
