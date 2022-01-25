@@ -224,6 +224,11 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         if keyCode == .escape {
             // Uncapture cursor when user presses escape
             mouseCaptured = false
+        } else if keyCode == .f3 {
+            // Toggle debug information shown as an overlay (e.g. the current position)
+            controlPlayer { component in
+                component.toggleDebugOverlay()
+            }
         } else if let n = keyCode.numericValue {
             if (1...InventoryConstants.hotbarSlotCount).contains(n) {
                 // Select hotbar slot

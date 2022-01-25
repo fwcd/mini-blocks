@@ -202,4 +202,10 @@ class PlayerControlComponent: GKComponent {
         guard let node = node else { return true }
         return pitchRange.contains(node.eulerAngles.x + delta * pitchSpeed)
     }
+    
+    /// Toggles the debug overlay for the player.
+    func toggleDebugOverlay() {
+        guard playerInfo != nil else { return }
+        playerInfo!.hasDebugOverlayEnabled = !playerInfo!.hasDebugOverlayEnabled
+    }
 }
