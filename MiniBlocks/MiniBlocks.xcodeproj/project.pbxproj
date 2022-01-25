@@ -59,6 +59,8 @@
 		35391BF4278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */; };
 		35391BF5278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */; };
 		3546255827878798000489E8 /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SceneKitUtils.swift */; };
+		355006CB27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
+		355006CC27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
 		357214412795747A003C640F /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357214402795747A003C640F /* GameMode.swift */; };
 		35721442279577C7003C640F /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357214402795747A003C640F /* GameMode.swift */; };
 		3572144727957961003C640F /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144627957961003C640F /* Vec2.swift */; };
@@ -201,6 +203,7 @@
 		35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompatibilityLayer.swift; path = ../../MiniBlocks.playground/Sources/Utils/CompatibilityLayer.swift; sourceTree = "<group>"; };
 		35391BF6278BCDBC00B22954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3546255727878798000489E8 /* SceneKitUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneKitUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/SceneKitUtils.swift; sourceTree = "<group>"; };
+		355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/DebugHUDEntity.swift; sourceTree = "<group>"; };
 		357214402795747A003C640F /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameMode.swift; path = ../../MiniBlocks.playground/Sources/Model/GameMode.swift; sourceTree = "<group>"; };
 		3572144627957961003C640F /* Vec2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec2.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec2.swift; sourceTree = "<group>"; };
 		3572144927957970003C640F /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3.swift; sourceTree = "<group>"; };
@@ -330,6 +333,7 @@
 				35D9E8A2278888190058F0E6 /* AmbientLightEntity.swift */,
 				352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */,
 				35A5553F278C3EBF006FA70D /* HotbarHUDEntity.swift */,
+				355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -679,6 +683,7 @@
 				35391BD8278BC5EE00B22954 /* PlayerGravityComponent.swift in Sources */,
 				35A55557278C4806006FA70D /* CrosshairHUDNode.swift in Sources */,
 				35391BDC278BC5EE00B22954 /* WorldComponent.swift in Sources */,
+				355006CC27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */,
 				35391BCB278BC5D800B22954 /* CoreGraphicsUtils.swift in Sources */,
 				35391BC2278BC5D800B22954 /* GridIterator2.swift in Sources */,
 				35391BE7278BC5F700B22954 /* KeyCode.swift in Sources */,
@@ -757,6 +762,7 @@
 				35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */,
 				35A55556278C4806006FA70D /* CrosshairHUDNode.swift in Sources */,
 				35EA352427889B560066DD82 /* ChunkConstants.swift in Sources */,
+				355006CB27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */,
 				35EA354C2788B1D30066DD82 /* Vec2Protocol.swift in Sources */,
 				35391BF4278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */,
 				35EA351C278895D60066DD82 /* WorldRetainComponent.swift in Sources */,

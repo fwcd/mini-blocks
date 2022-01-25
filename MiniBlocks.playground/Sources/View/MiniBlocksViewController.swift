@@ -117,6 +117,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         // Add overlay HUD
         add(entity: makeCrosshairHUDEntity(in: overlayScene.frame))
         add(entity: makeHotbarHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
+        add(entity: makeDebugHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
         
         // Set up SCNView
         let sceneView = sceneFrame.map { MiniBlocksSceneView(frame: $0) } ?? MiniBlocksSceneView()
@@ -227,7 +228,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         } else if keyCode == .f3 {
             // Toggle debug information shown as an overlay (e.g. the current position)
             controlPlayer { component in
-                component.toggleDebugOverlay()
+                component.toggleDebugHUD()
             }
         } else if let n = keyCode.numericValue {
             if (1...InventoryConstants.hotbarSlotCount).contains(n) {

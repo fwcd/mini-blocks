@@ -204,8 +204,8 @@ class PlayerControlComponent: GKComponent {
     }
     
     /// Toggles the debug overlay for the player.
-    func toggleDebugOverlay() {
+    func toggleDebugHUD() {
         guard playerInfo != nil else { return }
-        playerInfo!.hasDebugOverlayEnabled = !playerInfo!.hasDebugOverlayEnabled
+        playerInfo!.hasDebugHUDEnabled = !playerInfo!.hasDebugHUDEnabled
     }
 }

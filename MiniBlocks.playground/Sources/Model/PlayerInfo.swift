@@ -20,7 +20,7 @@ struct PlayerInfo: Codable, Hashable {
     /// The game mode the player is in.
     var gameMode: GameMode = .creative
     /// Whether the player has the debug overlay enabled.
-    var hasDebugOverlayEnabled: Bool = false
+    var hasDebugHUDEnabled: Bool = false
     
     /// The currently selected stack on the hotbar.
     var selectedHotbarStack: ItemStack? {
