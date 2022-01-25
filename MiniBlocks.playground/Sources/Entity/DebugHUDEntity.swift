@@ -4,7 +4,7 @@ import GameplayKit
 func makeDebugHUDEntity(in frame: CGRect, playerEntity: GKEntity, fontSize: CGFloat = 15) -> GKEntity {
     // Create node
     let node = SKLabelNode()
-    node.color = .white
+    node.fontColor = .white
     node.fontName = "ArialMT"
     node.fontSize = fontSize
     node.position = CGPoint(x: frame.midX, y: frame.maxY - fontSize)
