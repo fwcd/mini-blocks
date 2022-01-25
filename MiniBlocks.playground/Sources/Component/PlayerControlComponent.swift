@@ -203,6 +203,14 @@ class PlayerControlComponent: GKComponent {
         return pitchRange.contains(node.eulerAngles.x + delta * pitchSpeed)
     }
     
+    func moveHotbarSelection(by delta: Int) {
+        playerInfo?.selectedHotbarSlot += delta
+    }
+    
+    func select(hotbarSlot: Int) {
+        playerInfo?.selectedHotbarSlot = hotbarSlot
+    }
+    
     /// Toggles the debug overlay for the player.
     func toggleDebugHUD() {
         guard playerInfo != nil else { return }

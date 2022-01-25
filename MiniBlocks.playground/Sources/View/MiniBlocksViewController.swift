@@ -57,7 +57,6 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private let worldLoadComponentSystem = GKComponentSystem(componentClass: WorldLoadComponent.self)
     private let worldRetainComponentSystem = GKComponentSystem(componentClass: WorldRetainComponent.self)
     private let hotbarHUDLoadComponentSystem = GKComponentSystem(componentClass: HotbarHUDLoadComponent.self)
-    private let hotbarHUDControlComponentSystem = GKComponentSystem(componentClass: HotbarHUDControlComponent.self)
     private var entities: [GKEntity] = []
     
     public init(
@@ -184,7 +183,6 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         worldLoadComponentSystem.addComponent(foundIn: entity)
         worldRetainComponentSystem.addComponent(foundIn: entity)
         hotbarHUDLoadComponentSystem.addComponent(foundIn: entity)
-        hotbarHUDControlComponentSystem.addComponent(foundIn: entity)
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -208,12 +206,6 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
     }
     
-    private func controlHotbarHUD(with action: (HotbarHUDControlComponent) -> Void) {
-        for case let component as HotbarHUDControlComponent in hotbarHUDControlComponentSystem.components {
-            action(component)
-        }
-    }
-    
     // MARK: Mouse/keyboard controls
     
     #if canImport(AppKit)
@@ -233,8 +225,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         } else if let n = keyCode.numericValue {
             if (1...InventoryConstants.hotbarSlotCount).contains(n) {
                 // Select hotbar slot
-                controlHotbarHUD { component in
-                    component.select(n - 1)
+                controlPlayer { component in
+                    component.select(hotbarSlot: n - 1)
                 }
             }
         } else {
@@ -336,8 +328,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             let slotDelta = Int(event.scrollingDeltaX + event.scrollingDeltaY)
             
             // Move the selected slot
-            controlHotbarHUD { component in
-                component.moveSelection(by: slotDelta)
+            controlPlayer { component in
+                component.moveHotbarSelection(by: slotDelta)
             }
         }
     }
