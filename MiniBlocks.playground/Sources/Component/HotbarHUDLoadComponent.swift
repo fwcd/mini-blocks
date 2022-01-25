@@ -20,16 +20,9 @@ class HotbarHUDLoadComponent: GKComponent {
         set { entity?.component(ofType: WorldAssociationComponent.self)?.world = newValue }
     }
     
-    private var playerName: String? {
-        entity?.component(ofType: PlayerAssociationComponent.self)?.playerName
-    }
-    
     private var playerInfo: PlayerInfo? {
-        get { playerName.flatMap { world?[playerInfoFor: $0] } }
-        set {
-            guard let playerName = playerName else { return }
-            world?[playerInfoFor: playerName] = newValue!
-        }
+        get { entity?.component(ofType: PlayerAssociationComponent.self)?.playerInfo }
+        set { entity?.component(ofType: PlayerAssociationComponent.self)?.playerInfo = newValue }
     }
     
     private var inventory: Inventory? {

@@ -57,6 +57,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private let worldLoadComponentSystem = GKComponentSystem(componentClass: WorldLoadComponent.self)
     private let worldRetainComponentSystem = GKComponentSystem(componentClass: WorldRetainComponent.self)
     private let hotbarHUDLoadComponentSystem = GKComponentSystem(componentClass: HotbarHUDLoadComponent.self)
+    private let debugHUDLoadComponentSystem = GKComponentSystem(componentClass: DebugHUDLoadComponent.self)
     private var entities: [GKEntity] = []
     
     public init(
@@ -183,6 +184,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         worldLoadComponentSystem.addComponent(foundIn: entity)
         worldRetainComponentSystem.addComponent(foundIn: entity)
         hotbarHUDLoadComponentSystem.addComponent(foundIn: entity)
+        debugHUDLoadComponentSystem.addComponent(foundIn: entity)
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -196,6 +198,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         worldLoadComponentSystem.update(deltaTime: deltaTime)
         worldRetainComponentSystem.update(deltaTime: deltaTime)
         hotbarHUDLoadComponentSystem.update(deltaTime: deltaTime)
+        debugHUDLoadComponentSystem.update(deltaTime: deltaTime)
         
         previousUpdateTime = time
     }

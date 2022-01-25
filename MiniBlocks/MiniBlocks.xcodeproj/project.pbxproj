@@ -61,6 +61,8 @@
 		3546255827878798000489E8 /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SceneKitUtils.swift */; };
 		355006CB27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
 		355006CC27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
+		355006CE27A0C0710021A0BE /* DebugHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */; };
+		355006CF27A0C0710021A0BE /* DebugHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */; };
 		357214412795747A003C640F /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357214402795747A003C640F /* GameMode.swift */; };
 		35721442279577C7003C640F /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357214402795747A003C640F /* GameMode.swift */; };
 		3572144727957961003C640F /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144627957961003C640F /* Vec2.swift */; };
@@ -202,6 +204,7 @@
 		35391BF6278BCDBC00B22954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3546255727878798000489E8 /* SceneKitUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneKitUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/SceneKitUtils.swift; sourceTree = "<group>"; };
 		355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/DebugHUDEntity.swift; sourceTree = "<group>"; };
+		355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/DebugHUDLoadComponent.swift; sourceTree = "<group>"; };
 		357214402795747A003C640F /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameMode.swift; path = ../../MiniBlocks.playground/Sources/Model/GameMode.swift; sourceTree = "<group>"; };
 		3572144627957961003C640F /* Vec2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec2.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec2.swift; sourceTree = "<group>"; };
 		3572144927957970003C640F /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3.swift; sourceTree = "<group>"; };
@@ -352,6 +355,7 @@
 				35EA3517278895750066DD82 /* WorldLoadComponent.swift */,
 				35EA351B278895D60066DD82 /* WorldRetainComponent.swift */,
 				35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */,
+				355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -724,6 +728,7 @@
 				35391BE5278BC5F400B22954 /* CrosshairHUDEntity.swift in Sources */,
 				35A5555D278C497F006FA70D /* ItemNode.swift in Sources */,
 				35391BE4278BC5F400B22954 /* SunEntity.swift in Sources */,
+				355006CF27A0C0710021A0BE /* DebugHUDLoadComponent.swift in Sources */,
 				35391BC7278BC5D800B22954 /* SceneKitUtils.swift in Sources */,
 				3572144827957961003C640F /* Vec2.swift in Sources */,
 				35391BC1278BC5D800B22954 /* Vec3Protocol.swift in Sources */,
@@ -802,6 +807,7 @@
 				35A55540278C3EBF006FA70D /* HotbarHUDEntity.swift in Sources */,
 				35A5555C278C497F006FA70D /* ItemNode.swift in Sources */,
 				35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */,
+				355006CE27A0C0710021A0BE /* DebugHUDLoadComponent.swift in Sources */,
 				35EA352227889B200066DD82 /* ChunkPos.swift in Sources */,
 				3572144727957961003C640F /* Vec2.swift in Sources */,
 				352D7A462787BD70008FB939 /* CoreGraphicsUtils.swift in Sources */,
