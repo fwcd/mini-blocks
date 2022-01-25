@@ -1,11 +1,13 @@
 import SpriteKit
 import GameplayKit
 
-func makeDebugHUDEntity(in frame: CGRect, playerEntity: GKEntity) -> GKEntity {
+func makeDebugHUDEntity(in frame: CGRect, playerEntity: GKEntity, fontSize: CGFloat = 15) -> GKEntity {
     // Create node
     let node = SKLabelNode()
     node.color = .white
-    node.position = CGPoint(x: frame.midX, y: frame.midY)
+    node.fontName = "ArialMT"
+    node.fontSize = fontSize
+    node.position = CGPoint(x: frame.midX, y: frame.maxY - fontSize)
     
     // Create entity
     let entity = GKEntity()

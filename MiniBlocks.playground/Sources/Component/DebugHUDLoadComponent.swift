@@ -22,10 +22,10 @@ class DebugHUDLoadComponent: GKComponent {
         
         if playerInfo.hasDebugHUDEnabled {
             let stats = [
-                "Position": "\(playerInfo.position)",
-                "Game Mode": "\(playerInfo.gameMode)",
+                ("Position", "\(playerInfo.position)"),
+                ("Game Mode", "\(playerInfo.gameMode)"),
             ]
-            node.text = stats.map { "\($0.key): \($0.value)" }.joined(separator: ", ")
+            node.text = stats.map { "\($0.0): \($0.1)" }.joined(separator: ", ")
         } else {
             node.text = nil
         }
