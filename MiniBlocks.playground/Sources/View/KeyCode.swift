@@ -20,6 +20,15 @@ struct KeyCode: RawRepresentable, Hashable {
     static let arrowRight = Self(rawValue: 124)
     static let arrowDown = Self(rawValue: 125)
     static let arrowUp = Self(rawValue: 126)
+    static let f1 = Self(rawValue: 122)
+    static let f2 = Self(rawValue: 120)
+    static let f3 = Self(rawValue: 99)
+    static let f4 = Self(rawValue: 118)
+    static let f5 = Self(rawValue: 96)
+    static let f6 = Self(rawValue: 97)
+    static let f7 = Self(rawValue: 98)
+    static let f8 = Self(rawValue: 100)
+    static let f9 = Self(rawValue: 101)
     
     let rawValue: UInt16
     
