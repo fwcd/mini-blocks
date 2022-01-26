@@ -160,6 +160,10 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         cameraControlPadRecognizer.delegate = self
         sceneView.addGestureRecognizer(cameraControlPadRecognizer)
         
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tapRecognizer.delegate = self
+        sceneView.addGestureRecognizer(tapRecognizer)
+        
         let pressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         pressRecognizer.minimumPressDuration = 0.5
         pressRecognizer.delegate = self
@@ -401,7 +405,6 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     @objc
     private func handleMovementControl(_ recognizer: UIPanGestureRecognizer) {
-        print("Movement got \(recognizer.state)")
         let location = recognizer.location(in: view)
         let start = movementControlPadDragStart ?? location
         let deltaPoint = location - start
@@ -427,13 +430,20 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     @objc
     private func handleCameraControl(_ recognizer: UIPanGestureRecognizer) {
-        print("Camera got \(recognizer.state)")
         let delta = recognizer.velocity(in: view)
         
         // Rotate camera
         controlPlayer { component in
             component.rotateYaw(by: (-SceneFloat(delta.x) * inputSensivity) / 800)
             component.rotatePitch(by: (-SceneFloat(delta.y) * inputSensivity) / 800)
+        }
+    }
+    
+    @objc
+    private func handleTap(_ recognizer: UITapGestureRecognizer) {
+        // Respond to tap by jumping
+        controlPlayer { component in
+            component.jump()
         }
     }
     
