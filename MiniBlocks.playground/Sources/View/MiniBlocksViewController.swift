@@ -386,7 +386,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     }
     
     public func gestureRecognizer(_ recognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        guard recognizer.state == .possible else { return true }
+        guard [movementControlPadRecognizer, cameraControlPadRecognizer].contains(recognizer) else { return true }
         
         let bounds = view.bounds
         let location = touch.location(in: view)
@@ -407,18 +407,21 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         let deltaPoint = location - start
         let delta = Vec3(x: deltaPoint.x, y: 0, z: deltaPoint.y).normalized
         
+        // Move player as needed
         switch recognizer.state {
         case .began:
             movementControlPadDragStart = start
+        case .changed:
+            controlPlayer { component in
+                component.requestedBaseVelocity = delta
+            }
         case .ended:
             movementControlPadDragStart = nil
+            controlPlayer { component in
+                component.requestedBaseVelocity = Vec3()
+            }
         default:
             break
-        }
-        
-        // Move player
-        controlPlayer { component in
-            component.requestedBaseVelocity = delta
         }
     }
     
