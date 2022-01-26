@@ -40,7 +40,9 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     #endif
     
     #if canImport(UIKit)
-    private var controlPadDragStart: CGPoint? = nil
+    private var movementControlPadDragStart: CGPoint?
+    private var movementControlPadRecognizer: UIGestureRecognizer!
+    private var cameraControlPadRecognizer: UIGestureRecognizer!
     public override var prefersHomeIndicatorAutoHidden: Bool { true }
     #endif
     
@@ -150,9 +152,13 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         
         // Set up touch gesture handling when using UIKit (on iOS)
         #if canImport(UIKit)
-        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
-        panRecognizer.delegate = self
-        sceneView.addGestureRecognizer(panRecognizer)
+        movementControlPadRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleMovementControl(_:)))
+        movementControlPadRecognizer.delegate = self
+        sceneView.addGestureRecognizer(movementControlPadRecognizer)
+        
+        cameraControlPadRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleCameraControl(_:)))
+        cameraControlPadRecognizer.delegate = self
+        sceneView.addGestureRecognizer(cameraControlPadRecognizer)
         
         let pressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         pressRecognizer.minimumPressDuration = 0.5
@@ -375,37 +381,56 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     #if canImport(UIKit)
     
     public func gestureRecognizer(_ recognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith other: UIGestureRecognizer) -> Bool {
-        // We want to support multi-touch
+        // Support multi-touch
         true
     }
     
-    @objc
-    private func handlePan(_ recognizer: UIPanGestureRecognizer) {
-        let bounds = view.bounds
-        let location = recognizer.location(in: view)
-        let start = controlPadDragStart ?? location
+    public func gestureRecognizer(_ recognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        guard recognizer.state == .possible else { return true }
         
-        switch recognizer.state {
-        case .began: controlPadDragStart = start
-        case .ended: controlPadDragStart = nil
-        default: break
-        }
+        let bounds = view.bounds
+        let location = touch.location(in: view)
         
         // Left side of screen controls movement, right side the camera
         if location.x < bounds.midX {
-            // Move player
-            let deltaPoint = location - start
-            let delta = Vec3(x: deltaPoint.x, y: 0, z: deltaPoint.y).normalized
-            controlPlayer { component in
-                component.requestedBaseVelocity = delta
-            }
+            return recognizer == movementControlPadRecognizer
         } else {
-            // Rotate camera
-            let delta = recognizer.velocity(in: view)
-            controlPlayer { component in
-                component.rotateYaw(by: (-SceneFloat(delta.x) * inputSensivity) / 800)
-                component.rotatePitch(by: (-SceneFloat(delta.y) * inputSensivity) / 800)
-            }
+            return recognizer == cameraControlPadRecognizer
+        }
+    }
+    
+    @objc
+    private func handleMovementControl(_ recognizer: UIPanGestureRecognizer) {
+        print("Movement got \(recognizer.state)")
+        let location = recognizer.location(in: view)
+        let start = movementControlPadDragStart ?? location
+        let deltaPoint = location - start
+        let delta = Vec3(x: deltaPoint.x, y: 0, z: deltaPoint.y).normalized
+        
+        switch recognizer.state {
+        case .began:
+            movementControlPadDragStart = start
+        case .ended:
+            movementControlPadDragStart = nil
+        default:
+            break
+        }
+        
+        // Move player
+        controlPlayer { component in
+            component.requestedBaseVelocity = delta
+        }
+    }
+    
+    @objc
+    private func handleCameraControl(_ recognizer: UIPanGestureRecognizer) {
+        print("Camera got \(recognizer.state)")
+        let delta = recognizer.velocity(in: view)
+        
+        // Rotate camera
+        controlPlayer { component in
+            component.rotateYaw(by: (-SceneFloat(delta.x) * inputSensivity) / 800)
+            component.rotatePitch(by: (-SceneFloat(delta.y) * inputSensivity) / 800)
         }
     }
     
