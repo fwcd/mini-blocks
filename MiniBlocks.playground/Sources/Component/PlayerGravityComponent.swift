@@ -31,15 +31,15 @@ class PlayerGravityComponent: GKComponent {
             var velocity = playerInfo!.velocity
             
             let y = position.y
-            let groundY = world.height(below: BlockPos3(rounding: position) + BlockPos3(y: 1))
+            let yBound = world.height(below: BlockPos3(rounding: position)).map { $0 + 1 }
             
-            let willBeOnGround = !playerInfo!.leavesGround && groundY.map { y + velocity.y <= Double($0) } ?? false
+            let willBeOnGround = !playerInfo!.leavesGround && yBound.map { y + velocity.y <= Double($0) } ?? false
             
             if willBeOnGround {
                 velocity.y = 0
                 if !playerInfo!.isOnGround {
                     // We are reaching the ground, correct the position
-                    position.y = Double(groundY!)
+                    position.y = Double(yBound!)
                 }
             } else {
                 // We are airborne, apply gravity

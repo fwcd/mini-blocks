@@ -122,7 +122,7 @@ class PlayerControlComponent: GKComponent {
         
         // Running into terrain pushes the player back, causing them to 'slide' along the block.
         // For more info, look up 'AABB sliding collision response'.
-        let feetPos = position + Vec3(y: 1)
+        let feetPos = position
         var finalVelocity = requestedVelocity
         var iterations = 0
         
