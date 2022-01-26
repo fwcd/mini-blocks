@@ -8,6 +8,10 @@ class PlayerAssociationComponent: GKComponent {
         playerEntity.component(ofType: NameComponent.self)?.name
     }
     
+    var lookAtBlockComponent: LookAtBlockComponent? {
+        playerEntity.component(ofType: LookAtBlockComponent.self)
+    }
+    
     private var worldAssocationComponent: WorldAssociationComponent? {
         entity?.component(ofType: WorldAssociationComponent.self)
     }
