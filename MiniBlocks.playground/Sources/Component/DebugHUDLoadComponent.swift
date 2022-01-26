@@ -22,11 +22,13 @@ class DebugHUDLoadComponent: GKComponent {
         
         if playerInfo.hasDebugHUDEnabled {
             let pos = playerInfo.position
+            let blockPos = BlockPos3(rounding: pos)
             let stats = [
-                ("Position", String(format: "x %.4f y %.4f z %.4f", pos.x, pos.y, pos.z)),
+                ("Position", String(format: "x %.4f, y %.4f, z %.4f", pos.x, pos.y, pos.z)),
+                ("Block Position", "x \(blockPos.x), y \(blockPos.y), z \(blockPos.z)"),
                 ("Game Mode", "\(playerInfo.gameMode)"),
             ]
-            node.text = stats.map { "\($0.0): \($0.1)" }.joined(separator: ", ")
+            node.text = stats.map { "\($0.0): \($0.1)" }.joined(separator: "\n")
         } else {
             node.text = nil
         }

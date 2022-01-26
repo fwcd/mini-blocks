@@ -7,7 +7,8 @@ func makeDebugHUDEntity(in frame: CGRect, playerEntity: GKEntity, fontSize: CGFl
     node.fontColor = .white
     node.fontName = "ArialMT"
     node.fontSize = fontSize
-    node.position = CGPoint(x: frame.midX, y: frame.maxY - fontSize)
+    node.position = CGPoint(x: frame.midX, y: frame.maxY - fontSize * 4)
+    node.numberOfLines = 0
     
     // Create entity
     let entity = GKEntity()
