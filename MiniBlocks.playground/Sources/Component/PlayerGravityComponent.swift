@@ -3,7 +3,7 @@ import SceneKit
 
 /// Accelerates the associated node downwards (i.e. in negative-y direction).
 class PlayerGravityComponent: GKComponent {
-    var acceleration: SceneFloat = -0.4
+    var acceleration: Double = -0.4
     private var throttler = Throttler(interval: 0.1)
     
     private var world: World? {

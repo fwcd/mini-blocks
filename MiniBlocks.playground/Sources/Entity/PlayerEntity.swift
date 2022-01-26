@@ -10,7 +10,7 @@ func makePlayerEntity(
     ambientOcclusionEnabled: Bool
 ) -> GKEntity {
     // Create node
-    let height: SceneFloat = 1.5
+    let height: Double = 1.5
     let camera = SCNCamera()
     camera.zNear = 0.1
     if ambientOcclusionEnabled {

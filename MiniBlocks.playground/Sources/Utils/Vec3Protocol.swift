@@ -92,7 +92,8 @@ extension Vec3Protocol where Coordinate: FloatingPoint {
     }
     
     var normalized: Self {
-        self / length
+        let length = self.length
+        return length > 0 ? self / length : self
     }
     
     init<V>(_ other: V) where V: Vec3Protocol, V.Coordinate: BinaryInteger {

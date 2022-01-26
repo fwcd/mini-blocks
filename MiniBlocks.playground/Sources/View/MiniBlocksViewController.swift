@@ -40,6 +40,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     #endif
     
     #if canImport(UIKit)
+    private var controlPadDragStart: CGPoint? = nil
     public override var prefersHomeIndicatorAutoHidden: Bool { true }
     #endif
     
@@ -380,12 +381,31 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     @objc
     private func handlePan(_ recognizer: UIPanGestureRecognizer) {
-        let delta = recognizer.velocity(in: view)
+        let bounds = view.bounds
+        let location = recognizer.location(in: view)
+        let start = controlPadDragStart ?? location
         
-        // Rotate camera
-        controlPlayer { component in
-            component.rotateYaw(by: (-SceneFloat(delta.x) * inputSensivity) / 800)
-            component.rotatePitch(by: (-SceneFloat(delta.y) * inputSensivity) / 800)
+        switch recognizer.state {
+        case .began: controlPadDragStart = start
+        case .ended: controlPadDragStart = nil
+        default: break
+        }
+        
+        // Left side of screen controls movement, right side the camera
+        if location.x < bounds.midX {
+            // Move player
+            let deltaPoint = location - start
+            let delta = Vec3(x: deltaPoint.x, y: 0, z: deltaPoint.y).normalized
+            controlPlayer { component in
+                component.requestedBaseVelocity = delta
+            }
+        } else {
+            // Rotate camera
+            let delta = recognizer.velocity(in: view)
+            controlPlayer { component in
+                component.rotateYaw(by: (-SceneFloat(delta.x) * inputSensivity) / 800)
+                component.rotatePitch(by: (-SceneFloat(delta.y) * inputSensivity) / 800)
+            }
         }
     }
     

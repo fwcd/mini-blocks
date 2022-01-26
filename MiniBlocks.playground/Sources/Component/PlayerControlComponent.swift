@@ -62,10 +62,12 @@ class PlayerControlComponent: GKComponent {
         entity?.component(ofType: LookAtBlockComponent.self)
     }
     
+    var requestedBaseVelocity: Vec3 = Vec3()
+    
     private var requestedVelocity: Vec3? {
         guard let node = node, let parent = node.parent else { return nil }
         
-        var vector = SCNVector3(x: 0, y: 0, z: 0)
+        var vector = SCNVector3(requestedBaseVelocity)
         
         if motionInput.contains(.forward) {
             vector.z -= 1
@@ -85,7 +87,7 @@ class PlayerControlComponent: GKComponent {
         
         if rotated.length > 0 {
             rotated.normalize()
-            rotated *= speed
+            rotated *= SceneFloat(speed)
         }
         
         return Vec3(rotated)
