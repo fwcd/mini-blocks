@@ -19,7 +19,7 @@ class PlayerControlComponent: GKComponent {
     private var maxCollisionIterations: Int = 5
     private var pitchRange: ClosedRange<SceneFloat> = -piHalf...piHalf
     
-    private var placeThrottler = Throttler(interval: 0.2)
+    private var blockThrottler = Throttler(interval: 0.15)
     
     private var speed: Double {
         baseSpeed
@@ -157,25 +157,23 @@ class PlayerControlComponent: GKComponent {
             }
         }
         
-        // Break looked-at block if needed
-        if let lookedAtBlockPos = lookAtBlockComponent?.blockPos,
-           motionInput.contains(.breakBlock) {
-            world?.breakBlock(at: lookedAtBlockPos)
-            worldLoadComponent?.markDirty(at: lookedAtBlockPos.asVec2)
-        }
-        
-        // Place on looked-at block if needed
-        if let placePos = lookAtBlockComponent?.blockPlacePos,
-           case let .block(blockType)? = playerInfo!.selectedHotbarStack?.item.type,
-           motionInput.contains(.useBlock),
-           placePos != BlockPos3(rounding: feetPos) {
-            placeThrottler.submit(deltaTime: seconds) {
+        blockThrottler.submit(deltaTime: seconds) {
+            // Break looked-at block if needed
+            if let lookedAtBlockPos = lookAtBlockComponent?.blockPos,
+               motionInput.contains(.breakBlock) {
+                world?.breakBlock(at: lookedAtBlockPos)
+                worldLoadComponent?.markDirty(at: lookedAtBlockPos.asVec2)
+            }
+            
+            // Place on looked-at block if needed
+            if let placePos = lookAtBlockComponent?.blockPlacePos,
+               case let .block(blockType)? = playerInfo!.selectedHotbarStack?.item.type,
+               motionInput.contains(.useBlock),
+               placePos != BlockPos3(rounding: feetPos) {
                 // TODO: Decrement item stack
                 world?.place(block: Block(type: blockType), at: placePos)
                 worldLoadComponent?.markDirty(at: placePos.asVec2)
             }
-        } else {
-            placeThrottler.advance(deltaTime: seconds)
         }
         
         playerInfo!.position = position
@@ -185,14 +183,14 @@ class PlayerControlComponent: GKComponent {
     /// Adds motion input.
     func add(motionInput delta: MotionInput) {
         motionInput.insert(delta)
+        if delta.contains(.useBlock) || delta.contains(.breakBlock) {
+            blockThrottler.reset()
+        }
     }
     
     /// Removes motion input.
     func remove(motionInput delta: MotionInput) {
         motionInput.remove(delta)
-        if delta.contains(.useBlock) {
-            placeThrottler.reset()
-        }
     }
     
     /// Rotates the node vertically by the given angle (in radians).
