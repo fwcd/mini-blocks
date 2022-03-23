@@ -19,8 +19,7 @@ class PlayerControlComponent: GKComponent {
     private var maxCollisionIterations: Int = 5
     private var pitchRange: ClosedRange<SceneFloat> = -piHalf...piHalf
     
-    private var throttler = Throttler(interval: 0.05)
-    private var deferrableThrottler = Throttler(interval: 0.3)
+    private var placeThrottler = Throttler(interval: 0.2)
     
     private var speed: Double {
         baseSpeed
@@ -170,9 +169,13 @@ class PlayerControlComponent: GKComponent {
            case let .block(blockType)? = playerInfo!.selectedHotbarStack?.item.type,
            motionInput.contains(.useBlock),
            placePos != BlockPos3(rounding: feetPos) {
-            // TODO: Decrement item stack
-            world?.place(block: Block(type: blockType), at: placePos)
-            worldLoadComponent?.markDirty(at: placePos.asVec2)
+            placeThrottler.submit(deltaTime: seconds) {
+                // TODO: Decrement item stack
+                world?.place(block: Block(type: blockType), at: placePos)
+                worldLoadComponent?.markDirty(at: placePos.asVec2)
+            }
+        } else {
+            placeThrottler.advance(deltaTime: seconds)
         }
         
         playerInfo!.position = position
@@ -187,7 +190,10 @@ class PlayerControlComponent: GKComponent {
     /// Removes motion input.
     func remove(motionInput delta: MotionInput) {
         motionInput.remove(delta)
-    }///
+        if delta.contains(.useBlock) {
+            placeThrottler.reset()
+        }
+    }
     
     /// Rotates the node vertically by the given angle (in radians).
     func rotatePitch(by delta: SceneFloat) {
