@@ -131,7 +131,6 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         add(entity: makeCrosshairHUDEntity(in: overlayScene.frame))
         add(entity: makeHotbarHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
         add(entity: makeDebugHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
-        
         #if canImport(AppKit)
         add(entity: makePauseHUDEntity(in: overlayScene.frame))
         #endif
@@ -201,10 +200,12 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             overlayScene.addChild(node)
         }
         
+        #if canImport(AppKit)
         // Provide initial update to mouse capture visibility component
         if let component = entity.component(ofType: MouseCaptureVisibilityComponent.self) {
             component.update(mouseCaptured: mouseCaptured)
         }
+        #endif
         
         // Add components to their corresponding systems
         playerControlComponentSystem.addComponent(foundIn: entity)
