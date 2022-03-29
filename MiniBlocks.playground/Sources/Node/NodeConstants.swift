@@ -1,3 +1,3 @@
 enum NodeConstants {
-    static let fontName = "PT Mono"
+    static let fontName = "American Typewriter"
 }
