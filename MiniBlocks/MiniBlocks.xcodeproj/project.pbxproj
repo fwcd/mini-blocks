@@ -58,6 +58,8 @@
 		35391BF2278BC79A00B22954 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35391BF1278BC79A00B22954 /* SceneDelegate.swift */; };
 		35391BF4278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */; };
 		35391BF5278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */; };
+		3540751627F29E0600887E01 /* HandEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751527F29E0600887E01 /* HandEntity.swift */; };
+		3540751727F29E0600887E01 /* HandEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751527F29E0600887E01 /* HandEntity.swift */; };
 		3546255827878798000489E8 /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SceneKitUtils.swift */; };
 		355006CB27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
 		355006CC27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
@@ -202,6 +204,7 @@
 		35391BF1278BC79A00B22954 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompatibilityLayer.swift; path = ../../MiniBlocks.playground/Sources/Utils/CompatibilityLayer.swift; sourceTree = "<group>"; };
 		35391BF6278BCDBC00B22954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3540751527F29E0600887E01 /* HandEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/HandEntity.swift; sourceTree = "<group>"; };
 		3546255727878798000489E8 /* SceneKitUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneKitUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/SceneKitUtils.swift; sourceTree = "<group>"; };
 		355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/DebugHUDEntity.swift; sourceTree = "<group>"; };
 		355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/DebugHUDLoadComponent.swift; sourceTree = "<group>"; };
@@ -334,6 +337,7 @@
 				352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */,
 				35A5553F278C3EBF006FA70D /* HotbarHUDEntity.swift */,
 				355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */,
+				3540751527F29E0600887E01 /* HandEntity.swift */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -667,6 +671,7 @@
 				35A5552F278C3AE0006FA70D /* FlatWorldGenerator.swift in Sources */,
 				35391BDF278BC5EE00B22954 /* WorldAssociationComponent.swift in Sources */,
 				35391BE1278BC5F400B22954 /* WorldEntity.swift in Sources */,
+				3540751727F29E0600887E01 /* HandEntity.swift in Sources */,
 				35A55527278C3AE0006FA70D /* NatureWorldGenerator.swift in Sources */,
 				35721442279577C7003C640F /* GameMode.swift in Sources */,
 				35391BC5278BC5D800B22954 /* Box.swift in Sources */,
@@ -746,6 +751,7 @@
 				35A5552E278C3AE0006FA70D /* FlatWorldGenerator.swift in Sources */,
 				35E7F416278688180067F0F7 /* KeyCode.swift in Sources */,
 				35A55537278C3B42006FA70D /* Inventory.swift in Sources */,
+				3540751627F29E0600887E01 /* HandEntity.swift in Sources */,
 				35A55532278C3AE0006FA70D /* ItemType.swift in Sources */,
 				357214412795747A003C640F /* GameMode.swift in Sources */,
 				35A0C28627873D1100FA8570 /* BlockPos3.swift in Sources */,
