@@ -1,5 +1,4 @@
 import SpriteKit
-import GameplayKit
 
 private func makePartNode(size: CGSize) -> SKNode {
     let node = SKShapeNode(rect: CGRect(center: CGPoint(x: 0, y: 0), size: size))

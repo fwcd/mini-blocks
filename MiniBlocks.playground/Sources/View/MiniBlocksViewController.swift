@@ -124,6 +124,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         add(entity: makeCrosshairHUDEntity(in: overlayScene.frame))
         add(entity: makeHotbarHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
         add(entity: makeDebugHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
+        add(entity: makePauseHUDEntity(in: overlayScene.frame))
         
         // Set up SCNView
         let sceneView = sceneFrame.map { MiniBlocksSceneView(frame: $0) } ?? MiniBlocksSceneView()

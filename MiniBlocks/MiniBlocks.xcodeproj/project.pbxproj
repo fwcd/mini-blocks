@@ -60,6 +60,10 @@
 		35391BF5278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */; };
 		3540751627F29E0600887E01 /* HandEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751527F29E0600887E01 /* HandEntity.swift */; };
 		3540751727F29E0600887E01 /* HandEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751527F29E0600887E01 /* HandEntity.swift */; };
+		3540751927F2A06300887E01 /* PauseHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751827F2A06300887E01 /* PauseHUDEntity.swift */; };
+		3540751A27F2A06300887E01 /* PauseHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751827F2A06300887E01 /* PauseHUDEntity.swift */; };
+		3540751C27F2A10A00887E01 /* PauseHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751B27F2A10A00887E01 /* PauseHUDNode.swift */; };
+		3540751D27F2A10A00887E01 /* PauseHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751B27F2A10A00887E01 /* PauseHUDNode.swift */; };
 		3546255827878798000489E8 /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SceneKitUtils.swift */; };
 		355006CB27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
 		355006CC27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
@@ -205,6 +209,8 @@
 		35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompatibilityLayer.swift; path = ../../MiniBlocks.playground/Sources/Utils/CompatibilityLayer.swift; sourceTree = "<group>"; };
 		35391BF6278BCDBC00B22954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3540751527F29E0600887E01 /* HandEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/HandEntity.swift; sourceTree = "<group>"; };
+		3540751827F2A06300887E01 /* PauseHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PauseHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/PauseHUDEntity.swift; sourceTree = "<group>"; };
+		3540751B27F2A10A00887E01 /* PauseHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PauseHUDNode.swift; path = ../../MiniBlocks.playground/Sources/Node/PauseHUDNode.swift; sourceTree = "<group>"; };
 		3546255727878798000489E8 /* SceneKitUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneKitUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/SceneKitUtils.swift; sourceTree = "<group>"; };
 		355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/DebugHUDEntity.swift; sourceTree = "<group>"; };
 		355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/DebugHUDLoadComponent.swift; sourceTree = "<group>"; };
@@ -337,6 +343,7 @@
 				352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */,
 				35A5553F278C3EBF006FA70D /* HotbarHUDEntity.swift */,
 				355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */,
+				3540751827F2A06300887E01 /* PauseHUDEntity.swift */,
 				3540751527F29E0600887E01 /* HandEntity.swift */,
 			);
 			name = Entity;
@@ -425,6 +432,7 @@
 				35A55558278C4868006FA70D /* BlockNode.swift */,
 				35A5555B278C497F006FA70D /* ItemNode.swift */,
 				35A55555278C4806006FA70D /* CrosshairHUDNode.swift */,
+				3540751B27F2A10A00887E01 /* PauseHUDNode.swift */,
 				35A5555E278C4BEA006FA70D /* HotbarHUDSlotNode.swift */,
 			);
 			name = Node;
@@ -720,6 +728,7 @@
 				35A55569278C5760006FA70D /* Wraparound.swift in Sources */,
 				35391BE3278BC5F400B22954 /* PlayerEntity.swift in Sources */,
 				35391BE2278BC5F400B22954 /* AmbientLightEntity.swift in Sources */,
+				3540751A27F2A06300887E01 /* PauseHUDEntity.swift in Sources */,
 				3572145127957B56003C640F /* Vec3Convertible.swift in Sources */,
 				35391BE6278BC5F700B22954 /* MiniBlocksSceneView.swift in Sources */,
 				35391BAF278BC5A800B22954 /* AppDelegate.swift in Sources */,
@@ -731,6 +740,7 @@
 				35A5553B278C3CA5006FA70D /* PlayerInfo.swift in Sources */,
 				35391BDD278BC5EE00B22954 /* PlayerControlComponent.swift in Sources */,
 				35391BE5278BC5F400B22954 /* CrosshairHUDEntity.swift in Sources */,
+				3540751D27F2A10A00887E01 /* PauseHUDNode.swift in Sources */,
 				35A5555D278C497F006FA70D /* ItemNode.swift in Sources */,
 				35391BE4278BC5F400B22954 /* SunEntity.swift in Sources */,
 				355006CF27A0C0710021A0BE /* DebugHUDLoadComponent.swift in Sources */,
@@ -800,6 +810,7 @@
 				35A55568278C5760006FA70D /* Wraparound.swift in Sources */,
 				35A55528278C3AE0006FA70D /* EmptyWorldGenerator.swift in Sources */,
 				35EA352627889CBE0066DD82 /* GridIterator2.swift in Sources */,
+				3540751927F2A06300887E01 /* PauseHUDEntity.swift in Sources */,
 				3572145027957B56003C640F /* Vec3Convertible.swift in Sources */,
 				35D9E8A3278888190058F0E6 /* AmbientLightEntity.swift in Sources */,
 				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
@@ -811,6 +822,7 @@
 				35EA3518278895750066DD82 /* WorldLoadComponent.swift in Sources */,
 				35A0C2A927875EC400FA8570 /* HeightAboveGroundComponent.swift in Sources */,
 				35A55540278C3EBF006FA70D /* HotbarHUDEntity.swift in Sources */,
+				3540751C27F2A10A00887E01 /* PauseHUDNode.swift in Sources */,
 				35A5555C278C497F006FA70D /* ItemNode.swift in Sources */,
 				35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */,
 				355006CE27A0C0710021A0BE /* DebugHUDLoadComponent.swift in Sources */,
