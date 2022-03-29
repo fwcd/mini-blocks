@@ -8,12 +8,13 @@ private func makeBackgroundNode(size: CGSize) -> SKNode {
     return node
 }
 
-private func makeLabelNode(text: String, fontSize: CGFloat) -> SKNode {
+private func makeLabelNode(text: String, offset: CGFloat = 0, fontSize: CGFloat) -> SKNode {
     let node = SKLabelNode(text: text)
     node.fontSize = fontSize
     node.fontColor = .white
     node.fontName = NodeConstants.fontName
     node.verticalAlignmentMode = .center
+    node.position = CGPoint(x: 0, y: offset)
     return node
 }
 
@@ -21,7 +22,7 @@ func makePauseHUDNode(size: CGSize, fontSize: CGFloat) -> SKNode {
     let node = SKNode()
     node.addChild(makeBackgroundNode(size: size))
     node.addChild(makeLabelNode(text: "Click to capture mouse!", fontSize: fontSize))
-    // TODO: Text
+    node.addChild(makeLabelNode(text: "(Press Esc to exit)", offset: -1.4 * fontSize, fontSize: fontSize * 0.8))
     return node
 }
 
