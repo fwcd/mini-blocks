@@ -9,6 +9,7 @@ func makeCrosshairHUDEntity(size: CGFloat = 20, thickness: CGFloat = 2, in frame
     // Create entity
     let entity = GKEntity()
     entity.addComponent(SpriteNodeComponent(node: node))
+    entity.addComponent(MouseCaptureVisibilityComponent(visibleWhenCaptured: true))
     
     return entity
 }

@@ -9,6 +9,7 @@ func makePauseHUDEntity(in frame: CGRect, fontSize: CGFloat = 28) -> GKEntity {
     // Create entity
     let entity = GKEntity()
     entity.addComponent(SpriteNodeComponent(node: node))
+    entity.addComponent(MouseCaptureVisibilityComponent(visibleWhenCaptured: false))
     
     return entity
 }

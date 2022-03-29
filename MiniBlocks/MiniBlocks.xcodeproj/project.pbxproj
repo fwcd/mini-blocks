@@ -66,6 +66,8 @@
 		3540751D27F2A10A00887E01 /* PauseHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751B27F2A10A00887E01 /* PauseHUDNode.swift */; };
 		3540751F27F2A47D00887E01 /* NodeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751E27F2A47D00887E01 /* NodeConstants.swift */; };
 		3540752027F2A47D00887E01 /* NodeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751E27F2A47D00887E01 /* NodeConstants.swift */; };
+		3540752227F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540752127F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift */; };
+		3540752327F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540752127F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift */; };
 		3546255827878798000489E8 /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SceneKitUtils.swift */; };
 		355006CB27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
 		355006CC27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
@@ -214,6 +216,7 @@
 		3540751827F2A06300887E01 /* PauseHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PauseHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/PauseHUDEntity.swift; sourceTree = "<group>"; };
 		3540751B27F2A10A00887E01 /* PauseHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PauseHUDNode.swift; path = ../../MiniBlocks.playground/Sources/Node/PauseHUDNode.swift; sourceTree = "<group>"; };
 		3540751E27F2A47D00887E01 /* NodeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NodeConstants.swift; path = ../../MiniBlocks.playground/Sources/Node/NodeConstants.swift; sourceTree = "<group>"; };
+		3540752127F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MouseCaptureVisibilityComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/MouseCaptureVisibilityComponent.swift; sourceTree = "<group>"; };
 		3546255727878798000489E8 /* SceneKitUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneKitUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/SceneKitUtils.swift; sourceTree = "<group>"; };
 		355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/DebugHUDEntity.swift; sourceTree = "<group>"; };
 		355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/DebugHUDLoadComponent.swift; sourceTree = "<group>"; };
@@ -370,6 +373,7 @@
 				35EA351B278895D60066DD82 /* WorldRetainComponent.swift */,
 				35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */,
 				355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */,
+				3540752127F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -692,6 +696,7 @@
 				35A5552D278C3AE0006FA70D /* Item.swift in Sources */,
 				35A55529278C3AE0006FA70D /* EmptyWorldGenerator.swift in Sources */,
 				35391BC3278BC5D800B22954 /* MathUtils.swift in Sources */,
+				3540752327F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift in Sources */,
 				35391BE0278BC5EE00B22954 /* WorldRetainComponent.swift in Sources */,
 				35A5555A278C4868006FA70D /* BlockNode.swift in Sources */,
 				35A5554A278C421C006FA70D /* PlayerAssocationComponent.swift in Sources */,
@@ -775,6 +780,7 @@
 				35A55530278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
 				35A55526278C3AE0006FA70D /* NatureWorldGenerator.swift in Sources */,
 				35A5553D278C3DB6006FA70D /* NameComponent.swift in Sources */,
+				3540752227F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift in Sources */,
 				35EA354E2788B3870066DD82 /* Vec3Protocol.swift in Sources */,
 				35A55559278C4868006FA70D /* BlockNode.swift in Sources */,
 				35A0C2A3278757A700FA8570 /* BlockPos2.swift in Sources */,

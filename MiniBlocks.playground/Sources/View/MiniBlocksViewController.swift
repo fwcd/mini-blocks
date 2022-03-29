@@ -27,12 +27,18 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private var mouseCaptured: Bool = false {
         willSet {
             if newValue != mouseCaptured {
+                // Update actual capturing
                 if newValue {
                     receivedFirstMouseEvent = false
                     warpMouseCursorToCenter()
                     CGDisplayHideCursor(kCGNullDirectDisplay)
                 } else {
                     CGDisplayShowCursor(kCGNullDirectDisplay)
+                }
+                
+                // Notify component system
+                for case let component as MouseCaptureVisibilityComponent in mouseCaptureVisibilityComponentSystem.components {
+                    component.update(mouseCaptured: newValue)
                 }
             }
         }
@@ -61,6 +67,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private let worldRetainComponentSystem = GKComponentSystem(componentClass: WorldRetainComponent.self)
     private let hotbarHUDLoadComponentSystem = GKComponentSystem(componentClass: HotbarHUDLoadComponent.self)
     private let debugHUDLoadComponentSystem = GKComponentSystem(componentClass: DebugHUDLoadComponent.self)
+    private let mouseCaptureVisibilityComponentSystem = GKComponentSystem(componentClass: MouseCaptureVisibilityComponent.self)
     private var entities: [GKEntity] = []
     
     public init(
@@ -194,6 +201,11 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             overlayScene.addChild(node)
         }
         
+        // Provide initial update to mouse capture visibility component
+        if let component = entity.component(ofType: MouseCaptureVisibilityComponent.self) {
+            component.update(mouseCaptured: mouseCaptured)
+        }
+        
         // Add components to their corresponding systems
         playerControlComponentSystem.addComponent(foundIn: entity)
         playerPositioningComponentSystem.addComponent(foundIn: entity)
@@ -203,6 +215,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         worldRetainComponentSystem.addComponent(foundIn: entity)
         hotbarHUDLoadComponentSystem.addComponent(foundIn: entity)
         debugHUDLoadComponentSystem.addComponent(foundIn: entity)
+        mouseCaptureVisibilityComponentSystem.addComponent(foundIn: entity)
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -217,6 +230,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         worldRetainComponentSystem.update(deltaTime: deltaTime)
         hotbarHUDLoadComponentSystem.update(deltaTime: deltaTime)
         debugHUDLoadComponentSystem.update(deltaTime: deltaTime)
+        mouseCaptureVisibilityComponentSystem.update(deltaTime: deltaTime)
         
         previousUpdateTime = time
     }
