@@ -8,9 +8,17 @@ private func makeBackgroundNode(size: CGSize) -> SKNode {
     return node
 }
 
+private func makeLabelNode(text: String, fontSize: CGFloat) -> SKNode {
+    let node = SKLabelNode(text: text)
+    node.fontSize = fontSize
+    node.verticalAlignmentMode = .center
+    return node
+}
+
 func makePauseHUDNode(size: CGSize, fontSize: CGFloat) -> SKNode {
     let node = SKNode()
     node.addChild(makeBackgroundNode(size: size))
+    node.addChild(makeLabelNode(text: "Click to capture mouse!", fontSize: fontSize))
     // TODO: Text
     return node
 }
