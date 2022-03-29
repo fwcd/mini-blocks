@@ -6,7 +6,7 @@ func makeDebugHUDEntity(in frame: CGRect, playerEntity: GKEntity, fontSize: CGFl
     let padding: CGFloat = 5
     let node = SKLabelNode()
     node.fontColor = .white
-    node.fontName = "ArialMT"
+    node.fontName = NodeConstants.fontName
     node.fontSize = fontSize
     node.position = CGPoint(x: frame.minX + padding, y: frame.maxY - padding)
     node.numberOfLines = 0

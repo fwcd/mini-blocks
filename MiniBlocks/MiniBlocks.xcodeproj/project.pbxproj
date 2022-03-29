@@ -64,6 +64,8 @@
 		3540751A27F2A06300887E01 /* PauseHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751827F2A06300887E01 /* PauseHUDEntity.swift */; };
 		3540751C27F2A10A00887E01 /* PauseHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751B27F2A10A00887E01 /* PauseHUDNode.swift */; };
 		3540751D27F2A10A00887E01 /* PauseHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751B27F2A10A00887E01 /* PauseHUDNode.swift */; };
+		3540751F27F2A47D00887E01 /* NodeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751E27F2A47D00887E01 /* NodeConstants.swift */; };
+		3540752027F2A47D00887E01 /* NodeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751E27F2A47D00887E01 /* NodeConstants.swift */; };
 		3546255827878798000489E8 /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SceneKitUtils.swift */; };
 		355006CB27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
 		355006CC27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
@@ -211,6 +213,7 @@
 		3540751527F29E0600887E01 /* HandEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/HandEntity.swift; sourceTree = "<group>"; };
 		3540751827F2A06300887E01 /* PauseHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PauseHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/PauseHUDEntity.swift; sourceTree = "<group>"; };
 		3540751B27F2A10A00887E01 /* PauseHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PauseHUDNode.swift; path = ../../MiniBlocks.playground/Sources/Node/PauseHUDNode.swift; sourceTree = "<group>"; };
+		3540751E27F2A47D00887E01 /* NodeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NodeConstants.swift; path = ../../MiniBlocks.playground/Sources/Node/NodeConstants.swift; sourceTree = "<group>"; };
 		3546255727878798000489E8 /* SceneKitUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneKitUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/SceneKitUtils.swift; sourceTree = "<group>"; };
 		355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/DebugHUDEntity.swift; sourceTree = "<group>"; };
 		355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/DebugHUDLoadComponent.swift; sourceTree = "<group>"; };
@@ -434,6 +437,7 @@
 				35A55555278C4806006FA70D /* CrosshairHUDNode.swift */,
 				3540751B27F2A10A00887E01 /* PauseHUDNode.swift */,
 				35A5555E278C4BEA006FA70D /* HotbarHUDSlotNode.swift */,
+				3540751E27F2A47D00887E01 /* NodeConstants.swift */,
 			);
 			name = Node;
 			sourceTree = "<group>";
@@ -702,6 +706,7 @@
 				35391BE7278BC5F700B22954 /* KeyCode.swift in Sources */,
 				35A55533278C3AE0006FA70D /* ItemType.swift in Sources */,
 				35391BF2278BC79A00B22954 /* SceneDelegate.swift in Sources */,
+				3540752027F2A47D00887E01 /* NodeConstants.swift in Sources */,
 				35A55531278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
 				35391BD9278BC5EE00B22954 /* SceneNodeComponent.swift in Sources */,
 				35391BC0278BC5D800B22954 /* BlockPos3.swift in Sources */,
@@ -784,6 +789,7 @@
 				35EA351C278895D60066DD82 /* WorldRetainComponent.swift in Sources */,
 				35A0C28A27873DB300FA8570 /* WorldEntity.swift in Sources */,
 				35A0C2902787475600FA8570 /* PlayerEntity.swift in Sources */,
+				3540751F27F2A47D00887E01 /* NodeConstants.swift in Sources */,
 				35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */,
 				352D7A422787B89B008FB939 /* SpriteNodeComponent.swift in Sources */,
 				35EA354A2788A8B00066DD82 /* ChunkRegion.swift in Sources */,

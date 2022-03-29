@@ -1,7 +1,7 @@
 import SpriteKit
 import GameplayKit
 
-func makePauseHUDEntity(in frame: CGRect, fontSize: CGFloat = 24) -> GKEntity {
+func makePauseHUDEntity(in frame: CGRect, fontSize: CGFloat = 28) -> GKEntity {
     // Create node
     let node = makePauseHUDNode(size: frame.size, fontSize: fontSize)
     node.position = CGPoint(x: frame.midX, y: frame.midY)

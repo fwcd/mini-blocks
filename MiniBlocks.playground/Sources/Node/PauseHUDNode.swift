@@ -4,13 +4,15 @@ private func makeBackgroundNode(size: CGSize) -> SKNode {
     let node = SKShapeNode(rect: CGRect(center: CGPoint(x: 0, y: 0), size: size))
     node.strokeColor = .clear
     node.lineWidth = 0
-    node.fillColor = .black.withAlphaComponent(0.9)
+    node.fillColor = .black.withAlphaComponent(0.95)
     return node
 }
 
 private func makeLabelNode(text: String, fontSize: CGFloat) -> SKNode {
     let node = SKLabelNode(text: text)
     node.fontSize = fontSize
+    node.fontColor = .white
+    node.fontName = NodeConstants.fontName
     node.verticalAlignmentMode = .center
     return node
 }
