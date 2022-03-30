@@ -6,7 +6,13 @@ struct Achievements: OptionSet, Sequence {
     static let jump = Self(rawValue: 1 << 1)
     static let sprint = Self(rawValue: 1 << 2)
     
-    var description: String? {
+    /// Whether this is a single achivement.
+    var isSingle: Bool {
+        rawValue > 0 && (rawValue & (rawValue - 1)) == 0
+    }
+    
+    /// The user-facing text for a single achievement.
+    var text: String? {
         switch self {
         case .moveAround:
             return "Move around using your WASD keys."
@@ -19,6 +25,18 @@ struct Achievements: OptionSet, Sequence {
         }
     }
     
+    /// The next achivements.
+    var next: [Achievements] {
+        guard isSingle else { return flatMap(\.next) }
+        
+        switch self {
+        case .moveAround:
+            return [.jump, .sprint]
+        default:
+            return []
+        }
+    }
+    
     func makeIterator() -> Iterator {
         Iterator(rawValue: rawValue)
     }
@@ -28,10 +46,15 @@ struct Achievements: OptionSet, Sequence {
         var i: RawValue = 0
         
         mutating func next() -> Achievements? {
-            guard i < RawValue.bitWidth else { return nil }
-            let bit = (rawValue >> i) & 1
-            i += 1
-            return Achievements(rawValue: bit)
+            while i < RawValue.bitWidth {
+                let bitIndex = i
+                i += 1
+                let bit = (rawValue >> bitIndex) & 1 == 1
+                if bit {
+                    return Achievements(rawValue: 1 << bitIndex)
+                }
+            }
+            return nil
         }
     }
 }

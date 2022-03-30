@@ -75,6 +75,7 @@
 		355006CF27A0C0710021A0BE /* DebugHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */; };
 		3554CAF927F50578000EE620 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CAF827F50578000EE620 /* Achievements.swift */; };
 		3554CAFA27F50578000EE620 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CAF827F50578000EE620 /* Achievements.swift */; };
+		3554CAFD27F5096A000EE620 /* AchievementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CAFC27F5096A000EE620 /* AchievementsTests.swift */; };
 		357214412795747A003C640F /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357214402795747A003C640F /* GameMode.swift */; };
 		35721442279577C7003C640F /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357214402795747A003C640F /* GameMode.swift */; };
 		3572144727957961003C640F /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144627957961003C640F /* Vec2.swift */; };
@@ -223,6 +224,7 @@
 		355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/DebugHUDEntity.swift; sourceTree = "<group>"; };
 		355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/DebugHUDLoadComponent.swift; sourceTree = "<group>"; };
 		3554CAF827F50578000EE620 /* Achievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Achievements.swift; path = ../../MiniBlocks.playground/Sources/Model/Achievements.swift; sourceTree = "<group>"; };
+		3554CAFC27F5096A000EE620 /* AchievementsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTests.swift; sourceTree = "<group>"; };
 		357214402795747A003C640F /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameMode.swift; path = ../../MiniBlocks.playground/Sources/Model/GameMode.swift; sourceTree = "<group>"; };
 		3572144627957961003C640F /* Vec2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec2.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec2.swift; sourceTree = "<group>"; };
 		3572144927957970003C640F /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3.swift; sourceTree = "<group>"; };
@@ -340,6 +342,14 @@
 				35391BB9278BC5A900B22954 /* LaunchScreen.storyboard */,
 			);
 			path = MiniBlocksToGo;
+			sourceTree = "<group>";
+		};
+		3554CAFB27F5095C000EE620 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3554CAFC27F5096A000EE620 /* AchievementsTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		35A0C27D27872CAB00FA8570 /* Entity */ = {
@@ -525,6 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				35EA353427889DBA0066DD82 /* Utils */,
+				3554CAFB27F5095C000EE620 /* Model */,
 			);
 			path = MiniBlocksTests;
 			sourceTree = "<group>";
@@ -863,6 +874,7 @@
 				35EA353A2788A1BF0066DD82 /* MathUtilsTests.swift in Sources */,
 				35FEC159278E700D00E2000E /* CyclicDequeTests.swift in Sources */,
 				357EB0D1279644820004CA6E /* DebouncerTests.swift in Sources */,
+				3554CAFD27F5096A000EE620 /* AchievementsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
