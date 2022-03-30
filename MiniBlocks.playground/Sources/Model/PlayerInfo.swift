@@ -22,7 +22,7 @@ struct PlayerInfo: Codable, Hashable {
     /// Whether the player has the debug overlay enabled.
     var hasDebugHUDEnabled: Bool = false
     /// Achievements by the player.
-    var achievements: Achievements = []
+    var achievements: Achievements = .root
     
     /// The currently selected stack on the hotbar.
     var selectedHotbarStack: ItemStack? {

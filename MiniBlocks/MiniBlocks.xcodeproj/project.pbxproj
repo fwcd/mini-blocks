@@ -80,6 +80,8 @@
 		3554CB0027F51B36000EE620 /* AchievementHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CAFE27F51B36000EE620 /* AchievementHUDNode.swift */; };
 		3554CB0227F51D84000EE620 /* AchievementHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CB0127F51D84000EE620 /* AchievementHUDEntity.swift */; };
 		3554CB0327F51D84000EE620 /* AchievementHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CB0127F51D84000EE620 /* AchievementHUDEntity.swift */; };
+		3554CB0527F51F0E000EE620 /* AchievementHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CB0427F51F0E000EE620 /* AchievementHUDLoadComponent.swift */; };
+		3554CB0627F51F0E000EE620 /* AchievementHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CB0427F51F0E000EE620 /* AchievementHUDLoadComponent.swift */; };
 		357214412795747A003C640F /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357214402795747A003C640F /* GameMode.swift */; };
 		35721442279577C7003C640F /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357214402795747A003C640F /* GameMode.swift */; };
 		3572144727957961003C640F /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144627957961003C640F /* Vec2.swift */; };
@@ -231,6 +233,7 @@
 		3554CAFC27F5096A000EE620 /* AchievementsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTests.swift; sourceTree = "<group>"; };
 		3554CAFE27F51B36000EE620 /* AchievementHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AchievementHUDNode.swift; path = ../../MiniBlocks.playground/Sources/Node/AchievementHUDNode.swift; sourceTree = "<group>"; };
 		3554CB0127F51D84000EE620 /* AchievementHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AchievementHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Component/AchievementHUDEntity.swift; sourceTree = "<group>"; };
+		3554CB0427F51F0E000EE620 /* AchievementHUDLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AchievementHUDLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/AchievementHUDLoadComponent.swift; sourceTree = "<group>"; };
 		357214402795747A003C640F /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameMode.swift; path = ../../MiniBlocks.playground/Sources/Model/GameMode.swift; sourceTree = "<group>"; };
 		3572144627957961003C640F /* Vec2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec2.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec2.swift; sourceTree = "<group>"; };
 		3572144927957970003C640F /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3.swift; sourceTree = "<group>"; };
@@ -393,6 +396,7 @@
 				35EA351B278895D60066DD82 /* WorldRetainComponent.swift */,
 				35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */,
 				355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */,
+				3554CB0427F51F0E000EE620 /* AchievementHUDLoadComponent.swift */,
 				3540752127F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift */,
 			);
 			name = Component;
@@ -760,6 +764,7 @@
 				3572144B27957970003C640F /* Vec3.swift in Sources */,
 				3572144E27957B11003C640F /* Vec2Convertible.swift in Sources */,
 				35391BC6278BC5D800B22954 /* Throttler.swift in Sources */,
+				3554CB0627F51F0E000EE620 /* AchievementHUDLoadComponent.swift in Sources */,
 				35A55569278C5760006FA70D /* Wraparound.swift in Sources */,
 				35391BE3278BC5F400B22954 /* PlayerEntity.swift in Sources */,
 				35391BE2278BC5F400B22954 /* AmbientLightEntity.swift in Sources */,
@@ -847,6 +852,7 @@
 				3572144A27957970003C640F /* Vec3.swift in Sources */,
 				3572144D27957B11003C640F /* Vec2Convertible.swift in Sources */,
 				35A5552C278C3AE0006FA70D /* Item.swift in Sources */,
+				3554CB0527F51F0E000EE620 /* AchievementHUDLoadComponent.swift in Sources */,
 				35A55568278C5760006FA70D /* Wraparound.swift in Sources */,
 				35A55528278C3AE0006FA70D /* EmptyWorldGenerator.swift in Sources */,
 				35EA352627889CBE0066DD82 /* GridIterator2.swift in Sources */,

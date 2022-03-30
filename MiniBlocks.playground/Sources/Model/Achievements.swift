@@ -7,6 +7,9 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
     static let jump = Self(rawValue: 1 << 2)
     static let sprint = Self(rawValue: 1 << 3)
     
+    /// The achievements a new player is tasked with.
+    static let root = peekAround
+    
     /// Whether this is a single achivement.
     var isSingle: Bool {
         rawValue > 0 && (rawValue & (rawValue - 1)) == 0

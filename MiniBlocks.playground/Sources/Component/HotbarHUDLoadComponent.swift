@@ -30,10 +30,6 @@ class HotbarHUDLoadComponent: GKComponent {
         set { playerInfo?.hotbar = newValue! }
     }
     
-    private var hasChanged: Bool {
-        inventory != lastInventory || playerInfo?.selectedHotbarSlot != lastSelectedHotbarSlot
-    }
-    
     override func update(deltaTime seconds: TimeInterval) {
         guard let node = node else { return }
         

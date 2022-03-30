@@ -13,15 +13,16 @@ private func makeLabelNode(text: String, offset: CGFloat = 0, fontSize: CGFloat)
     node.fontSize = fontSize
     node.fontColor = .white
     node.fontName = NodeConstants.fontName
+    node.verticalAlignmentMode = .center
     node.position = CGPoint(x: 0, y: offset)
     return node
 }
 
-func makeAchievementHUDNode(for achievement: Achievements, size: CGSize, fontSize: CGFloat) -> SKNode? {
+func makeAchievementHUDNode(for achievement: Achievements, fontSize: CGFloat) -> SKNode? {
     guard let text = achievement.text else { return nil }
     let node = SKNode()
     let label = makeLabelNode(text: text, fontSize: fontSize)
-    node.addChild(makeBackgroundNode(size: size))
+    node.addChild(makeBackgroundNode(size: label.frame.size))
     node.addChild(label)
     return node
 }

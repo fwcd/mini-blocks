@@ -67,6 +67,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private let worldRetainComponentSystem = GKComponentSystem(componentClass: WorldRetainComponent.self)
     private let hotbarHUDLoadComponentSystem = GKComponentSystem(componentClass: HotbarHUDLoadComponent.self)
     private let debugHUDLoadComponentSystem = GKComponentSystem(componentClass: DebugHUDLoadComponent.self)
+    private let achievementHUDLoadComponentSystem = GKComponentSystem(componentClass: AchievementHUDLoadComponent.self)
     private let mouseCaptureVisibilityComponentSystem = GKComponentSystem(componentClass: MouseCaptureVisibilityComponent.self)
     private var entities: [GKEntity] = []
     
@@ -217,6 +218,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         worldRetainComponentSystem.addComponent(foundIn: entity)
         hotbarHUDLoadComponentSystem.addComponent(foundIn: entity)
         debugHUDLoadComponentSystem.addComponent(foundIn: entity)
+        achievementHUDLoadComponentSystem.addComponent(foundIn: entity)
         mouseCaptureVisibilityComponentSystem.addComponent(foundIn: entity)
     }
     
@@ -232,6 +234,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         worldRetainComponentSystem.update(deltaTime: deltaTime)
         hotbarHUDLoadComponentSystem.update(deltaTime: deltaTime)
         debugHUDLoadComponentSystem.update(deltaTime: deltaTime)
+        achievementHUDLoadComponentSystem.update(deltaTime: deltaTime)
         mouseCaptureVisibilityComponentSystem.update(deltaTime: deltaTime)
         
         previousUpdateTime = time
