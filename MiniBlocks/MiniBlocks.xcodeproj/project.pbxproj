@@ -73,6 +73,8 @@
 		355006CC27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
 		355006CE27A0C0710021A0BE /* DebugHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */; };
 		355006CF27A0C0710021A0BE /* DebugHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */; };
+		3554CAF927F50578000EE620 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CAF827F50578000EE620 /* Achievements.swift */; };
+		3554CAFA27F50578000EE620 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CAF827F50578000EE620 /* Achievements.swift */; };
 		357214412795747A003C640F /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357214402795747A003C640F /* GameMode.swift */; };
 		35721442279577C7003C640F /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357214402795747A003C640F /* GameMode.swift */; };
 		3572144727957961003C640F /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144627957961003C640F /* Vec2.swift */; };
@@ -220,6 +222,7 @@
 		3546255727878798000489E8 /* SceneKitUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneKitUtils.swift; path = ../../MiniBlocks.playground/Sources/Utils/SceneKitUtils.swift; sourceTree = "<group>"; };
 		355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/DebugHUDEntity.swift; sourceTree = "<group>"; };
 		355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugHUDLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/DebugHUDLoadComponent.swift; sourceTree = "<group>"; };
+		3554CAF827F50578000EE620 /* Achievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Achievements.swift; path = ../../MiniBlocks.playground/Sources/Model/Achievements.swift; sourceTree = "<group>"; };
 		357214402795747A003C640F /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameMode.swift; path = ../../MiniBlocks.playground/Sources/Model/GameMode.swift; sourceTree = "<group>"; };
 		3572144627957961003C640F /* Vec2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec2.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec2.swift; sourceTree = "<group>"; };
 		3572144927957970003C640F /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3.swift; sourceTree = "<group>"; };
@@ -429,6 +432,7 @@
 				35A55545278C408C006FA70D /* ItemStack.swift */,
 				35A55517278C3AE0006FA70D /* Item.swift */,
 				35A5551A278C3AE0006FA70D /* ItemType.swift */,
+				3554CAF827F50578000EE620 /* Achievements.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -744,6 +748,7 @@
 				35391BAF278BC5A800B22954 /* AppDelegate.swift in Sources */,
 				35A5552B278C3AE0006FA70D /* WavyHillsWorldGenerator.swift in Sources */,
 				35FEC154278E6B1B00E2000E /* Deque.swift in Sources */,
+				3554CAFA27F50578000EE620 /* Achievements.swift in Sources */,
 				35A55547278C408C006FA70D /* ItemStack.swift in Sources */,
 				35391BDB278BC5EE00B22954 /* HeightAboveGroundComponent.swift in Sources */,
 				35391BBF278BC5D800B22954 /* ChunkRegion.swift in Sources */,
@@ -828,6 +833,7 @@
 				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
 				35A0C296278752E900FA8570 /* PlayerGravityComponent.swift in Sources */,
 				35FEC153278E6B1B00E2000E /* Deque.swift in Sources */,
+				3554CAF927F50578000EE620 /* Achievements.swift in Sources */,
 				35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */,
 				3546255827878798000489E8 /* SceneKitUtils.swift in Sources */,
 				35A5552A278C3AE0006FA70D /* WavyHillsWorldGenerator.swift in Sources */,

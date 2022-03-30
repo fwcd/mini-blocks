@@ -11,6 +11,9 @@ struct World: Codable, Sequence {
     /// The procedural generator that generates new strips.
     let generator: WorldGeneratorType
     
+    /// Achievements by the player.
+    var achievements: Achievements = []
+    
     /// The user-changed strips (which are to be saved).
     private(set) var storedStrips: [BlockPos2: Strip] = [:]
     
