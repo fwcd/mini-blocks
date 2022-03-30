@@ -33,6 +33,9 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
     
     /// The next achivements.
     var next: Achievements {
+        if self == [] {
+            return .root
+        }
         guard isSingle else {
             return flatMap(\.next)
                 .filter { !contains($0) }
