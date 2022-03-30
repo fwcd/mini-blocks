@@ -26,12 +26,18 @@ struct Achievements: OptionSet, Sequence {
     }
     
     /// The next achivements.
-    var next: [Achievements] {
-        guard isSingle else { return flatMap(\.next) }
+    var next: Achievements {
+        guard isSingle else {
+            return flatMap(\.next)
+                .filter { !contains($0) }
+                .reduce([]) { $0.union($1) }
+        }
         
         switch self {
         case .moveAround:
-            return [.jump, .sprint]
+            return .jump
+        case .jump:
+            return .sprint
         default:
             return []
         }
