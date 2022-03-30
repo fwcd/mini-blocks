@@ -183,6 +183,15 @@ class PlayerControlComponent: GKComponent {
     /// Adds motion input.
     func add(motionInput delta: MotionInput) {
         motionInput.insert(delta)
+        if !delta.isDisjoint(with: [.forward, .back, .left, .right]) {
+            playerInfo?.achievements.insert(.moveAround)
+        }
+        if delta.contains(.sprint) {
+            playerInfo?.achievements.insert(.sprint)
+        }
+        if delta.contains(.jump) {
+            playerInfo?.achievements.insert(.jump)
+        }
         if delta.contains(.useBlock) || delta.contains(.breakBlock) {
             blockThrottler.reset()
         }
@@ -196,11 +205,13 @@ class PlayerControlComponent: GKComponent {
     /// Rotates the node vertically by the given angle (in radians).
     func rotatePitch(by delta: SceneFloat) {
         guard let node = node, canRotatePitch(by: delta) else { return }
+        playerInfo?.achievements.insert(.peekAround)
         node.eulerAngles.x += delta * pitchSpeed
     }
     
     /// Rotates the node horizontally by the given angle (in radians).
     func rotateYaw(by delta: SceneFloat) {
+        playerInfo?.achievements.insert(.peekAround)
         node?.eulerAngles.y += delta * yawSpeed
     }
     
@@ -224,6 +235,7 @@ class PlayerControlComponent: GKComponent {
     
     func jump() {
         guard playerInfo?.isOnGround ?? false else { return }
+        playerInfo?.achievements.insert(.jump)
         playerInfo?.velocity.y = jumpSpeed
         playerInfo?.leavesGround = true
     }

@@ -19,7 +19,7 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
     var text: String? {
         switch self {
         case .peekAround:
-            return "Peek around by moving your mouse"
+            return "Peek around by moving your mouse."
         case .moveAround:
             return "Move around using your WASD keys."
         case .jump:
