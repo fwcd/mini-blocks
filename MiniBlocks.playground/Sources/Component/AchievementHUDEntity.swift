@@ -10,7 +10,7 @@ func makeAchievementHUDEntity(in frame: CGRect, playerEntity: GKEntity, fontSize
     let entity = GKEntity()
     entity.addComponent(SpriteNodeComponent(node: node))
     entity.addComponent(PlayerAssociationComponent(playerEntity: playerEntity))
-    // entity.addComponent(MouseCaptureVisibilityComponent(visibleWhenCaptured: true))
+    entity.addComponent(MouseCaptureVisibilityComponent(visibleWhenCaptured: true))
     entity.addComponent(AchievementHUDLoadComponent(fontSize: fontSize))
     
     if let worldEntity = playerEntity.component(ofType: WorldAssociationComponent.self)?.worldEntity {

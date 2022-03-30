@@ -52,8 +52,8 @@ class AchievementHUDLoadComponent: GKComponent {
                let achievementNode = makeAchievementHUDNode(for: nextAchievement, fontSize: 13) {
                 node.addChild(achievementNode)
             }
+            
+            lastAchievement = nextAchievement
         }
-        
-        lastAchievement = nextAchievement
     }
 }

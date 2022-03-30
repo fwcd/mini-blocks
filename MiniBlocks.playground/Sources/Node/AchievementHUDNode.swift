@@ -4,7 +4,7 @@ private func makeBackgroundNode(size: CGSize) -> SKNode {
     let node = SKShapeNode(rect: CGRect(center: CGPoint(x: 0, y: 0), size: size))
     node.strokeColor = .clear
     node.lineWidth = 0
-    node.fillColor = .black.withAlphaComponent(0.95)
+    node.fillColor = .black.withAlphaComponent(0.9)
     return node
 }
 
@@ -18,11 +18,12 @@ private func makeLabelNode(text: String, offset: CGFloat = 0, fontSize: CGFloat)
     return node
 }
 
-func makeAchievementHUDNode(for achievement: Achievements, fontSize: CGFloat) -> SKNode? {
+func makeAchievementHUDNode(for achievement: Achievements, fontSize: CGFloat, padding: CGFloat = 10) -> SKNode? {
     guard let text = achievement.text else { return nil }
     let node = SKNode()
     let label = makeLabelNode(text: text, fontSize: fontSize)
-    node.addChild(makeBackgroundNode(size: label.frame.size))
+    let labelSize = label.frame.size
+    node.addChild(makeBackgroundNode(size: CGSize(width: labelSize.width + padding, height: labelSize.height + padding)))
     node.addChild(label)
     return node
 }
