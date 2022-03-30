@@ -1,7 +1,7 @@
 import XCTest
 @testable import MiniBlocks
 
-class AchivementsTests: XCTestCase {
+class AchievementsTests: XCTestCase {
     func testAchievements() {
         let empty: Achievements = []
         XCTAssert(empty.isEmpty)
