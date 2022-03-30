@@ -2,9 +2,10 @@
 struct Achievements: OptionSet, Sequence {
     let rawValue: UInt64
     
-    static let moveAround = Self(rawValue: 1 << 0)
-    static let jump = Self(rawValue: 1 << 1)
-    static let sprint = Self(rawValue: 1 << 2)
+    static let peekAround = Self(rawValue: 1 << 0)
+    static let moveAround = Self(rawValue: 1 << 1)
+    static let jump = Self(rawValue: 1 << 2)
+    static let sprint = Self(rawValue: 1 << 3)
     
     /// Whether this is a single achivement.
     var isSingle: Bool {
@@ -14,6 +15,8 @@ struct Achievements: OptionSet, Sequence {
     /// The user-facing text for a single achievement.
     var text: String? {
         switch self {
+        case .peekAround:
+            return "Peek around by moving your mouse"
         case .moveAround:
             return "Move around using your WASD keys."
         case .jump:
@@ -34,6 +37,8 @@ struct Achievements: OptionSet, Sequence {
         }
         
         switch self {
+        case .peekAround:
+            return .moveAround
         case .moveAround:
             return .jump
         case .jump:
