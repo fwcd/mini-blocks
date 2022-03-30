@@ -1,5 +1,5 @@
 /// Represents in-game progress milestones by the player.
-struct Achievements: OptionSet, Sequence {
+struct Achievements: OptionSet, Sequence, Hashable, Codable {
     let rawValue: UInt64
     
     static let peekAround = Self(rawValue: 1 << 0)

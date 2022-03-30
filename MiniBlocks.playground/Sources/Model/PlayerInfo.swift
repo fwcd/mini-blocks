@@ -21,7 +21,8 @@ struct PlayerInfo: Codable, Hashable {
     var gameMode: GameMode = .creative
     /// Whether the player has the debug overlay enabled.
     var hasDebugHUDEnabled: Bool = false
-    /// The block that the player is looking at.
+    /// Achievements by the player.
+    var achievements: Achievements = []
     
     /// The currently selected stack on the hotbar.
     var selectedHotbarStack: ItemStack? {
