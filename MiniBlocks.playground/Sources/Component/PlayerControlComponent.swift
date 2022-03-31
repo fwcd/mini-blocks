@@ -61,7 +61,11 @@ class PlayerControlComponent: GKComponent {
         entity?.component(ofType: LookAtBlockComponent.self)
     }
     
-    var requestedBaseVelocity: Vec3 = Vec3()
+    var requestedBaseVelocity: Vec3 = Vec3() {
+        didSet {
+            playerInfo?.achieve(.moveAround)
+        }
+    }
     
     private var requestedVelocity: Vec3? {
         guard let node = node, let parent = node.parent else { return nil }
