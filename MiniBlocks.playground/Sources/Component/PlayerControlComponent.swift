@@ -57,11 +57,6 @@ class PlayerControlComponent: GKComponent {
         set { playerAssociationComponent?.playerInfo = newValue! }
     }
     
-    private var achievements: Achievements? {
-        get { playerInfo?.achievements }
-        set { playerInfo?.achievements = newValue! }
-    }
-    
     private var lookAtBlockComponent: LookAtBlockComponent? {
         entity?.component(ofType: LookAtBlockComponent.self)
     }
@@ -189,23 +184,21 @@ class PlayerControlComponent: GKComponent {
     func add(motionInput delta: MotionInput) {
         motionInput.insert(delta)
         
-        var newAchievements: Achievements = []
         if !delta.isDisjoint(with: [.forward, .back, .left, .right]) {
-            newAchievements.insert(.moveAround)
+            playerInfo?.achieve(.moveAround)
         }
         if delta.contains(.sprint) {
-            newAchievements.insert(.sprint)
+            playerInfo?.achieve(.sprint)
         }
         if delta.contains(.jump) {
-            newAchievements.insert(.jump)
+            playerInfo?.achieve(.jump)
         }
         if delta.contains(.breakBlock) {
-            newAchievements.insert(.breakBlock)
+            playerInfo?.achieve(.breakBlock)
         }
         if delta.contains(.useBlock) {
-            newAchievements.insert(.useBlock)
+            playerInfo?.achieve(.useBlock)
         }
-        achievements?.formUnion(newAchievements)
         
         if delta.contains(.useBlock) || delta.contains(.breakBlock) {
             blockThrottler.reset()
@@ -220,13 +213,13 @@ class PlayerControlComponent: GKComponent {
     /// Rotates the node vertically by the given angle (in radians).
     func rotatePitch(by delta: SceneFloat) {
         guard let node = node, canRotatePitch(by: delta) else { return }
-        achievements?.insert(.peekAround)
+        playerInfo?.achieve(.peekAround)
         node.eulerAngles.x += delta * pitchSpeed
     }
     
     /// Rotates the node horizontally by the given angle (in radians).
     func rotateYaw(by delta: SceneFloat) {
-        achievements?.insert(.peekAround)
+        playerInfo?.achieve(.peekAround)
         node?.eulerAngles.y += delta * yawSpeed
     }
     
@@ -236,12 +229,12 @@ class PlayerControlComponent: GKComponent {
     }
     
     func moveHotbarSelection(by delta: Int) {
-        achievements?.insert(.hotbar)
+        playerInfo?.achieve(.hotbar)
         playerInfo?.selectedHotbarSlot += delta
     }
     
     func select(hotbarSlot: Int) {
-        achievements?.insert(.hotbar)
+        playerInfo?.achieve(.hotbar)
         playerInfo?.selectedHotbarSlot = hotbarSlot
     }
     
@@ -252,7 +245,7 @@ class PlayerControlComponent: GKComponent {
     
     func jump() {
         guard playerInfo?.isOnGround ?? false else { return }
-        achievements?.insert(.jump)
+        playerInfo?.achieve(.jump)
         playerInfo?.velocity.y = jumpSpeed
         playerInfo?.leavesGround = true
     }

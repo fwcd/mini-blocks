@@ -24,8 +24,7 @@ class AchievementHUDLoadComponent: GKComponent {
     }
     
     private var achievements: Achievements? {
-        get { playerInfo?.achievements }
-        set { playerInfo?.achievements = newValue! }
+        playerInfo?.achievements
     }
     
     private var nextAchievement: Achievements? {

@@ -22,6 +22,8 @@ PlaygroundPage.current.liveView = MiniBlocksViewController(
     // Ambient occlusion renders shadows in block corners for a more realistic look (which is, however, computationally more expensive). Disable to get better performance.
     ambientOcclusionEnabled: true,
     // Displays some SceneKit statistics such as frames-per-second when enabled.
-    debugStatsShown: false
+    debugStatsShown: false,
+    // Displays tutorial-style achievement 'quests' at the top.
+    achievementsShown: true
 )
 

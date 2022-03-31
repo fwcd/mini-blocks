@@ -15,6 +15,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private let renderDistance: Int
     private let ambientOcclusionEnabled: Bool
     private let debugStatsShown: Bool
+    private let achievementsShown: Bool
     private var previousUpdateTime: TimeInterval = 0
     
     // MARK: View properties
@@ -78,7 +79,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         gameMode: GameMode = .survival,
         renderDistance: Int = 8,
         ambientOcclusionEnabled: Bool = false,
-        debugStatsShown: Bool = false
+        debugStatsShown: Bool = false,
+        achievementsShown: Bool = true
     ) {
         self.sceneFrame = sceneFrame
         self.playerName = playerName
@@ -87,6 +89,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         self.renderDistance = renderDistance
         self.ambientOcclusionEnabled = ambientOcclusionEnabled
         self.debugStatsShown = debugStatsShown
+        self.achievementsShown = achievementsShown
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -132,7 +135,11 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         add(entity: makeCrosshairHUDEntity(in: overlayScene.frame))
         add(entity: makeHotbarHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
         add(entity: makeDebugHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
-        add(entity: makeAchievementHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
+        
+        if achievementsShown {
+            add(entity: makeAchievementHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
+        }
+        
         #if canImport(AppKit)
         add(entity: makePauseHUDEntity(in: overlayScene.frame))
         #endif

@@ -22,7 +22,7 @@ struct PlayerInfo: Codable, Hashable {
     /// Whether the player has the debug overlay enabled.
     var hasDebugHUDEnabled: Bool = false
     /// Achievements by the player.
-    var achievements: Achievements = []
+    private(set) var achievements: Achievements = []
     
     /// The currently selected stack on the hotbar.
     var selectedHotbarStack: ItemStack? {
@@ -41,5 +41,9 @@ struct PlayerInfo: Codable, Hashable {
     
     mutating func applyVelocity() {
         position += velocity
+    }
+    
+    mutating func achieve(_ newAchievements: Achievements) {
+        achievements.formUnion(newAchievements.intersection(achievements.next))
     }
 }
