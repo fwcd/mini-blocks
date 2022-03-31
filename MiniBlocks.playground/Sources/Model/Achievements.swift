@@ -6,6 +6,9 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
     static let moveAround = Self(rawValue: 1 << 1)
     static let jump = Self(rawValue: 1 << 2)
     static let sprint = Self(rawValue: 1 << 3)
+    static let hotbar = Self(rawValue: 1 << 4)
+    static let breakBlock = Self(rawValue: 1 << 5)
+    static let useBlock = Self(rawValue: 1 << 6)
     
     /// The achievements a new player is tasked with.
     static let root = peekAround
@@ -18,16 +21,14 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
     /// The user-facing text for a single achievement.
     var text: String? {
         switch self {
-        case .peekAround:
-            return "Peek around by moving your mouse."
-        case .moveAround:
-            return "Move around using your WASD keys."
-        case .jump:
-            return "Press SPACE to jump."
-        case .sprint:
-            return "Hold SHIFT while moving around with WASD to sprint."
-        default:
-            return nil
+        case .peekAround: return "Peek around by moving your mouse."
+        case .moveAround: return "Move around using your WASD keys."
+        case .jump: return "Press SPACE to jump."
+        case .sprint: return "Hold SHIFT while moving around with WASD to sprint."
+        case .hotbar: return "Scroll or press number keys to switch the held item."
+        case .breakBlock: return "Break a block by clicking/holding your left mouse button."
+        case .useBlock: return "Place a block by clicking/holding your right mouse button."
+        default: return nil
         }
     }
     
@@ -43,14 +44,13 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
         }
         
         switch self {
-        case .peekAround:
-            return .moveAround
-        case .moveAround:
-            return .jump
-        case .jump:
-            return .sprint
-        default:
-            return []
+        case .peekAround: return .moveAround
+        case .moveAround: return .jump
+        case .jump: return .sprint
+        case .sprint: return .hotbar
+        case .hotbar: return .breakBlock
+        case .breakBlock: return .useBlock
+        default: return []
         }
     }
     
