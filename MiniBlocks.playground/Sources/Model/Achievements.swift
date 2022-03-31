@@ -7,8 +7,8 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
     static let jump = Self(rawValue: 1 << 2)
     static let sprint = Self(rawValue: 1 << 3)
     static let hotbar = Self(rawValue: 1 << 4)
-    static let breakBlock = Self(rawValue: 1 << 5)
-    static let useBlock = Self(rawValue: 1 << 6)
+    static let useBlock = Self(rawValue: 1 << 5)
+    static let breakBlock = Self(rawValue: 1 << 6)
     
     /// The achievements a new player is tasked with.
     static let root = peekAround
@@ -21,13 +21,23 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
     /// The user-facing text for a single achievement.
     var text: String? {
         switch self {
+        #if canImport(UIKit)
+        case .peekAround: return "Peek around by panning the screen's right half."
+        case .moveAround: return "Move around by panning the screen's left half."
+        case .jump: return "Tap to jump."
+        case .sprint: return nil // TODO: Implement sprint on iOS
+        case .hotbar: return nil // TODO: Implement hotbar on iOS
+        case .useBlock: return nil // TODO: Implement block placement on iOS
+        case .breakBlock: return "Break a block by holding your finger."
+        #else
         case .peekAround: return "Peek around by moving your mouse."
         case .moveAround: return "Move around using your WASD keys."
         case .jump: return "Press SPACE to jump."
         case .sprint: return "Hold SHIFT while moving around with WASD to sprint."
         case .hotbar: return "Scroll or press number keys to switch the held item."
-        case .breakBlock: return "Break a block by clicking/holding your left mouse button."
         case .useBlock: return "Place a block by clicking/holding your right mouse button."
+        case .breakBlock: return "Break a block by clicking/holding your left mouse button."
+        #endif
         default: return nil
         }
     }
@@ -46,10 +56,15 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
         switch self {
         case .peekAround: return .moveAround
         case .moveAround: return .jump
+        // TODO: Remove this cond-compile once sprint and hotbar are implemented on iOS
+        #if canImport(UIKit)
+        case .jump: return .breakBlock
+        #else
         case .jump: return .sprint
+        #endif
         case .sprint: return .hotbar
-        case .hotbar: return .breakBlock
-        case .breakBlock: return .useBlock
+        case .hotbar: return .useBlock
+        case .useBlock: return .breakBlock
         default: return []
         }
     }
