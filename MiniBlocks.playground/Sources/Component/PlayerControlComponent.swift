@@ -205,7 +205,7 @@ class PlayerControlComponent: GKComponent {
         if delta.contains(.useBlock) {
             newAchievements.insert(.useBlock)
         }
-        achievements?.insert(newAchievements)
+        achievements?.formUnion(newAchievements)
         
         if delta.contains(.useBlock) || delta.contains(.breakBlock) {
             blockThrottler.reset()
