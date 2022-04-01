@@ -7,7 +7,8 @@ func makePlayerEntity(
     gameMode: GameMode,
     worldEntity: GKEntity,
     retainRadius: Int,
-    ambientOcclusionEnabled: Bool
+    ambientOcclusionEnabled: Bool,
+    handShown: Bool
 ) -> GKEntity {
     // Create node
     let height: Double = 1.5
@@ -34,8 +35,11 @@ func makePlayerEntity(
     entity.addComponent(PlayerGravityComponent())
     entity.addComponent(LookAtBlockComponent())
     entity.addComponent(PlayerAssociationComponent(playerEntity: entity)) // a player is associated with itself too
-    entity.addComponent(HandNodeComponent(node: handNode))
-    entity.addComponent(HandLoadComponent())
+    
+    if handShown {
+        entity.addComponent(HandNodeComponent(node: handNode))
+        entity.addComponent(HandLoadComponent())
+    }
     
     // Set initial player info
     if let component = worldEntity.component(ofType: WorldComponent.self) {

@@ -24,6 +24,8 @@ PlaygroundPage.current.liveView = MiniBlocksViewController(
     // Displays some SceneKit statistics such as frames-per-second when enabled.
     debugStatsShown: false,
     // Displays tutorial-style achievement 'quests' at the top.
-    achievementsShown: true
+    achievementsShown: true,
+    // Displays the item held by the player on the right-hand side in a first-person view style.
+    handShown: true
 )
 

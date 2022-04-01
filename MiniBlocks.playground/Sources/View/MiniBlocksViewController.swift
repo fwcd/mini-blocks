@@ -16,6 +16,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private let ambientOcclusionEnabled: Bool
     private let debugStatsShown: Bool
     private let achievementsShown: Bool
+    private let handShown: Bool
     private var previousUpdateTime: TimeInterval = 0
     
     // MARK: View properties
@@ -81,7 +82,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         renderDistance: Int = 8,
         ambientOcclusionEnabled: Bool = false,
         debugStatsShown: Bool = false,
-        achievementsShown: Bool = true
+        achievementsShown: Bool = true,
+        handShown: Bool = true
     ) {
         self.sceneFrame = sceneFrame
         self.playerName = playerName
@@ -91,6 +93,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         self.ambientOcclusionEnabled = ambientOcclusionEnabled
         self.debugStatsShown = debugStatsShown
         self.achievementsShown = achievementsShown
+        self.handShown = handShown
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -125,7 +128,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             gameMode: gameMode,
             worldEntity: worldEntity,
             retainRadius: renderDistance,
-            ambientOcclusionEnabled: ambientOcclusionEnabled
+            ambientOcclusionEnabled: ambientOcclusionEnabled,
+            handShown: handShown
         )
         add(entity: playerEntity)
         
