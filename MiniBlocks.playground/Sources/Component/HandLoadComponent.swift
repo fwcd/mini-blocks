@@ -35,9 +35,8 @@ class HandLoadComponent: GKComponent {
         if let item = item {
             switch item.type {
             case .block(let blockType):
-                // TODO: Tweak positioning
                 let block = makeBlockNode(for: Block(type: blockType))
-                block.position = SCNVector3(x: 0, y: 0, z: -4)
+                block.position = SCNVector3(x: 1.5, y: -1, z: -2.5)
                 node.addChildNode(block)
             }
         }
