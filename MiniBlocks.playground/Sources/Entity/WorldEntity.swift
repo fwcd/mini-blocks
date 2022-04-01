@@ -13,7 +13,7 @@ func makeDemoBlockPositions() -> [BlockPos3] {
     }
 }
 
-func makeWorldEntity(world: World) -> GKEntity {
+func makeWorldEntity(world: World, retainSpawnChunks: Bool = false) -> GKEntity {
     // Create node
     let node = SCNNode()
     
@@ -24,8 +24,9 @@ func makeWorldEntity(world: World) -> GKEntity {
     entity.addComponent(SceneNodeComponent(node: node))
     entity.addComponent(WorldLoadComponent())
     
-    // Uncomment to keep spawn chunks retained
-    // entity.addComponent(WorldRetainComponent())
+    if retainSpawnChunks {
+        entity.addComponent(WorldRetainComponent())
+    }
     
     return entity
 }
