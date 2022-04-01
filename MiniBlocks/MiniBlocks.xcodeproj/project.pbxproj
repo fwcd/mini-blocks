@@ -190,10 +190,8 @@
 		35F2680127F76AAC00CC458C /* HandLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */; };
 		35F2680327F76C7D00CC458C /* HandNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680227F76C7D00CC458C /* HandNodeComponent.swift */; };
 		35F2680427F76C7D00CC458C /* HandNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680227F76C7D00CC458C /* HandNodeComponent.swift */; };
-		35F2680627F77A8300CC458C /* ActorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680527F77A8300CC458C /* ActorBox.swift */; };
-		35F2680727F77A8300CC458C /* ActorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680527F77A8300CC458C /* ActorBox.swift */; };
-		35F2680927F77CB000CC458C /* ActorBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680827F77CB000CC458C /* ActorBinding.swift */; };
-		35F2680A27F77CB000CC458C /* ActorBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680827F77CB000CC458C /* ActorBinding.swift */; };
+		35F2680C27F7848400CC458C /* WorldActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680B27F7848400CC458C /* WorldActor.swift */; };
+		35F2680D27F7848400CC458C /* WorldActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680B27F7848400CC458C /* WorldActor.swift */; };
 		35FEC153278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC154278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
@@ -317,8 +315,7 @@
 		35EA354D2788B3870066DD82 /* Vec3Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3Protocol.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3Protocol.swift; sourceTree = "<group>"; };
 		35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HandLoadComponent.swift; sourceTree = "<group>"; };
 		35F2680227F76C7D00CC458C /* HandNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandNodeComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HandNodeComponent.swift; sourceTree = "<group>"; };
-		35F2680527F77A8300CC458C /* ActorBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActorBox.swift; path = ../../MiniBlocks.playground/Sources/Utils/ActorBox.swift; sourceTree = "<group>"; };
-		35F2680827F77CB000CC458C /* ActorBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActorBinding.swift; path = ../../MiniBlocks.playground/Sources/Utils/ActorBinding.swift; sourceTree = "<group>"; };
+		35F2680B27F7848400CC458C /* WorldActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldActor.swift; path = ../../MiniBlocks.playground/Sources/Actor/WorldActor.swift; sourceTree = "<group>"; };
 		35FEC152278E6B1B00E2000E /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Deque.swift; path = ../../MiniBlocks.playground/Sources/Utils/Deque.swift; sourceTree = "<group>"; };
 		35FEC155278E6BD900E2000E /* CyclicDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CyclicDeque.swift; path = ../../MiniBlocks.playground/Sources/Utils/CyclicDeque.swift; sourceTree = "<group>"; };
 		35FEC158278E700D00E2000E /* CyclicDequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicDequeTests.swift; sourceTree = "<group>"; };
@@ -428,8 +425,6 @@
 				35EA352327889B560066DD82 /* ChunkConstants.swift */,
 				35EA352527889CBE0066DD82 /* GridIterator2.swift */,
 				35A0C28727873D2900FA8570 /* Box.swift */,
-				35F2680527F77A8300CC458C /* ActorBox.swift */,
-				35F2680827F77CB000CC458C /* ActorBinding.swift */,
 				35A0C297278753AE00FA8570 /* Throttler.swift */,
 				357EB0CB279640B00004CA6E /* Debouncer.swift */,
 				3546255727878798000489E8 /* SceneKitUtils.swift */,
@@ -521,6 +516,7 @@
 			isa = PBXGroup;
 			children = (
 				35A0C28427873D0400FA8570 /* Utils */,
+				35F2680E27F7848900CC458C /* Actor */,
 				35A0C2992787568300FA8570 /* Model */,
 				35A55551278C47A7006FA70D /* Node */,
 				35A0C27E27872CB500FA8570 /* Component */,
@@ -575,6 +571,14 @@
 				357EB0D0279644820004CA6E /* DebouncerTests.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		35F2680E27F7848900CC458C /* Actor */ = {
+			isa = PBXGroup;
+			children = (
+				35F2680B27F7848400CC458C /* WorldActor.swift */,
+			);
+			name = Actor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -744,6 +748,7 @@
 				35391BF5278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */,
 				35391BD8278BC5EE00B22954 /* PlayerGravityComponent.swift in Sources */,
 				35A55557278C4806006FA70D /* CrosshairHUDNode.swift in Sources */,
+				35F2680D27F7848400CC458C /* WorldActor.swift in Sources */,
 				35391BDC278BC5EE00B22954 /* WorldComponent.swift in Sources */,
 				355006CC27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */,
 				35391BCB278BC5D800B22954 /* CoreGraphicsUtils.swift in Sources */,
@@ -787,7 +792,6 @@
 				35391BAF278BC5A800B22954 /* AppDelegate.swift in Sources */,
 				35A5552B278C3AE0006FA70D /* WavyHillsWorldGenerator.swift in Sources */,
 				35FEC154278E6B1B00E2000E /* Deque.swift in Sources */,
-				35F2680A27F77CB000CC458C /* ActorBinding.swift in Sources */,
 				3554CAFA27F50578000EE620 /* Achievements.swift in Sources */,
 				35A55547278C408C006FA70D /* ItemStack.swift in Sources */,
 				35391BDB278BC5EE00B22954 /* HeightAboveGroundComponent.swift in Sources */,
@@ -798,7 +802,6 @@
 				3540751D27F2A10A00887E01 /* PauseHUDNode.swift in Sources */,
 				35A5555D278C497F006FA70D /* ItemNode.swift in Sources */,
 				35391BE4278BC5F400B22954 /* SunEntity.swift in Sources */,
-				35F2680727F77A8300CC458C /* ActorBox.swift in Sources */,
 				355006CF27A0C0710021A0BE /* DebugHUDLoadComponent.swift in Sources */,
 				35391BC7278BC5D800B22954 /* SceneKitUtils.swift in Sources */,
 				3572144827957961003C640F /* Vec2.swift in Sources */,
@@ -835,6 +838,7 @@
 				352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */,
 				35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */,
 				35A55556278C4806006FA70D /* CrosshairHUDNode.swift in Sources */,
+				35F2680C27F7848400CC458C /* WorldActor.swift in Sources */,
 				35EA352427889B560066DD82 /* ChunkConstants.swift in Sources */,
 				355006CB27A0BECD0021A0BE /* DebugHUDEntity.swift in Sources */,
 				35EA354C2788B1D30066DD82 /* Vec2Protocol.swift in Sources */,
@@ -878,7 +882,6 @@
 				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
 				35A0C296278752E900FA8570 /* PlayerGravityComponent.swift in Sources */,
 				35FEC153278E6B1B00E2000E /* Deque.swift in Sources */,
-				35F2680927F77CB000CC458C /* ActorBinding.swift in Sources */,
 				3554CAF927F50578000EE620 /* Achievements.swift in Sources */,
 				35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */,
 				3546255827878798000489E8 /* SceneKitUtils.swift in Sources */,
@@ -889,7 +892,6 @@
 				3540751C27F2A10A00887E01 /* PauseHUDNode.swift in Sources */,
 				35A5555C278C497F006FA70D /* ItemNode.swift in Sources */,
 				35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */,
-				35F2680627F77A8300CC458C /* ActorBox.swift in Sources */,
 				355006CE27A0C0710021A0BE /* DebugHUDLoadComponent.swift in Sources */,
 				35EA352227889B200066DD82 /* ChunkPos.swift in Sources */,
 				3572144727957961003C640F /* Vec2.swift in Sources */,
