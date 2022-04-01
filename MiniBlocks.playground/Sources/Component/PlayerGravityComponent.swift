@@ -6,7 +6,7 @@ class PlayerGravityComponent: GKComponent {
     var acceleration: Double = -0.4
     private var throttler = Throttler(interval: 0.1)
     
-    private var world: World? {
+    @WorldActor private var world: World? {
         entity?.component(ofType: WorldAssociationComponent.self)?.world
     }
     
@@ -14,12 +14,18 @@ class PlayerGravityComponent: GKComponent {
         entity?.component(ofType: PlayerAssociationComponent.self)
     }
     
-    private var playerInfo: PlayerInfo? {
+    @WorldActor private var playerInfo: PlayerInfo? {
         get { playerAssociationComponent?.playerInfo }
         set { playerAssociationComponent?.playerInfo = newValue! }
     }
     
     override func update(deltaTime seconds: TimeInterval) {
+        Task.detached { @WorldActor in
+            await self._update(deltaTime: seconds)
+        }
+    }
+    
+    @WorldActor private func _update(deltaTime seconds: TimeInterval) async {
         // Note that we don't use the if-var-and-assign idiom for playerInfo due to responsiveness issues (and inout bindings aren't in Swift yet)
         guard let world = world,
               playerInfo != nil,

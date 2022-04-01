@@ -4,7 +4,7 @@ import GameplayKit
 class WorldAssociationComponent: GKComponent {
     let worldEntity: GKEntity
     
-    var world: World? {
+    @WorldActor var world: World? {
         get { worldEntity.component(ofType: WorldComponent.self)?.world }
         set { worldEntity.component(ofType: WorldComponent.self)?.world = newValue! }
     }
