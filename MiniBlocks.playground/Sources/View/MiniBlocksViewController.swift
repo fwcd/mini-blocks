@@ -117,14 +117,16 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         add(entity: makeAmbientLightEntity())
         
         // Add the world
-        let worldEntity = makeWorldEntity(world: World(generator: worldGenerator))
+        let world = World(generator: worldGenerator)
+        let worldEntity = makeWorldEntity(world: world)
         add(entity: worldEntity)
         
         // Add player
-        let playerSpawnPos = Vec3(y: 10)
+        let playerSpawnPos2 = BlockPos2.zero
+        let playerSpawnPos3 = playerSpawnPos2.with(y: world.height(at: playerSpawnPos2) ?? 10)
         let playerEntity = makePlayerEntity(
             name: playerName,
-            position: playerSpawnPos,
+            position: Vec3(playerSpawnPos3),
             gameMode: gameMode,
             worldEntity: worldEntity,
             retainRadius: renderDistance,
