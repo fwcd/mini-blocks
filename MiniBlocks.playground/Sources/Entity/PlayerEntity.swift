@@ -17,8 +17,10 @@ func makePlayerEntity(
         camera.screenSpaceAmbientOcclusionIntensity = 0.5
         camera.screenSpaceAmbientOcclusionRadius = 0.5
     }
+    let handNode = SCNNode()
     let node = SCNNode()
     node.camera = camera
+    node.addChildNode(handNode)
     
     // Create entity
     let entity = GKEntity()
@@ -32,6 +34,8 @@ func makePlayerEntity(
     entity.addComponent(PlayerGravityComponent())
     entity.addComponent(LookAtBlockComponent())
     entity.addComponent(PlayerAssociationComponent(playerEntity: entity)) // a player is associated with itself too
+    entity.addComponent(HandNodeComponent(node: handNode))
+    entity.addComponent(HandLoadComponent())
     
     // Set initial player info
     if let component = worldEntity.component(ofType: WorldComponent.self) {

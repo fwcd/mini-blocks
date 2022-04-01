@@ -58,8 +58,6 @@
 		35391BF2278BC79A00B22954 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35391BF1278BC79A00B22954 /* SceneDelegate.swift */; };
 		35391BF4278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */; };
 		35391BF5278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */; };
-		3540751627F29E0600887E01 /* HandEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751527F29E0600887E01 /* HandEntity.swift */; };
-		3540751727F29E0600887E01 /* HandEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751527F29E0600887E01 /* HandEntity.swift */; };
 		3540751927F2A06300887E01 /* PauseHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751827F2A06300887E01 /* PauseHUDEntity.swift */; };
 		3540751A27F2A06300887E01 /* PauseHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751827F2A06300887E01 /* PauseHUDEntity.swift */; };
 		3540751C27F2A10A00887E01 /* PauseHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751B27F2A10A00887E01 /* PauseHUDNode.swift */; };
@@ -188,6 +186,10 @@
 		35EA354A2788A8B00066DD82 /* ChunkRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35492788A8B00066DD82 /* ChunkRegion.swift */; };
 		35EA354C2788B1D30066DD82 /* Vec2Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354B2788B1D30066DD82 /* Vec2Protocol.swift */; };
 		35EA354E2788B3870066DD82 /* Vec3Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354D2788B3870066DD82 /* Vec3Protocol.swift */; };
+		35F2680027F76AAC00CC458C /* HandLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */; };
+		35F2680127F76AAC00CC458C /* HandLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */; };
+		35F2680327F76C7D00CC458C /* HandNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680227F76C7D00CC458C /* HandNodeComponent.swift */; };
+		35F2680427F76C7D00CC458C /* HandNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680227F76C7D00CC458C /* HandNodeComponent.swift */; };
 		35FEC153278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC154278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
@@ -221,7 +223,6 @@
 		35391BF1278BC79A00B22954 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompatibilityLayer.swift; path = ../../MiniBlocks.playground/Sources/Utils/CompatibilityLayer.swift; sourceTree = "<group>"; };
 		35391BF6278BCDBC00B22954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		3540751527F29E0600887E01 /* HandEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/HandEntity.swift; sourceTree = "<group>"; };
 		3540751827F2A06300887E01 /* PauseHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PauseHUDEntity.swift; path = ../../MiniBlocks.playground/Sources/Entity/PauseHUDEntity.swift; sourceTree = "<group>"; };
 		3540751B27F2A10A00887E01 /* PauseHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PauseHUDNode.swift; path = ../../MiniBlocks.playground/Sources/Node/PauseHUDNode.swift; sourceTree = "<group>"; };
 		3540751E27F2A47D00887E01 /* NodeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NodeConstants.swift; path = ../../MiniBlocks.playground/Sources/Node/NodeConstants.swift; sourceTree = "<group>"; };
@@ -310,6 +311,8 @@
 		35EA35492788A8B00066DD82 /* ChunkRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChunkRegion.swift; path = ../../MiniBlocks.playground/Sources/Utils/ChunkRegion.swift; sourceTree = "<group>"; };
 		35EA354B2788B1D30066DD82 /* Vec2Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec2Protocol.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec2Protocol.swift; sourceTree = "<group>"; };
 		35EA354D2788B3870066DD82 /* Vec3Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3Protocol.swift; path = ../../MiniBlocks.playground/Sources/Utils/Vec3Protocol.swift; sourceTree = "<group>"; };
+		35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandLoadComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HandLoadComponent.swift; sourceTree = "<group>"; };
+		35F2680227F76C7D00CC458C /* HandNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandNodeComponent.swift; path = ../../MiniBlocks.playground/Sources/Component/HandNodeComponent.swift; sourceTree = "<group>"; };
 		35FEC152278E6B1B00E2000E /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Deque.swift; path = ../../MiniBlocks.playground/Sources/Utils/Deque.swift; sourceTree = "<group>"; };
 		35FEC155278E6BD900E2000E /* CyclicDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CyclicDeque.swift; path = ../../MiniBlocks.playground/Sources/Utils/CyclicDeque.swift; sourceTree = "<group>"; };
 		35FEC158278E700D00E2000E /* CyclicDequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicDequeTests.swift; sourceTree = "<group>"; };
@@ -373,7 +376,6 @@
 				3554CB0127F51D84000EE620 /* AchievementHUDEntity.swift */,
 				355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */,
 				3540751827F2A06300887E01 /* PauseHUDEntity.swift */,
-				3540751527F29E0600887E01 /* HandEntity.swift */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -394,6 +396,8 @@
 				35EA353D2788A57B0066DD82 /* WorldAssociationComponent.swift */,
 				35EA3517278895750066DD82 /* WorldLoadComponent.swift */,
 				35EA351B278895D60066DD82 /* WorldRetainComponent.swift */,
+				35F2680227F76C7D00CC458C /* HandNodeComponent.swift */,
+				35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */,
 				35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */,
 				355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */,
 				3554CB0427F51F0E000EE620 /* AchievementHUDLoadComponent.swift */,
@@ -715,12 +719,12 @@
 				3554CB0027F51B36000EE620 /* AchievementHUDNode.swift in Sources */,
 				35391BDF278BC5EE00B22954 /* WorldAssociationComponent.swift in Sources */,
 				35391BE1278BC5F400B22954 /* WorldEntity.swift in Sources */,
-				3540751727F29E0600887E01 /* HandEntity.swift in Sources */,
 				35A55527278C3AE0006FA70D /* NatureWorldGenerator.swift in Sources */,
 				35721442279577C7003C640F /* GameMode.swift in Sources */,
 				35391BC5278BC5D800B22954 /* Box.swift in Sources */,
 				35391BC8278BC5D800B22954 /* ChunkConstants.swift in Sources */,
 				357EB0CD279640B00004CA6E /* Debouncer.swift in Sources */,
+				35F2680427F76C7D00CC458C /* HandNodeComponent.swift in Sources */,
 				35A5552D278C3AE0006FA70D /* Item.swift in Sources */,
 				35A55529278C3AE0006FA70D /* EmptyWorldGenerator.swift in Sources */,
 				35391BC3278BC5D800B22954 /* MathUtils.swift in Sources */,
@@ -740,6 +744,7 @@
 				35A55533278C3AE0006FA70D /* ItemType.swift in Sources */,
 				35391BF2278BC79A00B22954 /* SceneDelegate.swift in Sources */,
 				3540752027F2A47D00887E01 /* NodeConstants.swift in Sources */,
+				35F2680127F76AAC00CC458C /* HandLoadComponent.swift in Sources */,
 				35A55531278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
 				35391BD9278BC5EE00B22954 /* SceneNodeComponent.swift in Sources */,
 				35391BC0278BC5D800B22954 /* BlockPos3.swift in Sources */,
@@ -803,12 +808,12 @@
 				3554CAFF27F51B36000EE620 /* AchievementHUDNode.swift in Sources */,
 				35E7F416278688180067F0F7 /* KeyCode.swift in Sources */,
 				35A55537278C3B42006FA70D /* Inventory.swift in Sources */,
-				3540751627F29E0600887E01 /* HandEntity.swift in Sources */,
 				35A55532278C3AE0006FA70D /* ItemType.swift in Sources */,
 				357214412795747A003C640F /* GameMode.swift in Sources */,
 				35A0C28627873D1100FA8570 /* BlockPos3.swift in Sources */,
 				35EA353E2788A57C0066DD82 /* WorldAssociationComponent.swift in Sources */,
 				357EB0CC279640B00004CA6E /* Debouncer.swift in Sources */,
+				35F2680327F76C7D00CC458C /* HandNodeComponent.swift in Sources */,
 				35A55530278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
 				35A55526278C3AE0006FA70D /* NatureWorldGenerator.swift in Sources */,
 				35A5553D278C3DB6006FA70D /* NameComponent.swift in Sources */,
@@ -828,6 +833,7 @@
 				35A0C28A27873DB300FA8570 /* WorldEntity.swift in Sources */,
 				35A0C2902787475600FA8570 /* PlayerEntity.swift in Sources */,
 				3540751F27F2A47D00887E01 /* NodeConstants.swift in Sources */,
+				35F2680027F76AAC00CC458C /* HandLoadComponent.swift in Sources */,
 				35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */,
 				352D7A422787B89B008FB939 /* SpriteNodeComponent.swift in Sources */,
 				35EA354A2788A8B00066DD82 /* ChunkRegion.swift in Sources */,

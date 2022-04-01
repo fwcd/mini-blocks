@@ -66,6 +66,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private let playerGravityComponentSystem = GKComponentSystem(componentClass: PlayerGravityComponent.self)
     private let worldLoadComponentSystem = GKComponentSystem(componentClass: WorldLoadComponent.self)
     private let worldRetainComponentSystem = GKComponentSystem(componentClass: WorldRetainComponent.self)
+    private let handLoadComponentSystem = GKComponentSystem(componentClass: HandLoadComponent.self)
     private let hotbarHUDLoadComponentSystem = GKComponentSystem(componentClass: HotbarHUDLoadComponent.self)
     private let debugHUDLoadComponentSystem = GKComponentSystem(componentClass: DebugHUDLoadComponent.self)
     private let achievementHUDLoadComponentSystem = GKComponentSystem(componentClass: AchievementHUDLoadComponent.self)
@@ -127,9 +128,6 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             ambientOcclusionEnabled: ambientOcclusionEnabled
         )
         add(entity: playerEntity)
-        
-        // Add (first-person player) hand
-        add(entity: makeHandEntity())
         
         // Add overlay HUD
         add(entity: makeCrosshairHUDEntity(in: overlayScene.frame))
@@ -223,6 +221,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         lookAtBlockComponentSystem.addComponent(foundIn: entity)
         worldLoadComponentSystem.addComponent(foundIn: entity)
         worldRetainComponentSystem.addComponent(foundIn: entity)
+        handLoadComponentSystem.addComponent(foundIn: entity)
         hotbarHUDLoadComponentSystem.addComponent(foundIn: entity)
         debugHUDLoadComponentSystem.addComponent(foundIn: entity)
         achievementHUDLoadComponentSystem.addComponent(foundIn: entity)
@@ -239,6 +238,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         lookAtBlockComponentSystem.update(deltaTime: deltaTime)
         worldLoadComponentSystem.update(deltaTime: deltaTime)
         worldRetainComponentSystem.update(deltaTime: deltaTime)
+        handLoadComponentSystem.update(deltaTime: deltaTime)
         hotbarHUDLoadComponentSystem.update(deltaTime: deltaTime)
         debugHUDLoadComponentSystem.update(deltaTime: deltaTime)
         achievementHUDLoadComponentSystem.update(deltaTime: deltaTime)
