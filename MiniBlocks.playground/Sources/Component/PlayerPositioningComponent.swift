@@ -17,12 +17,12 @@ class PlayerPositioningComponent: GKComponent {
         entity?.component(ofType: PlayerAssociationComponent.self)
     }
     
-    private var playerInfo: PlayerInfo? {
+    @WorldActor private var playerInfo: PlayerInfo? {
         get { playerAssociationComponent?.playerInfo }
         set { playerAssociationComponent?.playerInfo = newValue! }
     }
     
-    override func update(deltaTime seconds: TimeInterval) {
+    @WorldActor override func update(deltaTime seconds: TimeInterval) {
         guard let node = node,
               var playerInfo = playerInfo else { return }
         

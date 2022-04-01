@@ -27,7 +27,7 @@ class WorldLoadComponent: GKComponent {
     /// Debounces chunk unloading to a fixed interval.
     private var debouncer = Debouncer(interval: 2)
     
-    private var world: World? {
+    @WorldActor private var world: World? {
         get { entity?.component(ofType: WorldComponent.self)?.world }
         set { entity?.component(ofType: WorldComponent.self)?.world = newValue! }
     }
@@ -55,7 +55,7 @@ class WorldLoadComponent: GKComponent {
         }
     }
     
-    override func update(deltaTime seconds: TimeInterval) {
+    @WorldActor override func update(deltaTime seconds: TimeInterval) {
         guard let node = node,
               let world = world else { return }
         
@@ -116,7 +116,7 @@ class WorldLoadComponent: GKComponent {
         dirtyStrips = []
     }
     
-    private func reload(strips: Set<BlockPos2>) {
+    @WorldActor private func reload(strips: Set<BlockPos2>) {
         for pos in strips {
             let chunkPos = ChunkPos(containing: pos)
             if let chunkNode = loadedChunks[chunkPos] {
@@ -129,7 +129,7 @@ class WorldLoadComponent: GKComponent {
         }
     }
     
-    private func loadChunk(at chunkPos: ChunkPos) -> SCNNode {
+    @WorldActor private func loadChunk(at chunkPos: ChunkPos) -> SCNNode {
         let chunkNode = SCNNode()
         
         for pos in chunkPos {
@@ -139,7 +139,7 @@ class WorldLoadComponent: GKComponent {
         return chunkNode
     }
     
-    private func loadStrip(at pos: BlockPos2, into chunkNode: SCNNode) {
+    @WorldActor private func loadStrip(at pos: BlockPos2, into chunkNode: SCNNode) {
         guard let world = world else { return }
         
         for (y, block) in world[pos] {

@@ -21,7 +21,7 @@ class PlayerControlComponent: GKComponent {
     
     private var blockThrottler = Throttler(interval: 0.15)
     
-    private var speed: Double {
+    @WorldActor private var speed: Double {
         baseSpeed
             * (motionInput.contains(.sprint) ? sprintFactor : 1)
             * ((playerInfo?.gameMode.permitsFlight ?? false) ? flightFactor : 1)
@@ -39,7 +39,7 @@ class PlayerControlComponent: GKComponent {
         worldAssocationComponent?.worldNode
     }
     
-    private var world: World? {
+    @WorldActor private var world: World? {
         get { worldAssocationComponent?.world }
         set { worldAssocationComponent?.world = newValue! }
     }
@@ -56,7 +56,7 @@ class PlayerControlComponent: GKComponent {
         entity?.component(ofType: PlayerAssociationComponent.self)
     }
     
-    private var playerInfo: PlayerInfo? {
+    @WorldActor private var playerInfo: PlayerInfo? {
         get { playerAssociationComponent?.playerInfo }
         set { playerAssociationComponent?.playerInfo = newValue! }
     }
@@ -67,37 +67,41 @@ class PlayerControlComponent: GKComponent {
     
     var requestedBaseVelocity: Vec3 = Vec3() {
         didSet {
-            playerInfo?.achieve(.moveAround)
+            Task.detached { @WorldActor in
+                self.playerInfo?.achieve(.moveAround)
+            }
         }
     }
     
     private var requestedVelocity: Vec3? {
-        guard let node = node, let parent = node.parent else { return nil }
-        
-        var vector = SCNVector3(requestedBaseVelocity)
-        
-        if motionInput.contains(.forward) {
-            vector.z -= 1
+        get async {
+            guard let node = node, let parent = node.parent else { return nil }
+            
+            var vector = SCNVector3(requestedBaseVelocity)
+            
+            if motionInput.contains(.forward) {
+                vector.z -= 1
+            }
+            if motionInput.contains(.back) {
+                vector.z += 1
+            }
+            if motionInput.contains(.left) {
+                vector.x -= 1
+            }
+            if motionInput.contains(.right) {
+                vector.x += 1
+            }
+            
+            var rotated = node.convertVector(vector, to: parent)
+            rotated.y = 0 // disable vertical movement
+            
+            if rotated.length > 0 {
+                rotated.normalize()
+                rotated *= SceneFloat(await speed)
+            }
+            
+            return Vec3(rotated)
         }
-        if motionInput.contains(.back) {
-            vector.z += 1
-        }
-        if motionInput.contains(.left) {
-            vector.x -= 1
-        }
-        if motionInput.contains(.right) {
-            vector.x += 1
-        }
-        
-        var rotated = node.convertVector(vector, to: parent)
-        rotated.y = 0 // disable vertical movement
-        
-        if rotated.length > 0 {
-            rotated.normalize()
-            rotated *= SceneFloat(speed)
-        }
-        
-        return Vec3(rotated)
     }
     
     /// A bit set that represents motion input, usually by the user.
@@ -120,8 +124,14 @@ class PlayerControlComponent: GKComponent {
     }
     
     override func update(deltaTime seconds: TimeInterval) {
+        Task.detached { @WorldActor in
+            await self._update(deltaTime: seconds)
+        }
+    }
+    
+    @WorldActor private func _update(deltaTime seconds: TimeInterval) async {
         // Note that we don't use the if-var-and-assign idiom for playerInfo due to responsiveness issues (and inout bindings aren't in Swift yet)
-        guard let requestedVelocity = requestedVelocity,
+        guard let requestedVelocity = await requestedVelocity,
               playerInfo != nil else { return }
         
         // Fetch position and velocity
@@ -194,20 +204,22 @@ class PlayerControlComponent: GKComponent {
     func add(motionInput delta: MotionInput) {
         motionInput.insert(delta)
         
-        if !delta.isDisjoint(with: [.forward, .back, .left, .right]) {
-            playerInfo?.achieve(.moveAround)
-        }
-        if delta.contains(.sprint) {
-            playerInfo?.achieve(.sprint)
-        }
-        if delta.contains(.jump) {
-            playerInfo?.achieve(.jump)
-        }
-        if delta.contains(.breakBlock) {
-            playerInfo?.achieve(.breakBlock)
-        }
-        if delta.contains(.useBlock) {
-            playerInfo?.achieve(.useBlock)
+        Task.detached { @WorldActor in
+            if !delta.isDisjoint(with: [.forward, .back, .left, .right]) {
+                self.playerInfo?.achieve(.moveAround)
+            }
+            if delta.contains(.sprint) {
+                self.playerInfo?.achieve(.sprint)
+            }
+            if delta.contains(.jump) {
+                self.playerInfo?.achieve(.jump)
+            }
+            if delta.contains(.breakBlock) {
+                self.playerInfo?.achieve(.breakBlock)
+            }
+            if delta.contains(.useBlock) {
+                self.playerInfo?.achieve(.useBlock)
+            }
         }
         
         if delta.contains(.useBlock) || delta.contains(.breakBlock) {
@@ -223,13 +235,17 @@ class PlayerControlComponent: GKComponent {
     /// Rotates the node vertically by the given angle (in radians).
     func rotatePitch(by delta: SceneFloat) {
         guard let node = node, canRotatePitch(by: delta) else { return }
-        playerInfo?.achieve(.peekAround)
+        Task.detached { @WorldActor in
+            self.playerInfo?.achieve(.peekAround)
+        }
         node.eulerAngles.x += delta * pitchSpeed
     }
     
     /// Rotates the node horizontally by the given angle (in radians).
     func rotateYaw(by delta: SceneFloat) {
-        playerInfo?.achieve(.peekAround)
+        Task.detached { @WorldActor in
+            self.playerInfo?.achieve(.peekAround)
+        }
         node?.eulerAngles.y += delta * yawSpeed
     }
     
@@ -238,22 +254,22 @@ class PlayerControlComponent: GKComponent {
         return pitchRange.contains(node.eulerAngles.x + delta * pitchSpeed)
     }
     
-    func moveHotbarSelection(by delta: Int) {
+    @WorldActor func moveHotbarSelection(by delta: Int) {
         playerInfo?.achieve(.hotbar)
         playerInfo?.selectedHotbarSlot += delta
     }
     
-    func select(hotbarSlot: Int) {
+    @WorldActor func select(hotbarSlot: Int) {
         playerInfo?.achieve(.hotbar)
         playerInfo?.selectedHotbarSlot = hotbarSlot
     }
     
     /// Toggles the debug overlay for the player.
-    func toggleDebugHUD() {
+    @WorldActor func toggleDebugHUD() {
         playerInfo?.hasDebugHUDEnabled = !(playerInfo?.hasDebugHUDEnabled ?? true)
     }
     
-    func jump() {
+    @WorldActor func jump() {
         guard playerInfo?.isOnGround ?? false else { return }
         playerInfo?.achieve(.jump)
         playerInfo?.velocity.y = jumpSpeed

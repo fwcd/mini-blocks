@@ -16,12 +16,12 @@ class PlayerAssociationComponent: GKComponent {
         entity?.component(ofType: WorldAssociationComponent.self)
     }
     
-    private var world: World? {
+    @WorldActor private var world: World? {
         get { worldAssocationComponent?.world }
         set { worldAssocationComponent?.world = newValue! }
     }
     
-    var playerInfo: PlayerInfo? {
+    @WorldActor var playerInfo: PlayerInfo? {
         get { playerName.flatMap { world?[playerInfoFor: $0] } }
         set {
             guard let playerName = playerName else { return }

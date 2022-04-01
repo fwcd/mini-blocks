@@ -13,21 +13,21 @@ class AchievementHUDLoadComponent: GKComponent {
         entity?.component(ofType: SpriteNodeComponent.self)?.node
     }
     
-    private var world: World? {
+    @WorldActor private var world: World? {
         get { entity?.component(ofType: WorldAssociationComponent.self)?.world }
         set { entity?.component(ofType: WorldAssociationComponent.self)?.world = newValue }
     }
     
-    private var playerInfo: PlayerInfo? {
+    @WorldActor private var playerInfo: PlayerInfo? {
         get { entity?.component(ofType: PlayerAssociationComponent.self)?.playerInfo }
         set { entity?.component(ofType: PlayerAssociationComponent.self)?.playerInfo = newValue }
     }
     
-    private var achievements: Achievements? {
+    @WorldActor private var achievements: Achievements? {
         playerInfo?.achievements
     }
     
-    private var nextAchievement: Achievements? {
+    @WorldActor private var nextAchievement: Achievements? {
         achievements?.next
     }
     
@@ -41,15 +41,21 @@ class AchievementHUDLoadComponent: GKComponent {
     }
     
     override func update(deltaTime seconds: TimeInterval) {
+        Task.detached { @WorldActor in
+            await self._update(deltaTime: seconds)
+        }
+    }
+    
+    @WorldActor private func _update(deltaTime seconds: TimeInterval) async {
         guard let node = node else { return }
         
         if lastAchievement != nextAchievement {
             // Update when achievements change
-            node.removeAllChildren()
+            await node.removeAllChildren()
             
             if let nextAchievement = nextAchievement,
                let achievementNode = makeAchievementHUDNode(for: nextAchievement, fontSize: 13) {
-                node.addChild(achievementNode)
+                await node.addChild(achievementNode)
             }
             
             lastAchievement = nextAchievement

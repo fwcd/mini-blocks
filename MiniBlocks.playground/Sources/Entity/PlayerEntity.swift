@@ -9,7 +9,7 @@ func makePlayerEntity(
     retainRadius: Int,
     ambientOcclusionEnabled: Bool,
     handShown: Bool
-) -> GKEntity {
+) async -> GKEntity {
     // Create node
     let height: Double = 1.5
     let camera = SCNCamera()
@@ -43,12 +43,14 @@ func makePlayerEntity(
     
     // Set initial player info
     if let component = worldEntity.component(ofType: WorldComponent.self) {
-        var playerInfo = component.world[playerInfoFor: name]
-        
-        playerInfo.position = position
-        playerInfo.gameMode = gameMode
-        
-        component.world[playerInfoFor: name] = playerInfo
+        await Task { @WorldActor in
+            var playerInfo = component.world[playerInfoFor: name]
+            
+            playerInfo.position = position
+            playerInfo.gameMode = gameMode
+            
+            component.world[playerInfoFor: name] = playerInfo
+        }.value
     }
     
     return entity

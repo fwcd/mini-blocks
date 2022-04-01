@@ -112,41 +112,43 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         overlayScene.scaleMode = .aspectFill
         overlayScene.isUserInteractionEnabled = false
         
-        // Add light
-        add(entity: makeSunEntity())
-        add(entity: makeAmbientLightEntity())
-        
-        // Add the world
-        let world = World(generator: worldGenerator)
-        let worldEntity = makeWorldEntity(world: world)
-        add(entity: worldEntity)
-        
-        // Add player
-        let playerSpawnPos2 = BlockPos2.zero
-        let playerSpawnPos3 = playerSpawnPos2.with(y: world.height(at: playerSpawnPos2) ?? 10)
-        let playerEntity = makePlayerEntity(
-            name: playerName,
-            position: Vec3(playerSpawnPos3),
-            gameMode: gameMode,
-            worldEntity: worldEntity,
-            retainRadius: renderDistance,
-            ambientOcclusionEnabled: ambientOcclusionEnabled,
-            handShown: handShown
-        )
-        add(entity: playerEntity)
-        
-        // Add overlay HUD
-        add(entity: makeCrosshairHUDEntity(in: overlayScene.frame))
-        add(entity: makeHotbarHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
-        add(entity: makeDebugHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
-        
-        if achievementsShown {
-            add(entity: makeAchievementHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
+        Task {
+            // Add light
+            add(entity: makeSunEntity())
+            add(entity: makeAmbientLightEntity())
+            
+            // Add the world
+            let world = World(generator: worldGenerator)
+            let worldEntity = makeWorldEntity(world: world)
+            add(entity: worldEntity)
+            
+            // Add player
+            let playerSpawnPos2 = BlockPos2.zero
+            let playerSpawnPos3 = playerSpawnPos2.with(y: world.height(at: playerSpawnPos2) ?? 10)
+            let playerEntity = await makePlayerEntity(
+                name: playerName,
+                position: Vec3(playerSpawnPos3),
+                gameMode: gameMode,
+                worldEntity: worldEntity,
+                retainRadius: renderDistance,
+                ambientOcclusionEnabled: ambientOcclusionEnabled,
+                handShown: handShown
+            )
+            add(entity: playerEntity)
+            
+            // Add overlay HUD
+            add(entity: makeCrosshairHUDEntity(in: overlayScene.frame))
+            add(entity: makeHotbarHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
+            add(entity: makeDebugHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
+            
+            if achievementsShown {
+                add(entity: makeAchievementHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
+            }
+            
+            #if canImport(AppKit)
+            add(entity: makePauseHUDEntity(in: overlayScene.frame))
+            #endif
         }
-        
-        #if canImport(AppKit)
-        add(entity: makePauseHUDEntity(in: overlayScene.frame))
-        #endif
         
         // Set up SCNView
         let sceneView = sceneFrame.map { MiniBlocksSceneView(frame: $0) } ?? MiniBlocksSceneView()
@@ -253,9 +255,11 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         previousUpdateTime = time
     }
     
-    private func controlPlayer(with action: (PlayerControlComponent) -> Void) {
-        for case let component as PlayerControlComponent in playerControlComponentSystem.components {
-            action(component)
+    private func controlPlayer(with action: @escaping (PlayerControlComponent) async -> Void) {
+        Task {
+            for case let component as PlayerControlComponent in playerControlComponentSystem.components {
+                await action(component)
+            }
         }
     }
     
@@ -273,13 +277,13 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         } else if keyCode == .f3 {
             // Toggle debug information shown as an overlay (e.g. the current position)
             controlPlayer { component in
-                component.toggleDebugHUD()
+                await component.toggleDebugHUD()
             }
         } else if let n = keyCode.numericValue {
             if (1...InventoryConstants.hotbarSlotCount).contains(n) {
                 // Select hotbar slot
                 controlPlayer { component in
-                    component.select(hotbarSlot: n - 1)
+                    await component.select(hotbarSlot: n - 1)
                 }
             }
         } else {
@@ -367,8 +371,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             
             // Rotate camera
             controlPlayer { component in
-                component.rotateYaw(by: -(event.deltaX * inputSensivity) / 50)
-                component.rotatePitch(by: -(event.deltaY * inputSensivity) / 50)
+                component.rotateYaw(by: -(event.deltaX * self.inputSensivity) / 50)
+                component.rotatePitch(by: -(event.deltaY * self.inputSensivity) / 50)
             }
             
             // Keep mouse at center of window
@@ -382,7 +386,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             
             // Move the selected slot
             controlPlayer { component in
-                component.moveHotbarSelection(by: slotDelta)
+                await component.moveHotbarSelection(by: slotDelta)
             }
         }
     }

@@ -6,12 +6,12 @@ class DebugHUDLoadComponent: GKComponent {
         entity?.component(ofType: SpriteNodeComponent.self)?.node as? SKLabelNode
     }
     
-    private var world: World? {
+    @WorldActor private var world: World? {
         get { entity?.component(ofType: WorldAssociationComponent.self)?.world }
         set { entity?.component(ofType: WorldAssociationComponent.self)?.world = newValue }
     }
     
-    private var playerInfo: PlayerInfo? {
+    @WorldActor private var playerInfo: PlayerInfo? {
         get { entity?.component(ofType: PlayerAssociationComponent.self)?.playerInfo }
         set { entity?.component(ofType: PlayerAssociationComponent.self)?.playerInfo = newValue }
     }
@@ -21,8 +21,16 @@ class DebugHUDLoadComponent: GKComponent {
     }
     
     override func update(deltaTime seconds: TimeInterval) {
+        Task.detached { @WorldActor in
+            await self._update(deltaTime: seconds)
+        }
+    }
+        
+    @WorldActor private func _update(deltaTime seconds: TimeInterval) async {
         guard let playerInfo = playerInfo,
               let node = node else { return }
+        
+        let text: String?
         
         if playerInfo.hasDebugHUDEnabled {
             var stats = [
@@ -38,10 +46,14 @@ class DebugHUDLoadComponent: GKComponent {
                 ]
             }
             
-            node.text = stats.map { "\($0.0): \($0.1)" }.joined(separator: "\n")
+            text = stats.map { "\($0.0): \($0.1)" }.joined(separator: "\n")
         } else {
-            node.text = nil
+            text = nil
         }
+        
+        await Task { @MainActor in
+            node.text = text
+        }.value
     }
     
     private func format(pos: BlockPos3) -> String {

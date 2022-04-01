@@ -10,21 +10,27 @@ class HandLoadComponent: GKComponent {
         entity?.component(ofType: HandNodeComponent.self)?.node
     }
     
-    private var world: World? {
+    @WorldActor private var world: World? {
         get { entity?.component(ofType: WorldAssociationComponent.self)?.world }
         set { entity?.component(ofType: WorldAssociationComponent.self)?.world = newValue }
     }
     
-    private var playerInfo: PlayerInfo? {
+    @WorldActor private var playerInfo: PlayerInfo? {
         get { entity?.component(ofType: PlayerAssociationComponent.self)?.playerInfo }
         set { entity?.component(ofType: PlayerAssociationComponent.self)?.playerInfo = newValue }
     }
     
-    private var item: Item? {
+    @WorldActor private var item: Item? {
         playerInfo?.selectedHotbarStack?.item
     }
     
     override func update(deltaTime seconds: TimeInterval) {
+        Task.detached { @WorldActor in
+            self._update(deltaTime: seconds)
+        }
+    }
+    
+    @WorldActor private func _update(deltaTime seconds: TimeInterval) {
         guard let node = node,
               lastItem != item else { return }
         
