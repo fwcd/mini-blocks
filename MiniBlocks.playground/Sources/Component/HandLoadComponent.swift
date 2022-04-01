@@ -46,9 +46,16 @@ class HandLoadComponent: GKComponent {
     
     /// Schedules a 'swing' animation indicating that e.g. a block was placed/broken.
     func swing() {
+        let halfDuration = 0.1
         node?.runAction(.sequence([
-            .move(by: SCNVector3(x: 0, y: 0, z: -2), duration: 0.2),
-            .move(to: SCNVector3(x: 0, y: 0, z: 0), duration: 0.1),
+            .group([
+                .move(by: SCNVector3(x: 0, y: 0, z: -2), duration: halfDuration),
+                .rotateBy(x: 0, y: 1, z: 1, duration: halfDuration),
+            ]),
+            .group([
+                .move(to: SCNVector3(x: 0, y: 0, z: 0), duration: halfDuration),
+                .rotateTo(x: 0, y: 0, z: 0, duration: halfDuration),
+            ]),
         ]))
     }
 }
