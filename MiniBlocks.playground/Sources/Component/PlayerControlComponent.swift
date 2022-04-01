@@ -8,6 +8,8 @@ private let velocityId = "PlayerControlComponent"
 class PlayerControlComponent: GKComponent {
     /// The current motion input.
     private var motionInput: MotionInput = []
+    /// Achievements since the last SceneKit update. We batch these to avoid mutating the world from the main thread.
+    private var newAchievements: Achievements = []
     
     private var baseSpeed: Double = 0.5
     private var flightFactor: Double = 2
@@ -67,7 +69,7 @@ class PlayerControlComponent: GKComponent {
     
     var requestedBaseVelocity: Vec3 = Vec3() {
         didSet {
-            playerInfo?.achieve(.moveAround)
+            achieve(.moveAround)
         }
     }
     
@@ -188,6 +190,8 @@ class PlayerControlComponent: GKComponent {
         
         playerInfo!.position = position
         playerInfo!.velocity = velocity
+        
+        flushAchievements()
     }
     
     /// Adds motion input.
@@ -195,19 +199,19 @@ class PlayerControlComponent: GKComponent {
         motionInput.insert(delta)
         
         if !delta.isDisjoint(with: [.forward, .back, .left, .right]) {
-            playerInfo?.achieve(.moveAround)
+            achieve(.moveAround)
         }
         if delta.contains(.sprint) {
-            playerInfo?.achieve(.sprint)
+            achieve(.sprint)
         }
         if delta.contains(.jump) {
-            playerInfo?.achieve(.jump)
+            achieve(.jump)
         }
         if delta.contains(.breakBlock) {
-            playerInfo?.achieve(.breakBlock)
+            achieve(.breakBlock)
         }
         if delta.contains(.useBlock) {
-            playerInfo?.achieve(.useBlock)
+            achieve(.useBlock)
         }
         
         if delta.contains(.useBlock) || delta.contains(.breakBlock) {
@@ -223,13 +227,13 @@ class PlayerControlComponent: GKComponent {
     /// Rotates the node vertically by the given angle (in radians).
     func rotatePitch(by delta: SceneFloat) {
         guard let node = node, canRotatePitch(by: delta) else { return }
-        playerInfo?.achieve(.peekAround)
+        achieve(.peekAround)
         node.eulerAngles.x += delta * pitchSpeed
     }
     
     /// Rotates the node horizontally by the given angle (in radians).
     func rotateYaw(by delta: SceneFloat) {
-        playerInfo?.achieve(.peekAround)
+        achieve(.peekAround)
         node?.eulerAngles.y += delta * yawSpeed
     }
     
@@ -239,12 +243,12 @@ class PlayerControlComponent: GKComponent {
     }
     
     func moveHotbarSelection(by delta: Int) {
-        playerInfo?.achieve(.hotbar)
+        achieve(.hotbar)
         playerInfo?.selectedHotbarSlot += delta
     }
     
     func select(hotbarSlot: Int) {
-        playerInfo?.achieve(.hotbar)
+        achieve(.hotbar)
         playerInfo?.selectedHotbarSlot = hotbarSlot
     }
     
@@ -255,8 +259,17 @@ class PlayerControlComponent: GKComponent {
     
     func jump() {
         guard playerInfo?.isOnGround ?? false else { return }
-        playerInfo?.achieve(.jump)
+        achieve(.jump)
         playerInfo?.velocity.y = jumpSpeed
         playerInfo?.leavesGround = true
+    }
+    
+    private func achieve(_ delta: Achievements) {
+        newAchievements.insert(delta)
+    }
+    
+    private func flushAchievements() {
+        playerInfo?.achieve(newAchievements)
+        newAchievements = []
     }
 }
