@@ -48,6 +48,10 @@ class PlayerControlComponent: GKComponent {
         worldAssocationComponent?.worldLoadComponent
     }
     
+    private var handLoadComponent: HandLoadComponent? {
+        entity?.component(ofType: HandLoadComponent.self)
+    }
+    
     private var playerAssociationComponent: PlayerAssociationComponent? {
         entity?.component(ofType: PlayerAssociationComponent.self)
     }
@@ -167,6 +171,7 @@ class PlayerControlComponent: GKComponent {
                motionInput.contains(.breakBlock) {
                 world?.breakBlock(at: lookedAtBlockPos)
                 worldLoadComponent?.markDirty(at: lookedAtBlockPos.asVec2)
+                handLoadComponent?.swing()
             }
             
             // Place on looked-at block if needed
@@ -177,6 +182,7 @@ class PlayerControlComponent: GKComponent {
                 // TODO: Decrement item stack
                 world?.place(block: Block(type: blockType), at: placePos)
                 worldLoadComponent?.markDirty(at: placePos.asVec2)
+                handLoadComponent?.swing()
             }
         }
         
