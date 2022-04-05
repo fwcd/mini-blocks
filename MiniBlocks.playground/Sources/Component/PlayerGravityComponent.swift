@@ -3,7 +3,9 @@ import SceneKit
 
 /// Accelerates the associated node downwards (i.e. in negative-y direction).
 class PlayerGravityComponent: GKComponent {
-    var acceleration: Double = -0.4
+    private let baseAcceleration: Double = -0.4
+    private let submergedFactor: Double = 0.5
+    
     private var throttler = Throttler(interval: 0.1)
     
     private var world: World? {
@@ -31,9 +33,17 @@ class PlayerGravityComponent: GKComponent {
             var velocity = playerInfo!.velocity
             
             let y = position.y
-            let yBound = world.height(below: BlockPos3(rounding: position)).map { $0 + 1 }
+            let blockPos = BlockPos3(rounding: position)
+            let yBound = world.height(below: blockPos, includeLiquids: false).map { $0 + 1 }
             
+            let isSubmerged = world.block(at: blockPos)?.type.isLiquid ?? false
             let willBeOnGround = !playerInfo!.leavesGround && yBound.map { y + velocity.y <= Double($0) } ?? false
+            
+            var acceleration = baseAcceleration
+            
+            if isSubmerged {
+                acceleration *= submergedFactor
+            }
             
             if willBeOnGround {
                 velocity.y = 0
