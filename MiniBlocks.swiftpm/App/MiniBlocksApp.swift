@@ -4,7 +4,7 @@ import SwiftUI
 struct MiniBlocksApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MiniBlocksView()
         }
     }
 }
