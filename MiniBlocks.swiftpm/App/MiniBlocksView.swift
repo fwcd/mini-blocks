@@ -8,7 +8,8 @@ struct MiniBlocksView: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> MiniBlocksViewController {
         MiniBlocksViewController(
-            sceneFrame: UIScreen.main.bounds
+            sceneFrame: UIScreen.main.bounds,
+            ambientOcclusionEnabled: true
         )
     }
 }
