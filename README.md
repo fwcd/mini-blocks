@@ -20,7 +20,7 @@ The game and assets are created entirely from scratch and © fwcd 2022.
 
 ## Repository Structure
 
-The code is located [in the playground](MiniBlocks.swiftpm/Sources) to comply with the Swift Student Challenge's requirements, an Xcode project along with actual macOS/iOS targets and unit tests is however provided too for convenience.
+The code is located [in the playground app project](MiniBlocks.swiftpm) to comply with the Swift Student Challenge's requirements. For convenience, an Xcode project along with actual macOS/iOS targets and unit tests is provided too, however.
 
 ## See also
 
