@@ -1,12 +1,10 @@
 import SwiftUI
+import SceneKit
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
+struct ContentView: UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: MiniBlocksViewController, context: Context) {}
+    
+    func makeUIViewController(context: Context) -> MiniBlocksViewController {
+        MiniBlocksViewController()
     }
 }
