@@ -14,9 +14,9 @@ struct Strip: Hashable, Codable, Sequence {
         set { blocks[y] = newValue }
     }
     
-    func block(below y: Int?) -> (y: Int, Block)? {
+    func block(below y: Int?, includeLiquids: Bool = true) -> (y: Int, Block)? {
         blocks
-            .filter { $0.key <= (y ?? .max) }
+            .filter { $0.key <= (y ?? .max) && (includeLiquids || !$0.value.type.isLiquid) }
             .max { $0.key < $1.key }
             .map { (y: $0.key, block: $0.value) }
     }
