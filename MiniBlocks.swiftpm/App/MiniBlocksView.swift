@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct MiniBlocksView: UIViewControllerRepresentable {
     func updateUIViewController(_ vc: MiniBlocksViewController, context: Context) {
@@ -6,6 +7,8 @@ struct MiniBlocksView: UIViewControllerRepresentable {
     }
     
     func makeUIViewController(context: Context) -> MiniBlocksViewController {
-        MiniBlocksViewController()
+        MiniBlocksViewController(
+            sceneFrame: UIScreen.main.bounds
+        )
     }
 }
