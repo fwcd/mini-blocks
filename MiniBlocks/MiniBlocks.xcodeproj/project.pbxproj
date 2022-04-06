@@ -110,6 +110,8 @@
 		35A0C2A3278757A700FA8570 /* BlockPos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A2278757A700FA8570 /* BlockPos2.swift */; };
 		35A0C2A727875C7300FA8570 /* WorldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A627875C7300FA8570 /* WorldComponent.swift */; };
 		35A0C2A927875EC400FA8570 /* HeightAboveGroundComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */; };
+		35A1C69D27FD399300A2EF76 /* GameControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A1C69C27FD399300A2EF76 /* GameControllerUtils.swift */; };
+		35A1C69E27FD399300A2EF76 /* GameControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A1C69C27FD399300A2EF76 /* GameControllerUtils.swift */; };
 		35A5551C278C3AE0006FA70D /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5550F278C3AE0006FA70D /* World.swift */; };
 		35A5551D278C3AE0006FA70D /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5550F278C3AE0006FA70D /* World.swift */; };
 		35A5551E278C3AE0006FA70D /* Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55510278C3AE0006FA70D /* Strip.swift */; };
@@ -258,6 +260,7 @@
 		35A0C2A2278757A700FA8570 /* BlockPos2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlockPos2.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/BlockPos2.swift; sourceTree = "<group>"; };
 		35A0C2A627875C7300FA8570 /* WorldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/WorldComponent.swift; sourceTree = "<group>"; };
 		35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeightAboveGroundComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/HeightAboveGroundComponent.swift; sourceTree = "<group>"; };
+		35A1C69C27FD399300A2EF76 /* GameControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameControllerUtils.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/GameControllerUtils.swift; sourceTree = "<group>"; };
 		35A5550F278C3AE0006FA70D /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = World.swift; path = ../../MiniBlocks.swiftpm/Sources/Model/World.swift; sourceTree = "<group>"; };
 		35A55510278C3AE0006FA70D /* Strip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Strip.swift; path = ../../MiniBlocks.swiftpm/Sources/Model/Strip.swift; sourceTree = "<group>"; };
 		35A55511278C3AE0006FA70D /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Block.swift; path = ../../MiniBlocks.swiftpm/Sources/Model/Block.swift; sourceTree = "<group>"; };
@@ -426,6 +429,7 @@
 				357EB0CB279640B00004CA6E /* Debouncer.swift */,
 				3546255727878798000489E8 /* SceneKitUtils.swift */,
 				352D7A452787BD70008FB939 /* CoreGraphicsUtils.swift */,
+				35A1C69C27FD399300A2EF76 /* GameControllerUtils.swift */,
 				35EA35372788A09E0066DD82 /* MathUtils.swift */,
 				35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */,
 				35A55567278C5760006FA70D /* Wraparound.swift */,
@@ -753,6 +757,7 @@
 				35A55538278C3B42006FA70D /* Inventory.swift in Sources */,
 				35391BCA278BC5D800B22954 /* Vec2Protocol.swift in Sources */,
 				35A5553E278C3DB6006FA70D /* NameComponent.swift in Sources */,
+				35A1C69E27FD399300A2EF76 /* GameControllerUtils.swift in Sources */,
 				35A55541278C3EBF006FA70D /* HotbarHUDEntity.swift in Sources */,
 				35A55525278C3AE0006FA70D /* WorldGenerator.swift in Sources */,
 				35FEC15C278E76D900E2000E /* FIFOCache.swift in Sources */,
@@ -842,6 +847,7 @@
 				35A55522278C3AE0006FA70D /* BlockType.swift in Sources */,
 				35A5551C278C3AE0006FA70D /* World.swift in Sources */,
 				35A55534278C3AE0006FA70D /* OceanWorldGenerator.swift in Sources */,
+				35A1C69D27FD399300A2EF76 /* GameControllerUtils.swift in Sources */,
 				35A55549278C421C006FA70D /* PlayerAssocationComponent.swift in Sources */,
 				35A0C294278748EA00FA8570 /* PlayerControlComponent.swift in Sources */,
 				35FEC15B278E76D900E2000E /* FIFOCache.swift in Sources */,

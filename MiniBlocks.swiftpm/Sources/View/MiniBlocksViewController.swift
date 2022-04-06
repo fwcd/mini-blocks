@@ -196,18 +196,21 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         pressRecognizer.minimumPressDuration = 0.5
         pressRecognizer.delegate = self
         sceneView.addGestureRecognizer(pressRecognizer)
-        #endif
         
         // Set up input handling via the GameController framework
+        // TODO: Use GameController-based input on macOS too (replacing AppKit)
         let center = NotificationCenter.default
         center.addObserver(forName: .GCMouseDidConnect, object: nil, queue: .main) {
-            ($0.object as? GCMouse)?.mouseInput?.mouseMovedHandler = { (_, dx, dy) in
-                self.controlPlayer { component in
-                    component.rotateYaw(by: -(dx * self.inputSensivity) / 100)
-                    component.rotatePitch(by: (dy * self.inputSensivity) / 100)
-                }
+            if let mouse = $0.object as? GCMouse {
+                self.registerHandlers(for: mouse)
             }
         }
+        center.addObserver(forName: .GCKeyboardDidConnect, object: nil, queue: .main) {
+            if let keyboard = $0.object as? GCKeyboard {
+                self.registerHandlers(for: keyboard)
+            }
+        }
+        #endif
         
         view = sceneView
         log.info("Loaded view")
@@ -274,6 +277,63 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     }
     
     // MARK: Mouse/keyboard controls
+    
+    #if canImport(UIKit)
+    
+    private func registerHandlers(for mouse: GCMouse) {
+        guard let input = mouse.mouseInput else { return }
+        input.mouseMovedHandler = { (_, dx, dy) in
+            self.controlPlayer { component in
+                component.rotateYaw(by: -(SceneFloat(dx) * self.inputSensivity) / 100)
+                component.rotatePitch(by: (SceneFloat(dy) * self.inputSensivity) / 100)
+            }
+        }
+    }
+    
+    private func registerHandlers(for keyboard: GCKeyboard) {
+        guard let input = keyboard.keyboardInput else { return }
+        input.keyChangedHandler = { (_, key, _, down) in
+            // TODO
+            print("\(key), down: \(down)")
+        }
+    }
+    
+    private func keyDown(with keyCode: GCKeyCode) {
+        if keyCode == .F3 {
+            // Toggle debug information shown as an overlay (e.g. the current position)
+            controlPlayer { component in
+                component.toggleDebugHUD()
+            }
+        } else if let n = keyCode.numericValue {
+            if (1...InventoryConstants.hotbarSlotCount).contains(n) {
+                // Select hotbar slot
+                controlPlayer { component in
+                    component.select(hotbarSlot: n - 1)
+                }
+            }
+        } else {
+            let motion = motionInput(for: keyCode)
+            // Pressed key could be mapped motion input, add it to the corresponding components
+            controlPlayer { component in
+                component.add(motionInput: motion)
+            }
+        }
+    }
+    
+    private func motionInput(for keyCode: GCKeyCode) -> PlayerControlComponent.MotionInput {
+        switch keyCode {
+        case .keyW: return .forward
+        case .keyS: return .back
+        case .keyA: return .left
+        case .keyD: return .right
+        case .spacebar: return .jump
+        case .leftShift, .rightShift: return .sprint
+        case .leftControl, .rightControl: return .sneak
+        default: return []
+        }
+    }
+    
+    #endif
     
     #if canImport(AppKit)
     
