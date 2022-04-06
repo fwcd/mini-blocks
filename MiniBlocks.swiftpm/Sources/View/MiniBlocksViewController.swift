@@ -292,9 +292,12 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     private func registerHandlers(for keyboard: GCKeyboard) {
         guard let input = keyboard.keyboardInput else { return }
-        input.keyChangedHandler = { (_, key, _, down) in
-            // TODO
-            print("\(key), down: \(down)")
+        input.keyChangedHandler = { (_, _, keyCode, down) in
+            if down {
+                self.keyDown(with: keyCode)
+            } else {
+                self.keyUp(with: keyCode)
+            }
         }
     }
     
@@ -313,10 +316,18 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             }
         } else {
             let motion = motionInput(for: keyCode)
-            // Pressed key could be mapped motion input, add it to the corresponding components
+            // Pressed key could be mapped to motion input, add it to the corresponding components
             controlPlayer { component in
                 component.add(motionInput: motion)
             }
+        }
+    }
+    
+    private func keyUp(with keyCode: GCKeyCode) {
+        let motion = motionInput(for: keyCode)
+        // Pressed key could be mapped motion input, remove it from the corresponding components
+        controlPlayer { component in
+            component.remove(motionInput: motion)
         }
     }
     
@@ -358,7 +369,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             }
         } else {
             let motion = motionInput(for: keyCode)
-            // Pressed key could be mapped motion input, add it to the corresponding components
+            // Pressed key could be mapped to motion input, add it to the corresponding components
             controlPlayer { component in
                 component.add(motionInput: motion)
             }
@@ -367,7 +378,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     public override func keyUp(with event: NSEvent) {
         let motion = motionInput(for: KeyCode(rawValue: event.keyCode))
-        // Pressed key could be mapped motion input, remove it from the corresponding components
+        // Pressed key could be mapped to motion input, remove it from the corresponding components
         controlPlayer { component in
             component.remove(motionInput: motion)
         }
