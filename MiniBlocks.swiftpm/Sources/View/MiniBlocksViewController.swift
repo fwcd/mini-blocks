@@ -22,7 +22,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     // MARK: View properties
     
-    private var sceneView: SCNView!
+    private var sceneView: MiniBlocksSceneView!
     private let sceneFrame: CGRect?
     private var inputSensivity: SceneFloat = 1
     
@@ -291,7 +291,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
     }
     
-    // MARK: Mouse/keyboard controls
+    // MARK: GameController-based Mouse/keyboard controls
     
     #if canImport(UIKit)
     
@@ -374,6 +374,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     }
     
     #endif
+    
+    // MARK: AppKit-based mouse/keyboard controls
     
     #if canImport(AppKit)
     
