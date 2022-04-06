@@ -22,6 +22,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     // MARK: View properties
     
+    private var sceneView: SCNView!
     private let sceneFrame: CGRect?
     private var inputSensivity: SceneFloat = 1
     
@@ -50,8 +51,10 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     #if canImport(UIKit)
     private var movementControlPadDragStart: CGPoint?
-    private var movementControlPadRecognizer: UIGestureRecognizer!
-    private var cameraControlPadRecognizer: UIGestureRecognizer!
+    private var movementControlPadRecognizer: UIPanGestureRecognizer!
+    private var cameraControlPadRecognizer: UIPanGestureRecognizer!
+    private var tapRecognizer: UITapGestureRecognizer!
+    private var pressRecognizer: UILongPressGestureRecognizer!
     public override var prefersHomeIndicatorAutoHidden: Bool { true }
     public override var prefersPointerLocked: Bool { true }
     #endif
@@ -151,7 +154,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         #endif
         
         // Set up SCNView
-        let sceneView = sceneFrame.map { MiniBlocksSceneView(frame: $0) } ?? MiniBlocksSceneView()
+        sceneView = sceneFrame.map { MiniBlocksSceneView(frame: $0) } ?? MiniBlocksSceneView()
         sceneView.scene = scene
         sceneView.delegate = self
         sceneView.allowsCameraControl = false
@@ -164,8 +167,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         // Keep scene active, otherwise it will stop sending renderer(_:updateAtTime:)s when nothing changes. See also https://stackoverflow.com/questions/39336509/how-do-you-set-up-a-game-loop-for-scenekit
         sceneView.isPlaying = true
         
-        // Set up mouse/keyboard handling when using AppKit (on macOS)
         #if canImport(AppKit)
+        // Set up mouse/keyboard handling when using AppKit (on macOS)
         sceneView.keyEventsDelegate = self
         
         if let sceneFrame = sceneFrame {
@@ -178,37 +181,49 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
         #endif
         
-        // Set up touch gesture handling when using UIKit (on iOS)
         #if canImport(UIKit)
-        movementControlPadRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleMovementControl(_:)))
-        movementControlPadRecognizer.delegate = self
-        sceneView.addGestureRecognizer(movementControlPadRecognizer)
-        
-        cameraControlPadRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleCameraControl(_:)))
-        cameraControlPadRecognizer.delegate = self
-        sceneView.addGestureRecognizer(cameraControlPadRecognizer)
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        tapRecognizer.delegate = self
-        sceneView.addGestureRecognizer(tapRecognizer)
-        
-        let pressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
-        pressRecognizer.minimumPressDuration = 0.5
-        pressRecognizer.delegate = self
-        sceneView.addGestureRecognizer(pressRecognizer)
-        
-        // Set up input handling via the GameController framework
+        // Set up mouse/keyboard handling via the GameController framework (on iOS)
         // TODO: Use GameController-based input on macOS too (replacing AppKit)
         let center = NotificationCenter.default
         center.addObserver(forName: .GCMouseDidConnect, object: nil, queue: .main) {
             if let mouse = $0.object as? GCMouse {
+                self.deregisterUITouchControls()
                 self.registerHandlers(for: mouse)
+            }
+        }
+        center.addObserver(forName: .GCMouseDidDisconnect, object: nil, queue: .main) {
+            if let mouse = $0.object as? GCMouse {
+                self.registerUITouchControls()
+                self.deregisterHandlers(from: mouse)
             }
         }
         center.addObserver(forName: .GCKeyboardDidConnect, object: nil, queue: .main) {
             if let keyboard = $0.object as? GCKeyboard {
                 self.registerHandlers(for: keyboard)
             }
+        }
+        
+        // Set up touch/gesture controls if not using a mouse
+        let movementControlPadRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleMovementControl(_:)))
+        movementControlPadRecognizer.delegate = self
+        
+        let cameraControlPadRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleCameraControl(_:)))
+        cameraControlPadRecognizer.delegate = self
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tapRecognizer.delegate = self
+        
+        let pressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        pressRecognizer.minimumPressDuration = 0.5
+        pressRecognizer.delegate = self
+        
+        self.movementControlPadRecognizer = movementControlPadRecognizer
+        self.cameraControlPadRecognizer = cameraControlPadRecognizer
+        self.tapRecognizer = tapRecognizer
+        self.pressRecognizer = pressRecognizer
+        
+        if GCMouse.current == nil {
+            registerUITouchControls()
         }
         #endif
         
@@ -280,6 +295,15 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     #if canImport(UIKit)
     
+    private func registerGCMouseKeyboardControls() {
+        if let mouse = GCMouse.current {
+            registerHandlers(for: mouse)
+        }
+        if let keyboard = GCKeyboard.coalesced {
+            registerHandlers(for: keyboard)
+        }
+    }
+    
     private func registerHandlers(for mouse: GCMouse) {
         guard let input = mouse.mouseInput else { return }
         input.mouseMovedHandler = { (_, dx, dy) in
@@ -288,6 +312,11 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
                 component.rotatePitch(by: (SceneFloat(dy) * self.inputSensivity) / 100)
             }
         }
+    }
+    
+    private func deregisterHandlers(from mouse: GCMouse) {
+        guard let input = mouse.mouseInput else { return }
+        input.mouseMovedHandler = nil
     }
     
     private func registerHandlers(for keyboard: GCKeyboard) {
@@ -507,6 +536,20 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     // MARK: Touch controls
     
     #if canImport(UIKit)
+    
+    private func registerUITouchControls() {
+        sceneView.addGestureRecognizer(movementControlPadRecognizer)
+        sceneView.addGestureRecognizer(cameraControlPadRecognizer)
+        sceneView.addGestureRecognizer(tapRecognizer)
+        sceneView.addGestureRecognizer(pressRecognizer)
+    }
+    
+    private func deregisterUITouchControls() {
+        sceneView.removeGestureRecognizer(movementControlPadRecognizer)
+        sceneView.removeGestureRecognizer(cameraControlPadRecognizer)
+        sceneView.removeGestureRecognizer(tapRecognizer)
+        sceneView.removeGestureRecognizer(pressRecognizer)
+    }
     
     public func gestureRecognizer(_ recognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith other: UIGestureRecognizer) -> Bool {
         // Support multi-touch
