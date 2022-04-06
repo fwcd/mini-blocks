@@ -291,7 +291,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
     }
     
-    // MARK: GameController-based Mouse/keyboard controls
+    // MARK: GameController-based mouse/keyboard controls
     
     #if canImport(UIKit)
     
@@ -312,6 +312,25 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
                 component.rotatePitch(by: (SceneFloat(dy) * self.inputSensivity) / 100)
             }
         }
+        input.leftButton.valueChangedHandler = { (_, _, pressed) in
+            self.controlPlayer { component in
+                if pressed {
+                    component.add(motionInput: .breakBlock)
+                } else {
+                    component.remove(motionInput: .breakBlock)
+                }
+            }
+        }
+        input.rightButton?.valueChangedHandler = { (_, _, pressed) in
+            self.controlPlayer { component in
+                if pressed {
+                    component.add(motionInput: .useBlock)
+                } else {
+                    component.remove(motionInput: .useBlock)
+                }
+            }
+        }
+        // TODO: Hotbar scrolling
     }
     
     private func deregisterHandlers(from mouse: GCMouse) {
