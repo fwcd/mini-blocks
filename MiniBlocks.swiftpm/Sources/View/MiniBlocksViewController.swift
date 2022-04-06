@@ -2,6 +2,7 @@ import Foundation
 import CoreGraphics
 import SceneKit
 import SpriteKit
+import GameController
 import GameplayKit
 import OSLog
 
@@ -52,6 +53,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private var movementControlPadRecognizer: UIGestureRecognizer!
     private var cameraControlPadRecognizer: UIGestureRecognizer!
     public override var prefersHomeIndicatorAutoHidden: Bool { true }
+    public override var prefersPointerLocked: Bool { true }
     #endif
     
     // MARK: SpriteKit/SceneKit properties
@@ -196,6 +198,17 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         sceneView.addGestureRecognizer(pressRecognizer)
         #endif
         
+        // Set up input handling via the GameController framework
+        let center = NotificationCenter.default
+        center.addObserver(forName: .GCMouseDidConnect, object: nil, queue: .main) {
+            ($0.object as? GCMouse)?.mouseInput?.mouseMovedHandler = { (_, dx, dy) in
+                self.controlPlayer { component in
+                    component.rotateYaw(by: -(dx * self.inputSensivity) / 100)
+                    component.rotatePitch(by: (dy * self.inputSensivity) / 100)
+                }
+            }
+        }
+        
         view = sceneView
         log.info("Loaded view")
     }
@@ -247,7 +260,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         handLoadComponentSystem.update(deltaTime: deltaTime)
         hotbarHUDLoadComponentSystem.update(deltaTime: deltaTime)
         debugHUDLoadComponentSystem.update(deltaTime: deltaTime)
-        achievementHUDLoadComponentSystem.update(deltaTime: deltaTime)
+        // FIXME: This is currently buggy on iPadOS
+        // achievementHUDLoadComponentSystem.update(deltaTime: deltaTime)
         mouseCaptureVisibilityComponentSystem.update(deltaTime: deltaTime)
         
         previousUpdateTime = time
