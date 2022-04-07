@@ -14,7 +14,7 @@ World loading happens in chunked deltas, i.e. only the new/obsolete chunks are a
 
 On the technical side the game uses the SceneKit framework for rendering and is structured using a combination of the entity-component architecture provided by GameplayKit and classic model-view separation. This choice of architecture makes it extensible, avoiding common pitfalls in traditional inheritance-heavy designs, and provides great modularity on top.
 
-By including a compatibility layer, the game can use either AppKit or UIKit for input handling, thereby making it possible to play the game both using mouse/keyboard on macOS and using on-screen touch controls on iOS.
+By including a compatibility layer, the game can use either AppKit, GameController or UIKit for input handling, thereby making it possible to play the game both using either mouse/keyboard or touch controls on macOS, iOS and iPadOS.
 
 The game and assets are created entirely from scratch and © fwcd 2022.
 
