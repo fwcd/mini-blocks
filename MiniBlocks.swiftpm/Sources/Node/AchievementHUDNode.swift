@@ -11,7 +11,7 @@ private func makeBackgroundNode(size: CGSize) -> SKNode {
 private func makeLabelNode(text: String, offset: CGFloat = 0, fontSize: CGFloat) -> SKNode {
     let node = SKLabelNode(text: text)
     node.fontSize = fontSize
-    node.fontColor = .white
+    node.fontColor = NodeConstants.foregroundColor
     node.fontName = NodeConstants.fontName
     node.verticalAlignmentMode = .center
     node.position = CGPoint(x: 0, y: offset)
