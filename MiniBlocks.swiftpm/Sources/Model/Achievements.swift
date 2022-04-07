@@ -32,12 +32,7 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
         switch self {
         case .peekAround: return .moveAround
         case .moveAround: return .jump
-        // TODO: Remove this cond-compile once sprint and hotbar are (fully) implemented on iOS
-        #if canImport(UIKit)
-        case .jump: return .breakBlock
-        #else
         case .jump: return .sprint
-        #endif
         case .sprint: return .hotbar
         case .hotbar: return .useBlock
         case .useBlock: return .breakBlock
@@ -63,9 +58,9 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
             case .peekAround: return "Peek around by panning the screen's right half (or by moving a connected mouse)."
             case .moveAround: return "Move around by panning the screen's left half (or with your WASD keys)."
             case .jump: return "Tap (or press SPACE) to jump."
-            case .sprint: return nil // TODO: Implement sprint on iOS
-            case .hotbar: return nil // TODO: Implement hotbar on iOS
-            case .useBlock: return nil // TODO: Implement block placement on iOS
+            case .sprint: return "Sprint by connecting a mouse." // TODO: Implement sprint on iOS
+            case .hotbar: return "Switch the held item by connecting a mouse." // TODO: Implement hotbar on iOS
+            case .useBlock: return "Place a block by connecting a mouse." // TODO: Implement block placement on iOS
             case .breakBlock: return "Break a block by holding your finger (or your left mouse button)."
             default: return nil
             }
