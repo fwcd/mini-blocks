@@ -649,6 +649,17 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         controlPlayer { component in
             component.jump()
         }
+        
+        // Forward tap to TouchInteractable components
+        let point = overlayScene.convertPoint(fromView: recognizer.location(in: sceneView))
+        touchHandler:
+        for entity in entities {
+            for case let component as TouchInteractable in entity.components {
+                if component.onTap(at: point) {
+                    break touchHandler
+                }
+            }
+        }
     }
     
     @objc
