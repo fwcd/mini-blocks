@@ -38,9 +38,18 @@ class ControlPadHUDControlComponent: GKComponent, TouchInteractable {
     func onDragMove(by delta: CGVector, start: CGPoint, current: CGPoint) {
         guard let stickNode = stickNode else { return }
         let offset = (current - start)
-        let baseVelocity = Vec3(x: offset.x, y: 0, z: -offset.y).normalized
+        let rawBaseVelocity = Vec3(x: offset.x, y: 0, z: -offset.y)
+        let shouldSprint = rawBaseVelocity.length > stickNode.frame.width * 2
+        let baseVelocity = rawBaseVelocity.normalized
+        
         DispatchQueue.main.async {
             stickNode.position = offset
+        }
+        
+        if shouldSprint {
+            playerControlComponent?.add(motionInput: .sprint)
+        } else {
+            playerControlComponent?.remove(motionInput: .sprint)
         }
         playerControlComponent?.requestedBaseVelocity = baseVelocity
     }
@@ -51,6 +60,7 @@ class ControlPadHUDControlComponent: GKComponent, TouchInteractable {
                 stickNode.position = CGPoint(x: 0, y: 0)
             }
         }
+        playerControlComponent?.remove(motionInput: .sprint)
         playerControlComponent?.requestedBaseVelocity = .zero
     }
 }
