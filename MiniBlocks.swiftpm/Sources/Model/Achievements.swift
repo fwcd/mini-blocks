@@ -58,8 +58,8 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
             case .peekAround: return "Peek around by panning the screen's right half (or by moving a connected mouse)."
             case .moveAround: return "Move around by panning the screen's left half (or with your WASD keys)."
             case .jump: return "Tap (or press SPACE) to jump."
-            case .sprint: return "Sprint by connecting a mouse." // TODO: Implement sprint on iOS
-            case .hotbar: return "Switch the held item by connecting a mouse." // TODO: Implement hotbar on iOS
+            case .sprint: return "Hold SHIFT while moving around with WASD to sprint." // TODO: Implement sprint on iOS
+            case .hotbar: return "Switch the held item with your number keys." // TODO: Implement hotbar on iOS
             case .useBlock: return "Place a block by connecting a mouse." // TODO: Implement block placement on iOS
             case .breakBlock: return "Break a block by holding your finger (or your left mouse button)."
             default: return nil
