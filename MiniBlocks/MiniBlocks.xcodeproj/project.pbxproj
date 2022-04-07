@@ -164,6 +164,10 @@
 		35A55569278C5760006FA70D /* Wraparound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55567278C5760006FA70D /* Wraparound.swift */; };
 		35A5556B278C5829006FA70D /* InventoryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5556A278C5829006FA70D /* InventoryConstants.swift */; };
 		35A5556C278C5829006FA70D /* InventoryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5556A278C5829006FA70D /* InventoryConstants.swift */; };
+		35D3491D27FF3A07000F0CC2 /* TouchInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3491C27FF3A07000F0CC2 /* TouchInteractable.swift */; };
+		35D3491E27FF3A07000F0CC2 /* TouchInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3491C27FF3A07000F0CC2 /* TouchInteractable.swift */; };
+		35D3492027FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3491F27FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift */; };
+		35D3492127FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3491F27FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift */; };
 		35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
 		35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
@@ -287,6 +291,8 @@
 		35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotbarHUDLoadComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/HotbarHUDLoadComponent.swift; sourceTree = "<group>"; };
 		35A55567278C5760006FA70D /* Wraparound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Wraparound.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/Wraparound.swift; sourceTree = "<group>"; };
 		35A5556A278C5829006FA70D /* InventoryConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InventoryConstants.swift; path = ../../MiniBlocks.swiftpm/Sources/Model/InventoryConstants.swift; sourceTree = "<group>"; };
+		35D3491C27FF3A07000F0CC2 /* TouchInteractable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TouchInteractable.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/TouchInteractable.swift; sourceTree = "<group>"; };
+		35D3491F27FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HotbarHUDControlComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/HotbarHUDControlComponent.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.swiftpm/Resources/TextureWood.png; sourceTree = "<group>"; };
 		35D8D9ED278B3F470056ACAA /* TextureLeaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureLeaves.png; path = ../../MiniBlocks.swiftpm/Resources/TextureLeaves.png; sourceTree = "<group>"; };
 		35D9E8A0278887960058F0E6 /* SunEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SunEntity.swift; path = ../../MiniBlocks.swiftpm/Sources/Entity/SunEntity.swift; sourceTree = "<group>"; };
@@ -402,9 +408,11 @@
 				35F2680227F76C7D00CC458C /* HandNodeComponent.swift */,
 				35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */,
 				35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */,
+				35D3491F27FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift */,
 				355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */,
 				3554CB0427F51F0E000EE620 /* AchievementHUDLoadComponent.swift */,
 				3540752127F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift */,
+				35D3491C27FF3A07000F0CC2 /* TouchInteractable.swift */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -732,6 +740,7 @@
 				35A5552D278C3AE0006FA70D /* Item.swift in Sources */,
 				35A55529278C3AE0006FA70D /* EmptyWorldGenerator.swift in Sources */,
 				35391BC3278BC5D800B22954 /* MathUtils.swift in Sources */,
+				35D3492127FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift in Sources */,
 				3540752327F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift in Sources */,
 				35391BE0278BC5EE00B22954 /* WorldRetainComponent.swift in Sources */,
 				35A5555A278C4868006FA70D /* BlockNode.swift in Sources */,
@@ -801,6 +810,7 @@
 				35391BE8278BC5F700B22954 /* MiniBlocksViewController.swift in Sources */,
 				35A5556C278C5829006FA70D /* InventoryConstants.swift in Sources */,
 				35A55523278C3AE0006FA70D /* BlockType.swift in Sources */,
+				35D3491E27FF3A07000F0CC2 /* TouchInteractable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -822,6 +832,7 @@
 				35A55530278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
 				35A55526278C3AE0006FA70D /* NatureWorldGenerator.swift in Sources */,
 				35A5553D278C3DB6006FA70D /* NameComponent.swift in Sources */,
+				35D3492027FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift in Sources */,
 				3540752227F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift in Sources */,
 				35EA354E2788B3870066DD82 /* Vec3Protocol.swift in Sources */,
 				35A55559278C4868006FA70D /* BlockNode.swift in Sources */,
@@ -891,6 +902,7 @@
 				35E7F412278683950067F0F7 /* main.swift in Sources */,
 				35A5556B278C5829006FA70D /* InventoryConstants.swift in Sources */,
 				352D7A442787B90A008FB939 /* CrosshairHUDEntity.swift in Sources */,
+				35D3491D27FF3A07000F0CC2 /* TouchInteractable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

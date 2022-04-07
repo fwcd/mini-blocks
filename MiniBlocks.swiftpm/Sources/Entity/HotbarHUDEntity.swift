@@ -11,6 +11,7 @@ func makeHotbarHUDEntity(in frame: CGRect, playerEntity: GKEntity) -> GKEntity {
     entity.addComponent(SpriteNodeComponent(node: node))
     entity.addComponent(PlayerAssociationComponent(playerEntity: playerEntity))
     entity.addComponent(HotbarHUDLoadComponent())
+    entity.addComponent(HotbarHUDControlComponent())
     
     if let worldEntity = playerEntity.component(ofType: WorldAssociationComponent.self)?.worldEntity {
         entity.addComponent(WorldAssociationComponent(worldEntity: worldEntity))
