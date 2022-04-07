@@ -55,9 +55,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     #if canImport(UIKit)
     @Box private var usesMouseKeyboardControls = false
-    private var movementControlPadDragStart: CGPoint?
-    private var movementControlPadRecognizer: UIPanGestureRecognizer!
-    private var cameraControlPadRecognizer: UIPanGestureRecognizer!
+    private var panDragStart: CGPoint?
+    private var panRecognizer: UIPanGestureRecognizer!
     private var tapRecognizer: UITapGestureRecognizer!
     private var pressRecognizer: UILongPressGestureRecognizer!
     public override var prefersHomeIndicatorAutoHidden: Bool { true }
@@ -217,11 +216,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
         
         // Set up touch/gesture controls if not using a mouse
-        let movementControlPadRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleMovementControl(_:)))
-        movementControlPadRecognizer.delegate = self
-        
-        let cameraControlPadRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleCameraControl(_:)))
-        cameraControlPadRecognizer.delegate = self
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
+        panRecognizer.delegate = self
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         tapRecognizer.delegate = self
@@ -230,8 +226,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         pressRecognizer.minimumPressDuration = 0.5
         pressRecognizer.delegate = self
         
-        self.movementControlPadRecognizer = movementControlPadRecognizer
-        self.cameraControlPadRecognizer = cameraControlPadRecognizer
+        self.panRecognizer = panRecognizer
         self.tapRecognizer = tapRecognizer
         self.pressRecognizer = pressRecognizer
         
@@ -616,8 +611,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         add(entity: controlPadHUDEntity)
         self.controlPadHUDEntity = controlPadHUDEntity
         
-        sceneView.addGestureRecognizer(movementControlPadRecognizer)
-        sceneView.addGestureRecognizer(cameraControlPadRecognizer)
+        sceneView.addGestureRecognizer(panRecognizer)
         sceneView.addGestureRecognizer(tapRecognizer)
         sceneView.addGestureRecognizer(pressRecognizer)
     }
@@ -628,8 +622,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             self.controlPadHUDEntity = nil
         }
         
-        sceneView.removeGestureRecognizer(movementControlPadRecognizer)
-        sceneView.removeGestureRecognizer(cameraControlPadRecognizer)
+        sceneView.removeGestureRecognizer(panRecognizer)
         sceneView.removeGestureRecognizer(tapRecognizer)
         sceneView.removeGestureRecognizer(pressRecognizer)
     }
@@ -639,37 +632,23 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         true
     }
     
-    public func gestureRecognizer(_ recognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        guard [movementControlPadRecognizer, cameraControlPadRecognizer].contains(recognizer) else { return true }
-        
-        let bounds = view.bounds
-        let location = touch.location(in: view)
-        
-        // Left side of screen controls movement, right side the camera
-        if location.x < bounds.midX {
-            return recognizer == movementControlPadRecognizer
-        } else {
-            return recognizer == cameraControlPadRecognizer
-        }
-    }
-    
     @objc
-    private func handleMovementControl(_ recognizer: UIPanGestureRecognizer) {
+    private func handlePan(_ recognizer: UIPanGestureRecognizer) {
         let location = recognizer.location(in: view)
-        let start = movementControlPadDragStart ?? location
+        let start = panDragStart ?? location
         let deltaPoint = location - start
         let delta = Vec3(x: deltaPoint.x, y: 0, z: deltaPoint.y).normalized
         
         // Move player as needed
         switch recognizer.state {
         case .began:
-            movementControlPadDragStart = start
+            panDragStart = start
         case .changed:
             controlPlayer { component in
                 component.requestedBaseVelocity = delta
             }
         case .ended:
-            movementControlPadDragStart = nil
+            panDragStart = nil
             controlPlayer { component in
                 component.requestedBaseVelocity = Vec3()
             }
@@ -678,16 +657,17 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
     }
     
-    @objc
-    private func handleCameraControl(_ recognizer: UIPanGestureRecognizer) {
-        let delta = recognizer.velocity(in: view)
-        
-        // Rotate camera
-        controlPlayer { component in
-            component.rotateYaw(by: (-SceneFloat(delta.x) * inputSensivity) / 800)
-            component.rotatePitch(by: (-SceneFloat(delta.y) * inputSensivity) / 800)
-        }
-    }
+    // TODO: Merge this into handlePan(_:)
+//    @objc
+//    private func handleCameraControl(_ recognizer: UIPanGestureRecognizer) {
+//        let delta = recognizer.velocity(in: view)
+//
+//        // Rotate camera
+//        controlPlayer { component in
+//            component.rotateYaw(by: (-SceneFloat(delta.x) * inputSensivity) / 800)
+//            component.rotatePitch(by: (-SceneFloat(delta.y) * inputSensivity) / 800)
+//        }
+//    }
     
     @objc
     private func handleTap(_ recognizer: UITapGestureRecognizer) {

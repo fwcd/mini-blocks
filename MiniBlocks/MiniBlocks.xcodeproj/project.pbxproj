@@ -172,6 +172,8 @@
 		35D3492427FF4001000F0CC2 /* ControlPadHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492227FF4001000F0CC2 /* ControlPadHUDNode.swift */; };
 		35D3492627FF4068000F0CC2 /* ControlPadHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492527FF4068000F0CC2 /* ControlPadHUDEntity.swift */; };
 		35D3492727FF4068000F0CC2 /* ControlPadHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492527FF4068000F0CC2 /* ControlPadHUDEntity.swift */; };
+		35D3492927FF45EB000F0CC2 /* ControlPadHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492827FF45EB000F0CC2 /* ControlPadHUDControlComponent.swift */; };
+		35D3492A27FF45EB000F0CC2 /* ControlPadHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492827FF45EB000F0CC2 /* ControlPadHUDControlComponent.swift */; };
 		35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
 		35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
@@ -299,6 +301,7 @@
 		35D3491F27FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HotbarHUDControlComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/HotbarHUDControlComponent.swift; sourceTree = "<group>"; };
 		35D3492227FF4001000F0CC2 /* ControlPadHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ControlPadHUDNode.swift; path = ../../MiniBlocks.swiftpm/Sources/Node/ControlPadHUDNode.swift; sourceTree = "<group>"; };
 		35D3492527FF4068000F0CC2 /* ControlPadHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ControlPadHUDEntity.swift; path = ../../MiniBlocks.swiftpm/Sources/Entity/ControlPadHUDEntity.swift; sourceTree = "<group>"; };
+		35D3492827FF45EB000F0CC2 /* ControlPadHUDControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ControlPadHUDControlComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/ControlPadHUDControlComponent.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.swiftpm/Resources/TextureWood.png; sourceTree = "<group>"; };
 		35D8D9ED278B3F470056ACAA /* TextureLeaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureLeaves.png; path = ../../MiniBlocks.swiftpm/Resources/TextureLeaves.png; sourceTree = "<group>"; };
 		35D9E8A0278887960058F0E6 /* SunEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SunEntity.swift; path = ../../MiniBlocks.swiftpm/Sources/Entity/SunEntity.swift; sourceTree = "<group>"; };
@@ -416,6 +419,7 @@
 				35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */,
 				35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */,
 				35D3491F27FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift */,
+				35D3492827FF45EB000F0CC2 /* ControlPadHUDControlComponent.swift */,
 				355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */,
 				3554CB0427F51F0E000EE620 /* AchievementHUDLoadComponent.swift */,
 				3540752127F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift */,
@@ -743,6 +747,7 @@
 				35721442279577C7003C640F /* GameMode.swift in Sources */,
 				35391BC5278BC5D800B22954 /* Box.swift in Sources */,
 				35391BC8278BC5D800B22954 /* ChunkConstants.swift in Sources */,
+				35D3492A27FF45EB000F0CC2 /* ControlPadHUDControlComponent.swift in Sources */,
 				357EB0CD279640B00004CA6E /* Debouncer.swift in Sources */,
 				35F2680427F76C7D00CC458C /* HandNodeComponent.swift in Sources */,
 				35A5552D278C3AE0006FA70D /* Item.swift in Sources */,
@@ -837,6 +842,7 @@
 				357214412795747A003C640F /* GameMode.swift in Sources */,
 				35A0C28627873D1100FA8570 /* BlockPos3.swift in Sources */,
 				35EA353E2788A57C0066DD82 /* WorldAssociationComponent.swift in Sources */,
+				35D3492927FF45EB000F0CC2 /* ControlPadHUDControlComponent.swift in Sources */,
 				357EB0CC279640B00004CA6E /* Debouncer.swift in Sources */,
 				35F2680327F76C7D00CC458C /* HandNodeComponent.swift in Sources */,
 				35A55530278C3AE0006FA70D /* WorldGeneratorType.swift in Sources */,
