@@ -55,12 +55,12 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
             }
         } else {
             switch self {
-            case .peekAround: return "Peek around by panning the screen's right half (or by moving a connected mouse)."
-            case .moveAround: return "Move around by panning the screen's left half (or with your WASD keys)."
-            case .jump: return "Tap (or press SPACE) to jump."
-            case .sprint: return "Hold SHIFT while moving around with WASD to sprint." // TODO: Implement sprint on iOS
-            case .hotbar: return "Switch the held item with your number keys." // TODO: Implement hotbar on iOS
-            case .useBlock: return "Place a block by connecting a mouse." // TODO: Implement block placement on iOS
+            case .peekAround: return "Peek around by panning the screen (or by moving a connected mouse)."
+            case .moveAround: return "Move around by dragging the control pad (or with your WASD keys)."
+            case .jump: return "Tap the control pad (or press SPACE) to jump."
+            case .sprint: return "Drag the control pad further to sprint (or hold SHIFT during WASD)."
+            case .hotbar: return "Tap a hotbar slot (or press a number key) to select it."
+            case .useBlock: return "Tap to place a block."
             case .breakBlock: return "Break a block by holding your finger (or your left mouse button)."
             default: return nil
             }

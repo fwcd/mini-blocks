@@ -1,17 +1,17 @@
 import SpriteKit
 import GameplayKit
 
-func makeHotbarHUDEntity(in frame: CGRect, playerEntity: GKEntity) -> GKEntity {
+func makeControlPadHUDEntity(in frame: CGRect, playerEntity: GKEntity, size: CGFloat = 40) -> GKEntity {
     // Create node
-    let node = SKNode()
-    node.position = CGPoint(x: frame.midX, y: frame.minY)
+    let node = makeControlPadHUDNode(size: size)
+    let offset = 2.8 * size
+    node.position = CGPoint(x: frame.minX + offset, y: frame.minY + offset)
     
     // Create entity
     let entity = GKEntity()
     entity.addComponent(SpriteNodeComponent(node: node))
     entity.addComponent(PlayerAssociationComponent(playerEntity: playerEntity))
-    entity.addComponent(HotbarHUDLoadComponent())
-    entity.addComponent(HotbarHUDControlComponent())
+    entity.addComponent(ControlPadHUDControlComponent())
     
     if let worldEntity = playerEntity.component(ofType: WorldAssociationComponent.self)?.worldEntity {
         entity.addComponent(WorldAssociationComponent(worldEntity: worldEntity))
