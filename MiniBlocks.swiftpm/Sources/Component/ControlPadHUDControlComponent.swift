@@ -38,10 +38,13 @@ class ControlPadHUDControlComponent: GKComponent, TouchInteractable {
     func onDragMove(by delta: CGVector, start: CGPoint, current: CGPoint) {
         guard let stickNode = stickNode else { return }
         let offset = (current - start)
+        let baseVelocity = Vec3(x: offset.x, y: 0, z: -offset.y).normalized
         stickNode.position = offset
+        playerControlComponent?.requestedBaseVelocity = baseVelocity
     }
     
     func onDragEnd() {
         stickNode?.position = CGPoint(x: 0, y: 0)
+        playerControlComponent?.requestedBaseVelocity = .zero
     }
 }
