@@ -28,7 +28,7 @@ class ControlPadHUDControlComponent: GKComponent, TouchInteractable {
         return true
     }
     
-    func onDragStart(at point: CGPoint) -> Bool {
+    func shouldReceiveDrag(at point: CGPoint) -> Bool {
         guard let node = node,
               let parent = node.parent,
               let scene = node.scene else { return false }

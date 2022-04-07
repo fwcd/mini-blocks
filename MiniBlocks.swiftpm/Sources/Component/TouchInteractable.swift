@@ -4,7 +4,9 @@ import SpriteKit
 protocol TouchInteractable {
     func onTap(at point: CGPoint) -> Bool
     
-    func onDragStart(at point: CGPoint) -> Bool
+    func shouldReceiveDrag(at point: CGPoint) -> Bool
+    
+    func onDragStart(at point: CGPoint)
     
     func onDragMove(by delta: CGVector, start: CGPoint, current: CGPoint)
     
@@ -14,7 +16,9 @@ protocol TouchInteractable {
 extension TouchInteractable {
     func onTap(at point: CGPoint) -> Bool { false }
     
-    func onDragStart(at point: CGPoint) -> Bool { false }
+    func shouldReceiveDrag(at point: CGPoint) -> Bool { false }
+    
+    func onDragStart(at point: CGPoint) {}
     
     func onDragMove(by delta: CGVector, start: CGPoint, current: CGPoint) {}
     

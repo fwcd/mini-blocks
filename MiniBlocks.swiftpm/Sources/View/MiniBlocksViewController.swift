@@ -57,7 +57,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     @Box private var usesMouseKeyboardControls = false
     private var panDragStart: CGPoint?
     private var panDraggedComponent: TouchInteractable?
-    private var panRecognizer: UIPanGestureRecognizer!
+    private var panDragRecognizer: UIPanGestureRecognizer!
+    private var panCameraRecognizer: UIPanGestureRecognizer!
     private var tapRecognizer: UITapGestureRecognizer!
     private var pressRecognizer: UILongPressGestureRecognizer!
     public override var prefersHomeIndicatorAutoHidden: Bool { true }
@@ -217,8 +218,11 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
         
         // Set up touch/gesture controls if not using a mouse
-        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
-        panRecognizer.delegate = self
+        let panDragRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanDrag(_:)))
+        panDragRecognizer.delegate = self
+        
+        let panCameraRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanCamera(_:)))
+        panCameraRecognizer.delegate = self
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         tapRecognizer.delegate = self
@@ -227,7 +231,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         pressRecognizer.minimumPressDuration = 0.5
         pressRecognizer.delegate = self
         
-        self.panRecognizer = panRecognizer
+        self.panDragRecognizer = panDragRecognizer
+        self.panCameraRecognizer = panCameraRecognizer
         self.tapRecognizer = tapRecognizer
         self.pressRecognizer = pressRecognizer
         
@@ -612,7 +617,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         add(entity: controlPadHUDEntity)
         self.controlPadHUDEntity = controlPadHUDEntity
         
-        sceneView.addGestureRecognizer(panRecognizer)
+        sceneView.addGestureRecognizer(panDragRecognizer)
+        sceneView.addGestureRecognizer(panCameraRecognizer)
         sceneView.addGestureRecognizer(tapRecognizer)
         sceneView.addGestureRecognizer(pressRecognizer)
     }
@@ -623,7 +629,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             self.controlPadHUDEntity = nil
         }
         
-        sceneView.removeGestureRecognizer(panRecognizer)
+        sceneView.removeGestureRecognizer(panDragRecognizer)
+        sceneView.removeGestureRecognizer(panCameraRecognizer)
         sceneView.removeGestureRecognizer(tapRecognizer)
         sceneView.removeGestureRecognizer(pressRecognizer)
     }
@@ -633,8 +640,27 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         true
     }
     
+    private func findDraggedComponent(for location: CGPoint) -> TouchInteractable? {
+        let point = overlayScene.convertPoint(fromView: location)
+        for entity in entities {
+            for case let component as TouchInteractable in entity.components {
+                if component.shouldReceiveDrag(at: point) {
+                    return component
+                }
+            }
+        }
+        return nil
+    }
+    
+    public func gestureRecognizer(_ recognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        guard [panCameraRecognizer, panDragRecognizer].contains(recognizer) else { return true }
+        guard recognizer.numberOfTouches < 1 else { return false }
+        let component = findDraggedComponent(for: touch.location(in: sceneView))
+        return (component != nil) == (recognizer == panDragRecognizer)
+    }
+    
     @objc
-    private func handlePan(_ recognizer: UIPanGestureRecognizer) {
+    private func handlePanDrag(_ recognizer: UIPanGestureRecognizer) {
         let location = recognizer.location(in: view)
         let delta = recognizer.velocity(in: view)
         let point = overlayScene.convertPoint(fromView: location)
@@ -642,28 +668,17 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         
         switch recognizer.state {
         case .began:
-            panDragStart = location
-            
-            // Forward drag to TouchInteractable components
-            let point = overlayScene.convertPoint(fromView: recognizer.location(in: sceneView))
-            for entity in entities {
-                for case let component as TouchInteractable in entity.components {
-                    if component.onDragStart(at: point) {
-                        panDraggedComponent = component
-                        return
-                    }
-                }
+            if let component = findDraggedComponent(for: location) {
+                panDragStart = location
+                panDraggedComponent = component
+                component.onDragStart(at: point)
+            } else {
+                recognizer.state = .failed
             }
         case .changed:
             if let component = panDraggedComponent {
                 // Forward drag to dragged component
                 component.onDragMove(by: CGVector(dx: delta.x, dy: -delta.y), start: start, current: point)
-            } else {
-                // Rotate camera
-                controlPlayer { component in
-                    component.rotateYaw(by: (-SceneFloat(delta.x) * inputSensivity) / 800)
-                    component.rotatePitch(by: (-SceneFloat(delta.y) * inputSensivity) / 800)
-                }
             }
         case .ended:
             panDragStart = nil
@@ -671,6 +686,16 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             panDraggedComponent = nil
         default:
             break
+        }
+    }
+    
+    @objc
+    private func handlePanCamera(_ recognizer: UIPanGestureRecognizer) {
+        let delta = recognizer.velocity(in: view)
+        // Rotate camera
+        controlPlayer { component in
+            component.rotateYaw(by: (-SceneFloat(delta.x) * inputSensivity) / 800)
+            component.rotatePitch(by: (-SceneFloat(delta.y) * inputSensivity) / 800)
         }
     }
     
