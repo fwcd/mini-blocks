@@ -22,13 +22,13 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
     var text: String? {
         switch self {
         #if canImport(UIKit)
-        case .peekAround: return "Peek around by panning the screen's right half."
-        case .moveAround: return "Move around by panning the screen's left half."
-        case .jump: return "Tap to jump."
+        case .peekAround: return "Peek around by panning the screen's right half (or by moving a connected mouse)."
+        case .moveAround: return "Move around by panning the screen's left half (or with your WASD keys)."
+        case .jump: return "Tap (or press SPACE) to jump."
         case .sprint: return nil // TODO: Implement sprint on iOS
         case .hotbar: return nil // TODO: Implement hotbar on iOS
         case .useBlock: return nil // TODO: Implement block placement on iOS
-        case .breakBlock: return "Break a block by holding your finger."
+        case .breakBlock: return "Break a block by holding your finger (or your left mouse button)."
         #else
         case .peekAround: return "Peek around by moving your mouse."
         case .moveAround: return "Move around using your WASD keys."
