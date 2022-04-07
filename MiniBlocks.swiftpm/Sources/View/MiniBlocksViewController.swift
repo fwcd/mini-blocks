@@ -8,7 +8,10 @@ import OSLog
 
 private let log = Logger(subsystem: "MiniBlocks", category: "MiniBlocksViewController")
 
-/// The game's primary view controller.
+/// The game's primary view controller, responsible for
+/// presenting the scene and handling input. Depending on
+/// the platform, input is either handled using AppKit (macOS)
+/// or UIKit/GameController (iOS/iPadOS).
 public final class MiniBlocksViewController: ViewController, SCNSceneRendererDelegate, GestureRecognizerDelegate {
     private let playerName: String
     private let gameMode: GameMode
