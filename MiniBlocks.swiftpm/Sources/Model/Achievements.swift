@@ -59,7 +59,7 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
             case .moveAround: return "Move around by panning the screen's left half (or with your WASD keys)."
             case .jump: return "Tap (or press SPACE) to jump."
             case .sprint: return "Hold SHIFT while moving around with WASD to sprint." // TODO: Implement sprint on iOS
-            case .hotbar: return "Switch the held item with your number keys." // TODO: Implement hotbar on iOS
+            case .hotbar: return "Tap a hotbar slot (or press a number key) to select it."
             case .useBlock: return "Place a block by connecting a mouse." // TODO: Implement block placement on iOS
             case .breakBlock: return "Break a block by holding your finger (or your left mouse button)."
             default: return nil
