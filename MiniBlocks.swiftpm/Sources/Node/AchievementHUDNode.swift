@@ -4,7 +4,7 @@ private func makeBackgroundNode(size: CGSize) -> SKNode {
     let node = SKShapeNode(rect: CGRect(center: CGPoint(x: 0, y: 0), size: size))
     node.strokeColor = .clear
     node.lineWidth = 0
-    node.fillColor = .black.withAlphaComponent(0.9)
+    node.fillColor = NodeConstants.overlayBackground
     return node
 }
 
