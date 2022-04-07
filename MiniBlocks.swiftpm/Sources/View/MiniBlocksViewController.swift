@@ -2,12 +2,16 @@ import Foundation
 import CoreGraphics
 import SceneKit
 import SpriteKit
+import GameController
 import GameplayKit
 import OSLog
 
 private let log = Logger(subsystem: "MiniBlocks", category: "MiniBlocksViewController")
 
-/// The game's primary view controller.
+/// The game's primary view controller, responsible for
+/// presenting the scene and handling input. Depending on
+/// the platform, input is either handled using AppKit (macOS)
+/// or UIKit/GameController (iOS/iPadOS).
 public final class MiniBlocksViewController: ViewController, SCNSceneRendererDelegate, GestureRecognizerDelegate {
     private let playerName: String
     private let gameMode: GameMode
@@ -21,10 +25,12 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     // MARK: View properties
     
+    private var sceneView: MiniBlocksSceneView!
     private let sceneFrame: CGRect?
     private var inputSensivity: SceneFloat = 1
     
     #if canImport(AppKit)
+    @Box private var usesMouseKeyboardControls = true
     private var receivedFirstMouseEvent: Bool = false
     private var mouseCaptured: Bool = false {
         willSet {
@@ -48,10 +54,14 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     #endif
     
     #if canImport(UIKit)
+    @Box private var usesMouseKeyboardControls = false
     private var movementControlPadDragStart: CGPoint?
-    private var movementControlPadRecognizer: UIGestureRecognizer!
-    private var cameraControlPadRecognizer: UIGestureRecognizer!
+    private var movementControlPadRecognizer: UIPanGestureRecognizer!
+    private var cameraControlPadRecognizer: UIPanGestureRecognizer!
+    private var tapRecognizer: UITapGestureRecognizer!
+    private var pressRecognizer: UILongPressGestureRecognizer!
     public override var prefersHomeIndicatorAutoHidden: Bool { true }
+    public override var prefersPointerLocked: Bool { true }
     #endif
     
     // MARK: SpriteKit/SceneKit properties
@@ -141,7 +151,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         add(entity: makeDebugHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
         
         if achievementsShown {
-            add(entity: makeAchievementHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
+            add(entity: makeAchievementHUDEntity(in: overlayScene.frame, playerEntity: playerEntity, usesMouseKeyboardControls: _usesMouseKeyboardControls))
         }
         
         #if canImport(AppKit)
@@ -149,7 +159,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         #endif
         
         // Set up SCNView
-        let sceneView = sceneFrame.map { MiniBlocksSceneView(frame: $0) } ?? MiniBlocksSceneView()
+        sceneView = sceneFrame.map { MiniBlocksSceneView(frame: $0) } ?? MiniBlocksSceneView()
         sceneView.scene = scene
         sceneView.delegate = self
         sceneView.allowsCameraControl = false
@@ -162,8 +172,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         // Keep scene active, otherwise it will stop sending renderer(_:updateAtTime:)s when nothing changes. See also https://stackoverflow.com/questions/39336509/how-do-you-set-up-a-game-loop-for-scenekit
         sceneView.isPlaying = true
         
-        // Set up mouse/keyboard handling when using AppKit (on macOS)
         #if canImport(AppKit)
+        // Set up mouse/keyboard handling when using AppKit (on macOS)
         sceneView.keyEventsDelegate = self
         
         if let sceneFrame = sceneFrame {
@@ -176,24 +186,52 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
         #endif
         
-        // Set up touch gesture handling when using UIKit (on iOS)
         #if canImport(UIKit)
-        movementControlPadRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleMovementControl(_:)))
-        movementControlPadRecognizer.delegate = self
-        sceneView.addGestureRecognizer(movementControlPadRecognizer)
+        // Set up mouse/keyboard handling via the GameController framework (on iOS)
+        // TODO: Use GameController-based input on macOS too (replacing AppKit)
+        let center = NotificationCenter.default
+        center.addObserver(forName: .GCMouseDidConnect, object: nil, queue: .main) {
+            if let mouse = $0.object as? GCMouse {
+                self.usesMouseKeyboardControls = true
+                self.deregisterUITouchControls()
+                self.registerHandlers(for: mouse)
+            }
+        }
+        center.addObserver(forName: .GCMouseDidDisconnect, object: nil, queue: .main) {
+            if let mouse = $0.object as? GCMouse {
+                self.usesMouseKeyboardControls = false
+                self.registerUITouchControls()
+                self.deregisterHandlers(from: mouse)
+            }
+        }
+        center.addObserver(forName: .GCKeyboardDidConnect, object: nil, queue: .main) {
+            if let keyboard = $0.object as? GCKeyboard {
+                self.registerHandlers(for: keyboard)
+            }
+        }
         
-        cameraControlPadRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleCameraControl(_:)))
+        // Set up touch/gesture controls if not using a mouse
+        let movementControlPadRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleMovementControl(_:)))
+        movementControlPadRecognizer.delegate = self
+        
+        let cameraControlPadRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleCameraControl(_:)))
         cameraControlPadRecognizer.delegate = self
-        sceneView.addGestureRecognizer(cameraControlPadRecognizer)
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         tapRecognizer.delegate = self
-        sceneView.addGestureRecognizer(tapRecognizer)
         
         let pressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         pressRecognizer.minimumPressDuration = 0.5
         pressRecognizer.delegate = self
-        sceneView.addGestureRecognizer(pressRecognizer)
+        
+        self.movementControlPadRecognizer = movementControlPadRecognizer
+        self.cameraControlPadRecognizer = cameraControlPadRecognizer
+        self.tapRecognizer = tapRecognizer
+        self.pressRecognizer = pressRecognizer
+        
+        if GCMouse.current == nil {
+            registerUITouchControls()
+        }
         #endif
         
         view = sceneView
@@ -259,7 +297,120 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
     }
     
-    // MARK: Mouse/keyboard controls
+    // MARK: GameController-based mouse/keyboard controls
+    
+    #if canImport(UIKit)
+    
+    private func registerGCMouseKeyboardControls() {
+        if let mouse = GCMouse.current {
+            registerHandlers(for: mouse)
+        }
+        if let keyboard = GCKeyboard.coalesced {
+            registerHandlers(for: keyboard)
+        }
+    }
+    
+    private func registerHandlers(for mouse: GCMouse) {
+        guard let input = mouse.mouseInput else { return }
+        input.mouseMovedHandler = { (_, dx, dy) in
+            self.controlPlayer { component in
+                component.rotateYaw(by: -(SceneFloat(dx) * self.inputSensivity) / 100)
+                component.rotatePitch(by: (SceneFloat(dy) * self.inputSensivity) / 100)
+            }
+        }
+        input.scroll.valueChangedHandler = { (_, dx, dy) in
+            let slotDelta = Int(dx + dy)
+            
+            // Move the selected slot
+            self.controlPlayer { component in
+                component.moveHotbarSelection(by: slotDelta)
+            }
+        }
+        input.leftButton.valueChangedHandler = { (_, _, pressed) in
+            self.controlPlayer { component in
+                if pressed {
+                    component.add(motionInput: .breakBlock)
+                } else {
+                    component.remove(motionInput: .breakBlock)
+                }
+            }
+        }
+        input.rightButton?.valueChangedHandler = { (_, _, pressed) in
+            self.controlPlayer { component in
+                if pressed {
+                    component.add(motionInput: .useBlock)
+                } else {
+                    component.remove(motionInput: .useBlock)
+                }
+            }
+        }
+    }
+    
+    private func deregisterHandlers(from mouse: GCMouse) {
+        guard let input = mouse.mouseInput else { return }
+        input.mouseMovedHandler = nil
+        input.scroll.valueChangedHandler = nil
+        input.leftButton.valueChangedHandler = nil
+        input.rightButton?.valueChangedHandler = nil
+    }
+    
+    private func registerHandlers(for keyboard: GCKeyboard) {
+        guard let input = keyboard.keyboardInput else { return }
+        input.keyChangedHandler = { (_, _, keyCode, down) in
+            if down {
+                self.keyDown(with: keyCode)
+            } else {
+                self.keyUp(with: keyCode)
+            }
+        }
+    }
+    
+    private func keyDown(with keyCode: GCKeyCode) {
+        if keyCode == .F3 {
+            // Toggle debug information shown as an overlay (e.g. the current position)
+            controlPlayer { component in
+                component.toggleDebugHUD()
+            }
+        } else if let n = keyCode.numericValue {
+            if (1...InventoryConstants.hotbarSlotCount).contains(n) {
+                // Select hotbar slot
+                controlPlayer { component in
+                    component.select(hotbarSlot: n - 1)
+                }
+            }
+        } else {
+            let motion = motionInput(for: keyCode)
+            // Pressed key could be mapped to motion input, add it to the corresponding components
+            controlPlayer { component in
+                component.add(motionInput: motion)
+            }
+        }
+    }
+    
+    private func keyUp(with keyCode: GCKeyCode) {
+        let motion = motionInput(for: keyCode)
+        // Pressed key could be mapped motion input, remove it from the corresponding components
+        controlPlayer { component in
+            component.remove(motionInput: motion)
+        }
+    }
+    
+    private func motionInput(for keyCode: GCKeyCode) -> PlayerControlComponent.MotionInput {
+        switch keyCode {
+        case .keyW: return .forward
+        case .keyS: return .back
+        case .keyA: return .left
+        case .keyD: return .right
+        case .spacebar: return .jump
+        case .leftShift, .rightShift: return .sprint
+        case .leftControl, .rightControl: return .sneak
+        default: return []
+        }
+    }
+    
+    #endif
+    
+    // MARK: AppKit-based mouse/keyboard controls
     
     #if canImport(AppKit)
     
@@ -284,7 +435,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             }
         } else {
             let motion = motionInput(for: keyCode)
-            // Pressed key could be mapped motion input, add it to the corresponding components
+            // Pressed key could be mapped to motion input, add it to the corresponding components
             controlPlayer { component in
                 component.add(motionInput: motion)
             }
@@ -293,7 +444,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     public override func keyUp(with event: NSEvent) {
         let motion = motionInput(for: KeyCode(rawValue: event.keyCode))
-        // Pressed key could be mapped motion input, remove it from the corresponding components
+        // Pressed key could be mapped to motion input, remove it from the corresponding components
         controlPlayer { component in
             component.remove(motionInput: motion)
         }
@@ -422,6 +573,20 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     // MARK: Touch controls
     
     #if canImport(UIKit)
+    
+    private func registerUITouchControls() {
+        sceneView.addGestureRecognizer(movementControlPadRecognizer)
+        sceneView.addGestureRecognizer(cameraControlPadRecognizer)
+        sceneView.addGestureRecognizer(tapRecognizer)
+        sceneView.addGestureRecognizer(pressRecognizer)
+    }
+    
+    private func deregisterUITouchControls() {
+        sceneView.removeGestureRecognizer(movementControlPadRecognizer)
+        sceneView.removeGestureRecognizer(cameraControlPadRecognizer)
+        sceneView.removeGestureRecognizer(tapRecognizer)
+        sceneView.removeGestureRecognizer(pressRecognizer)
+    }
     
     public func gestureRecognizer(_ recognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith other: UIGestureRecognizer) -> Bool {
         // Support multi-touch

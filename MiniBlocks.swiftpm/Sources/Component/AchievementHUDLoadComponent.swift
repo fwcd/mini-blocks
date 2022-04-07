@@ -5,9 +5,12 @@ import GameplayKit
 class AchievementHUDLoadComponent: GKComponent {
     /// The achievement last rendered to a SpriteKit node.
     private var lastAchievement: Achievements?
+    /// The last mouse/keyboard status for detecting changes.
+    private var lastUsedMouseKeyboardControls: Bool
     
     private let fontSize: CGFloat
     private let lineThickness: CGFloat = 4
+    @Box private var usesMouseKeyboardControls: Bool
     
     private var node: SKNode? {
         entity?.component(ofType: SpriteNodeComponent.self)?.node
@@ -31,8 +34,10 @@ class AchievementHUDLoadComponent: GKComponent {
         achievements?.next
     }
     
-    init(fontSize: CGFloat) {
+    init(fontSize: CGFloat, usesMouseKeyboardControls: Box<Bool>) {
         self.fontSize = fontSize
+        _usesMouseKeyboardControls = usesMouseKeyboardControls
+        lastUsedMouseKeyboardControls = usesMouseKeyboardControls.wrappedValue
         super.init()
     }
     
@@ -43,16 +48,19 @@ class AchievementHUDLoadComponent: GKComponent {
     override func update(deltaTime seconds: TimeInterval) {
         guard let node = node else { return }
         
-        if lastAchievement != nextAchievement {
-            // Update when achievements change
-            node.removeAllChildren()
-            
-            if let nextAchievement = nextAchievement,
-               let achievementNode = makeAchievementHUDNode(for: nextAchievement, fontSize: 13) {
-                node.addChild(achievementNode)
+        if lastAchievement != nextAchievement || lastUsedMouseKeyboardControls != usesMouseKeyboardControls {
+            DispatchQueue.main.async { [self] in
+                // Update when achievements change
+                node.removeAllChildren()
+                
+                if let nextAchievement = nextAchievement,
+                   let achievementNode = makeAchievementHUDNode(for: nextAchievement, forMouseKeyboardControls: usesMouseKeyboardControls, fontSize: 13) {
+                    node.addChild(achievementNode)
+                }
+                
+                lastAchievement = nextAchievement
+                lastUsedMouseKeyboardControls = usesMouseKeyboardControls
             }
-            
-            lastAchievement = nextAchievement
         }
     }
 }
