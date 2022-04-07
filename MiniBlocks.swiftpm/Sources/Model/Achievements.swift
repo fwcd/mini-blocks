@@ -18,30 +18,6 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
         rawValue > 0 && (rawValue & (rawValue - 1)) == 0
     }
     
-    /// The user-facing text for a single achievement.
-    var text: String? {
-        switch self {
-        #if canImport(UIKit)
-        case .peekAround: return "Peek around by panning the screen's right half (or by moving a connected mouse)."
-        case .moveAround: return "Move around by panning the screen's left half (or with your WASD keys)."
-        case .jump: return "Tap (or press SPACE) to jump."
-        case .sprint: return nil // TODO: Implement sprint on iOS
-        case .hotbar: return nil // TODO: Implement hotbar on iOS
-        case .useBlock: return nil // TODO: Implement block placement on iOS
-        case .breakBlock: return "Break a block by holding your finger (or your left mouse button)."
-        #else
-        case .peekAround: return "Peek around by moving your mouse."
-        case .moveAround: return "Move around using your WASD keys."
-        case .jump: return "Press SPACE to jump."
-        case .sprint: return "Hold SHIFT while moving around with WASD to sprint."
-        case .hotbar: return "Scroll or press number keys to switch the held item."
-        case .useBlock: return "Place a block by clicking/holding your right mouse button."
-        case .breakBlock: return "Break a block by clicking/holding your left mouse button."
-        #endif
-        default: return nil
-        }
-    }
-    
     /// The next achivements.
     var next: Achievements {
         if self == [] {
@@ -56,7 +32,7 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
         switch self {
         case .peekAround: return .moveAround
         case .moveAround: return .jump
-        // TODO: Remove this cond-compile once sprint and hotbar are implemented on iOS
+        // TODO: Remove this cond-compile once sprint and hotbar are (fully) implemented on iOS
         #if canImport(UIKit)
         case .jump: return .breakBlock
         #else
@@ -66,6 +42,33 @@ struct Achievements: OptionSet, Sequence, Hashable, Codable {
         case .hotbar: return .useBlock
         case .useBlock: return .breakBlock
         default: return []
+        }
+    }
+    
+    /// The user-facing text for a single achievement.
+    func text(forMouseKeyboardControls: Bool) -> String? {
+        if forMouseKeyboardControls {
+            switch self {
+            case .peekAround: return "Peek around by moving your mouse."
+            case .moveAround: return "Move around using your WASD keys."
+            case .jump: return "Press SPACE to jump."
+            case .sprint: return "Hold SHIFT while moving around with WASD to sprint."
+            case .hotbar: return "Scroll or press number keys to switch the held item."
+            case .useBlock: return "Place a block by clicking/holding your right mouse button."
+            case .breakBlock: return "Break a block by clicking/holding your left mouse button."
+            default: return nil
+            }
+        } else {
+            switch self {
+            case .peekAround: return "Peek around by panning the screen's right half (or by moving a connected mouse)."
+            case .moveAround: return "Move around by panning the screen's left half (or with your WASD keys)."
+            case .jump: return "Tap (or press SPACE) to jump."
+            case .sprint: return nil // TODO: Implement sprint on iOS
+            case .hotbar: return nil // TODO: Implement hotbar on iOS
+            case .useBlock: return nil // TODO: Implement block placement on iOS
+            case .breakBlock: return "Break a block by holding your finger (or your left mouse button)."
+            default: return nil
+            }
         }
     }
     

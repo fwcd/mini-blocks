@@ -18,8 +18,8 @@ private func makeLabelNode(text: String, offset: CGFloat = 0, fontSize: CGFloat)
     return node
 }
 
-func makeAchievementHUDNode(for achievement: Achievements, fontSize: CGFloat, padding: CGFloat = 10) -> SKNode? {
-    guard let text = achievement.text else { return nil }
+func makeAchievementHUDNode(for achievement: Achievements, forMouseKeyboardControls: Bool, fontSize: CGFloat, padding: CGFloat = 10) -> SKNode? {
+    guard let text = achievement.text(forMouseKeyboardControls: forMouseKeyboardControls) else { return nil }
     let node = SKNode()
     let label = makeLabelNode(text: text, fontSize: fontSize)
     let labelSize = label.frame.size

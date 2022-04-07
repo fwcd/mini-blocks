@@ -30,6 +30,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private var inputSensivity: SceneFloat = 1
     
     #if canImport(AppKit)
+    @Box private var usesMouseKeyboardControls = true
     private var receivedFirstMouseEvent: Bool = false
     private var mouseCaptured: Bool = false {
         willSet {
@@ -53,6 +54,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     #endif
     
     #if canImport(UIKit)
+    @Box private var usesMouseKeyboardControls = false
     private var movementControlPadDragStart: CGPoint?
     private var movementControlPadRecognizer: UIPanGestureRecognizer!
     private var cameraControlPadRecognizer: UIPanGestureRecognizer!
@@ -149,7 +151,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         add(entity: makeDebugHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
         
         if achievementsShown {
-            add(entity: makeAchievementHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
+            add(entity: makeAchievementHUDEntity(in: overlayScene.frame, playerEntity: playerEntity, usesMouseKeyboardControls: _usesMouseKeyboardControls))
         }
         
         #if canImport(AppKit)
@@ -190,12 +192,14 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         let center = NotificationCenter.default
         center.addObserver(forName: .GCMouseDidConnect, object: nil, queue: .main) {
             if let mouse = $0.object as? GCMouse {
+                self.usesMouseKeyboardControls = true
                 self.deregisterUITouchControls()
                 self.registerHandlers(for: mouse)
             }
         }
         center.addObserver(forName: .GCMouseDidDisconnect, object: nil, queue: .main) {
             if let mouse = $0.object as? GCMouse {
+                self.usesMouseKeyboardControls = false
                 self.registerUITouchControls()
                 self.deregisterHandlers(from: mouse)
             }
