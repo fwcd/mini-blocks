@@ -2,7 +2,7 @@
 
 A procedurally generated open-world sandbox game for macOS and iOS, inspired by Minecraft.
 
-![Screenshot](screenshot.png)
+![Showcase](showcase.png)
 
 ## Description
 
