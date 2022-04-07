@@ -260,6 +260,7 @@ class PlayerControlComponent: GKComponent {
         world?.breakBlock(at: lookedAtBlockPos)
         worldLoadComponent?.markDirty(at: lookedAtBlockPos.asVec2)
         handLoadComponent?.swing()
+        achieve(.breakBlock)
     }
     
     func useBlock() {
@@ -271,6 +272,7 @@ class PlayerControlComponent: GKComponent {
         world?.place(block: Block(type: blockType), at: placePos)
         worldLoadComponent?.markDirty(at: placePos.asVec2)
         handLoadComponent?.swing()
+        achieve(.useBlock)
     }
     
     private func achieve(_ delta: Achievements) {
