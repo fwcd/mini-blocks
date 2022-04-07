@@ -642,6 +642,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         
         switch recognizer.state {
         case .began:
+            panDragStart = location
+            
             // Forward drag to TouchInteractable components
             let point = overlayScene.convertPoint(fromView: recognizer.location(in: sceneView))
             for entity in entities {

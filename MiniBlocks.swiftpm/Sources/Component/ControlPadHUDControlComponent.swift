@@ -29,18 +29,19 @@ class ControlPadHUDControlComponent: GKComponent, TouchInteractable {
     }
     
     func onDragStart(at point: CGPoint) -> Bool {
-        guard let stickNode = stickNode,
-              let parent = stickNode.parent,
-              let scene = stickNode.scene else { return false }
-        let dragged = stickNode.contains(scene.convert(point, to: parent))
-        // DEBUG
-        if dragged {
-            print("Started dragging control pad")
-        }
-        return dragged
+        guard let node = node,
+              let parent = node.parent,
+              let scene = node.scene else { return false }
+        return node.contains(scene.convert(point, to: parent))
     }
     
-    func onDragMove(by delta: CGVector) {
-        // TODO
+    func onDragMove(by delta: CGVector, start: CGPoint, current: CGPoint) {
+        guard let stickNode = stickNode else { return }
+        let offset = (current - start)
+        stickNode.position = offset
+    }
+    
+    func onDragEnd() {
+        stickNode?.position = CGPoint(x: 0, y: 0)
     }
 }
