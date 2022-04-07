@@ -168,6 +168,10 @@
 		35D3491E27FF3A07000F0CC2 /* TouchInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3491C27FF3A07000F0CC2 /* TouchInteractable.swift */; };
 		35D3492027FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3491F27FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift */; };
 		35D3492127FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3491F27FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift */; };
+		35D3492327FF4001000F0CC2 /* ControlPadHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492227FF4001000F0CC2 /* ControlPadHUDNode.swift */; };
+		35D3492427FF4001000F0CC2 /* ControlPadHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492227FF4001000F0CC2 /* ControlPadHUDNode.swift */; };
+		35D3492627FF4068000F0CC2 /* ControlPadHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492527FF4068000F0CC2 /* ControlPadHUDEntity.swift */; };
+		35D3492727FF4068000F0CC2 /* ControlPadHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492527FF4068000F0CC2 /* ControlPadHUDEntity.swift */; };
 		35D8D9EC278B3D5A0056ACAA /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35D8D9EE278B3F470056ACAA /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
 		35D9E8A1278887960058F0E6 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
@@ -293,6 +297,8 @@
 		35A5556A278C5829006FA70D /* InventoryConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InventoryConstants.swift; path = ../../MiniBlocks.swiftpm/Sources/Model/InventoryConstants.swift; sourceTree = "<group>"; };
 		35D3491C27FF3A07000F0CC2 /* TouchInteractable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TouchInteractable.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/TouchInteractable.swift; sourceTree = "<group>"; };
 		35D3491F27FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HotbarHUDControlComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/HotbarHUDControlComponent.swift; sourceTree = "<group>"; };
+		35D3492227FF4001000F0CC2 /* ControlPadHUDNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ControlPadHUDNode.swift; path = ../../MiniBlocks.swiftpm/Sources/Node/ControlPadHUDNode.swift; sourceTree = "<group>"; };
+		35D3492527FF4068000F0CC2 /* ControlPadHUDEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ControlPadHUDEntity.swift; path = ../../MiniBlocks.swiftpm/Sources/Entity/ControlPadHUDEntity.swift; sourceTree = "<group>"; };
 		35D8D9EB278B3D5A0056ACAA /* TextureWood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureWood.png; path = ../../MiniBlocks.swiftpm/Resources/TextureWood.png; sourceTree = "<group>"; };
 		35D8D9ED278B3F470056ACAA /* TextureLeaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextureLeaves.png; path = ../../MiniBlocks.swiftpm/Resources/TextureLeaves.png; sourceTree = "<group>"; };
 		35D9E8A0278887960058F0E6 /* SunEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SunEntity.swift; path = ../../MiniBlocks.swiftpm/Sources/Entity/SunEntity.swift; sourceTree = "<group>"; };
@@ -382,6 +388,7 @@
 				35D9E8A2278888190058F0E6 /* AmbientLightEntity.swift */,
 				352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */,
 				35A5553F278C3EBF006FA70D /* HotbarHUDEntity.swift */,
+				35D3492527FF4068000F0CC2 /* ControlPadHUDEntity.swift */,
 				3554CB0127F51D84000EE620 /* AchievementHUDEntity.swift */,
 				355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */,
 				3540751827F2A06300887E01 /* PauseHUDEntity.swift */,
@@ -483,6 +490,7 @@
 				3540751B27F2A10A00887E01 /* PauseHUDNode.swift */,
 				3554CAFE27F51B36000EE620 /* AchievementHUDNode.swift */,
 				35A5555E278C4BEA006FA70D /* HotbarHUDSlotNode.swift */,
+				35D3492227FF4001000F0CC2 /* ControlPadHUDNode.swift */,
 				3540751E27F2A47D00887E01 /* NodeConstants.swift */,
 			);
 			name = Node;
@@ -743,10 +751,12 @@
 				35D3492127FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift in Sources */,
 				3540752327F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift in Sources */,
 				35391BE0278BC5EE00B22954 /* WorldRetainComponent.swift in Sources */,
+				35D3492727FF4068000F0CC2 /* ControlPadHUDEntity.swift in Sources */,
 				35A5555A278C4868006FA70D /* BlockNode.swift in Sources */,
 				35A5554A278C421C006FA70D /* PlayerAssocationComponent.swift in Sources */,
 				35391BDE278BC5EE00B22954 /* WorldLoadComponent.swift in Sources */,
 				35391BF5278BC8ED00B22954 /* CompatibilityLayer.swift in Sources */,
+				35D3492427FF4001000F0CC2 /* ControlPadHUDNode.swift in Sources */,
 				35391BD8278BC5EE00B22954 /* PlayerGravityComponent.swift in Sources */,
 				35A55557278C4806006FA70D /* CrosshairHUDNode.swift in Sources */,
 				35391BDC278BC5EE00B22954 /* WorldComponent.swift in Sources */,
@@ -835,10 +845,12 @@
 				35D3492027FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift in Sources */,
 				3540752227F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift in Sources */,
 				35EA354E2788B3870066DD82 /* Vec3Protocol.swift in Sources */,
+				35D3492627FF4068000F0CC2 /* ControlPadHUDEntity.swift in Sources */,
 				35A55559278C4868006FA70D /* BlockNode.swift in Sources */,
 				35A0C2A3278757A700FA8570 /* BlockPos2.swift in Sources */,
 				35EA35382788A09E0066DD82 /* MathUtils.swift in Sources */,
 				352D7A482787BF1C008FB939 /* MiniBlocksSceneView.swift in Sources */,
+				35D3492327FF4001000F0CC2 /* ControlPadHUDNode.swift in Sources */,
 				35A0C28C27873F1400FA8570 /* SceneNodeComponent.swift in Sources */,
 				35A55556278C4806006FA70D /* CrosshairHUDNode.swift in Sources */,
 				35EA352427889B560066DD82 /* ChunkConstants.swift in Sources */,

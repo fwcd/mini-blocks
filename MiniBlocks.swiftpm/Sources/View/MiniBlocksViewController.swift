@@ -82,6 +82,8 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private let debugHUDLoadComponentSystem = GKComponentSystem(componentClass: DebugHUDLoadComponent.self)
     private let achievementHUDLoadComponentSystem = GKComponentSystem(componentClass: AchievementHUDLoadComponent.self)
     private let mouseCaptureVisibilityComponentSystem = GKComponentSystem(componentClass: MouseCaptureVisibilityComponent.self)
+    private var playerEntity: GKEntity!
+    private var controlPadHUDEntity: GKEntity?
     private var entities: [GKEntity] = []
     
     public init(
@@ -134,7 +136,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         // Add player
         let playerSpawnPos2 = BlockPos2.zero
         let playerSpawnPos3 = playerSpawnPos2.with(y: world.height(at: playerSpawnPos2) ?? 10)
-        let playerEntity = makePlayerEntity(
+        playerEntity = makePlayerEntity(
             name: playerName,
             position: Vec3(playerSpawnPos3),
             gameMode: gameMode,
@@ -197,6 +199,10 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
                 self.registerHandlers(for: mouse)
             }
         }
+        center.addObserver(forName: .GCMouseDidBecomeCurrent, object: nil, queue: .main) { _ in
+            self.usesMouseKeyboardControls = true
+            self.deregisterUITouchControls()
+        }
         center.addObserver(forName: .GCMouseDidDisconnect, object: nil, queue: .main) {
             if let mouse = $0.object as? GCMouse {
                 self.usesMouseKeyboardControls = false
@@ -248,7 +254,9 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         
         // Add attached sprite node to the overlay, if present
         if let node = entity.component(ofType: SpriteNodeComponent.self)?.node {
-            overlayScene.addChild(node)
+            DispatchQueue.main.async { [self] in
+                overlayScene.addChild(node)
+            }
         }
         
         #if canImport(AppKit)
@@ -270,6 +278,35 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         debugHUDLoadComponentSystem.addComponent(foundIn: entity)
         achievementHUDLoadComponentSystem.addComponent(foundIn: entity)
         mouseCaptureVisibilityComponentSystem.addComponent(foundIn: entity)
+    }
+    
+    private func remove(entity: GKEntity) {
+        entities.removeAll { $0 === entity }
+        
+        // Remove attached scene node if needed
+        if let node = entity.component(ofType: SceneNodeComponent.self)?.node {
+            node.removeFromParentNode()
+        }
+        
+        // Remove attached sprite note if needed
+        if let node = entity.component(ofType: SpriteNodeComponent.self)?.node {
+            DispatchQueue.main.async {
+                node.removeFromParent()
+            }
+        }
+        
+        // Remove components from their corresponding systems
+        playerControlComponentSystem.removeComponent(foundIn: entity)
+        playerPositioningComponentSystem.removeComponent(foundIn: entity)
+        playerGravityComponentSystem.removeComponent(foundIn: entity)
+        lookAtBlockComponentSystem.removeComponent(foundIn: entity)
+        worldLoadComponentSystem.removeComponent(foundIn: entity)
+        worldRetainComponentSystem.removeComponent(foundIn: entity)
+        handLoadComponentSystem.removeComponent(foundIn: entity)
+        hotbarHUDLoadComponentSystem.removeComponent(foundIn: entity)
+        debugHUDLoadComponentSystem.removeComponent(foundIn: entity)
+        achievementHUDLoadComponentSystem.removeComponent(foundIn: entity)
+        mouseCaptureVisibilityComponentSystem.removeComponent(foundIn: entity)
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -575,6 +612,10 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     #if canImport(UIKit)
     
     private func registerUITouchControls() {
+        let controlPadHUDEntity = makeControlPadHUDEntity(in: overlayScene.frame, playerEntity: playerEntity)
+        add(entity: controlPadHUDEntity)
+        self.controlPadHUDEntity = controlPadHUDEntity
+        
         sceneView.addGestureRecognizer(movementControlPadRecognizer)
         sceneView.addGestureRecognizer(cameraControlPadRecognizer)
         sceneView.addGestureRecognizer(tapRecognizer)
@@ -582,6 +623,11 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     }
     
     private func deregisterUITouchControls() {
+        if let controlPadHUDEntity = controlPadHUDEntity {
+            remove(entity: controlPadHUDEntity)
+            self.controlPadHUDEntity = nil
+        }
+        
         sceneView.removeGestureRecognizer(movementControlPadRecognizer)
         sceneView.removeGestureRecognizer(cameraControlPadRecognizer)
         sceneView.removeGestureRecognizer(tapRecognizer)
