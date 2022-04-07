@@ -11,8 +11,7 @@ func makeControlPadHUDEntity(in frame: CGRect, playerEntity: GKEntity, size: CGF
     let entity = GKEntity()
     entity.addComponent(SpriteNodeComponent(node: node))
     entity.addComponent(PlayerAssociationComponent(playerEntity: playerEntity))
-    
-    // TODO: Control component
+    entity.addComponent(ControlPadHUDControlComponent())
     
     if let worldEntity = playerEntity.component(ofType: WorldAssociationComponent.self)?.worldEntity {
         entity.addComponent(WorldAssociationComponent(worldEntity: worldEntity))
