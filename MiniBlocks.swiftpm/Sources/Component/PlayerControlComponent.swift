@@ -169,22 +169,13 @@ class PlayerControlComponent: GKComponent {
         
         blockThrottler.submit(deltaTime: seconds) {
             // Break looked-at block if needed
-            if let lookedAtBlockPos = lookAtBlockComponent?.blockPos,
-               motionInput.contains(.breakBlock) {
-                world?.breakBlock(at: lookedAtBlockPos)
-                worldLoadComponent?.markDirty(at: lookedAtBlockPos.asVec2)
-                handLoadComponent?.swing()
+            if motionInput.contains(.breakBlock) {
+                breakBlock()
             }
             
             // Place on looked-at block if needed
-            if let placePos = lookAtBlockComponent?.blockPlacePos,
-               case let .block(blockType)? = playerInfo!.selectedHotbarStack?.item.type,
-               motionInput.contains(.useBlock),
-               placePos != BlockPos3(rounding: feetPos) {
-                // TODO: Decrement item stack
-                world?.place(block: Block(type: blockType), at: placePos)
-                worldLoadComponent?.markDirty(at: placePos.asVec2)
-                handLoadComponent?.swing()
+            if motionInput.contains(.useBlock) {
+                useBlock()
             }
         }
         
@@ -262,6 +253,24 @@ class PlayerControlComponent: GKComponent {
         achieve(.jump)
         playerInfo?.velocity.y = jumpSpeed
         playerInfo?.leavesGround = true
+    }
+    
+    func breakBlock() {
+        guard let lookedAtBlockPos = lookAtBlockComponent?.blockPos else { return }
+        world?.breakBlock(at: lookedAtBlockPos)
+        worldLoadComponent?.markDirty(at: lookedAtBlockPos.asVec2)
+        handLoadComponent?.swing()
+    }
+    
+    func useBlock() {
+        guard let placePos = lookAtBlockComponent?.blockPlacePos,
+              let feetPos = playerInfo?.position,
+              case let .block(blockType)? = playerInfo?.selectedHotbarStack?.item.type,
+              placePos != BlockPos3(rounding: feetPos) else { return }
+        // TODO: Decrement item stack
+        world?.place(block: Block(type: blockType), at: placePos)
+        worldLoadComponent?.markDirty(at: placePos.asVec2)
+        handLoadComponent?.swing()
     }
     
     private func achieve(_ delta: Achievements) {

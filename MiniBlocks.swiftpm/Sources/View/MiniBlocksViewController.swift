@@ -684,9 +684,9 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             }
         }
         
-        // Respond to tap by jumping
+        // Respond to tap by using/placing a block
         controlPlayer { component in
-            component.jump()
+            component.useBlock()
         }
     }
     

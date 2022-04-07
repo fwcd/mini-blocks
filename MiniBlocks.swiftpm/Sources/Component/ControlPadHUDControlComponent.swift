@@ -15,6 +15,19 @@ class ControlPadHUDControlComponent: GKComponent, TouchInteractable {
         entity?.component(ofType: PlayerAssociationComponent.self)
     }
     
+    private var playerControlComponent: PlayerControlComponent? {
+        playerAssociationComponent?.playerEntity.component(ofType: PlayerControlComponent.self)
+    }
+    
+    func onTap(at point: CGPoint) -> Bool {
+        guard let node = node,
+              let parent = node.parent,
+              let scene = node.scene,
+              node.contains(scene.convert(point, to: parent)) else { return false }
+        playerControlComponent?.jump()
+        return true
+    }
+    
     func onDragStart(at point: CGPoint) -> Bool {
         guard let stickNode = stickNode,
               let parent = stickNode.parent,
