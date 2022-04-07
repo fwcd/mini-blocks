@@ -28,30 +28,28 @@ class DebugHUDLoadComponent: GKComponent {
         
         let isEnabled = playerInfo.hasDebugHUDEnabled
         
-        if isEnabled != lastEnabled {
+        if isEnabled {
             DispatchQueue.main.async { [self] in
-                if isEnabled {
-                    var stats = [
-                        ("Position", format(pos: playerInfo.position)),
-                        ("Block Position", format(pos: BlockPos3(rounding: playerInfo.position))),
-                        ("Game Mode", "\(playerInfo.gameMode)"),
+                var stats = [
+                    ("Position", format(pos: playerInfo.position)),
+                    ("Block Position", format(pos: BlockPos3(rounding: playerInfo.position))),
+                    ("Game Mode", "\(playerInfo.gameMode)"),
+                ]
+                
+                if let component = lookAtBlockComponent {
+                    stats += [
+                        ("Looking At", component.blockPos.map(format(pos:)) ?? "nil"),
+                        ("Placing At", component.blockPlacePos.map(format(pos:)) ?? "nil"),
                     ]
-                    
-                    if let component = lookAtBlockComponent {
-                        stats += [
-                            ("Looking At", component.blockPos.map(format(pos:)) ?? "nil"),
-                            ("Placing At", component.blockPlacePos.map(format(pos:)) ?? "nil"),
-                        ]
-                    }
-                    
-                    node.text = stats.map { "\($0.0): \($0.1)" }.joined(separator: "\n")
-                } else {
-                    node.text = nil
                 }
+                
+                node.text = stats.map { "\($0.0): \($0.1)" }.joined(separator: "\n")
             }
-            
-            lastEnabled = isEnabled
+        } else if lastEnabled {
+            node.text = nil
         }
+        
+        lastEnabled = isEnabled
     }
     
     private func format(pos: BlockPos3) -> String {
