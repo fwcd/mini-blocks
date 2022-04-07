@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             worldGenerator: .nature(seed: "default"),
             gameMode: .survival,
             renderDistance: 12,
-            debugStatsShown: true
+            debugStatsShown: false
         )
         window.makeKeyAndOrderFront(nil)
     }
