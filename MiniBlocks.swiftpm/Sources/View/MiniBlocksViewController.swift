@@ -278,8 +278,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         handLoadComponentSystem.update(deltaTime: deltaTime)
         hotbarHUDLoadComponentSystem.update(deltaTime: deltaTime)
         debugHUDLoadComponentSystem.update(deltaTime: deltaTime)
-        // FIXME: This is currently buggy on iPadOS
-        // achievementHUDLoadComponentSystem.update(deltaTime: deltaTime)
+        achievementHUDLoadComponentSystem.update(deltaTime: deltaTime)
         mouseCaptureVisibilityComponentSystem.update(deltaTime: deltaTime)
         
         previousUpdateTime = time

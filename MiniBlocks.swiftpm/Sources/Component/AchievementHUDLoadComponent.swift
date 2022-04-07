@@ -44,15 +44,17 @@ class AchievementHUDLoadComponent: GKComponent {
         guard let node = node else { return }
         
         if lastAchievement != nextAchievement {
-            // Update when achievements change
-            node.removeAllChildren()
-            
-            if let nextAchievement = nextAchievement,
-               let achievementNode = makeAchievementHUDNode(for: nextAchievement, fontSize: 13) {
-                node.addChild(achievementNode)
+            DispatchQueue.main.async { [self] in
+                // Update when achievements change
+                node.removeAllChildren()
+                
+                if let nextAchievement = nextAchievement,
+                   let achievementNode = makeAchievementHUDNode(for: nextAchievement, fontSize: 13) {
+                    node.addChild(achievementNode)
+                }
+                
+                lastAchievement = nextAchievement
             }
-            
-            lastAchievement = nextAchievement
         }
     }
 }
