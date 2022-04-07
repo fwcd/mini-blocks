@@ -311,6 +311,14 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
                 component.rotatePitch(by: (SceneFloat(dy) * self.inputSensivity) / 100)
             }
         }
+        input.scroll.valueChangedHandler = { (_, dx, dy) in
+            let slotDelta = Int(dx + dy)
+            
+            // Move the selected slot
+            self.controlPlayer { component in
+                component.moveHotbarSelection(by: slotDelta)
+            }
+        }
         input.leftButton.valueChangedHandler = { (_, _, pressed) in
             self.controlPlayer { component in
                 if pressed {
@@ -329,12 +337,14 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
                 }
             }
         }
-        // TODO: Hotbar scrolling
     }
     
     private func deregisterHandlers(from mouse: GCMouse) {
         guard let input = mouse.mouseInput else { return }
         input.mouseMovedHandler = nil
+        input.scroll.valueChangedHandler = nil
+        input.leftButton.valueChangedHandler = nil
+        input.rightButton?.valueChangedHandler = nil
     }
     
     private func registerHandlers(for keyboard: GCKeyboard) {
