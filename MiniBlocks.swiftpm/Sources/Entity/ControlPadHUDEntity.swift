@@ -1,10 +1,11 @@
 import SpriteKit
 import GameplayKit
 
-func makeControlPadHUDEntity(in frame: CGRect, playerEntity: GKEntity, size: CGFloat = 100) -> GKEntity {
+func makeControlPadHUDEntity(in frame: CGRect, playerEntity: GKEntity, size: CGFloat = 40) -> GKEntity {
     // Create node
     let node = makeControlPadHUDNode(size: size)
-    node.position = CGPoint(x: frame.minX + 0.3 * frame.width, y: frame.minY + 0.3 * frame.height)
+    let offset = 2.8 * size
+    node.position = CGPoint(x: frame.minX + offset, y: frame.minY + offset)
     
     // Create entity
     let entity = GKEntity()
