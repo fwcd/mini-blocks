@@ -7,10 +7,18 @@ class HotbarHUDControlComponent: GKComponent, TouchInteractable {
         entity?.component(ofType: SpriteNodeComponent.self)?.node
     }
     
+    private var playerAssociationComponent: PlayerAssociationComponent? {
+        entity?.component(ofType: PlayerAssociationComponent.self)
+    }
+    
+    private var playerInfo: PlayerInfo? {
+        get { playerAssociationComponent?.playerInfo }
+        set { playerAssociationComponent?.playerInfo = newValue! }
+    }
+    
     func onTap(at point: CGPoint) -> Bool {
         guard let slotIndex = node?.scene?.nodes(at: point).compactMap({ $0.userData?["hotbarSlotIndex"] as? Int }).first else { return false }
-        // TODO
-        print("Tapped \(slotIndex)")
+        playerInfo?.selectedHotbarSlot = slotIndex
         return true
     }
 }
