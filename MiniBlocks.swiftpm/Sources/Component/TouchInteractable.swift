@@ -6,7 +6,9 @@ protocol TouchInteractable {
     
     func onDragStart(at point: CGPoint) -> Bool
     
-    func onDragMove(by delta: CGVector)
+    func onDragMove(by delta: CGVector, start: CGPoint, current: CGPoint)
+    
+    func onDragEnd()
 }
 
 extension TouchInteractable {
@@ -14,5 +16,7 @@ extension TouchInteractable {
     
     func onDragStart(at point: CGPoint) -> Bool { false }
     
-    func onDragMove(by delta: CGVector) {}
+    func onDragMove(by delta: CGVector, start: CGPoint, current: CGPoint) {}
+    
+    func onDragEnd() {}
 }

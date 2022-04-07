@@ -56,6 +56,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     #if canImport(UIKit)
     @Box private var usesMouseKeyboardControls = false
     private var panDragStart: CGPoint?
+    private var panDraggedComponent: TouchInteractable?
     private var panRecognizer: UIPanGestureRecognizer!
     private var tapRecognizer: UITapGestureRecognizer!
     private var pressRecognizer: UILongPressGestureRecognizer!
@@ -635,39 +636,41 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     @objc
     private func handlePan(_ recognizer: UIPanGestureRecognizer) {
         let location = recognizer.location(in: view)
-        let start = panDragStart ?? location
-        let deltaPoint = location - start
-        let delta = Vec3(x: deltaPoint.x, y: 0, z: deltaPoint.y).normalized
+        let delta = recognizer.velocity(in: view)
+        let point = overlayScene.convertPoint(fromView: location)
+        let start = overlayScene.convertPoint(fromView: panDragStart ?? location)
         
-        // Move player as needed
         switch recognizer.state {
         case .began:
-            panDragStart = start
+            // Forward drag to TouchInteractable components
+            let point = overlayScene.convertPoint(fromView: recognizer.location(in: sceneView))
+            for entity in entities {
+                for case let component as TouchInteractable in entity.components {
+                    if component.onDragStart(at: point) {
+                        panDraggedComponent = component
+                        return
+                    }
+                }
+            }
         case .changed:
-            controlPlayer { component in
-                component.requestedBaseVelocity = delta
+            if let component = panDraggedComponent {
+                // Forward drag to dragged component
+                component.onDragMove(by: CGVector(dx: delta.x, dy: -delta.y), start: start, current: point)
+            } else {
+                // Rotate camera
+                controlPlayer { component in
+                    component.rotateYaw(by: (-SceneFloat(delta.x) * inputSensivity) / 800)
+                    component.rotatePitch(by: (-SceneFloat(delta.y) * inputSensivity) / 800)
+                }
             }
         case .ended:
             panDragStart = nil
-            controlPlayer { component in
-                component.requestedBaseVelocity = Vec3()
-            }
+            panDraggedComponent?.onDragEnd()
+            panDraggedComponent = nil
         default:
             break
         }
     }
-    
-    // TODO: Merge this into handlePan(_:)
-//    @objc
-//    private func handleCameraControl(_ recognizer: UIPanGestureRecognizer) {
-//        let delta = recognizer.velocity(in: view)
-//
-//        // Rotate camera
-//        controlPlayer { component in
-//            component.rotateYaw(by: (-SceneFloat(delta.x) * inputSensivity) / 800)
-//            component.rotatePitch(by: (-SceneFloat(delta.y) * inputSensivity) / 800)
-//        }
-//    }
     
     @objc
     private func handleTap(_ recognizer: UITapGestureRecognizer) {
