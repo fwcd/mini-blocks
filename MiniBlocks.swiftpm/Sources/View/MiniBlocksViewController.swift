@@ -659,6 +659,11 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         return (component != nil) == (recognizer == panDragRecognizer)
     }
     
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return gestureRecognizer == tapRecognizer
+            && otherGestureRecognizer == pressRecognizer
+    }
+    
     @objc
     private func handlePanDrag(_ recognizer: UIPanGestureRecognizer) {
         let location = recognizer.location(in: view)
