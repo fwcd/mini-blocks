@@ -20,6 +20,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build ${{ matrix.scheme }}
-      run: xcodebuild -scheme "${{ matrix.scheme }}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+      run: xcodebuild -project MiniBlocks/MiniBlocks.xcodeproj -scheme "${{ matrix.scheme }}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
 # TODO: Run tests
