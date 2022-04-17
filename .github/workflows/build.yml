@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        include:
+        - scheme: MiniBlocks
+          destination: generic/platform=macOS
+        - scheme: MiniBlocksToGo
+          destination: generic/platform=iOS
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build ${{ matrix.scheme }}
+      run: xcodebuild -scheme "${{ matrix.scheme }}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+
+# TODO: Run tests
