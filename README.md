@@ -1,5 +1,7 @@
 # MiniBlocks
 
+[![Build](https://github.com/fwcd/mini-blocks/actions/workflows/build.yml/badge.svg)](https://github.com/fwcd/mini-blocks/actions/workflows/build.yml)
+
 A procedurally generated open-world sandbox game for macOS and iOS, inspired by Minecraft.
 
 ![Showcase](showcase.png)
