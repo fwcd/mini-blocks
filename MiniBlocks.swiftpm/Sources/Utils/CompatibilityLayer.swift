@@ -61,6 +61,7 @@ open class ViewController: NSObject {
     
     public init(nibName: String? = nil, bundle: Bundle? = nil) {
         super.init()
+        loadView()
     }
     
     open func loadView() {}

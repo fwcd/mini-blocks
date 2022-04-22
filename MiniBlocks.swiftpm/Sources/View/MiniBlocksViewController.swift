@@ -71,7 +71,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     // MARK: SpriteKit/SceneKit properties
     
     private var overlayScene: SKScene!
-    private var scene: SCNScene!
+    private(set) var scene: SCNScene!
     
     // MARK: GameplayKit properties
     

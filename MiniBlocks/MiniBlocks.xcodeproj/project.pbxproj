@@ -301,6 +301,14 @@
 		35F918F52812E19C00DC3DA3 /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
 		35F918F62812E19C00DC3DA3 /* WorldEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28927873DB300FA8570 /* WorldEntity.swift */; };
 		35F918F72812E19C00DC3DA3 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
+		35F9190A2812E2D600DC3DA3 /* MiniBlocksScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40A278682C60067F0F7 /* MiniBlocksScene.scn */; };
+		35F919102812E2E700DC3DA3 /* TextureSand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE262789BFE40037D0E0 /* TextureSand.png */; };
+		35F919112812E2E700DC3DA3 /* TextureGrass.png in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40B278682C60067F0F7 /* TextureGrass.png */; };
+		35F919122812E2E700DC3DA3 /* TextureStone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE272789BFE40037D0E0 /* TextureStone.png */; };
+		35F919132812E2E700DC3DA3 /* TextureWater.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE2A2789C1330037D0E0 /* TextureWater.png */; };
+		35F919142812E2E700DC3DA3 /* TextureBedrock.png in Resources */ = {isa = PBXBuildFile; fileRef = 35391BA6278BBAA400B22954 /* TextureBedrock.png */; };
+		35F919152812E2E700DC3DA3 /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
+		35F919162812E2E700DC3DA3 /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35FEC153278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC154278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
@@ -1053,7 +1061,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35F919152812E2E700DC3DA3 /* TextureLeaves.png in Resources */,
+				35F919112812E2E700DC3DA3 /* TextureGrass.png in Resources */,
+				35F919122812E2E700DC3DA3 /* TextureStone.png in Resources */,
 				35F918502812C35100DC3DA3 /* Assets.xcassets in Resources */,
+				35F919162812E2E700DC3DA3 /* TextureWood.png in Resources */,
+				35F919102812E2E700DC3DA3 /* TextureSand.png in Resources */,
+				35F919142812E2E700DC3DA3 /* TextureBedrock.png in Resources */,
+				35F919132812E2E700DC3DA3 /* TextureWater.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,6 +1078,7 @@
 			files = (
 				35F918642812C35100DC3DA3 /* Preview Assets.xcassets in Resources */,
 				35F918612812C35100DC3DA3 /* Assets.xcassets in Resources */,
+				35F9190A2812E2D600DC3DA3 /* MiniBlocksScene.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
