@@ -310,6 +310,7 @@
 		35F9191C2812E38000DC3DA3 /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35F9191D2812E38000DC3DA3 /* TextureSand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE262789BFE40037D0E0 /* TextureSand.png */; };
 		35F9191F2812E71800DC3DA3 /* MiniBlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9191E2812E71800DC3DA3 /* MiniBlocksView.swift */; };
+		35F919212812EC2F00DC3DA3 /* GKNoiseSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F919202812EC2F00DC3DA3 /* GKNoiseSource.swift */; };
 		35FEC153278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC154278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
@@ -521,6 +522,7 @@
 		35F918D22812CA9800DC3DA3 /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		35F918D42812CC4E00DC3DA3 /* GKComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKComponentSystem.swift; sourceTree = "<group>"; };
 		35F9191E2812E71800DC3DA3 /* MiniBlocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBlocksView.swift; sourceTree = "<group>"; };
+		35F919202812EC2F00DC3DA3 /* GKNoiseSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKNoiseSource.swift; sourceTree = "<group>"; };
 		35FEC152278E6B1B00E2000E /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Deque.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/Deque.swift; sourceTree = "<group>"; };
 		35FEC155278E6BD900E2000E /* CyclicDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CyclicDeque.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/CyclicDeque.swift; sourceTree = "<group>"; };
 		35FEC158278E700D00E2000E /* CyclicDequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicDequeTests.swift; sourceTree = "<group>"; };
@@ -840,6 +842,7 @@
 			children = (
 				35F918CA2812C7C500DC3DA3 /* GKEntity.swift */,
 				35F918CE2812C86300DC3DA3 /* GKNoise.swift */,
+				35F919202812EC2F00DC3DA3 /* GKNoiseSource.swift */,
 				35F918D02812C87200DC3DA3 /* GKPerlinNoiseSource.swift */,
 				35F918CC2812C81200DC3DA3 /* GKComponent.swift */,
 				35F918D42812CC4E00DC3DA3 /* GKComponentSystem.swift */,
@@ -1397,6 +1400,7 @@
 				35F918D32812CA9800DC3DA3 /* Vector.swift in Sources */,
 				35F918CD2812C81200DC3DA3 /* GKComponent.swift in Sources */,
 				35F918D12812C87200DC3DA3 /* GKPerlinNoiseSource.swift in Sources */,
+				35F919212812EC2F00DC3DA3 /* GKNoiseSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

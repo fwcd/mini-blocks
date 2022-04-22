@@ -9,7 +9,7 @@ import SwiftUI
 import SceneKit
 
 private let viewController = MiniBlocksViewController(
-    worldGenerator: .wavyHills
+    worldGenerator: .nature(seed: "Hello World")
 )
 
 struct MiniBlocksView: View {

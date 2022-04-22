@@ -15,8 +15,7 @@ public class GKNoise {
     }
     
     public func value(atPosition pos: vector_float2) -> Float {
-        // TODO
-        0
+        source.sample(x: pos.x, y: pos.y)
     }
 }
 
