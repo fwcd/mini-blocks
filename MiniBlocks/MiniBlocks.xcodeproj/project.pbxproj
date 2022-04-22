@@ -309,6 +309,7 @@
 		35F9191B2812E38000DC3DA3 /* TextureStone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE272789BFE40037D0E0 /* TextureStone.png */; };
 		35F9191C2812E38000DC3DA3 /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
 		35F9191D2812E38000DC3DA3 /* TextureSand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE262789BFE40037D0E0 /* TextureSand.png */; };
+		35F9191F2812E71800DC3DA3 /* MiniBlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9191E2812E71800DC3DA3 /* MiniBlocksView.swift */; };
 		35FEC153278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC154278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
@@ -519,6 +520,7 @@
 		35F918D02812C87200DC3DA3 /* GKPerlinNoiseSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKPerlinNoiseSource.swift; sourceTree = "<group>"; };
 		35F918D22812CA9800DC3DA3 /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		35F918D42812CC4E00DC3DA3 /* GKComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKComponentSystem.swift; sourceTree = "<group>"; };
+		35F9191E2812E71800DC3DA3 /* MiniBlocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBlocksView.swift; sourceTree = "<group>"; };
 		35FEC152278E6B1B00E2000E /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Deque.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/Deque.swift; sourceTree = "<group>"; };
 		35FEC155278E6BD900E2000E /* CyclicDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CyclicDeque.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/CyclicDeque.swift; sourceTree = "<group>"; };
 		35FEC158278E700D00E2000E /* CyclicDequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicDequeTests.swift; sourceTree = "<group>"; };
@@ -815,6 +817,7 @@
 			isa = PBXGroup;
 			children = (
 				35F918722812C4EA00DC3DA3 /* MiniBlocksApp.swift */,
+				35F9191E2812E71800DC3DA3 /* MiniBlocksView.swift */,
 				35F918752812C51100DC3DA3 /* ContentView.swift */,
 				35F9185E2812C35100DC3DA3 /* ComplicationController.swift */,
 				35F918602812C35100DC3DA3 /* Assets.xcassets */,
@@ -1306,6 +1309,7 @@
 				35F918A12812C5C900DC3DA3 /* BlockPos2.swift in Sources */,
 				35F9187D2812C5C300DC3DA3 /* WavyHillsWorldGenerator.swift in Sources */,
 				35F918EF2812E19C00DC3DA3 /* AmbientLightEntity.swift in Sources */,
+				35F9191F2812E71800DC3DA3 /* MiniBlocksView.swift in Sources */,
 				35F918E12812D01700DC3DA3 /* AchievementHUDLoadComponent.swift in Sources */,
 				35F9188D2812C5C900DC3DA3 /* Vec2Protocol.swift in Sources */,
 				35F918DC2812D01700DC3DA3 /* TouchInteractable.swift in Sources */,
