@@ -2,9 +2,12 @@ import Foundation
 import CoreGraphics
 import SceneKit
 import SpriteKit
-import GameController
 import GameplayKit
 import OSLog
+
+#if canImport(GameController)
+import GameController
+#endif
 
 private let log = Logger(subsystem: "MiniBlocks", category: "MiniBlocksViewController")
 

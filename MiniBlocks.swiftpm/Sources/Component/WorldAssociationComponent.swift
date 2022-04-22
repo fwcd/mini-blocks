@@ -1,3 +1,4 @@
+import Foundation
 import GameplayKit
 
 /// Associates the entity with a world entity.

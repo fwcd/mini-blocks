@@ -1,4 +1,5 @@
 import GameplayKit
+import SceneKit
 
 /// Makes the associated node as being capable of looking at blocks (which will be highlighted accordingly).
 class LookAtBlockComponent: GKComponent {

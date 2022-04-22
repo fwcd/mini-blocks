@@ -7,8 +7,18 @@
 
 import Foundation
 
-public class GKComponent {
+open class GKComponent: NSObject, NSCoding {
     public internal(set) weak var entity: GKEntity?
     
-    public func update(deltaTime seconds: TimeInterval) {}
+    public override init() {}
+    
+    open func update(deltaTime seconds: TimeInterval) {}
+    
+    public required init?(coder: NSCoder) {
+        nil
+    }
+    
+    public func encode(with coder: NSCoder) {
+        fatalError("Encoding GKComponent is not supported")
+    }
 }

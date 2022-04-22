@@ -267,6 +267,30 @@
 		35F918D12812C87200DC3DA3 /* GKPerlinNoiseSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918D02812C87200DC3DA3 /* GKPerlinNoiseSource.swift */; };
 		35F918D32812CA9800DC3DA3 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918D22812CA9800DC3DA3 /* Vector.swift */; };
 		35F918D52812CC4E00DC3DA3 /* GKComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918D42812CC4E00DC3DA3 /* GKComponentSystem.swift */; };
+		35F918D62812D01700DC3DA3 /* PlayerAssocationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55548278C421C006FA70D /* PlayerAssocationComponent.swift */; };
+		35F918D72812D01700DC3DA3 /* SpriteNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A412787B89B008FB939 /* SpriteNodeComponent.swift */; };
+		35F918D82812D01700DC3DA3 /* WorldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A627875C7300FA8570 /* WorldComponent.swift */; };
+		35F918D92812D01700DC3DA3 /* PlayerControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */; };
+		35F918DA2812D01700DC3DA3 /* PlayerPositioningComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572145227958172003C640F /* PlayerPositioningComponent.swift */; };
+		35F918DB2812D01700DC3DA3 /* WorldLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA3517278895750066DD82 /* WorldLoadComponent.swift */; };
+		35F918DC2812D01700DC3DA3 /* TouchInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3491C27FF3A07000F0CC2 /* TouchInteractable.swift */; };
+		35F918DD2812D01700DC3DA3 /* PlayerGravityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C295278752E900FA8570 /* PlayerGravityComponent.swift */; };
+		35F918DE2812D01700DC3DA3 /* HeightAboveGroundComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */; };
+		35F918DF2812D01700DC3DA3 /* WorldAssociationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA353D2788A57B0066DD82 /* WorldAssociationComponent.swift */; };
+		35F918E02812D01700DC3DA3 /* LookAtBlockComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A3F2787B211008FB939 /* LookAtBlockComponent.swift */; };
+		35F918E12812D01700DC3DA3 /* AchievementHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CB0427F51F0E000EE620 /* AchievementHUDLoadComponent.swift */; };
+		35F918E22812D01700DC3DA3 /* DebugHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */; };
+		35F918E32812D01700DC3DA3 /* HandLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */; };
+		35F918E42812D01700DC3DA3 /* NameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5553C278C3DB6006FA70D /* NameComponent.swift */; };
+		35F918E52812D01700DC3DA3 /* WorldRetainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA351B278895D60066DD82 /* WorldRetainComponent.swift */; };
+		35F918E62812D01700DC3DA3 /* HotbarHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */; };
+		35F918E72812D01700DC3DA3 /* HotbarHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3491F27FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift */; };
+		35F918E82812D01700DC3DA3 /* MouseCaptureVisibilityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540752127F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift */; };
+		35F918E92812D01700DC3DA3 /* HandNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680227F76C7D00CC458C /* HandNodeComponent.swift */; };
+		35F918EA2812D01700DC3DA3 /* ControlPadHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492827FF45EB000F0CC2 /* ControlPadHUDControlComponent.swift */; };
+		35F918EB2812D01700DC3DA3 /* SceneNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */; };
+		35F918EC2812D03100DC3DA3 /* MiniBlocksSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A472787BF1C008FB939 /* MiniBlocksSceneView.swift */; };
+		35F918ED2812D03600DC3DA3 /* MiniBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */; };
 		35FEC153278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC154278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
@@ -1251,50 +1275,74 @@
 				35F9189C2812C5C900DC3DA3 /* CompatibilityLayer.swift in Sources */,
 				35F9187C2812C5C300DC3DA3 /* Item.swift in Sources */,
 				35F918952812C5C900DC3DA3 /* ChunkPos.swift in Sources */,
+				35F918E82812D01700DC3DA3 /* MouseCaptureVisibilityComponent.swift in Sources */,
 				35F918A12812C5C900DC3DA3 /* BlockPos2.swift in Sources */,
 				35F9187D2812C5C300DC3DA3 /* WavyHillsWorldGenerator.swift in Sources */,
+				35F918E12812D01700DC3DA3 /* AchievementHUDLoadComponent.swift in Sources */,
 				35F9188D2812C5C900DC3DA3 /* Vec2Protocol.swift in Sources */,
+				35F918DC2812D01700DC3DA3 /* TouchInteractable.swift in Sources */,
 				35F918862812C5C300DC3DA3 /* WorldGeneratorType.swift in Sources */,
 				35F918822812C5C300DC3DA3 /* NatureWorldGenerator.swift in Sources */,
 				35F918742812C4EA00DC3DA3 /* MiniBlocksApp.swift in Sources */,
 				35F918A82812C5D100DC3DA3 /* PauseHUDNode.swift in Sources */,
 				35F9188B2812C5C900DC3DA3 /* ChunkRegion.swift in Sources */,
+				35F918EB2812D01700DC3DA3 /* SceneNodeComponent.swift in Sources */,
 				35F918902812C5C900DC3DA3 /* Box.swift in Sources */,
+				35F918ED2812D03600DC3DA3 /* MiniBlocksViewController.swift in Sources */,
 				35F918832812C5C300DC3DA3 /* ItemStack.swift in Sources */,
 				35F918912812C5C900DC3DA3 /* CoreGraphicsUtils.swift in Sources */,
 				35F9188F2812C5C900DC3DA3 /* Vec2.swift in Sources */,
+				35F918DA2812D01700DC3DA3 /* PlayerPositioningComponent.swift in Sources */,
 				35F9187F2812C5C300DC3DA3 /* Inventory.swift in Sources */,
 				35F918962812C5C900DC3DA3 /* CyclicDeque.swift in Sources */,
 				35F918792812C5C300DC3DA3 /* Block.swift in Sources */,
+				35F918E42812D01700DC3DA3 /* NameComponent.swift in Sources */,
 				35F9189E2812C5C900DC3DA3 /* Throttler.swift in Sources */,
+				35F918DE2812D01700DC3DA3 /* HeightAboveGroundComponent.swift in Sources */,
+				35F918DB2812D01700DC3DA3 /* WorldLoadComponent.swift in Sources */,
+				35F918E32812D01700DC3DA3 /* HandLoadComponent.swift in Sources */,
 				35F9187A2812C5C300DC3DA3 /* EmptyWorldGenerator.swift in Sources */,
+				35F918E02812D01700DC3DA3 /* LookAtBlockComponent.swift in Sources */,
 				35F918932812C5C900DC3DA3 /* Vec3Protocol.swift in Sources */,
+				35F918D82812D01700DC3DA3 /* WorldComponent.swift in Sources */,
 				35F9189B2812C5C900DC3DA3 /* Deque.swift in Sources */,
 				35F918922812C5C900DC3DA3 /* GridIterator2.swift in Sources */,
 				35F918972812C5C900DC3DA3 /* Vec3.swift in Sources */,
 				35F918A72812C5D100DC3DA3 /* ItemNode.swift in Sources */,
+				35F918D72812D01700DC3DA3 /* SpriteNodeComponent.swift in Sources */,
+				35F918D92812D01700DC3DA3 /* PlayerControlComponent.swift in Sources */,
+				35F918E72812D01700DC3DA3 /* HotbarHUDControlComponent.swift in Sources */,
 				35F918992812C5C900DC3DA3 /* MathUtils.swift in Sources */,
 				35F9189A2812C5C900DC3DA3 /* Wraparound.swift in Sources */,
+				35F918DD2812D01700DC3DA3 /* PlayerGravityComponent.swift in Sources */,
+				35F918D62812D01700DC3DA3 /* PlayerAssocationComponent.swift in Sources */,
 				35F918812812C5C300DC3DA3 /* BlockType.swift in Sources */,
 				35F918772812C5C300DC3DA3 /* OceanWorldGenerator.swift in Sources */,
 				35F918892812C5C300DC3DA3 /* World.swift in Sources */,
 				35F918782812C5C300DC3DA3 /* Strip.swift in Sources */,
+				35F918EC2812D03100DC3DA3 /* MiniBlocksSceneView.swift in Sources */,
 				35F9187B2812C5C300DC3DA3 /* PlayerInfo.swift in Sources */,
 				35F9188C2812C5C900DC3DA3 /* Vec2Convertible.swift in Sources */,
 				35F918852812C5C300DC3DA3 /* ItemType.swift in Sources */,
 				35F918A62812C5D100DC3DA3 /* NodeConstants.swift in Sources */,
 				35F9188A2812C5C900DC3DA3 /* Debouncer.swift in Sources */,
 				35F918982812C5C900DC3DA3 /* SceneKitUtils.swift in Sources */,
+				35F918E22812D01700DC3DA3 /* DebugHUDLoadComponent.swift in Sources */,
+				35F918E92812D01700DC3DA3 /* HandNodeComponent.swift in Sources */,
+				35F918EA2812D01700DC3DA3 /* ControlPadHUDControlComponent.swift in Sources */,
 				35F918762812C51100DC3DA3 /* ContentView.swift in Sources */,
 				35F918A42812C5D100DC3DA3 /* CrosshairHUDNode.swift in Sources */,
 				35F918882812C5C300DC3DA3 /* GameMode.swift in Sources */,
+				35F918E62812D01700DC3DA3 /* HotbarHUDLoadComponent.swift in Sources */,
 				35F918872812C5C300DC3DA3 /* FlatWorldGenerator.swift in Sources */,
 				35F918A32812C5D100DC3DA3 /* AchievementHUDNode.swift in Sources */,
 				35F918942812C5C900DC3DA3 /* BlockPos3.swift in Sources */,
+				35F918DF2812D01700DC3DA3 /* WorldAssociationComponent.swift in Sources */,
 				35F918A22812C5D100DC3DA3 /* HotbarHUDSlotNode.swift in Sources */,
 				35F9187E2812C5C300DC3DA3 /* WorldGenerator.swift in Sources */,
 				35F9188E2812C5C900DC3DA3 /* FIFOCache.swift in Sources */,
 				35F9189D2812C5C900DC3DA3 /* Vec3Convertible.swift in Sources */,
+				35F918E52812D01700DC3DA3 /* WorldRetainComponent.swift in Sources */,
 				35F9185F2812C35100DC3DA3 /* ComplicationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

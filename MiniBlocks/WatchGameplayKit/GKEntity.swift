@@ -15,7 +15,7 @@ public class GKEntity {
         components.append(component)
     }
     
-    public func component(ofType t: GKComponent.Type) -> GKComponent? {
-        components.first { type(of: $0) == t }
+    public func component<T>(ofType t: T.Type) -> T? where T: GKComponent {
+        components.compactMap { $0 as? T }.first
     }
 }

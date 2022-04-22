@@ -1,3 +1,4 @@
+import Foundation
 import GameplayKit
 
 /// Associates the associated entity with a player.
