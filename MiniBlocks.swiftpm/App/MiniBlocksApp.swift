@@ -15,6 +15,7 @@ struct MiniBlocksApp: App {
                 antialiasingMode: .none,
                 delegate: viewController
             )
+            .ignoresSafeArea()
             .gesture(
                 DragGesture()
                     .onChanged { drag in
