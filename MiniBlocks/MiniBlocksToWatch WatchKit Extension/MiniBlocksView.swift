@@ -27,7 +27,7 @@ struct MiniBlocksView: View {
                 component.jump()
             }
         }
-        .gesture(
+        .simultaneousGesture(
             DragGesture()
                 .onChanged { drag in
                     let delta = drag.location - drag.predictedEndLocation
