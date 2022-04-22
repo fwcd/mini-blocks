@@ -17,30 +17,35 @@ struct MiniBlocksView: View {
     
     var body: some View {
         SceneView(
-                scene: viewController.scene,
-                options: .rendersContinuously,
-                antialiasingMode: .none,
-                delegate: viewController
-            )
-            .gesture(
-                DragGesture()
-                    .onChanged { drag in
-                        let delta = drag.location - drag.predictedEndLocation
-                        viewController.controlPlayer { component in
-                            component.rotateYaw(by: SceneFloat(delta.x / 40))
-                            component.rotatePitch(by: SceneFloat(delta.y / 40))
-                        }
-                    }
-            )
-            .focusable()
-            .digitalCrownRotation($rotation)
-            .onChange(of: rotation) { rotation in
-                viewController.controlPlayer { component in
-                    component.requestedBaseVelocity = Vec3(z: -rotation)
-                }
-                
-                // TODO: Add a way of stopping the movement
+            scene: viewController.scene,
+            options: .rendersContinuously,
+            antialiasingMode: .none,
+            delegate: viewController
+        )
+        .onTapGesture {
+            viewController.controlPlayer { component in
+                component.jump()
             }
+        }
+        .gesture(
+            DragGesture()
+                .onChanged { drag in
+                    let delta = drag.location - drag.predictedEndLocation
+                    viewController.controlPlayer { component in
+                        component.rotateYaw(by: SceneFloat(delta.x / 40))
+                        component.rotatePitch(by: SceneFloat(delta.y / 40))
+                    }
+                }
+        )
+        .focusable()
+        .digitalCrownRotation($rotation)
+        .onChange(of: rotation) { rotation in
+            viewController.controlPlayer { component in
+                component.requestedBaseVelocity = Vec3(z: -rotation)
+            }
+            
+            // TODO: Add a way of stopping the movement
+        }
     }
 }
 
