@@ -11,6 +11,7 @@ struct MiniBlocksApp: App {
         WindowGroup {
             SceneView(
                 scene: viewController.scene,
+                options: .rendersContinuously,
                 antialiasingMode: .none,
                 delegate: viewController
             )
