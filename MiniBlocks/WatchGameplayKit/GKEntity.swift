@@ -9,4 +9,13 @@ import Foundation
 
 public class GKEntity {
     public private(set) var components: [GKComponent] = []
+    
+    public func addComponent(_ component: GKComponent) {
+        component.entity = self
+        components.append(component)
+    }
+    
+    public func component(ofType t: GKComponent.Type) -> GKComponent? {
+        components.first { type(of: $0) == t }
+    }
 }

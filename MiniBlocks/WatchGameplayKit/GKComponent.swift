@@ -8,5 +8,7 @@
 import Foundation
 
 public class GKComponent {
+    public internal(set) weak var entity: GKEntity?
     
+    public func update(deltaTime seconds: TimeInterval) {}
 }
