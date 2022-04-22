@@ -1,3 +1,4 @@
+import Foundation
 import SpriteKit
 import GameplayKit
 

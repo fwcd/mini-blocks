@@ -1,4 +1,5 @@
 import GameplayKit
+import SceneKit
 
 /// Makes the associated node as being capable of looking at blocks (which will be highlighted accordingly).
 class LookAtBlockComponent: GKComponent {
@@ -23,6 +24,7 @@ class LookAtBlockComponent: GKComponent {
               let parent = node.parent,
               let worldNode = worldNode else { return }
         
+        #if !os(watchOS)
         // Find the node the player looks at and (for demo purposes) lower its opacity
         
         lastHit?.filters = nil
@@ -40,5 +42,6 @@ class LookAtBlockComponent: GKComponent {
         blockPos = hit.map { BlockPos3(rounding: $0.node.position) }
         blockPlacePos = hit.map { BlockPos3(rounding: $0.node.position + $0.worldNormal) }
         lastHit = hit?.node
+        #endif
     }
 }

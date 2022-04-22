@@ -202,6 +202,115 @@
 		35F2680127F76AAC00CC458C /* HandLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */; };
 		35F2680327F76C7D00CC458C /* HandNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680227F76C7D00CC458C /* HandNodeComponent.swift */; };
 		35F2680427F76C7D00CC458C /* HandNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680227F76C7D00CC458C /* HandNodeComponent.swift */; };
+		35F918502812C35100DC3DA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35F9184F2812C35100DC3DA3 /* Assets.xcassets */; };
+		35F918562812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 35F918552812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		35F9185F2812C35100DC3DA3 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9185E2812C35100DC3DA3 /* ComplicationController.swift */; };
+		35F918612812C35100DC3DA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35F918602812C35100DC3DA3 /* Assets.xcassets */; };
+		35F918642812C35100DC3DA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35F918632812C35100DC3DA3 /* Preview Assets.xcassets */; };
+		35F918682812C35100DC3DA3 /* MiniBlocksToWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35F9184D2812C35000DC3DA3 /* MiniBlocksToWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		35F918742812C4EA00DC3DA3 /* MiniBlocksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918722812C4EA00DC3DA3 /* MiniBlocksApp.swift */; };
+		35F918762812C51100DC3DA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918752812C51100DC3DA3 /* ContentView.swift */; };
+		35F918772812C5C300DC3DA3 /* OceanWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5551B278C3AE0006FA70D /* OceanWorldGenerator.swift */; };
+		35F918782812C5C300DC3DA3 /* Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55510278C3AE0006FA70D /* Strip.swift */; };
+		35F918792812C5C300DC3DA3 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55511278C3AE0006FA70D /* Block.swift */; };
+		35F9187A2812C5C300DC3DA3 /* EmptyWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55515278C3AE0006FA70D /* EmptyWorldGenerator.swift */; };
+		35F9187B2812C5C300DC3DA3 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55539278C3CA5006FA70D /* PlayerInfo.swift */; };
+		35F9187C2812C5C300DC3DA3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55517278C3AE0006FA70D /* Item.swift */; };
+		35F9187D2812C5C300DC3DA3 /* WavyHillsWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55516278C3AE0006FA70D /* WavyHillsWorldGenerator.swift */; };
+		35F9187E2812C5C300DC3DA3 /* WorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55513278C3AE0006FA70D /* WorldGenerator.swift */; };
+		35F9187F2812C5C300DC3DA3 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55536278C3B42006FA70D /* Inventory.swift */; };
+		35F918802812C5C300DC3DA3 /* InventoryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5556A278C5829006FA70D /* InventoryConstants.swift */; };
+		35F918812812C5C300DC3DA3 /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55512278C3AE0006FA70D /* BlockType.swift */; };
+		35F918822812C5C300DC3DA3 /* NatureWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55514278C3AE0006FA70D /* NatureWorldGenerator.swift */; };
+		35F918832812C5C300DC3DA3 /* ItemStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55545278C408C006FA70D /* ItemStack.swift */; };
+		35F918842812C5C300DC3DA3 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CAF827F50578000EE620 /* Achievements.swift */; };
+		35F918852812C5C300DC3DA3 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5551A278C3AE0006FA70D /* ItemType.swift */; };
+		35F918862812C5C300DC3DA3 /* WorldGeneratorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55519278C3AE0006FA70D /* WorldGeneratorType.swift */; };
+		35F918872812C5C300DC3DA3 /* FlatWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55518278C3AE0006FA70D /* FlatWorldGenerator.swift */; };
+		35F918882812C5C300DC3DA3 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357214402795747A003C640F /* GameMode.swift */; };
+		35F918892812C5C300DC3DA3 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5550F278C3AE0006FA70D /* World.swift */; };
+		35F9188A2812C5C900DC3DA3 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357EB0CB279640B00004CA6E /* Debouncer.swift */; };
+		35F9188B2812C5C900DC3DA3 /* ChunkRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35492788A8B00066DD82 /* ChunkRegion.swift */; };
+		35F9188C2812C5C900DC3DA3 /* Vec2Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144C27957B11003C640F /* Vec2Convertible.swift */; };
+		35F9188D2812C5C900DC3DA3 /* Vec2Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354B2788B1D30066DD82 /* Vec2Protocol.swift */; };
+		35F9188E2812C5C900DC3DA3 /* FIFOCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC15A278E76D900E2000E /* FIFOCache.swift */; };
+		35F9188F2812C5C900DC3DA3 /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144627957961003C640F /* Vec2.swift */; };
+		35F918902812C5C900DC3DA3 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28727873D2900FA8570 /* Box.swift */; };
+		35F918912812C5C900DC3DA3 /* CoreGraphicsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A452787BD70008FB939 /* CoreGraphicsUtils.swift */; };
+		35F918922812C5C900DC3DA3 /* GridIterator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352527889CBE0066DD82 /* GridIterator2.swift */; };
+		35F918932812C5C900DC3DA3 /* Vec3Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354D2788B3870066DD82 /* Vec3Protocol.swift */; };
+		35F918942812C5C900DC3DA3 /* BlockPos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28527873D1100FA8570 /* BlockPos3.swift */; };
+		35F918952812C5C900DC3DA3 /* ChunkPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352127889B200066DD82 /* ChunkPos.swift */; };
+		35F918962812C5C900DC3DA3 /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
+		35F918972812C5C900DC3DA3 /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144927957970003C640F /* Vec3.swift */; };
+		35F918982812C5C900DC3DA3 /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SceneKitUtils.swift */; };
+		35F918992812C5C900DC3DA3 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35372788A09E0066DD82 /* MathUtils.swift */; };
+		35F9189A2812C5C900DC3DA3 /* Wraparound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55567278C5760006FA70D /* Wraparound.swift */; };
+		35F9189B2812C5C900DC3DA3 /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
+		35F9189C2812C5C900DC3DA3 /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */; };
+		35F9189D2812C5C900DC3DA3 /* Vec3Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144F27957B56003C640F /* Vec3Convertible.swift */; };
+		35F9189E2812C5C900DC3DA3 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C297278753AE00FA8570 /* Throttler.swift */; };
+		35F918A02812C5C900DC3DA3 /* ChunkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352327889B560066DD82 /* ChunkConstants.swift */; };
+		35F918A12812C5C900DC3DA3 /* BlockPos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A2278757A700FA8570 /* BlockPos2.swift */; };
+		35F918A22812C5D100DC3DA3 /* HotbarHUDSlotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5555E278C4BEA006FA70D /* HotbarHUDSlotNode.swift */; };
+		35F918A32812C5D100DC3DA3 /* AchievementHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CAFE27F51B36000EE620 /* AchievementHUDNode.swift */; };
+		35F918A42812C5D100DC3DA3 /* CrosshairHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55555278C4806006FA70D /* CrosshairHUDNode.swift */; };
+		35F918A52812C5D100DC3DA3 /* ControlPadHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492227FF4001000F0CC2 /* ControlPadHUDNode.swift */; };
+		35F918A62812C5D100DC3DA3 /* NodeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751E27F2A47D00887E01 /* NodeConstants.swift */; };
+		35F918A72812C5D100DC3DA3 /* ItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5555B278C497F006FA70D /* ItemNode.swift */; };
+		35F918A82812C5D100DC3DA3 /* PauseHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751B27F2A10A00887E01 /* PauseHUDNode.swift */; };
+		35F918A92812C5D100DC3DA3 /* BlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55558278C4868006FA70D /* BlockNode.swift */; };
+		35F918C72812C78500DC3DA3 /* libWatchGameplayKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F918BF2812C70000DC3DA3 /* libWatchGameplayKit.a */; };
+		35F918CB2812C7C500DC3DA3 /* GKEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918CA2812C7C500DC3DA3 /* GKEntity.swift */; };
+		35F918CD2812C81200DC3DA3 /* GKComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918CC2812C81200DC3DA3 /* GKComponent.swift */; };
+		35F918CF2812C86300DC3DA3 /* GKNoise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918CE2812C86300DC3DA3 /* GKNoise.swift */; };
+		35F918D12812C87200DC3DA3 /* GKPerlinNoiseSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918D02812C87200DC3DA3 /* GKPerlinNoiseSource.swift */; };
+		35F918D32812CA9800DC3DA3 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918D22812CA9800DC3DA3 /* Vector.swift */; };
+		35F918D52812CC4E00DC3DA3 /* GKComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918D42812CC4E00DC3DA3 /* GKComponentSystem.swift */; };
+		35F918D62812D01700DC3DA3 /* PlayerAssocationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55548278C421C006FA70D /* PlayerAssocationComponent.swift */; };
+		35F918D72812D01700DC3DA3 /* SpriteNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A412787B89B008FB939 /* SpriteNodeComponent.swift */; };
+		35F918D82812D01700DC3DA3 /* WorldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A627875C7300FA8570 /* WorldComponent.swift */; };
+		35F918D92812D01700DC3DA3 /* PlayerControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C293278748EA00FA8570 /* PlayerControlComponent.swift */; };
+		35F918DA2812D01700DC3DA3 /* PlayerPositioningComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572145227958172003C640F /* PlayerPositioningComponent.swift */; };
+		35F918DB2812D01700DC3DA3 /* WorldLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA3517278895750066DD82 /* WorldLoadComponent.swift */; };
+		35F918DC2812D01700DC3DA3 /* TouchInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3491C27FF3A07000F0CC2 /* TouchInteractable.swift */; };
+		35F918DD2812D01700DC3DA3 /* PlayerGravityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C295278752E900FA8570 /* PlayerGravityComponent.swift */; };
+		35F918DE2812D01700DC3DA3 /* HeightAboveGroundComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A827875EC400FA8570 /* HeightAboveGroundComponent.swift */; };
+		35F918DF2812D01700DC3DA3 /* WorldAssociationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA353D2788A57B0066DD82 /* WorldAssociationComponent.swift */; };
+		35F918E02812D01700DC3DA3 /* LookAtBlockComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A3F2787B211008FB939 /* LookAtBlockComponent.swift */; };
+		35F918E12812D01700DC3DA3 /* AchievementHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CB0427F51F0E000EE620 /* AchievementHUDLoadComponent.swift */; };
+		35F918E22812D01700DC3DA3 /* DebugHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */; };
+		35F918E32812D01700DC3DA3 /* HandLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */; };
+		35F918E42812D01700DC3DA3 /* NameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5553C278C3DB6006FA70D /* NameComponent.swift */; };
+		35F918E52812D01700DC3DA3 /* WorldRetainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA351B278895D60066DD82 /* WorldRetainComponent.swift */; };
+		35F918E62812D01700DC3DA3 /* HotbarHUDLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55561278C4C2D006FA70D /* HotbarHUDLoadComponent.swift */; };
+		35F918E72812D01700DC3DA3 /* HotbarHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3491F27FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift */; };
+		35F918E82812D01700DC3DA3 /* MouseCaptureVisibilityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540752127F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift */; };
+		35F918E92812D01700DC3DA3 /* HandNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680227F76C7D00CC458C /* HandNodeComponent.swift */; };
+		35F918EA2812D01700DC3DA3 /* ControlPadHUDControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492827FF45EB000F0CC2 /* ControlPadHUDControlComponent.swift */; };
+		35F918EB2812D01700DC3DA3 /* SceneNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28B27873F1400FA8570 /* SceneNodeComponent.swift */; };
+		35F918EC2812D03100DC3DA3 /* MiniBlocksSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A472787BF1C008FB939 /* MiniBlocksSceneView.swift */; };
+		35F918ED2812D03600DC3DA3 /* MiniBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F40F278682D40067F0F7 /* MiniBlocksViewController.swift */; };
+		35F918EE2812E19C00DC3DA3 /* ControlPadHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492527FF4068000F0CC2 /* ControlPadHUDEntity.swift */; };
+		35F918EF2812E19C00DC3DA3 /* AmbientLightEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A2278888190058F0E6 /* AmbientLightEntity.swift */; };
+		35F918F02812E19C00DC3DA3 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28F2787475600FA8570 /* PlayerEntity.swift */; };
+		35F918F12812E19C00DC3DA3 /* CrosshairHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A432787B90A008FB939 /* CrosshairHUDEntity.swift */; };
+		35F918F22812E19C00DC3DA3 /* PauseHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751827F2A06300887E01 /* PauseHUDEntity.swift */; };
+		35F918F32812E19C00DC3DA3 /* AchievementHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CB0127F51D84000EE620 /* AchievementHUDEntity.swift */; };
+		35F918F42812E19C00DC3DA3 /* HotbarHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5553F278C3EBF006FA70D /* HotbarHUDEntity.swift */; };
+		35F918F52812E19C00DC3DA3 /* DebugHUDEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355006CA27A0BECD0021A0BE /* DebugHUDEntity.swift */; };
+		35F918F62812E19C00DC3DA3 /* WorldEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28927873DB300FA8570 /* WorldEntity.swift */; };
+		35F918F72812E19C00DC3DA3 /* SunEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A0278887960058F0E6 /* SunEntity.swift */; };
+		35F9190A2812E2D600DC3DA3 /* MiniBlocksScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40A278682C60067F0F7 /* MiniBlocksScene.scn */; };
+		35F919172812E38000DC3DA3 /* TextureGrass.png in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40B278682C60067F0F7 /* TextureGrass.png */; };
+		35F919182812E38000DC3DA3 /* TextureWater.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE2A2789C1330037D0E0 /* TextureWater.png */; };
+		35F919192812E38000DC3DA3 /* TextureBedrock.png in Resources */ = {isa = PBXBuildFile; fileRef = 35391BA6278BBAA400B22954 /* TextureBedrock.png */; };
+		35F9191A2812E38000DC3DA3 /* TextureLeaves.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9ED278B3F470056ACAA /* TextureLeaves.png */; };
+		35F9191B2812E38000DC3DA3 /* TextureStone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE272789BFE40037D0E0 /* TextureStone.png */; };
+		35F9191C2812E38000DC3DA3 /* TextureWood.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D9EB278B3D5A0056ACAA /* TextureWood.png */; };
+		35F9191D2812E38000DC3DA3 /* TextureSand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3584BE262789BFE40037D0E0 /* TextureSand.png */; };
+		35F9191F2812E71800DC3DA3 /* MiniBlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9191E2812E71800DC3DA3 /* MiniBlocksView.swift */; };
+		35F919212812EC2F00DC3DA3 /* GKNoiseSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F919202812EC2F00DC3DA3 /* GKNoiseSource.swift */; };
 		35FEC153278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC154278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
@@ -219,7 +328,72 @@
 			remoteGlobalIDString = 35E7F3E527867ED10067F0F7;
 			remoteInfo = MiniBlocks;
 		};
+		35F918572812C35100DC3DA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35E7F3DE27867ED10067F0F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35F918542812C35100DC3DA3;
+			remoteInfo = "MiniBlocksToWatch WatchKit Extension";
+		};
+		35F918662812C35100DC3DA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35E7F3DE27867ED10067F0F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35F9184C2812C35000DC3DA3;
+			remoteInfo = MiniBlocksToWatch;
+		};
+		35F918C82812C78500DC3DA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35E7F3DE27867ED10067F0F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35F918BE2812C70000DC3DA3;
+			remoteInfo = WatchGameplayKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		35F918692812C35100DC3DA3 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				35F918682812C35100DC3DA3 /* MiniBlocksToWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F9186C2812C35100DC3DA3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				35F918562812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F918BA2812C6C700DC3DA3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F918BD2812C70000DC3DA3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		352D7A3F2787B211008FB939 /* LookAtBlockComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LookAtBlockComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/LookAtBlockComponent.swift; sourceTree = "<group>"; };
@@ -331,6 +505,24 @@
 		35EA354D2788B3870066DD82 /* Vec3Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3Protocol.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/Vec3Protocol.swift; sourceTree = "<group>"; };
 		35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandLoadComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/HandLoadComponent.swift; sourceTree = "<group>"; };
 		35F2680227F76C7D00CC458C /* HandNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandNodeComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/HandNodeComponent.swift; sourceTree = "<group>"; };
+		35F9184D2812C35000DC3DA3 /* MiniBlocksToWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBlocksToWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35F9184F2812C35100DC3DA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35F918552812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MiniBlocksToWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35F9185E2812C35100DC3DA3 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		35F918602812C35100DC3DA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35F918632812C35100DC3DA3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		35F918652812C35100DC3DA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35F918722812C4EA00DC3DA3 /* MiniBlocksApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiniBlocksApp.swift; path = ../../MiniBlocks.swiftpm/App/MiniBlocksApp.swift; sourceTree = "<group>"; };
+		35F918752812C51100DC3DA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		35F918BF2812C70000DC3DA3 /* libWatchGameplayKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWatchGameplayKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		35F918CA2812C7C500DC3DA3 /* GKEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntity.swift; sourceTree = "<group>"; };
+		35F918CC2812C81200DC3DA3 /* GKComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKComponent.swift; sourceTree = "<group>"; };
+		35F918CE2812C86300DC3DA3 /* GKNoise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKNoise.swift; sourceTree = "<group>"; };
+		35F918D02812C87200DC3DA3 /* GKPerlinNoiseSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKPerlinNoiseSource.swift; sourceTree = "<group>"; };
+		35F918D22812CA9800DC3DA3 /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		35F918D42812CC4E00DC3DA3 /* GKComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKComponentSystem.swift; sourceTree = "<group>"; };
+		35F9191E2812E71800DC3DA3 /* MiniBlocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBlocksView.swift; sourceTree = "<group>"; };
+		35F919202812EC2F00DC3DA3 /* GKNoiseSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKNoiseSource.swift; sourceTree = "<group>"; };
 		35FEC152278E6B1B00E2000E /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Deque.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/Deque.swift; sourceTree = "<group>"; };
 		35FEC155278E6BD900E2000E /* CyclicDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CyclicDeque.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/CyclicDeque.swift; sourceTree = "<group>"; };
 		35FEC158278E700D00E2000E /* CyclicDequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicDequeTests.swift; sourceTree = "<group>"; };
@@ -353,6 +545,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		35EA352827889DA10066DD82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F918522812C35100DC3DA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F918C72812C78500DC3DA3 /* libWatchGameplayKit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F918BC2812C70000DC3DA3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -506,7 +713,11 @@
 				35E7F3E827867ED10067F0F7 /* MiniBlocks */,
 				35391BAD278BC5A800B22954 /* MiniBlocksToGo */,
 				35EA352C27889DA10066DD82 /* MiniBlocksTests */,
+				35F9184E2812C35000DC3DA3 /* MiniBlocksToWatch */,
+				35F918592812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */,
+				35F918C02812C70000DC3DA3 /* WatchGameplayKit */,
 				35E7F3E727867ED10067F0F7 /* Products */,
+				35F918C62812C78500DC3DA3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -516,6 +727,9 @@
 				35E7F3E627867ED10067F0F7 /* MiniBlocks.app */,
 				35EA352B27889DA10066DD82 /* MiniBlocksTests.xctest */,
 				35391BAC278BC5A800B22954 /* MiniBlocks.app */,
+				35F9184D2812C35000DC3DA3 /* MiniBlocksToWatch.app */,
+				35F918552812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex */,
+				35F918BF2812C70000DC3DA3 /* libWatchGameplayKit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -593,6 +807,57 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		35F9184E2812C35000DC3DA3 /* MiniBlocksToWatch */ = {
+			isa = PBXGroup;
+			children = (
+				35F9184F2812C35100DC3DA3 /* Assets.xcassets */,
+			);
+			path = MiniBlocksToWatch;
+			sourceTree = "<group>";
+		};
+		35F918592812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				35F918722812C4EA00DC3DA3 /* MiniBlocksApp.swift */,
+				35F9191E2812E71800DC3DA3 /* MiniBlocksView.swift */,
+				35F918752812C51100DC3DA3 /* ContentView.swift */,
+				35F9185E2812C35100DC3DA3 /* ComplicationController.swift */,
+				35F918602812C35100DC3DA3 /* Assets.xcassets */,
+				35F918652812C35100DC3DA3 /* Info.plist */,
+				35F918622812C35100DC3DA3 /* Preview Content */,
+			);
+			path = "MiniBlocksToWatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		35F918622812C35100DC3DA3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				35F918632812C35100DC3DA3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		35F918C02812C70000DC3DA3 /* WatchGameplayKit */ = {
+			isa = PBXGroup;
+			children = (
+				35F918CA2812C7C500DC3DA3 /* GKEntity.swift */,
+				35F918CE2812C86300DC3DA3 /* GKNoise.swift */,
+				35F919202812EC2F00DC3DA3 /* GKNoiseSource.swift */,
+				35F918D02812C87200DC3DA3 /* GKPerlinNoiseSource.swift */,
+				35F918CC2812C81200DC3DA3 /* GKComponent.swift */,
+				35F918D42812CC4E00DC3DA3 /* GKComponentSystem.swift */,
+				35F918D22812CA9800DC3DA3 /* Vector.swift */,
+			);
+			path = WatchGameplayKit;
+			sourceTree = "<group>";
+		};
+		35F918C62812C78500DC3DA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -603,10 +868,12 @@
 				35391BA8278BC5A800B22954 /* Sources */,
 				35391BA9278BC5A800B22954 /* Frameworks */,
 				35391BAA278BC5A800B22954 /* Resources */,
+				35F918692812C35100DC3DA3 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				35F918672812C35100DC3DA3 /* PBXTargetDependency */,
 			);
 			name = MiniBlocksToGo;
 			productName = MiniBlocksToGo;
@@ -648,6 +915,59 @@
 			productReference = 35EA352B27889DA10066DD82 /* MiniBlocksTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		35F9184C2812C35000DC3DA3 /* MiniBlocksToWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35F918702812C35100DC3DA3 /* Build configuration list for PBXNativeTarget "MiniBlocksToWatch" */;
+			buildPhases = (
+				35F9184B2812C35000DC3DA3 /* Resources */,
+				35F9186C2812C35100DC3DA3 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35F918582812C35100DC3DA3 /* PBXTargetDependency */,
+			);
+			name = MiniBlocksToWatch;
+			productName = MiniBlocksToWatch;
+			productReference = 35F9184D2812C35000DC3DA3 /* MiniBlocksToWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		35F918542812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35F9186F2812C35100DC3DA3 /* Build configuration list for PBXNativeTarget "MiniBlocksToWatch WatchKit Extension" */;
+			buildPhases = (
+				35F918512812C35100DC3DA3 /* Sources */,
+				35F918522812C35100DC3DA3 /* Frameworks */,
+				35F918532812C35100DC3DA3 /* Resources */,
+				35F918BA2812C6C700DC3DA3 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35F918C92812C78500DC3DA3 /* PBXTargetDependency */,
+			);
+			name = "MiniBlocksToWatch WatchKit Extension";
+			productName = "MiniBlocksToWatch WatchKit Extension";
+			productReference = 35F918552812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		35F918BE2812C70000DC3DA3 /* WatchGameplayKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35F918C32812C70000DC3DA3 /* Build configuration list for PBXNativeTarget "WatchGameplayKit" */;
+			buildPhases = (
+				35F918BB2812C70000DC3DA3 /* Sources */,
+				35F918BC2812C70000DC3DA3 /* Frameworks */,
+				35F918BD2812C70000DC3DA3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WatchGameplayKit;
+			productName = WatchGameplayKit;
+			productReference = 35F918BF2812C70000DC3DA3 /* libWatchGameplayKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -655,7 +975,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					35391BAB278BC5A800B22954 = {
@@ -667,6 +987,15 @@
 					35EA352A27889DA10066DD82 = {
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = 35E7F3E527867ED10067F0F7;
+					};
+					35F9184C2812C35000DC3DA3 = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					35F918542812C35100DC3DA3 = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					35F918BE2812C70000DC3DA3 = {
+						CreatedOnToolsVersion = 13.3;
 					};
 				};
 			};
@@ -686,6 +1015,9 @@
 				35E7F3E527867ED10067F0F7 /* MiniBlocks */,
 				35391BAB278BC5A800B22954 /* MiniBlocksToGo */,
 				35EA352A27889DA10066DD82 /* MiniBlocksTests */,
+				35F9184C2812C35000DC3DA3 /* MiniBlocksToWatch */,
+				35F918542812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */,
+				35F918BE2812C70000DC3DA3 /* WatchGameplayKit */,
 			);
 		};
 /* End PBXProject section */
@@ -728,6 +1060,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F9184B2812C35000DC3DA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F918502812C35100DC3DA3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F918532812C35100DC3DA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F9191A2812E38000DC3DA3 /* TextureLeaves.png in Resources */,
+				35F919172812E38000DC3DA3 /* TextureGrass.png in Resources */,
+				35F918642812C35100DC3DA3 /* Preview Assets.xcassets in Resources */,
+				35F918612812C35100DC3DA3 /* Assets.xcassets in Resources */,
+				35F9190A2812E2D600DC3DA3 /* MiniBlocksScene.scn in Resources */,
+				35F9191D2812E38000DC3DA3 /* TextureSand.png in Resources */,
+				35F9191C2812E38000DC3DA3 /* TextureWood.png in Resources */,
+				35F9191B2812E38000DC3DA3 /* TextureStone.png in Resources */,
+				35F919192812E38000DC3DA3 /* TextureBedrock.png in Resources */,
+				35F919182812E38000DC3DA3 /* TextureWater.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -938,6 +1295,115 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		35F918512812C35100DC3DA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F918A52812C5D100DC3DA3 /* ControlPadHUDNode.swift in Sources */,
+				35F918A92812C5D100DC3DA3 /* BlockNode.swift in Sources */,
+				35F918802812C5C300DC3DA3 /* InventoryConstants.swift in Sources */,
+				35F918A02812C5C900DC3DA3 /* ChunkConstants.swift in Sources */,
+				35F918842812C5C300DC3DA3 /* Achievements.swift in Sources */,
+				35F918F62812E19C00DC3DA3 /* WorldEntity.swift in Sources */,
+				35F9189C2812C5C900DC3DA3 /* CompatibilityLayer.swift in Sources */,
+				35F9187C2812C5C300DC3DA3 /* Item.swift in Sources */,
+				35F918952812C5C900DC3DA3 /* ChunkPos.swift in Sources */,
+				35F918E82812D01700DC3DA3 /* MouseCaptureVisibilityComponent.swift in Sources */,
+				35F918A12812C5C900DC3DA3 /* BlockPos2.swift in Sources */,
+				35F9187D2812C5C300DC3DA3 /* WavyHillsWorldGenerator.swift in Sources */,
+				35F918EF2812E19C00DC3DA3 /* AmbientLightEntity.swift in Sources */,
+				35F9191F2812E71800DC3DA3 /* MiniBlocksView.swift in Sources */,
+				35F918E12812D01700DC3DA3 /* AchievementHUDLoadComponent.swift in Sources */,
+				35F9188D2812C5C900DC3DA3 /* Vec2Protocol.swift in Sources */,
+				35F918DC2812D01700DC3DA3 /* TouchInteractable.swift in Sources */,
+				35F918862812C5C300DC3DA3 /* WorldGeneratorType.swift in Sources */,
+				35F918822812C5C300DC3DA3 /* NatureWorldGenerator.swift in Sources */,
+				35F918742812C4EA00DC3DA3 /* MiniBlocksApp.swift in Sources */,
+				35F918F42812E19C00DC3DA3 /* HotbarHUDEntity.swift in Sources */,
+				35F918A82812C5D100DC3DA3 /* PauseHUDNode.swift in Sources */,
+				35F9188B2812C5C900DC3DA3 /* ChunkRegion.swift in Sources */,
+				35F918EB2812D01700DC3DA3 /* SceneNodeComponent.swift in Sources */,
+				35F918902812C5C900DC3DA3 /* Box.swift in Sources */,
+				35F918ED2812D03600DC3DA3 /* MiniBlocksViewController.swift in Sources */,
+				35F918832812C5C300DC3DA3 /* ItemStack.swift in Sources */,
+				35F918912812C5C900DC3DA3 /* CoreGraphicsUtils.swift in Sources */,
+				35F9188F2812C5C900DC3DA3 /* Vec2.swift in Sources */,
+				35F918DA2812D01700DC3DA3 /* PlayerPositioningComponent.swift in Sources */,
+				35F918EE2812E19C00DC3DA3 /* ControlPadHUDEntity.swift in Sources */,
+				35F9187F2812C5C300DC3DA3 /* Inventory.swift in Sources */,
+				35F918962812C5C900DC3DA3 /* CyclicDeque.swift in Sources */,
+				35F918792812C5C300DC3DA3 /* Block.swift in Sources */,
+				35F918E42812D01700DC3DA3 /* NameComponent.swift in Sources */,
+				35F9189E2812C5C900DC3DA3 /* Throttler.swift in Sources */,
+				35F918DE2812D01700DC3DA3 /* HeightAboveGroundComponent.swift in Sources */,
+				35F918DB2812D01700DC3DA3 /* WorldLoadComponent.swift in Sources */,
+				35F918E32812D01700DC3DA3 /* HandLoadComponent.swift in Sources */,
+				35F9187A2812C5C300DC3DA3 /* EmptyWorldGenerator.swift in Sources */,
+				35F918E02812D01700DC3DA3 /* LookAtBlockComponent.swift in Sources */,
+				35F918932812C5C900DC3DA3 /* Vec3Protocol.swift in Sources */,
+				35F918F52812E19C00DC3DA3 /* DebugHUDEntity.swift in Sources */,
+				35F918D82812D01700DC3DA3 /* WorldComponent.swift in Sources */,
+				35F9189B2812C5C900DC3DA3 /* Deque.swift in Sources */,
+				35F918922812C5C900DC3DA3 /* GridIterator2.swift in Sources */,
+				35F918972812C5C900DC3DA3 /* Vec3.swift in Sources */,
+				35F918A72812C5D100DC3DA3 /* ItemNode.swift in Sources */,
+				35F918D72812D01700DC3DA3 /* SpriteNodeComponent.swift in Sources */,
+				35F918D92812D01700DC3DA3 /* PlayerControlComponent.swift in Sources */,
+				35F918E72812D01700DC3DA3 /* HotbarHUDControlComponent.swift in Sources */,
+				35F918992812C5C900DC3DA3 /* MathUtils.swift in Sources */,
+				35F9189A2812C5C900DC3DA3 /* Wraparound.swift in Sources */,
+				35F918F72812E19C00DC3DA3 /* SunEntity.swift in Sources */,
+				35F918DD2812D01700DC3DA3 /* PlayerGravityComponent.swift in Sources */,
+				35F918D62812D01700DC3DA3 /* PlayerAssocationComponent.swift in Sources */,
+				35F918812812C5C300DC3DA3 /* BlockType.swift in Sources */,
+				35F918772812C5C300DC3DA3 /* OceanWorldGenerator.swift in Sources */,
+				35F918892812C5C300DC3DA3 /* World.swift in Sources */,
+				35F918782812C5C300DC3DA3 /* Strip.swift in Sources */,
+				35F918F02812E19C00DC3DA3 /* PlayerEntity.swift in Sources */,
+				35F918EC2812D03100DC3DA3 /* MiniBlocksSceneView.swift in Sources */,
+				35F9187B2812C5C300DC3DA3 /* PlayerInfo.swift in Sources */,
+				35F9188C2812C5C900DC3DA3 /* Vec2Convertible.swift in Sources */,
+				35F918852812C5C300DC3DA3 /* ItemType.swift in Sources */,
+				35F918A62812C5D100DC3DA3 /* NodeConstants.swift in Sources */,
+				35F9188A2812C5C900DC3DA3 /* Debouncer.swift in Sources */,
+				35F918F32812E19C00DC3DA3 /* AchievementHUDEntity.swift in Sources */,
+				35F918982812C5C900DC3DA3 /* SceneKitUtils.swift in Sources */,
+				35F918E22812D01700DC3DA3 /* DebugHUDLoadComponent.swift in Sources */,
+				35F918E92812D01700DC3DA3 /* HandNodeComponent.swift in Sources */,
+				35F918EA2812D01700DC3DA3 /* ControlPadHUDControlComponent.swift in Sources */,
+				35F918762812C51100DC3DA3 /* ContentView.swift in Sources */,
+				35F918A42812C5D100DC3DA3 /* CrosshairHUDNode.swift in Sources */,
+				35F918882812C5C300DC3DA3 /* GameMode.swift in Sources */,
+				35F918E62812D01700DC3DA3 /* HotbarHUDLoadComponent.swift in Sources */,
+				35F918872812C5C300DC3DA3 /* FlatWorldGenerator.swift in Sources */,
+				35F918A32812C5D100DC3DA3 /* AchievementHUDNode.swift in Sources */,
+				35F918942812C5C900DC3DA3 /* BlockPos3.swift in Sources */,
+				35F918DF2812D01700DC3DA3 /* WorldAssociationComponent.swift in Sources */,
+				35F918A22812C5D100DC3DA3 /* HotbarHUDSlotNode.swift in Sources */,
+				35F918F22812E19C00DC3DA3 /* PauseHUDEntity.swift in Sources */,
+				35F9187E2812C5C300DC3DA3 /* WorldGenerator.swift in Sources */,
+				35F918F12812E19C00DC3DA3 /* CrosshairHUDEntity.swift in Sources */,
+				35F9188E2812C5C900DC3DA3 /* FIFOCache.swift in Sources */,
+				35F9189D2812C5C900DC3DA3 /* Vec3Convertible.swift in Sources */,
+				35F918E52812D01700DC3DA3 /* WorldRetainComponent.swift in Sources */,
+				35F9185F2812C35100DC3DA3 /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F918BB2812C70000DC3DA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F918CB2812C7C500DC3DA3 /* GKEntity.swift in Sources */,
+				35F918CF2812C86300DC3DA3 /* GKNoise.swift in Sources */,
+				35F918D52812CC4E00DC3DA3 /* GKComponentSystem.swift in Sources */,
+				35F918D32812CA9800DC3DA3 /* Vector.swift in Sources */,
+				35F918CD2812C81200DC3DA3 /* GKComponent.swift in Sources */,
+				35F918D12812C87200DC3DA3 /* GKPerlinNoiseSource.swift in Sources */,
+				35F919212812EC2F00DC3DA3 /* GKNoiseSource.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -945,6 +1411,21 @@
 			isa = PBXTargetDependency;
 			target = 35E7F3E527867ED10067F0F7 /* MiniBlocks */;
 			targetProxy = 35EA352F27889DA10066DD82 /* PBXContainerItemProxy */;
+		};
+		35F918582812C35100DC3DA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35F918542812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */;
+			targetProxy = 35F918572812C35100DC3DA3 /* PBXContainerItemProxy */;
+		};
+		35F918672812C35100DC3DA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35F9184C2812C35000DC3DA3 /* MiniBlocksToWatch */;
+			targetProxy = 35F918662812C35100DC3DA3 /* PBXContainerItemProxy */;
+		};
+		35F918C92812C78500DC3DA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35F918BE2812C70000DC3DA3 /* WatchGameplayKit */;
+			targetProxy = 35F918C82812C78500DC3DA3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -973,7 +1454,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1004,7 +1485,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1224,6 +1705,157 @@
 			};
 			name = Release;
 		};
+		35F9186A2812C35100DC3DA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = MiniBlocksToWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = MiniBlocksToWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.fwcd.MiniBlocksToGo;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MiniBlocksToGo.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Debug;
+		};
+		35F9186B2812C35100DC3DA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = MiniBlocksToWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = MiniBlocksToWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.fwcd.MiniBlocksToGo;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MiniBlocksToGo.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Release;
+		};
+		35F9186D2812C35100DC3DA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MiniBlocksToWatch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MiniBlocksToWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MiniBlocksToWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = MiniBlocksToWatch_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MiniBlocksToGo.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Debug;
+		};
+		35F9186E2812C35100DC3DA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MiniBlocksToWatch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MiniBlocksToWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MiniBlocksToWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = MiniBlocksToWatch_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MiniBlocksToGo.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Release;
+		};
+		35F918C42812C70000DC3DA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_MODULE_NAME = GameplayKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Debug;
+		};
+		35F918C52812C70000DC3DA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_MODULE_NAME = GameplayKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1259,6 +1891,33 @@
 			buildConfigurations = (
 				35EA353227889DA10066DD82 /* Debug */,
 				35EA353327889DA10066DD82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35F9186F2812C35100DC3DA3 /* Build configuration list for PBXNativeTarget "MiniBlocksToWatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35F9186D2812C35100DC3DA3 /* Debug */,
+				35F9186E2812C35100DC3DA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35F918702812C35100DC3DA3 /* Build configuration list for PBXNativeTarget "MiniBlocksToWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35F9186A2812C35100DC3DA3 /* Debug */,
+				35F9186B2812C35100DC3DA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35F918C32812C70000DC3DA3 /* Build configuration list for PBXNativeTarget "WatchGameplayKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35F918C42812C70000DC3DA3 /* Debug */,
+				35F918C52812C70000DC3DA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

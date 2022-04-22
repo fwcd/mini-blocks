@@ -1,3 +1,4 @@
+import SceneKit
 import GameplayKit
 
 func makeDemoBlockPositions() -> [BlockPos3] {

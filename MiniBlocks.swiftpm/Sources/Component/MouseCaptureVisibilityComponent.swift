@@ -1,3 +1,5 @@
+import Foundation
+import SpriteKit
 import GameplayKit
 
 /// Makes the components visibility dependent on whether the mouse is captured.

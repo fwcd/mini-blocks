@@ -1,4 +1,6 @@
+import Foundation
 import GameplayKit
+import SceneKit
 
 private let angularValocityEpsilon: SceneFloat = 0.01
 private let piHalf = SceneFloat.pi / 2

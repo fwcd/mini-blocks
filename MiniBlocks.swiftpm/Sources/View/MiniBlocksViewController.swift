@@ -2,9 +2,12 @@ import Foundation
 import CoreGraphics
 import SceneKit
 import SpriteKit
-import GameController
 import GameplayKit
 import OSLog
+
+#if canImport(GameController)
+import GameController
+#endif
 
 private let log = Logger(subsystem: "MiniBlocks", category: "MiniBlocksViewController")
 
@@ -53,7 +56,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     }
     #endif
     
-    #if canImport(UIKit)
+    #if os(iOS)
     @Box private var usesMouseKeyboardControls = false
     private var panDragStart: CGPoint?
     private var panDraggedComponent: TouchInteractable?
@@ -68,7 +71,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     // MARK: SpriteKit/SceneKit properties
     
     private var overlayScene: SKScene!
-    private var scene: SCNScene!
+    private(set) var scene: SCNScene!
     
     // MARK: GameplayKit properties
     
@@ -153,9 +156,11 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         add(entity: makeHotbarHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
         add(entity: makeDebugHUDEntity(in: overlayScene.frame, playerEntity: playerEntity))
         
+        #if !os(watchOS)
         if achievementsShown {
             add(entity: makeAchievementHUDEntity(in: overlayScene.frame, playerEntity: playerEntity, usesMouseKeyboardControls: _usesMouseKeyboardControls))
         }
+        #endif
         
         #if canImport(AppKit)
         add(entity: makePauseHUDEntity(in: overlayScene.frame))
@@ -189,7 +194,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
         #endif
         
-        #if canImport(UIKit)
+        #if os(iOS)
         // Set up mouse/keyboard handling via the GameController framework (on iOS)
         // TODO: Use GameController-based input on macOS too (replacing AppKit)
         let center = NotificationCenter.default
@@ -329,7 +334,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         previousUpdateTime = time
     }
     
-    private func controlPlayer(with action: (PlayerControlComponent) -> Void) {
+    func controlPlayer(with action: (PlayerControlComponent) -> Void) {
         for case let component as PlayerControlComponent in playerControlComponentSystem.components {
             action(component)
         }
@@ -337,7 +342,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     // MARK: GameController-based mouse/keyboard controls
     
-    #if canImport(UIKit)
+    #if os(iOS)
     
     private func registerGCMouseKeyboardControls() {
         if let mouse = GCMouse.current {
@@ -610,7 +615,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     // MARK: Touch controls
     
-    #if canImport(UIKit)
+    #if os(iOS)
     
     private func registerUITouchControls() {
         let controlPadHUDEntity = makeControlPadHUDEntity(in: overlayScene.frame, playerEntity: playerEntity)

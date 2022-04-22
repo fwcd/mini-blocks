@@ -1,4 +1,6 @@
+import Foundation
 import GameplayKit
+import SceneKit
 
 /// Associates the entity with a world entity.
 class WorldAssociationComponent: GKComponent {
