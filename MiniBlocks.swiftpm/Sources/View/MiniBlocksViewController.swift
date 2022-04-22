@@ -334,7 +334,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         previousUpdateTime = time
     }
     
-    private func controlPlayer(with action: (PlayerControlComponent) -> Void) {
+    func controlPlayer(with action: (PlayerControlComponent) -> Void) {
         for case let component as PlayerControlComponent in playerControlComponentSystem.components {
             action(component)
         }

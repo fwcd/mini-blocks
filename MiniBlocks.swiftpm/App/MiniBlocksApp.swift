@@ -15,6 +15,16 @@ struct MiniBlocksApp: App {
                 antialiasingMode: .none,
                 delegate: viewController
             )
+            .gesture(
+                DragGesture()
+                    .onChanged { drag in
+                        let delta = drag.location - drag.predictedEndLocation
+                        viewController.controlPlayer { component in
+                            component.rotateYaw(by: SceneFloat(delta.x / 40))
+                            component.rotatePitch(by: SceneFloat(delta.y / 40))
+                        }
+                    }
+            )
         }
     }
 }
