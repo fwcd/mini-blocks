@@ -13,6 +13,8 @@ private let viewController = MiniBlocksViewController(
 )
 
 struct MiniBlocksView: View {
+    @State private var rotation: Double = 0
+    
     var body: some View {
         SceneView(
                 scene: viewController.scene,
@@ -30,6 +32,15 @@ struct MiniBlocksView: View {
                         }
                     }
             )
+            .focusable()
+            .digitalCrownRotation($rotation)
+            .onChange(of: rotation) { rotation in
+                viewController.controlPlayer { component in
+                    component.requestedBaseVelocity = Vec3(z: -rotation)
+                }
+                
+                // TODO: Add a way of stopping the movement
+            }
     }
 }
 
