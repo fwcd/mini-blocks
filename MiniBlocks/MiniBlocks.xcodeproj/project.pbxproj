@@ -204,12 +204,68 @@
 		35F2680427F76C7D00CC458C /* HandNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680227F76C7D00CC458C /* HandNodeComponent.swift */; };
 		35F918502812C35100DC3DA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35F9184F2812C35100DC3DA3 /* Assets.xcassets */; };
 		35F918562812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 35F918552812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		35F9185B2812C35100DC3DA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9185A2812C35100DC3DA3 /* ContentView.swift */; };
-		35F9185D2812C35100DC3DA3 /* MiniBlocksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9185C2812C35100DC3DA3 /* MiniBlocksApp.swift */; };
 		35F9185F2812C35100DC3DA3 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9185E2812C35100DC3DA3 /* ComplicationController.swift */; };
 		35F918612812C35100DC3DA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35F918602812C35100DC3DA3 /* Assets.xcassets */; };
 		35F918642812C35100DC3DA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35F918632812C35100DC3DA3 /* Preview Assets.xcassets */; };
 		35F918682812C35100DC3DA3 /* MiniBlocksToWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35F9184D2812C35000DC3DA3 /* MiniBlocksToWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		35F918742812C4EA00DC3DA3 /* MiniBlocksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918722812C4EA00DC3DA3 /* MiniBlocksApp.swift */; };
+		35F918762812C51100DC3DA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918752812C51100DC3DA3 /* ContentView.swift */; };
+		35F918772812C5C300DC3DA3 /* OceanWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5551B278C3AE0006FA70D /* OceanWorldGenerator.swift */; };
+		35F918782812C5C300DC3DA3 /* Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55510278C3AE0006FA70D /* Strip.swift */; };
+		35F918792812C5C300DC3DA3 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55511278C3AE0006FA70D /* Block.swift */; };
+		35F9187A2812C5C300DC3DA3 /* EmptyWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55515278C3AE0006FA70D /* EmptyWorldGenerator.swift */; };
+		35F9187B2812C5C300DC3DA3 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55539278C3CA5006FA70D /* PlayerInfo.swift */; };
+		35F9187C2812C5C300DC3DA3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55517278C3AE0006FA70D /* Item.swift */; };
+		35F9187D2812C5C300DC3DA3 /* WavyHillsWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55516278C3AE0006FA70D /* WavyHillsWorldGenerator.swift */; };
+		35F9187E2812C5C300DC3DA3 /* WorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55513278C3AE0006FA70D /* WorldGenerator.swift */; };
+		35F9187F2812C5C300DC3DA3 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55536278C3B42006FA70D /* Inventory.swift */; };
+		35F918802812C5C300DC3DA3 /* InventoryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5556A278C5829006FA70D /* InventoryConstants.swift */; };
+		35F918812812C5C300DC3DA3 /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55512278C3AE0006FA70D /* BlockType.swift */; };
+		35F918822812C5C300DC3DA3 /* NatureWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55514278C3AE0006FA70D /* NatureWorldGenerator.swift */; };
+		35F918832812C5C300DC3DA3 /* ItemStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55545278C408C006FA70D /* ItemStack.swift */; };
+		35F918842812C5C300DC3DA3 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CAF827F50578000EE620 /* Achievements.swift */; };
+		35F918852812C5C300DC3DA3 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5551A278C3AE0006FA70D /* ItemType.swift */; };
+		35F918862812C5C300DC3DA3 /* WorldGeneratorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55519278C3AE0006FA70D /* WorldGeneratorType.swift */; };
+		35F918872812C5C300DC3DA3 /* FlatWorldGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55518278C3AE0006FA70D /* FlatWorldGenerator.swift */; };
+		35F918882812C5C300DC3DA3 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357214402795747A003C640F /* GameMode.swift */; };
+		35F918892812C5C300DC3DA3 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5550F278C3AE0006FA70D /* World.swift */; };
+		35F9188A2812C5C900DC3DA3 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357EB0CB279640B00004CA6E /* Debouncer.swift */; };
+		35F9188B2812C5C900DC3DA3 /* ChunkRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35492788A8B00066DD82 /* ChunkRegion.swift */; };
+		35F9188C2812C5C900DC3DA3 /* Vec2Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144C27957B11003C640F /* Vec2Convertible.swift */; };
+		35F9188D2812C5C900DC3DA3 /* Vec2Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354B2788B1D30066DD82 /* Vec2Protocol.swift */; };
+		35F9188E2812C5C900DC3DA3 /* FIFOCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC15A278E76D900E2000E /* FIFOCache.swift */; };
+		35F9188F2812C5C900DC3DA3 /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144627957961003C640F /* Vec2.swift */; };
+		35F918902812C5C900DC3DA3 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28727873D2900FA8570 /* Box.swift */; };
+		35F918912812C5C900DC3DA3 /* CoreGraphicsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D7A452787BD70008FB939 /* CoreGraphicsUtils.swift */; };
+		35F918922812C5C900DC3DA3 /* GridIterator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352527889CBE0066DD82 /* GridIterator2.swift */; };
+		35F918932812C5C900DC3DA3 /* Vec3Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA354D2788B3870066DD82 /* Vec3Protocol.swift */; };
+		35F918942812C5C900DC3DA3 /* BlockPos3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C28527873D1100FA8570 /* BlockPos3.swift */; };
+		35F918952812C5C900DC3DA3 /* ChunkPos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352127889B200066DD82 /* ChunkPos.swift */; };
+		35F918962812C5C900DC3DA3 /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
+		35F918972812C5C900DC3DA3 /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144927957970003C640F /* Vec3.swift */; };
+		35F918982812C5C900DC3DA3 /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546255727878798000489E8 /* SceneKitUtils.swift */; };
+		35F918992812C5C900DC3DA3 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA35372788A09E0066DD82 /* MathUtils.swift */; };
+		35F9189A2812C5C900DC3DA3 /* Wraparound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55567278C5760006FA70D /* Wraparound.swift */; };
+		35F9189B2812C5C900DC3DA3 /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
+		35F9189C2812C5C900DC3DA3 /* CompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35391BF3278BC8ED00B22954 /* CompatibilityLayer.swift */; };
+		35F9189D2812C5C900DC3DA3 /* Vec3Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572144F27957B56003C640F /* Vec3Convertible.swift */; };
+		35F9189E2812C5C900DC3DA3 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C297278753AE00FA8570 /* Throttler.swift */; };
+		35F918A02812C5C900DC3DA3 /* ChunkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA352327889B560066DD82 /* ChunkConstants.swift */; };
+		35F918A12812C5C900DC3DA3 /* BlockPos2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0C2A2278757A700FA8570 /* BlockPos2.swift */; };
+		35F918A22812C5D100DC3DA3 /* HotbarHUDSlotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5555E278C4BEA006FA70D /* HotbarHUDSlotNode.swift */; };
+		35F918A32812C5D100DC3DA3 /* AchievementHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554CAFE27F51B36000EE620 /* AchievementHUDNode.swift */; };
+		35F918A42812C5D100DC3DA3 /* CrosshairHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55555278C4806006FA70D /* CrosshairHUDNode.swift */; };
+		35F918A52812C5D100DC3DA3 /* ControlPadHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3492227FF4001000F0CC2 /* ControlPadHUDNode.swift */; };
+		35F918A62812C5D100DC3DA3 /* NodeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751E27F2A47D00887E01 /* NodeConstants.swift */; };
+		35F918A72812C5D100DC3DA3 /* ItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5555B278C497F006FA70D /* ItemNode.swift */; };
+		35F918A82812C5D100DC3DA3 /* PauseHUDNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540751B27F2A10A00887E01 /* PauseHUDNode.swift */; };
+		35F918A92812C5D100DC3DA3 /* BlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A55558278C4868006FA70D /* BlockNode.swift */; };
+		35F918C72812C78500DC3DA3 /* libWatchGameplayKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F918BF2812C70000DC3DA3 /* libWatchGameplayKit.a */; };
+		35F918CB2812C7C500DC3DA3 /* GKEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918CA2812C7C500DC3DA3 /* GKEntity.swift */; };
+		35F918CD2812C81200DC3DA3 /* GKComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918CC2812C81200DC3DA3 /* GKComponent.swift */; };
+		35F918CF2812C86300DC3DA3 /* GKNoise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918CE2812C86300DC3DA3 /* GKNoise.swift */; };
+		35F918D12812C87200DC3DA3 /* GKPerlinNoiseSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918D02812C87200DC3DA3 /* GKPerlinNoiseSource.swift */; };
+		35F918D32812CA9800DC3DA3 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F918D22812CA9800DC3DA3 /* Vector.swift */; };
 		35FEC153278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC154278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
@@ -241,6 +297,13 @@
 			remoteGlobalIDString = 35F9184C2812C35000DC3DA3;
 			remoteInfo = MiniBlocksToWatch;
 		};
+		35F918C82812C78500DC3DA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35E7F3DE27867ED10067F0F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35F918BE2812C70000DC3DA3;
+			remoteInfo = WatchGameplayKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -264,6 +327,25 @@
 				35F918562812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F918BA2812C6C700DC3DA3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F918BD2812C70000DC3DA3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -381,12 +463,18 @@
 		35F9184D2812C35000DC3DA3 /* MiniBlocksToWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBlocksToWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35F9184F2812C35100DC3DA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35F918552812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MiniBlocksToWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		35F9185A2812C35100DC3DA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		35F9185C2812C35100DC3DA3 /* MiniBlocksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBlocksApp.swift; sourceTree = "<group>"; };
 		35F9185E2812C35100DC3DA3 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		35F918602812C35100DC3DA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35F918632812C35100DC3DA3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		35F918652812C35100DC3DA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35F918722812C4EA00DC3DA3 /* MiniBlocksApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiniBlocksApp.swift; path = ../../MiniBlocks.swiftpm/App/MiniBlocksApp.swift; sourceTree = "<group>"; };
+		35F918752812C51100DC3DA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		35F918BF2812C70000DC3DA3 /* libWatchGameplayKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWatchGameplayKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		35F918CA2812C7C500DC3DA3 /* GKEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKEntity.swift; sourceTree = "<group>"; };
+		35F918CC2812C81200DC3DA3 /* GKComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKComponent.swift; sourceTree = "<group>"; };
+		35F918CE2812C86300DC3DA3 /* GKNoise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKNoise.swift; sourceTree = "<group>"; };
+		35F918D02812C87200DC3DA3 /* GKPerlinNoiseSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKPerlinNoiseSource.swift; sourceTree = "<group>"; };
+		35F918D22812CA9800DC3DA3 /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		35FEC152278E6B1B00E2000E /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Deque.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/Deque.swift; sourceTree = "<group>"; };
 		35FEC155278E6BD900E2000E /* CyclicDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CyclicDeque.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/CyclicDeque.swift; sourceTree = "<group>"; };
 		35FEC158278E700D00E2000E /* CyclicDequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicDequeTests.swift; sourceTree = "<group>"; };
@@ -416,6 +504,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		35F918522812C35100DC3DA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F918C72812C78500DC3DA3 /* libWatchGameplayKit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F918BC2812C70000DC3DA3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -571,7 +667,9 @@
 				35EA352C27889DA10066DD82 /* MiniBlocksTests */,
 				35F9184E2812C35000DC3DA3 /* MiniBlocksToWatch */,
 				35F918592812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */,
+				35F918C02812C70000DC3DA3 /* WatchGameplayKit */,
 				35E7F3E727867ED10067F0F7 /* Products */,
+				35F918C62812C78500DC3DA3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -583,6 +681,7 @@
 				35391BAC278BC5A800B22954 /* MiniBlocks.app */,
 				35F9184D2812C35000DC3DA3 /* MiniBlocksToWatch.app */,
 				35F918552812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex */,
+				35F918BF2812C70000DC3DA3 /* libWatchGameplayKit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -671,8 +770,8 @@
 		35F918592812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				35F9185A2812C35100DC3DA3 /* ContentView.swift */,
-				35F9185C2812C35100DC3DA3 /* MiniBlocksApp.swift */,
+				35F918722812C4EA00DC3DA3 /* MiniBlocksApp.swift */,
+				35F918752812C51100DC3DA3 /* ContentView.swift */,
 				35F9185E2812C35100DC3DA3 /* ComplicationController.swift */,
 				35F918602812C35100DC3DA3 /* Assets.xcassets */,
 				35F918652812C35100DC3DA3 /* Info.plist */,
@@ -687,6 +786,25 @@
 				35F918632812C35100DC3DA3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		35F918C02812C70000DC3DA3 /* WatchGameplayKit */ = {
+			isa = PBXGroup;
+			children = (
+				35F918CA2812C7C500DC3DA3 /* GKEntity.swift */,
+				35F918CE2812C86300DC3DA3 /* GKNoise.swift */,
+				35F918D02812C87200DC3DA3 /* GKPerlinNoiseSource.swift */,
+				35F918CC2812C81200DC3DA3 /* GKComponent.swift */,
+				35F918D22812CA9800DC3DA3 /* Vector.swift */,
+			);
+			path = WatchGameplayKit;
+			sourceTree = "<group>";
+		};
+		35F918C62812C78500DC3DA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -770,15 +888,34 @@
 				35F918512812C35100DC3DA3 /* Sources */,
 				35F918522812C35100DC3DA3 /* Frameworks */,
 				35F918532812C35100DC3DA3 /* Resources */,
+				35F918BA2812C6C700DC3DA3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				35F918C92812C78500DC3DA3 /* PBXTargetDependency */,
 			);
 			name = "MiniBlocksToWatch WatchKit Extension";
 			productName = "MiniBlocksToWatch WatchKit Extension";
 			productReference = 35F918552812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		35F918BE2812C70000DC3DA3 /* WatchGameplayKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35F918C32812C70000DC3DA3 /* Build configuration list for PBXNativeTarget "WatchGameplayKit" */;
+			buildPhases = (
+				35F918BB2812C70000DC3DA3 /* Sources */,
+				35F918BC2812C70000DC3DA3 /* Frameworks */,
+				35F918BD2812C70000DC3DA3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WatchGameplayKit;
+			productName = WatchGameplayKit;
+			productReference = 35F918BF2812C70000DC3DA3 /* libWatchGameplayKit.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -806,6 +943,9 @@
 					35F918542812C35100DC3DA3 = {
 						CreatedOnToolsVersion = 13.3;
 					};
+					35F918BE2812C70000DC3DA3 = {
+						CreatedOnToolsVersion = 13.3;
+					};
 				};
 			};
 			buildConfigurationList = 35E7F3E127867ED10067F0F7 /* Build configuration list for PBXProject "MiniBlocks" */;
@@ -826,6 +966,7 @@
 				35EA352A27889DA10066DD82 /* MiniBlocksTests */,
 				35F9184C2812C35000DC3DA3 /* MiniBlocksToWatch */,
 				35F918542812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */,
+				35F918BE2812C70000DC3DA3 /* WatchGameplayKit */,
 			);
 		};
 /* End PBXProject section */
@@ -1099,9 +1240,71 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35F9185D2812C35100DC3DA3 /* MiniBlocksApp.swift in Sources */,
-				35F9185B2812C35100DC3DA3 /* ContentView.swift in Sources */,
+				35F918A52812C5D100DC3DA3 /* ControlPadHUDNode.swift in Sources */,
+				35F918A92812C5D100DC3DA3 /* BlockNode.swift in Sources */,
+				35F918802812C5C300DC3DA3 /* InventoryConstants.swift in Sources */,
+				35F918A02812C5C900DC3DA3 /* ChunkConstants.swift in Sources */,
+				35F918842812C5C300DC3DA3 /* Achievements.swift in Sources */,
+				35F9189C2812C5C900DC3DA3 /* CompatibilityLayer.swift in Sources */,
+				35F9187C2812C5C300DC3DA3 /* Item.swift in Sources */,
+				35F918952812C5C900DC3DA3 /* ChunkPos.swift in Sources */,
+				35F918A12812C5C900DC3DA3 /* BlockPos2.swift in Sources */,
+				35F9187D2812C5C300DC3DA3 /* WavyHillsWorldGenerator.swift in Sources */,
+				35F9188D2812C5C900DC3DA3 /* Vec2Protocol.swift in Sources */,
+				35F918862812C5C300DC3DA3 /* WorldGeneratorType.swift in Sources */,
+				35F918822812C5C300DC3DA3 /* NatureWorldGenerator.swift in Sources */,
+				35F918742812C4EA00DC3DA3 /* MiniBlocksApp.swift in Sources */,
+				35F918A82812C5D100DC3DA3 /* PauseHUDNode.swift in Sources */,
+				35F9188B2812C5C900DC3DA3 /* ChunkRegion.swift in Sources */,
+				35F918902812C5C900DC3DA3 /* Box.swift in Sources */,
+				35F918832812C5C300DC3DA3 /* ItemStack.swift in Sources */,
+				35F918912812C5C900DC3DA3 /* CoreGraphicsUtils.swift in Sources */,
+				35F9188F2812C5C900DC3DA3 /* Vec2.swift in Sources */,
+				35F9187F2812C5C300DC3DA3 /* Inventory.swift in Sources */,
+				35F918962812C5C900DC3DA3 /* CyclicDeque.swift in Sources */,
+				35F918792812C5C300DC3DA3 /* Block.swift in Sources */,
+				35F9189E2812C5C900DC3DA3 /* Throttler.swift in Sources */,
+				35F9187A2812C5C300DC3DA3 /* EmptyWorldGenerator.swift in Sources */,
+				35F918932812C5C900DC3DA3 /* Vec3Protocol.swift in Sources */,
+				35F9189B2812C5C900DC3DA3 /* Deque.swift in Sources */,
+				35F918922812C5C900DC3DA3 /* GridIterator2.swift in Sources */,
+				35F918972812C5C900DC3DA3 /* Vec3.swift in Sources */,
+				35F918A72812C5D100DC3DA3 /* ItemNode.swift in Sources */,
+				35F918992812C5C900DC3DA3 /* MathUtils.swift in Sources */,
+				35F9189A2812C5C900DC3DA3 /* Wraparound.swift in Sources */,
+				35F918812812C5C300DC3DA3 /* BlockType.swift in Sources */,
+				35F918772812C5C300DC3DA3 /* OceanWorldGenerator.swift in Sources */,
+				35F918892812C5C300DC3DA3 /* World.swift in Sources */,
+				35F918782812C5C300DC3DA3 /* Strip.swift in Sources */,
+				35F9187B2812C5C300DC3DA3 /* PlayerInfo.swift in Sources */,
+				35F9188C2812C5C900DC3DA3 /* Vec2Convertible.swift in Sources */,
+				35F918852812C5C300DC3DA3 /* ItemType.swift in Sources */,
+				35F918A62812C5D100DC3DA3 /* NodeConstants.swift in Sources */,
+				35F9188A2812C5C900DC3DA3 /* Debouncer.swift in Sources */,
+				35F918982812C5C900DC3DA3 /* SceneKitUtils.swift in Sources */,
+				35F918762812C51100DC3DA3 /* ContentView.swift in Sources */,
+				35F918A42812C5D100DC3DA3 /* CrosshairHUDNode.swift in Sources */,
+				35F918882812C5C300DC3DA3 /* GameMode.swift in Sources */,
+				35F918872812C5C300DC3DA3 /* FlatWorldGenerator.swift in Sources */,
+				35F918A32812C5D100DC3DA3 /* AchievementHUDNode.swift in Sources */,
+				35F918942812C5C900DC3DA3 /* BlockPos3.swift in Sources */,
+				35F918A22812C5D100DC3DA3 /* HotbarHUDSlotNode.swift in Sources */,
+				35F9187E2812C5C300DC3DA3 /* WorldGenerator.swift in Sources */,
+				35F9188E2812C5C900DC3DA3 /* FIFOCache.swift in Sources */,
+				35F9189D2812C5C900DC3DA3 /* Vec3Convertible.swift in Sources */,
 				35F9185F2812C35100DC3DA3 /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F918BB2812C70000DC3DA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F918CB2812C7C500DC3DA3 /* GKEntity.swift in Sources */,
+				35F918CF2812C86300DC3DA3 /* GKNoise.swift in Sources */,
+				35F918D32812CA9800DC3DA3 /* Vector.swift in Sources */,
+				35F918CD2812C81200DC3DA3 /* GKComponent.swift in Sources */,
+				35F918D12812C87200DC3DA3 /* GKPerlinNoiseSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1122,6 +1325,11 @@
 			isa = PBXTargetDependency;
 			target = 35F9184C2812C35000DC3DA3 /* MiniBlocksToWatch */;
 			targetProxy = 35F918662812C35100DC3DA3 /* PBXContainerItemProxy */;
+		};
+		35F918C92812C78500DC3DA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35F918BE2812C70000DC3DA3 /* WatchGameplayKit */;
+			targetProxy = 35F918C82812C78500DC3DA3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1517,6 +1725,39 @@
 			};
 			name = Release;
 		};
+		35F918C42812C70000DC3DA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_MODULE_NAME = GameplayKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		35F918C52812C70000DC3DA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_MODULE_NAME = GameplayKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1570,6 +1811,15 @@
 			buildConfigurations = (
 				35F9186A2812C35100DC3DA3 /* Debug */,
 				35F9186B2812C35100DC3DA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35F918C32812C70000DC3DA3 /* Build configuration list for PBXNativeTarget "WatchGameplayKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35F918C42812C70000DC3DA3 /* Debug */,
+				35F918C52812C70000DC3DA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

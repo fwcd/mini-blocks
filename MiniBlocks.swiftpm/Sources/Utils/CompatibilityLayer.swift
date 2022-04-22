@@ -18,16 +18,25 @@ public typealias SceneFloat = CGFloat
 /// Dummy protocol.
 public protocol GestureRecognizerDelegate {}
 
-#endif
-
+#else
 #if canImport(UIKit)
 
 import UIKit
 
 public typealias Color = UIColor
 public typealias Image = UIImage
-public typealias ViewController = UIViewController
 public typealias SceneFloat = Float
+
+#if os(watchOS)
+
+public protocol ViewController {}
+public protocol GestureRecognizerDelegate {}
+
+#else
+
+public typealias ViewController = UIViewController
 public typealias GestureRecognizerDelegate = UIGestureRecognizerDelegate
 
+#endif
+#endif
 #endif
