@@ -202,6 +202,14 @@
 		35F2680127F76AAC00CC458C /* HandLoadComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */; };
 		35F2680327F76C7D00CC458C /* HandNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680227F76C7D00CC458C /* HandNodeComponent.swift */; };
 		35F2680427F76C7D00CC458C /* HandNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2680227F76C7D00CC458C /* HandNodeComponent.swift */; };
+		35F918502812C35100DC3DA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35F9184F2812C35100DC3DA3 /* Assets.xcassets */; };
+		35F918562812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 35F918552812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		35F9185B2812C35100DC3DA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9185A2812C35100DC3DA3 /* ContentView.swift */; };
+		35F9185D2812C35100DC3DA3 /* MiniBlocksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9185C2812C35100DC3DA3 /* MiniBlocksApp.swift */; };
+		35F9185F2812C35100DC3DA3 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9185E2812C35100DC3DA3 /* ComplicationController.swift */; };
+		35F918612812C35100DC3DA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35F918602812C35100DC3DA3 /* Assets.xcassets */; };
+		35F918642812C35100DC3DA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35F918632812C35100DC3DA3 /* Preview Assets.xcassets */; };
+		35F918682812C35100DC3DA3 /* MiniBlocksToWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 35F9184D2812C35000DC3DA3 /* MiniBlocksToWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		35FEC153278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC154278E6B1B00E2000E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC152278E6B1B00E2000E /* Deque.swift */; };
 		35FEC156278E6BD900E2000E /* CyclicDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FEC155278E6BD900E2000E /* CyclicDeque.swift */; };
@@ -219,7 +227,46 @@
 			remoteGlobalIDString = 35E7F3E527867ED10067F0F7;
 			remoteInfo = MiniBlocks;
 		};
+		35F918572812C35100DC3DA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35E7F3DE27867ED10067F0F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35F918542812C35100DC3DA3;
+			remoteInfo = "MiniBlocksToWatch WatchKit Extension";
+		};
+		35F918662812C35100DC3DA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35E7F3DE27867ED10067F0F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35F9184C2812C35000DC3DA3;
+			remoteInfo = MiniBlocksToWatch;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		35F918692812C35100DC3DA3 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				35F918682812C35100DC3DA3 /* MiniBlocksToWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F9186C2812C35100DC3DA3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				35F918562812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		352D7A3F2787B211008FB939 /* LookAtBlockComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LookAtBlockComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/LookAtBlockComponent.swift; sourceTree = "<group>"; };
@@ -331,6 +378,15 @@
 		35EA354D2788B3870066DD82 /* Vec3Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vec3Protocol.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/Vec3Protocol.swift; sourceTree = "<group>"; };
 		35F267FF27F76AAC00CC458C /* HandLoadComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandLoadComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/HandLoadComponent.swift; sourceTree = "<group>"; };
 		35F2680227F76C7D00CC458C /* HandNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HandNodeComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/HandNodeComponent.swift; sourceTree = "<group>"; };
+		35F9184D2812C35000DC3DA3 /* MiniBlocksToWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBlocksToWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35F9184F2812C35100DC3DA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35F918552812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MiniBlocksToWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35F9185A2812C35100DC3DA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		35F9185C2812C35100DC3DA3 /* MiniBlocksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBlocksApp.swift; sourceTree = "<group>"; };
+		35F9185E2812C35100DC3DA3 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		35F918602812C35100DC3DA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35F918632812C35100DC3DA3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		35F918652812C35100DC3DA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35FEC152278E6B1B00E2000E /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Deque.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/Deque.swift; sourceTree = "<group>"; };
 		35FEC155278E6BD900E2000E /* CyclicDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CyclicDeque.swift; path = ../../MiniBlocks.swiftpm/Sources/Utils/CyclicDeque.swift; sourceTree = "<group>"; };
 		35FEC158278E700D00E2000E /* CyclicDequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicDequeTests.swift; sourceTree = "<group>"; };
@@ -353,6 +409,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		35EA352827889DA10066DD82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F918522812C35100DC3DA3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -506,6 +569,8 @@
 				35E7F3E827867ED10067F0F7 /* MiniBlocks */,
 				35391BAD278BC5A800B22954 /* MiniBlocksToGo */,
 				35EA352C27889DA10066DD82 /* MiniBlocksTests */,
+				35F9184E2812C35000DC3DA3 /* MiniBlocksToWatch */,
+				35F918592812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */,
 				35E7F3E727867ED10067F0F7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -516,6 +581,8 @@
 				35E7F3E627867ED10067F0F7 /* MiniBlocks.app */,
 				35EA352B27889DA10066DD82 /* MiniBlocksTests.xctest */,
 				35391BAC278BC5A800B22954 /* MiniBlocks.app */,
+				35F9184D2812C35000DC3DA3 /* MiniBlocksToWatch.app */,
+				35F918552812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -593,6 +660,35 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		35F9184E2812C35000DC3DA3 /* MiniBlocksToWatch */ = {
+			isa = PBXGroup;
+			children = (
+				35F9184F2812C35100DC3DA3 /* Assets.xcassets */,
+			);
+			path = MiniBlocksToWatch;
+			sourceTree = "<group>";
+		};
+		35F918592812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				35F9185A2812C35100DC3DA3 /* ContentView.swift */,
+				35F9185C2812C35100DC3DA3 /* MiniBlocksApp.swift */,
+				35F9185E2812C35100DC3DA3 /* ComplicationController.swift */,
+				35F918602812C35100DC3DA3 /* Assets.xcassets */,
+				35F918652812C35100DC3DA3 /* Info.plist */,
+				35F918622812C35100DC3DA3 /* Preview Content */,
+			);
+			path = "MiniBlocksToWatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		35F918622812C35100DC3DA3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				35F918632812C35100DC3DA3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -603,10 +699,12 @@
 				35391BA8278BC5A800B22954 /* Sources */,
 				35391BA9278BC5A800B22954 /* Frameworks */,
 				35391BAA278BC5A800B22954 /* Resources */,
+				35F918692812C35100DC3DA3 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				35F918672812C35100DC3DA3 /* PBXTargetDependency */,
 			);
 			name = MiniBlocksToGo;
 			productName = MiniBlocksToGo;
@@ -648,6 +746,40 @@
 			productReference = 35EA352B27889DA10066DD82 /* MiniBlocksTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		35F9184C2812C35000DC3DA3 /* MiniBlocksToWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35F918702812C35100DC3DA3 /* Build configuration list for PBXNativeTarget "MiniBlocksToWatch" */;
+			buildPhases = (
+				35F9184B2812C35000DC3DA3 /* Resources */,
+				35F9186C2812C35100DC3DA3 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35F918582812C35100DC3DA3 /* PBXTargetDependency */,
+			);
+			name = MiniBlocksToWatch;
+			productName = MiniBlocksToWatch;
+			productReference = 35F9184D2812C35000DC3DA3 /* MiniBlocksToWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		35F918542812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35F9186F2812C35100DC3DA3 /* Build configuration list for PBXNativeTarget "MiniBlocksToWatch WatchKit Extension" */;
+			buildPhases = (
+				35F918512812C35100DC3DA3 /* Sources */,
+				35F918522812C35100DC3DA3 /* Frameworks */,
+				35F918532812C35100DC3DA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MiniBlocksToWatch WatchKit Extension";
+			productName = "MiniBlocksToWatch WatchKit Extension";
+			productReference = 35F918552812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -655,7 +787,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					35391BAB278BC5A800B22954 = {
@@ -667,6 +799,12 @@
 					35EA352A27889DA10066DD82 = {
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = 35E7F3E527867ED10067F0F7;
+					};
+					35F9184C2812C35000DC3DA3 = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					35F918542812C35100DC3DA3 = {
+						CreatedOnToolsVersion = 13.3;
 					};
 				};
 			};
@@ -686,6 +824,8 @@
 				35E7F3E527867ED10067F0F7 /* MiniBlocks */,
 				35391BAB278BC5A800B22954 /* MiniBlocksToGo */,
 				35EA352A27889DA10066DD82 /* MiniBlocksTests */,
+				35F9184C2812C35000DC3DA3 /* MiniBlocksToWatch */,
+				35F918542812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -728,6 +868,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F9184B2812C35000DC3DA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F918502812C35100DC3DA3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F918532812C35100DC3DA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F918642812C35100DC3DA3 /* Preview Assets.xcassets in Resources */,
+				35F918612812C35100DC3DA3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -938,6 +1095,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		35F918512812C35100DC3DA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F9185D2812C35100DC3DA3 /* MiniBlocksApp.swift in Sources */,
+				35F9185B2812C35100DC3DA3 /* ContentView.swift in Sources */,
+				35F9185F2812C35100DC3DA3 /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -945,6 +1112,16 @@
 			isa = PBXTargetDependency;
 			target = 35E7F3E527867ED10067F0F7 /* MiniBlocks */;
 			targetProxy = 35EA352F27889DA10066DD82 /* PBXContainerItemProxy */;
+		};
+		35F918582812C35100DC3DA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35F918542812C35100DC3DA3 /* MiniBlocksToWatch WatchKit Extension */;
+			targetProxy = 35F918572812C35100DC3DA3 /* PBXContainerItemProxy */;
+		};
+		35F918672812C35100DC3DA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35F9184C2812C35000DC3DA3 /* MiniBlocksToWatch */;
+			targetProxy = 35F918662812C35100DC3DA3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1224,6 +1401,122 @@
 			};
 			name = Release;
 		};
+		35F9186A2812C35100DC3DA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = MiniBlocksToWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = MiniBlocksToWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.fwcd.MiniBlocksToGo;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MiniBlocksToGo.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		35F9186B2812C35100DC3DA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = MiniBlocksToWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = MiniBlocksToWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.fwcd.MiniBlocksToGo;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MiniBlocksToGo.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
+		35F9186D2812C35100DC3DA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MiniBlocksToWatch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MiniBlocksToWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MiniBlocksToWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MiniBlocksToGo.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		35F9186E2812C35100DC3DA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MiniBlocksToWatch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = SS8V8UGLY8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MiniBlocksToWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MiniBlocksToWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fwcd.MiniBlocksToGo.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1259,6 +1552,24 @@
 			buildConfigurations = (
 				35EA353227889DA10066DD82 /* Debug */,
 				35EA353327889DA10066DD82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35F9186F2812C35100DC3DA3 /* Build configuration list for PBXNativeTarget "MiniBlocksToWatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35F9186D2812C35100DC3DA3 /* Debug */,
+				35F9186E2812C35100DC3DA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35F918702812C35100DC3DA3 /* Build configuration list for PBXNativeTarget "MiniBlocksToWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35F9186A2812C35100DC3DA3 /* Debug */,
+				35F9186B2812C35100DC3DA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
