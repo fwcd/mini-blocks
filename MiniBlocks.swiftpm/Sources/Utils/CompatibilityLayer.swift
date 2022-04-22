@@ -29,7 +29,43 @@ public typealias SceneFloat = Float
 
 #if os(watchOS)
 
-public protocol ViewController {}
+import SceneKit
+import SpriteKit
+
+open class BaseView: NSObject {
+    
+}
+
+open class SCNView: BaseView {
+    public var scene: SCNScene? = nil
+    public weak var delegate: SCNSceneRendererDelegate? = nil
+    public var allowsCameraControl: Bool = false
+    public var showsStatistics: Bool = false
+    public var backgroundColor: Color?
+    public var overlaySKScene: SKScene? = nil
+    public var antialiasingMode: SCNAntialiasingMode = .none
+    public var isJitteringEnabled: Bool = false
+    public var isPlaying: Bool = false
+    
+    public override init() {
+        super.init()
+    }
+    
+    public init(frame: CGRect) {
+        super.init()
+    }
+}
+
+open class ViewController: NSObject {
+    public var view: BaseView!
+    
+    public init(nibName: String? = nil, bundle: Bundle? = nil) {
+        super.init()
+    }
+    
+    open func loadView() {}
+}
+
 public protocol GestureRecognizerDelegate {}
 
 #else

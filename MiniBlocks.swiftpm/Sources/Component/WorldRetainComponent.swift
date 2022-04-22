@@ -1,5 +1,6 @@
 import Foundation
 import GameplayKit
+import SceneKit
 import OSLog
 
 private let log = Logger(subsystem: "MiniBlocks", category: "WorldRetainComponent")

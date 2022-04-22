@@ -9,7 +9,7 @@ import Foundation
 
 public class GKComponentSystem {
     private let componentClass: GKComponent.Type
-    private var components: [GKComponent] = []
+    public private(set) var components: [GKComponent] = []
     
     public init(componentClass: GKComponent.Type) {
         self.componentClass = componentClass

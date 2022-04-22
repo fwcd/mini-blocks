@@ -10,6 +10,8 @@ import Foundation
 public class GKEntity {
     public private(set) var components: [GKComponent] = []
     
+    public init() {}
+    
     public func addComponent(_ component: GKComponent) {
         component.entity = self
         components.append(component)
