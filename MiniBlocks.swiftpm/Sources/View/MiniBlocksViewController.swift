@@ -612,21 +612,6 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         }
     }
     
-    public override func viewWillLayout() {
-        let frame = view.frame
-        
-        if frame.size != overlayScene.size {
-            sceneFrame = frame
-            overlayScene.size = frame.size
-            
-            for entity in entities {
-                for case let component as FrameSizeDependent in entity.components {
-                    component.onUpdateFrame(to: frame)
-                }
-            }
-        }
-    }
-    
     #endif
     
     // MARK: Touch controls
@@ -755,6 +740,39 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
                 break
             }
         }
+    }
+    
+    #endif
+    
+    // MARK: View resizing
+    
+    private func onResize() {
+        let frame = view.frame
+        
+        if frame.size != overlayScene.size {
+            sceneFrame = frame
+            overlayScene.size = frame.size
+            
+            for entity in entities {
+                for case let component as FrameSizeDependent in entity.components {
+                    component.onUpdateFrame(to: frame)
+                }
+            }
+        }
+    }
+    
+    #if canImport(AppKit)
+    
+    public override func viewWillLayout() {
+        onResize()
+    }
+    
+    #endif
+    
+    #if canImport(UIKit)
+    
+    public override func viewWillLayoutSubviews() {
+        onResize()
     }
     
     #endif
