@@ -26,7 +26,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     // MARK: View properties
     
     private var sceneView: MiniBlocksSceneView!
-    private let sceneFrame: CGRect?
+    private var sceneFrame: CGRect?
     private var inputSensivity: SceneFloat = 1
     
     #if canImport(AppKit)
@@ -265,6 +265,13 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             component.update(mouseCaptured: mouseCaptured)
         }
         #endif
+        
+        // Perform initial layout if frame size dependent
+        if let sceneFrame = sceneFrame {
+            for case let component as FrameSizeDependent in entity.components {
+                component.onUpdateFrame(to: sceneFrame)
+            }
+        }
         
         // Add components to their corresponding systems
         playerControlComponentSystem.addComponent(foundIn: entity)
@@ -607,7 +614,9 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     public override func viewWillLayout() {
         let frame = view.frame
+        
         if frame.size != overlayScene.size {
+            sceneFrame = frame
             overlayScene.size = frame.size
             
             for entity in entities {

@@ -2,5 +2,5 @@ import SpriteKit
 
 /// Indicates that the implementing component is dependent on the frame's size.
 protocol FrameSizeDependent {
-    func onUpdateFrame(to size: CGRect)
+    func onUpdateFrame(to frame: CGRect)
 }
