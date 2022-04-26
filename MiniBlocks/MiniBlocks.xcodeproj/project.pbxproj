@@ -180,6 +180,8 @@
 		35D9E8A3278888190058F0E6 /* AmbientLightEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9E8A2278888190058F0E6 /* AmbientLightEntity.swift */; };
 		35DDED6F2817703C007E9CFD /* FrameSizeDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDED6E2817703C007E9CFD /* FrameSizeDependent.swift */; };
 		35DDED702817703C007E9CFD /* FrameSizeDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDED6E2817703C007E9CFD /* FrameSizeDependent.swift */; };
+		35DDED72281778EC007E9CFD /* CrosshairHUDPositioningComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDED71281778EC007E9CFD /* CrosshairHUDPositioningComponent.swift */; };
+		35DDED73281778EC007E9CFD /* CrosshairHUDPositioningComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDED71281778EC007E9CFD /* CrosshairHUDPositioningComponent.swift */; };
 		35E7F3EA27867ED10067F0F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7F3E927867ED10067F0F7 /* AppDelegate.swift */; };
 		35E7F3F027867ED20067F0F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F3EF27867ED20067F0F7 /* Assets.xcassets */; };
 		35E7F40C278682C60067F0F7 /* MiniBlocksScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 35E7F40A278682C60067F0F7 /* MiniBlocksScene.scn */; };
@@ -309,6 +311,7 @@
 		35D9E8A0278887960058F0E6 /* SunEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SunEntity.swift; path = ../../MiniBlocks.swiftpm/Sources/Entity/SunEntity.swift; sourceTree = "<group>"; };
 		35D9E8A2278888190058F0E6 /* AmbientLightEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbientLightEntity.swift; path = ../../MiniBlocks.swiftpm/Sources/Entity/AmbientLightEntity.swift; sourceTree = "<group>"; };
 		35DDED6E2817703C007E9CFD /* FrameSizeDependent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FrameSizeDependent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/FrameSizeDependent.swift; sourceTree = "<group>"; };
+		35DDED71281778EC007E9CFD /* CrosshairHUDPositioningComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CrosshairHUDPositioningComponent.swift; path = ../../MiniBlocks.swiftpm/Sources/Component/CrosshairHUDPositioningComponent.swift; sourceTree = "<group>"; };
 		35E7F3E627867ED10067F0F7 /* MiniBlocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBlocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E7F3E927867ED10067F0F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E7F3EF27867ED20067F0F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -424,6 +427,7 @@
 				35D3491F27FF3AB1000F0CC2 /* HotbarHUDControlComponent.swift */,
 				35D3492827FF45EB000F0CC2 /* ControlPadHUDControlComponent.swift */,
 				355006CD27A0C0710021A0BE /* DebugHUDLoadComponent.swift */,
+				35DDED71281778EC007E9CFD /* CrosshairHUDPositioningComponent.swift */,
 				3554CB0427F51F0E000EE620 /* AchievementHUDLoadComponent.swift */,
 				3540752127F2A6EE00887E01 /* MouseCaptureVisibilityComponent.swift */,
 				35D3491C27FF3A07000F0CC2 /* TouchInteractable.swift */,
@@ -808,6 +812,7 @@
 				35391BE3278BC5F400B22954 /* PlayerEntity.swift in Sources */,
 				35391BE2278BC5F400B22954 /* AmbientLightEntity.swift in Sources */,
 				3540751A27F2A06300887E01 /* PauseHUDEntity.swift in Sources */,
+				35DDED73281778EC007E9CFD /* CrosshairHUDPositioningComponent.swift in Sources */,
 				3572145127957B56003C640F /* Vec3Convertible.swift in Sources */,
 				35391BE6278BC5F700B22954 /* MiniBlocksSceneView.swift in Sources */,
 				35391BAF278BC5A800B22954 /* AppDelegate.swift in Sources */,
@@ -904,6 +909,7 @@
 				35A55528278C3AE0006FA70D /* EmptyWorldGenerator.swift in Sources */,
 				35EA352627889CBE0066DD82 /* GridIterator2.swift in Sources */,
 				3540751927F2A06300887E01 /* PauseHUDEntity.swift in Sources */,
+				35DDED72281778EC007E9CFD /* CrosshairHUDPositioningComponent.swift in Sources */,
 				3572145027957B56003C640F /* Vec3Convertible.swift in Sources */,
 				35D9E8A3278888190058F0E6 /* AmbientLightEntity.swift in Sources */,
 				35A0C298278753AE00FA8570 /* Throttler.swift in Sources */,
