@@ -746,7 +746,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     // MARK: View resizing
     
-    private func onResize() {
+    private func onRelayout() {
         let frame = view.frame
         
         if frame.size != overlayScene.size {
@@ -764,7 +764,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     #if canImport(AppKit)
     
     public override func viewWillLayout() {
-        onResize()
+        onRelayout()
     }
     
     #endif
@@ -772,7 +772,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     #if canImport(UIKit)
     
     public override func viewWillLayoutSubviews() {
-        onResize()
+        onRelayout()
     }
     
     #endif
