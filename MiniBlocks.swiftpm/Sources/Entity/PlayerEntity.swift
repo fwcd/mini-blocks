@@ -8,7 +8,8 @@ func makePlayerEntity(
     worldEntity: GKEntity,
     retainRadius: Int,
     ambientOcclusionEnabled: Bool,
-    handShown: Bool
+    handShown: Bool,
+    autoJump: Bool
 ) -> GKEntity {
     // Create node
     let height: Double = 1.5
@@ -29,7 +30,7 @@ func makePlayerEntity(
     entity.addComponent(WorldAssociationComponent(worldEntity: worldEntity))
     entity.addComponent(WorldRetainComponent(retainRadius: retainRadius)) // players retain chunks around themselves
     entity.addComponent(SceneNodeComponent(node: node))
-    entity.addComponent(PlayerControlComponent())
+    entity.addComponent(PlayerControlComponent(autoJump: autoJump))
     entity.addComponent(PlayerPositioningComponent())
     entity.addComponent(HeightAboveGroundComponent(heightAboveGround: height))
     entity.addComponent(PlayerGravityComponent())

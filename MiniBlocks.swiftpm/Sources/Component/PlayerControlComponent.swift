@@ -11,15 +11,18 @@ class PlayerControlComponent: GKComponent {
     /// Achievements since the last SceneKit update. We batch these to avoid mutating the world from the main thread.
     private var newAchievements: Achievements = []
     
-    private var baseSpeed: Double = 0.5
-    private var flightFactor: Double = 2
-    private var sprintFactor: Double = 1.8
-    private var pitchSpeed: SceneFloat = 0.4
-    private var yawSpeed: SceneFloat = 0.3
-    private var jumpSpeed: Double = 1
-    private var ascendSpeed: Double = 1
-    private var maxCollisionIterations: Int = 5
-    private var pitchRange: ClosedRange<SceneFloat> = -piHalf...piHalf
+    /// Whether to jump automatically.
+    private let autoJump: Bool
+    
+    private let baseSpeed: Double = 0.5
+    private let flightFactor: Double = 2
+    private let sprintFactor: Double = 1.8
+    private let pitchSpeed: SceneFloat = 0.4
+    private let yawSpeed: SceneFloat = 0.3
+    private let jumpSpeed: Double = 1
+    private let ascendSpeed: Double = 1
+    private let maxCollisionIterations: Int = 5
+    private let pitchRange: ClosedRange<SceneFloat> = -piHalf...piHalf
     
     private var blockThrottler = Throttler(interval: 0.15)
     
@@ -121,6 +124,15 @@ class PlayerControlComponent: GKComponent {
         }
     }
     
+    init(autoJump: Bool) {
+        self.autoJump = autoJump
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        nil
+    }
+    
     override func update(deltaTime seconds: TimeInterval) {
         // Note that we don't use the if-var-and-assign idiom for playerInfo due to responsiveness issues (and inout bindings aren't in Swift yet)
         guard let requestedVelocity = requestedVelocity,
@@ -144,6 +156,10 @@ class PlayerControlComponent: GKComponent {
                 finalVelocity += repulsion
                 iterations += 1
             }
+        }
+        
+        if autoJump && iterations > 0 {
+            jump(achieveJump: false)
         }
         
         // Apply the movement
@@ -248,9 +264,11 @@ class PlayerControlComponent: GKComponent {
         playerInfo?.hasDebugHUDEnabled = !(playerInfo?.hasDebugHUDEnabled ?? true)
     }
     
-    func jump() {
+    func jump(achieveJump: Bool = true) {
         guard playerInfo?.isOnGround ?? false else { return }
-        achieve(.jump)
+        if achieveJump {
+            achieve(.jump)
+        }
         playerInfo?.velocity.y = jumpSpeed
         playerInfo?.leavesGround = true
     }

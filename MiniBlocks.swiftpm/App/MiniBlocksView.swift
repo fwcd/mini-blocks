@@ -9,7 +9,8 @@ struct MiniBlocksView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> MiniBlocksViewController {
         MiniBlocksViewController(
             sceneFrame: UIScreen.main.bounds,
-            ambientOcclusionEnabled: true
+            ambientOcclusionEnabled: true,
+            autoJump: true
         )
     }
 }
