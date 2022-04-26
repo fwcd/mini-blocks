@@ -122,7 +122,6 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         
         // Create overlay scene
         overlayScene = sceneFrame.map { SKScene(size: $0.size) } ?? SKScene()
-        overlayScene.scaleMode = .aspectFill
         overlayScene.isUserInteractionEnabled = false
         
         // Add light
@@ -603,6 +602,19 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         case .d: return .right
         case .space: return .jump
         default: return []
+        }
+    }
+    
+    public override func viewWillLayout() {
+        let frame = view.frame
+        if frame.size != overlayScene.size {
+            overlayScene.size = frame.size
+            
+            for entity in entities {
+                for case let component as FrameSizeDependent in entity.components {
+                    component.onUpdateFrame(to: frame)
+                }
+            }
         }
     }
     
