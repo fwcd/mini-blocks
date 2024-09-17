@@ -29,7 +29,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     private let sceneFrame: CGRect?
     private var inputSensivity: SceneFloat = 1
     
-    #if canImport(AppKit)
+    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
     @Box private var usesMouseKeyboardControls = true
     private var receivedFirstMouseEvent: Bool = false
     private var mouseCaptured: Bool = false {
@@ -157,7 +157,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             add(entity: makeAchievementHUDEntity(in: overlayScene.frame, playerEntity: playerEntity, usesMouseKeyboardControls: _usesMouseKeyboardControls))
         }
         
-        #if canImport(AppKit)
+        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
         add(entity: makePauseHUDEntity(in: overlayScene.frame))
         #endif
         
@@ -175,7 +175,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
         // Keep scene active, otherwise it will stop sending renderer(_:updateAtTime:)s when nothing changes. See also https://stackoverflow.com/questions/39336509/how-do-you-set-up-a-game-loop-for-scenekit
         sceneView.isPlaying = true
         
-        #if canImport(AppKit)
+        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
         // Set up mouse/keyboard handling when using AppKit (on macOS)
         sceneView.keyEventsDelegate = self
         
@@ -260,7 +260,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
             }
         }
         
-        #if canImport(AppKit)
+        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
         // Provide initial update to mouse capture visibility component
         if let component = entity.component(ofType: MouseCaptureVisibilityComponent.self) {
             component.update(mouseCaptured: mouseCaptured)
@@ -450,7 +450,7 @@ public final class MiniBlocksViewController: ViewController, SCNSceneRendererDel
     
     // MARK: AppKit-based mouse/keyboard controls
     
-    #if canImport(AppKit)
+    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
     
     public override func keyDown(with event: NSEvent) {
         guard !event.isARepeat else { return }

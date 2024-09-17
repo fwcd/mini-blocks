@@ -6,7 +6,7 @@ import CoreGraphics
 /// and UIKit share many similarities, making it easy to abstract over the (few)
 /// differences.
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 
 import AppKit
 
