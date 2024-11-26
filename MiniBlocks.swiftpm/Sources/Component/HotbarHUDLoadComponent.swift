@@ -2,7 +2,7 @@ import SpriteKit
 import GameplayKit
 
 /// Renders the hotbar for a player from the world model to a SpriteKit node.
-class HotbarHUDLoadComponent: GKComponent {
+class HotbarHUDLoadComponent: GKComponent, FrameSizeDependent {
     /// The inventory last rendered to a SpriteKit node.
     private var lastInventory: Inventory?
     /// The slot selection last rendered to a SpriteKit node.
@@ -72,5 +72,11 @@ class HotbarHUDLoadComponent: GKComponent {
     
     private func slotLineThickness(for i: Int) -> CGFloat {
         playerInfo?.selectedHotbarSlot == i ? selectedSlotLineThickness : normalSlotLineThickness
+    }
+    
+    func onUpdateFrame(to frame: CGRect) {
+        DispatchQueue.main.async { [self] in
+            node?.position = CGPoint(x: frame.midX, y: frame.minY)
+        }
     }
 }

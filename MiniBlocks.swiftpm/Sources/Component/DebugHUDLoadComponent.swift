@@ -1,8 +1,9 @@
 import SpriteKit
 import GameplayKit
 
-class DebugHUDLoadComponent: GKComponent {
+class DebugHUDLoadComponent: GKComponent, FrameSizeDependent {
     private var lastEnabled: Bool = false
+    private let padding: CGFloat = 5
     
     private var node: SKLabelNode? {
         entity?.component(ofType: SpriteNodeComponent.self)?.node as? SKLabelNode
@@ -50,6 +51,12 @@ class DebugHUDLoadComponent: GKComponent {
         }
         
         lastEnabled = isEnabled
+    }
+    
+    func onUpdateFrame(to frame: CGRect) {
+        DispatchQueue.main.async { [self] in
+            node?.position = CGPoint(x: frame.minX + padding, y: frame.maxY - padding)
+        }
     }
     
     private func format(pos: BlockPos3) -> String {
