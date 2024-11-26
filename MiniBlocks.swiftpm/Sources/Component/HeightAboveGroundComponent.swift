@@ -1,3 +1,4 @@
+import Foundation
 import GameplayKit
 
 /// Lets the node 'float' the given distance above the ground. Applies e.g. to gravity calculations.

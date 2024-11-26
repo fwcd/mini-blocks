@@ -1,3 +1,4 @@
+import Foundation
 import GameplayKit
 
 /// Lets the associated entity have a name.

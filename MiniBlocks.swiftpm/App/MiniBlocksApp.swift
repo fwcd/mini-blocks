@@ -1,4 +1,5 @@
 import SwiftUI
+import SceneKit
 
 @main
 struct MiniBlocksApp: App {
